@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
 
@@ -32,13 +32,15 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <section className="shell-narrow pt-20">
-        <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: ct.crumb }]} />
-        <h1 className="mt-5 max-w-[700px] h-page text-balance text-ink">
-          {ct.title}
-        </h1>
-        <p className="lede mt-[18px] max-w-[600px]">{ct.lede}</p>
-      </section>
+      <HeadDecor tone="mist" variant="wave">
+        <section className="shell-narrow pt-20">
+          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: ct.crumb }]} />
+          <h1 className="mt-5 max-w-[700px] h-page text-balance text-ink">
+            {ct.title}
+          </h1>
+          <p className="lede mt-[18px] max-w-[600px]">{ct.lede}</p>
+        </section>
+      </HeadDecor>
 
       <section className="shell-narrow pt-12">
         <div className="auto-grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">

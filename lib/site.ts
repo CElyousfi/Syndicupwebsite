@@ -7,7 +7,6 @@
 export const SITE = {
   name: "SyndicUp",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://syndicup.ma",
-  appUrl: "https://app.syndicup.ma",
   /** Placeholder — à remplacer par le numéro réel. */
   phone: "+212600000000",
   phoneDisplay: "+212 6 00 00 00 00",

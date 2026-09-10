@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { ProductIcon } from "@/components/icons";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -37,21 +38,23 @@ export default async function FeaturesPage({
 
   return (
     <>
-      <section className="shell pt-20">
-        <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: f.crumb }]} />
-        <h1 className="h-page mt-5 max-w-[780px]">{f.title}</h1>
-        <p className="lede mt-5 max-w-[640px]">{f.lede}</p>
-        <div className="relative mt-8 h-[clamp(230px,30vw,360px)] overflow-hidden rounded-[26px] bg-action-mist">
-          <Image
-            src={f.image}
-            alt={f.imageAlt}
-            fill
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            className="object-cover"
-            priority
-          />
-        </div>
-      </section>
+      <HeadDecor tone="mist" variant="arc">
+        <section className="shell pt-20">
+          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: f.crumb }]} />
+          <h1 className="h-page mt-5 max-w-[780px]">{f.title}</h1>
+          <p className="lede mt-5 max-w-[640px]">{f.lede}</p>
+          <div className="relative mt-8 h-[clamp(230px,30vw,360px)] overflow-hidden rounded-[26px] bg-action-mist">
+            <Image
+              src={f.image}
+              alt={f.imageAlt}
+              fill
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        </section>
+      </HeadDecor>
 
       <section className="shell pt-16">
         <div className="auto-grid gap-4">
@@ -67,17 +70,28 @@ export default async function FeaturesPage({
                     : "card card-hover"
               }`}
             >
-              {card.badge && (
+              <span className="flex items-center justify-between gap-3">
+                {/* La pastille reste blanche partout : les aplats bitons du
+                    glyphe disparaîtraient sur le fond sombre. */}
                 <span
-                  className={`mono text-[10.5px] font-semibold tracking-[0.06em] ${
-                    i === 0 ? "text-sage" : "text-tosca"
+                  className={`flex h-[46px] w-[46px] items-center justify-center rounded-xl ${
+                    i === 0 ? "bg-white" : "border border-hairline bg-white"
                   }`}
                 >
-                  {card.badge}
+                  <ProductIcon name={card.icon} size={24} />
                 </span>
-              )}
+                {card.badge && (
+                  <span
+                    className={`mono text-[10.5px] font-semibold tracking-[0.06em] ${
+                      i === 0 ? "text-sage" : "text-tosca"
+                    }`}
+                  >
+                    {card.badge}
+                  </span>
+                )}
+              </span>
               <h2
-                className={`${card.badge ? "mt-3" : ""} ${
+                className={`mt-4 ${
                   i === 0 ? "text-[21px] text-white" : "text-[19px] text-ink"
                 } font-semibold`}
               >

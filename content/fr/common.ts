@@ -3,8 +3,7 @@ import type { SiteContent } from "../types";
 export const common: SiteContent["common"] = {
   brandSuffix: "Logiciel de syndic marocain",
   demoCta: "Réserver une démo",
-  sandboxCta: "Essayer le bac à sable",
-  sandboxShort: "Bac à sable",
+  whatsappCta: "Nous écrire sur WhatsApp",
   demoShort: "Démo",
   bookDemo: "Réserver",
   openArrow: "Ouvrir →",
@@ -34,48 +33,57 @@ export const nav: SiteContent["nav"] = {
   featureLinks: [
     {
       href: "/comptabilite-annexes",
+      icon: "annexes",
       title: "Comptabilité & annexes",
       desc: "Les 12 annexes du Décret 2.23.700, générées.",
       badge: "PILIER",
     },
     {
       href: "/appels-de-fonds-recouvrement",
+      icon: "appels",
       title: "Appels de fonds & recouvrement",
       desc: "Répartition aux tantièmes, relances, quittances.",
     },
     {
       href: "/assemblees-generales",
+      icon: "ag",
       title: "Assemblées générales",
       desc: "Convocation, quorum, votes, PV horodaté.",
     },
     {
       href: "/depenses-justificatifs",
+      icon: "depenses",
       title: "Dépenses & justificatifs",
       desc: "Aucune dépense sans sa facture attachée.",
     },
     {
       href: "/application-residents",
+      icon: "residents",
       title: "Application résidents",
       desc: "Solde, appels, incidents, documents.",
     },
     {
       href: "/gardien-et-loge",
+      icon: "gardien",
       title: "Gardien & loge",
       desc: "Incidents photo, rondes, petite caisse.",
     },
     {
       href: "/location-courte-duree",
+      icon: "lcd",
       title: "Location courte durée",
       desc: "Séjours déclarés, quote-part eau et déchets.",
       badge: "UNIQUE",
     },
     {
       href: "/multi-residences-cabinets",
+      icon: "multi",
       title: "Multi-résidences",
       desc: "Un portefeuille, un seul écran de pilotage.",
     },
     {
       href: "/fonctionnalites",
+      icon: "overview",
       title: "Vue d'ensemble →",
       desc: "Tout le produit sur une page.",
     },
@@ -83,16 +91,19 @@ export const nav: SiteContent["nav"] = {
   whoLinks: [
     {
       href: "/pour-syndic-benevole",
+      icon: "benevole",
       title: "Syndic bénévole",
       desc: "Vous gérez votre immeuble le soir. Gratuit sous 30 lots.",
     },
     {
       href: "/pour-cabinet-syndic",
+      icon: "cabinet",
       title: "Cabinet de syndic",
       desc: "Dix, cinquante, cent résidences sous mandat.",
     },
     {
       href: "/pour-promoteurs",
+      icon: "promoteur",
       title: "Promoteurs",
       desc: "Livrer une résidence déjà administrée.",
     },
@@ -149,7 +160,7 @@ export const cta: SiteContent["cta"] = {
   title: "Sérieux au sujet de votre copropriété ?",
   lede: "Votre prochaine AG peut être la première qui se tient sans discussion sur les chiffres.",
   primary: "Réserver une démo",
-  secondary: "Essayer le bac à sable",
+  secondary: "Nous écrire sur WhatsApp",
   note: "Démo de 20 minutes, en français ou en arabe. Nom, téléphone, nombre de lots — c'est tout.",
   image: "/images/residence-hero.jpg",
   bullets: [
@@ -200,7 +211,7 @@ export const footer: SiteContent["footer"] = {
     { href: "/a-propos", label: "À propos" },
     { href: "/tarifs", label: "Tarifs" },
     { href: "/securite", label: "Sécurité" },
-    { href: "/demo", label: "Démo & bac à sable" },
+    { href: "/demo", label: "Réserver une démo" },
     { href: "/contact", label: "Contact" },
     { href: "/pour-syndic-benevole", label: "Pour syndic bénévole" },
     { href: "/pour-cabinet-syndic", label: "Pour cabinet de syndic" },

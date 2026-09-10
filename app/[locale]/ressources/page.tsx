@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -43,11 +43,13 @@ export default async function ResourcesPage({
 
   return (
     <>
-      <section className="shell pt-20">
-        <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: r.crumb }]} />
-        <h1 className="h-page mt-5 max-w-[780px]">{r.title}</h1>
-        <p className="lede mt-5 max-w-[640px]">{r.lede}</p>
-      </section>
+      <HeadDecor tone="lilac" variant="loop">
+        <section className="shell pt-20">
+          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: r.crumb }]} />
+          <h1 className="h-page mt-5 max-w-[780px]">{r.title}</h1>
+          <p className="lede mt-5 max-w-[640px]">{r.lede}</p>
+        </section>
+      </HeadDecor>
 
       <section className="shell pt-16">
         <Link

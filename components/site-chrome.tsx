@@ -1,9 +1,58 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BrandShape } from "@/components/brand-shape";
+import { BrandShape, type BrandShapeVariant } from "@/components/brand-shape";
 import type { SiteContent } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
+
+/**
+ * Décor de tête de page — LE traitement commun des pages intérieures : un
+ * lavis radial qui descend du haut de page, et un ruban de marque fantôme qui
+ * déborde du coin de fin. Les valeurs sont fixes exprès (taille 400, ancre
+ * -end-24/-top-28, opacité 0,3, couleurs `-mid`) : c'est ce qui rend les
+ * formes stables d'une page à l'autre — seule la teinte et le tracé tournent.
+ *
+ * Le décor vit dans un calque `inset-0` rogné à part : le contenu, lui, n'est
+ * jamais rogné, donc les ombres des cartes de tête passent librement.
+ */
+const HEAD_WASH = {
+  mist: "bg-[radial-gradient(92%_100%_at_50%_0%,#e3ece6_0%,transparent_100%)]",
+  sand: "bg-[radial-gradient(92%_100%_at_50%_0%,#efe8d4_0%,transparent_100%)]",
+  tosca: "bg-[radial-gradient(92%_100%_at_50%_0%,#dfebec_0%,transparent_100%)]",
+  lilac: "bg-[radial-gradient(92%_100%_at_50%_0%,#e1e2e9_0%,transparent_100%)]",
+} as const;
+
+const HEAD_SHAPE_TONE: Record<HeadTone, string> = {
+  mist: "text-sage",
+  sand: "text-sand-mid",
+  tosca: "text-tosca-mid",
+  lilac: "text-lilac-mid",
+};
+
+export type HeadTone = keyof typeof HEAD_WASH;
+
+export function HeadDecor({
+  tone = "mist",
+  variant = "arc",
+  children,
+}: {
+  tone?: HeadTone;
+  variant?: BrandShapeVariant;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="relative">
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className={`absolute inset-x-0 top-0 h-[460px] ${HEAD_WASH[tone]}`} />
+        <BrandShape
+          variant={variant}
+          className={`absolute -end-24 -top-28 h-[400px] w-[400px] opacity-30 ${HEAD_SHAPE_TONE[tone]}`}
+        />
+      </div>
+      <div className="relative">{children}</div>
+    </div>
+  );
+}
 
 /**
  * Bandeau final, présent au bas de chaque page : bande pleine couleur de
@@ -40,9 +89,14 @@ export function CtaBand({ locale, c }: { locale: Locale; c: SiteContent }) {
             <Link href={href(locale, "/demo")} className="btn btn-lg btn-invert">
               {c.cta.primary}
             </Link>
-            <Link href={href(locale, "/demo")} className="btn btn-lg btn-ghost-invert">
+            <a
+              href={whatsappHref(c.common.whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-lg btn-ghost-invert"
+            >
               {c.cta.secondary}
-            </Link>
+            </a>
           </div>
           <ul className="mt-8 flex flex-wrap justify-center gap-x-7 gap-y-3">
             {c.cta.bullets.map((b) => (

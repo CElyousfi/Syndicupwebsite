@@ -12,43 +12,51 @@ export const features: SiteContent["features"] = {
   cards: [
     {
       href: "/comptabilite-annexes",
+      icon: "annexes",
       title: "Comptabilité & annexes",
       desc: "Les 12 annexes du Décret 2.23.700, produites depuis vos écritures. Le cœur du produit.",
       badge: "PAGE PILIER",
     },
     {
       href: "/appels-de-fonds-recouvrement",
+      icon: "appels",
       title: "Appels de fonds & recouvrement",
       desc: "Répartition aux tantièmes, quittances numérotées, relances graduées, échéanciers.",
     },
     {
       href: "/assemblees-generales",
+      icon: "ag",
       title: "Assemblées générales",
       desc: "Convocation tracée, quorum calculé, pouvoirs plafonnés, votes par tantièmes, PV horodaté.",
     },
     {
       href: "/depenses-justificatifs",
+      icon: "depenses",
       title: "Dépenses & justificatifs",
       desc: "Aucune dépense n'entre en comptabilité sans sa facture. File de validation à deux yeux.",
     },
     {
       href: "/application-residents",
+      icon: "residents",
       title: "Application résidents",
       desc: "Solde, quittances, incidents avec photo, documents, comptes de la résidence. FR & AR.",
     },
     {
       href: "/gardien-et-loge",
+      icon: "gardien",
       title: "Gardien & loge",
       desc: "Incidents en photo, rondes horodatées, petite caisse, relevés de compteurs.",
     },
     {
       href: "/location-courte-duree",
+      icon: "lcd",
       title: "Location courte durée",
       desc: "Séjours déclarés, quote-part eau et déchets recalculée, registre des occupants.",
       badge: "UNIQUE SUR LE MARCHÉ",
     },
     {
       href: "/multi-residences-cabinets",
+      icon: "multi",
       title: "Multi-résidences & cabinets",
       desc: "Un portefeuille, un écran de pilotage, des permissions par gestionnaire.",
     },
@@ -155,14 +163,13 @@ export const tarifs: SiteContent["tarifs"] = {
 };
 
 export const demo: SiteContent["demo"] = {
-  metaTitle: "Démo & bac à sable",
+  metaTitle: "Réserver une démo",
   metaDescription:
-    "Ouvrez une résidence de démonstration complète en lecture seule, sans compte ni formulaire. Ou réservez une démo de 20 minutes, en français ou en arabe.",
+    "Une démonstration de 20 minutes, en français ou en arabe, sur une résidence complète : comptabilité, annexes, AG et son PV. Trois champs, la suite sur WhatsApp.",
   crumb: "DÉMO",
-  title: "Regardez avant de parler à qui que ce soit.",
-  lede: "Le bac à sable ouvre une résidence de démonstration complète, en lecture seule : comptabilité de l'exercice, les 12 annexes, une AG passée avec son PV, des incidents en cours. Sans compte, sans formulaire, sans email de relance.",
-  cta: "Ouvrir le bac à sable →",
-  inspectTitle: "CE QUE VOUS POUVEZ INSPECTER",
+  title: "Vingt minutes qui montrent, au lieu de promettre.",
+  lede: "La démonstration se fait sur une résidence complète, pas sur des écrans vides : la comptabilité d'un exercice, les 12 annexes, une AG passée avec son PV, des incidents en cours. En français ou en arabe — et sur votre propre cas si vous nous envoyez votre fichier avant.",
+  inspectTitle: "CE QUE VOUS VERREZ PENDANT LA DÉMO",
   inspect: [
     "Une Annexe 10 réelle, avec ses lignes traçables jusqu'à la facture.",
     "Un PV d'AG horodaté, feuille de présence et pouvoirs inclus.",

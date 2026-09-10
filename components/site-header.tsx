@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { SiteContent } from "@/content/types";
+import { ProductIcon } from "@/components/icons";
+import type { IconName, SiteContent } from "@/content/types";
 import { href, swapLocale, type Locale } from "@/lib/i18n";
+import { whatsappHref } from "@/lib/site";
 
 type MenuKey = "features" | "who" | "resources" | "all" | null;
 
@@ -97,9 +99,15 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
 
             <div className="flex shrink-0 items-center gap-2.5">
               <LocaleSwitch locale={locale} target={localeSwitchHref} />
-              <Link href={href(locale, "/demo")} className="btn btn-sm btn-light">
-                {c.common.sandboxShort}
-              </Link>
+              <a
+                href={whatsappHref(c.common.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-sm btn-light"
+              >
+                <span className="inline-block h-2 w-2 rounded-full bg-ok" />
+                {c.common.whatsapp}
+              </a>
               <Link href={href(locale, "/demo")} className="btn btn-sm btn-accent">
                 {c.common.demoCta}
               </Link>
@@ -152,9 +160,15 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
             />
             <StackedGroup locale={locale} title={c.nav.groups.company} links={c.nav.companyLinks} />
             <div className="flex flex-wrap items-center gap-2.5">
-              <Link href={href(locale, "/demo")} className="btn btn-light">
-                {c.common.sandboxShort}
-              </Link>
+              <a
+                href={whatsappHref(c.common.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-light"
+              >
+                <span className="inline-block h-2 w-2 rounded-full bg-ok" />
+                {c.common.whatsapp}
+              </a>
               <LocaleSwitch locale={locale} target={localeSwitchHref} large />
             </div>
           </div>
@@ -206,7 +220,7 @@ function MegaMenu({
   links,
 }: {
   locale: Locale;
-  links: { href: string; title: string; desc: string; badge?: string }[];
+  links: { href: string; title: string; desc: string; badge?: string; icon?: IconName }[];
 }) {
   return (
     <div className="border-t border-rule bg-white shadow-[var(--shadow-menu)]">
@@ -217,17 +231,24 @@ function MegaMenu({
             <Link
               key={l.href}
               href={href(locale, l.href)}
-              className={`block rounded-2xl px-3.5 py-3 ${
+              className={`flex items-start gap-3 rounded-2xl px-3.5 py-3 ${
                 isOverview ? "bg-sand-tint hover:bg-sand-line" : "hover:bg-action-wash"
               }`}
             >
-              <span className="flex items-center gap-2 text-[14.5px] font-semibold text-ink">
-                {l.title}
-                {l.badge && (
-                  <span className="badge bg-action-tint text-[10px] text-action">{l.badge}</span>
-                )}
+              {l.icon && (
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border border-hairline bg-ground">
+                  <ProductIcon name={l.icon} size={20} />
+                </span>
+              )}
+              <span className="min-w-0">
+                <span className="flex items-center gap-2 text-[14.5px] font-semibold text-ink">
+                  {l.title}
+                  {l.badge && (
+                    <span className="badge bg-action-tint text-[10px] text-action">{l.badge}</span>
+                  )}
+                </span>
+                <span className="mt-[3px] block text-[13.5px] text-soft">{l.desc}</span>
               </span>
-              <span className="mt-[3px] block text-[13.5px] text-soft">{l.desc}</span>
             </Link>
           );
         })}

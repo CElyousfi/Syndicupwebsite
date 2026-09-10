@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { FeatureComposition, type CompositionTone } from "@/components/feature-composition";
 import { Mockup } from "@/components/mockups";
 import { DETAIL_SLUGS, type DetailSlug } from "@/content/types";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
+import { whatsappHref } from "@/lib/site";
 
 function isDetailSlug(value: string): value is DetailSlug {
   return (DETAIL_SLUGS as readonly string[]).includes(value);
@@ -48,7 +49,8 @@ export default async function DetailPage({
 
   return (
     <>
-      <section className="shell pt-20">
+      <HeadDecor tone="mist" variant="arc">
+        <section className="shell pt-20">
         <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: page.crumb }]} />
 
         <div className="auto-grid mt-5 items-start gap-11">
@@ -61,12 +63,17 @@ export default async function DetailPage({
               {page.lede}
             </p>
             <div className="mt-[30px] flex flex-wrap gap-3">
-              <Link href={href(l, "/demo")} className="btn btn-dark">
+              <Link href={href(l, "/demo")} className="btn btn-accent">
                 {c.common.demoCta}
               </Link>
-              <Link href={href(l, "/demo")} className="btn btn-light">
-                {c.common.sandboxCta}
-              </Link>
+              <a
+                href={whatsappHref(c.common.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-light"
+              >
+                {c.common.whatsappCta}
+              </a>
             </div>
           </div>
 
@@ -90,7 +97,8 @@ export default async function DetailPage({
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </HeadDecor>
 
       <section className="shell pt-20">
         <div className="grid gap-4">

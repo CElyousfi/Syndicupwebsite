@@ -231,7 +231,7 @@ export const home: SiteContent["home"] = {
   whyKicker: "POURQUOI SYNDICUP",
   whyTitle: "Pourquoi SyndicUp ?",
   whyLede:
-    "Trois raisons qui ne dépendent pas de notre discours commercial, et que vous pouvez vérifier vous-même dans le bac à sable.",
+    "Trois raisons qui ne dépendent pas de notre discours commercial, et que vous pouvez vérifier par vous-même, en vingt minutes de démonstration.",
   why: [
     {
       icon: "shield",
@@ -342,8 +342,8 @@ export const home: SiteContent["home"] = {
           a: "Trois jours pour une copropriété simple : vous envoyez le fichier, nous vous rendons la reprise à valider sous 48 heures, et la résidence est administrée le lendemain. Pour un portefeuille de cabinet, nous procédons par vagues.",
         },
         {
-          q: "Puis-je essayer sans inscription ?",
-          a: "Oui. Le bac à sable ouvre une résidence de démonstration complète en lecture seule : comptabilité, annexes, AG passée avec son PV, incidents. Aucun compte, aucun formulaire.",
+          q: "Comment se passe la démonstration ?",
+          a: "Vingt minutes, en visio ou au téléphone, sur une résidence de démonstration complète : comptabilité, annexes, AG passée avec son PV, incidents. Vous posez vos questions sur votre propre cas, et le récapitulatif arrive sur WhatsApp.",
         },
       ],
     },
@@ -369,7 +369,7 @@ export const home: SiteContent["home"] = {
   proofSectionKicker: "PREUVE PRODUIT",
   proofSectionTitle: "Trois écrans, pas trois promesses.",
   proofSectionLede:
-    "Les écrans du produit, pas des illustrations décoratives. Vous les retrouvez à l'identique dans le bac à sable.",
+    "Les écrans du produit, pas des illustrations décoratives. Vous les retrouvez à l'identique lors de la démonstration.",
   proofFigures: [
     {
       title: "Annexe 10, générée",
@@ -440,8 +440,8 @@ export const home: SiteContent["home"] = {
   honestKicker: "PREUVE SOCIALE",
   honestTitle: "Nous n'affichons aucun chiffre que nous ne pouvons pas prouver.",
   honestBody:
-    "Le pilote se termine en janvier 2027. Jusque-là, cette section reste vide : pas de « +10 000 immeubles », pas de logos que nous n'avons pas le droit d'afficher, pas de témoignage anonyme. Vous jugerez sur le produit et sur le bac à sable.",
-  honestCta: "Ouvrir le bac à sable",
+    "Le pilote se termine en janvier 2027. Jusque-là, cette section reste vide : pas de « +10 000 immeubles », pas de logos que nous n'avons pas le droit d'afficher, pas de témoignage anonyme. Vous jugerez sur le produit, en démonstration.",
+  honestCta: "Réserver une démo",
   honestPlaceholders: [
     "résidences en production · publié après le pilote",
     "jours de clôture d'exercice, en moyenne",

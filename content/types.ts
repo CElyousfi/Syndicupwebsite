@@ -33,6 +33,28 @@ export const ARTICLE_SLUGS = [
 
 export type ArticleSlug = (typeof ARTICLE_SLUGS)[number];
 
+/**
+ * Identifiants d'icônes produit. Ce sont des clés, pas du texte : les deux
+ * langues portent les mêmes valeurs.
+ */
+export type IconName =
+  | "annexes"
+  | "appels"
+  | "ag"
+  | "depenses"
+  | "residents"
+  | "gardien"
+  | "lcd"
+  | "multi"
+  | "overview"
+  | "benevole"
+  | "cabinet"
+  | "promoteur"
+  | "shield"
+  | "lock"
+  | "layers"
+  | "split";
+
 /** Visuel d'un bloc : une photo du dossier public, ou une maquette produit. */
 export type MockupKind =
   | "dashboard"
@@ -229,8 +251,8 @@ export interface SiteContent {
   common: {
     brandSuffix: string;
     demoCta: string;
-    sandboxCta: string;
-    sandboxShort: string;
+    /** CTA secondaire du site : écrire sur WhatsApp. Le seul autre canal. */
+    whatsappCta: string;
     demoShort: string;
     bookDemo: string;
     openArrow: string;
@@ -256,8 +278,8 @@ export interface SiteContent {
       resources: string;
       company: string;
     };
-    featureLinks: { href: string; title: string; desc: string; badge?: string }[];
-    whoLinks: { href: string; title: string; desc: string }[];
+    featureLinks: { href: string; title: string; desc: string; badge?: string; icon: IconName }[];
+    whoLinks: { href: string; title: string; desc: string; icon: IconName }[];
     resourceLinks: { href: string; title: string; desc: string; badge?: string }[];
     companyLinks: Link[];
   };
@@ -356,7 +378,7 @@ export interface SiteContent {
     lede: string;
     image: string;
     imageAlt: string;
-    cards: { href: string; title: string; desc: string; badge?: string }[];
+    cards: { href: string; title: string; desc: string; badge?: string; icon: IconName }[];
     foundationTitle: string;
     foundations: { title: string; desc: string }[];
   };
@@ -406,7 +428,6 @@ export interface SiteContent {
     crumb: string;
     title: string;
     lede: string;
-    cta: string;
     inspectTitle: string;
     inspect: string[];
     formTitle: string;

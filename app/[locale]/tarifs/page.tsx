@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Crumb, Faq } from "@/components/site-chrome";
+import { Crumb, Faq, HeadDecor } from "@/components/site-chrome";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -33,11 +33,13 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <section className="shell pt-20">
-        <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: t.crumb }]} />
-        <h1 className="h-page mt-5 max-w-[820px]">{t.title}</h1>
-        <p className="lede mt-5 max-w-[640px]">{t.lede}</p>
-      </section>
+      <HeadDecor tone="sand" variant="wave">
+        <section className="shell pt-20">
+          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: t.crumb }]} />
+          <h1 className="h-page mt-5 max-w-[820px]">{t.title}</h1>
+          <p className="lede mt-5 max-w-[640px]">{t.lede}</p>
+        </section>
+      </HeadDecor>
 
       <section className="shell pt-16">
         <div className="auto-grid items-start gap-4">

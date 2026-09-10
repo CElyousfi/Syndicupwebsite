@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { ARTICLE_SLUGS, type ArticleSlug } from "@/content/types";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
@@ -44,31 +44,33 @@ export default async function ArticlePage({
 
   return (
     <>
-      <section className="shell-prose pt-20">
-        <Crumb
-          locale={l}
-          home={c.articleCommon.crumbHome}
-          trail={[{ label: c.articleCommon.crumbResources, href: "/ressources" }]}
-        />
-        <span className="tag mt-[18px]">{a.kicker}</span>
-        <h1 className="mt-[18px] h-page text-balance text-ink">
-          {a.title}
-        </h1>
-        <p className="mt-[18px] text-[clamp(17px,2vw,20px)] leading-[1.55] text-pretty text-body">
-          {a.lede}
-        </p>
-        <p className="mono mt-5 text-[11.5px] text-faint">{a.meta}</p>
-        <div className="relative mt-7 h-[clamp(220px,32vw,380px)] overflow-hidden rounded-card bg-action-mist">
-          <Image
-            src={a.image}
-            alt={a.imageAlt}
-            fill
-            sizes="(max-width: 820px) 100vw, 820px"
-            className="object-cover"
-            priority
+      <HeadDecor tone="sand" variant="arc">
+        <section className="shell-prose pt-20">
+          <Crumb
+            locale={l}
+            home={c.articleCommon.crumbHome}
+            trail={[{ label: c.articleCommon.crumbResources, href: "/ressources" }]}
           />
-        </div>
-      </section>
+          <span className="tag mt-[18px]">{a.kicker}</span>
+          <h1 className="mt-[18px] h-page text-balance text-ink">
+            {a.title}
+          </h1>
+          <p className="mt-[18px] text-[clamp(17px,2vw,20px)] leading-[1.55] text-pretty text-body">
+            {a.lede}
+          </p>
+          <p className="mono mt-5 text-[11.5px] text-faint">{a.meta}</p>
+          <div className="relative mt-7 h-[clamp(220px,32vw,380px)] overflow-hidden rounded-card bg-action-mist">
+            <Image
+              src={a.image}
+              alt={a.imageAlt}
+              fill
+              sizes="(max-width: 820px) 100vw, 820px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        </section>
+      </HeadDecor>
 
       <section className="shell-prose pt-16">
         <div className="grid gap-9">

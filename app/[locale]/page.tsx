@@ -12,6 +12,7 @@ import { Mockup } from "@/components/mockups";
 import { RoleTabs } from "@/components/role-tabs";
 import { SecurityIcon } from "@/components/icons";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
+import { whatsappHref } from "@/lib/site";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -122,9 +123,14 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <Link href={href(l, "/demo")} className="btn btn-lg btn-accent">
                 {c.common.demoCta}
               </Link>
-              <Link href={href(l, "/demo")} className="btn btn-lg btn-light">
-                {c.common.sandboxCta}
-              </Link>
+              <a
+                href={whatsappHref(c.common.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-lg btn-light"
+              >
+                {c.common.whatsappCta}
+              </a>
             </div>
             <p className="mt-5 inline-flex items-center gap-2.5 text-[15px] font-medium text-body">
               <span className="inline-block h-2 w-2 rounded-full bg-ok" />
@@ -527,7 +533,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <h2 className="h-section mt-4">{h.ecosystemTitle}</h2>
             <p className="mt-4 text-[19px] leading-[1.55] text-body">{h.ecosystemNote}</p>
             <Link href={href(l, "/demo")} className="link-arrow mx-auto mt-7 justify-center">
-              {c.common.sandboxCta}
+              {c.common.demoCta}
             </Link>
           </div>
 

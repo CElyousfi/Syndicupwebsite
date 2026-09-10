@@ -59,7 +59,7 @@ export const articles: SiteContent["articles"] = {
     noteBody:
       "Il décrit notre lecture opérationnelle du texte, celle que nous avons traduite en logiciel. Pour toute décision engageant la responsabilité du syndic, faites confirmer les valeurs et les délais par un avocat spécialisé en droit marocain de la copropriété.",
     ctaTitle: "Voir ce que produit une copropriété tenue correctement",
-    ctaBody: "Le bac à sable ouvre un exercice clos, avec ses 12 annexes et ses justificatifs.",
+    ctaBody: "En démonstration, vous parcourez un exercice clos, avec ses 12 annexes et ses justificatifs.",
   },
 
   "les-12-annexes-expliquees": {
@@ -128,7 +128,7 @@ export const articles: SiteContent["articles"] = {
     noteBody:
       "Cette page explique la fonction des états, dans un langage utilisable en assemblée. Les intitulés et l'ordre réglementaires doivent être confirmés sur le texte publié ; le produit les reprend tels qu'ils y figurent.",
     ctaTitle: "Voir une Annexe 10 réelle, avec ses lignes traçables",
-    ctaBody: "Dans le bac à sable, chaque ligne de charge remonte à sa facture.",
+    ctaBody: "En démonstration, chaque ligne de charge remonte à sa facture.",
   },
 
   "checklist-cloture-2026": {
@@ -283,6 +283,6 @@ export const articles: SiteContent["articles"] = {
     noteBody:
       "Si une erreur matérielle est constatée après distribution, la pratique sûre est d'émettre un rectificatif daté qui référence le PV initial, et non de rediffuser un document modifié. Le produit fonctionne de cette façon par construction.",
     ctaTitle: "Voir un PV généré à la clôture d'une séance",
-    ctaBody: "Le bac à sable contient une AG passée, avec son PV et ses pouvoirs.",
+    ctaBody: "La résidence de démonstration contient une AG passée, avec son PV et ses pouvoirs.",
   },
 };

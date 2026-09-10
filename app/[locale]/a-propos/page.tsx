@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -32,20 +32,22 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
-      <section className="shell pt-20">
-        <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: a.crumb }]} />
-        <h1 className="h-page mt-5 max-w-[800px]">{a.title}</h1>
-        <div className="relative mt-8 h-[clamp(220px,28vw,340px)] overflow-hidden rounded-[26px] bg-action-mist">
-          <Image
-            src={a.image}
-            alt={a.imageAlt}
-            fill
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            className="object-cover"
-            priority
-          />
-        </div>
-      </section>
+      <HeadDecor tone="sand" variant="loop">
+        <section className="shell pt-20">
+          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: a.crumb }]} />
+          <h1 className="h-page mt-5 max-w-[800px]">{a.title}</h1>
+          <div className="relative mt-8 h-[clamp(220px,28vw,340px)] overflow-hidden rounded-[26px] bg-action-mist">
+            <Image
+              src={a.image}
+              alt={a.imageAlt}
+              fill
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        </section>
+      </HeadDecor>
 
       <section className="shell pt-16">
         <div className="auto-grid items-start gap-9">

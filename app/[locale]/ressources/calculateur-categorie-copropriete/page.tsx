@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { CategoryCalculator } from "@/components/calculator";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
@@ -36,20 +36,22 @@ export default async function CalculatorPage({
 
   return (
     <>
-      <section className="shell-narrow pt-20">
-        <Crumb
-          locale={l}
-          home={c.articleCommon.crumbHome}
-          trail={[
-            { label: c.articleCommon.crumbResources, href: "/ressources" },
-            { label: t.crumb },
-          ]}
-        />
-        <h1 className="mt-5 max-w-[720px] h-page text-balance text-ink">
-          {t.title}
-        </h1>
-        <p className="lede mt-[18px] max-w-[620px]">{t.lede}</p>
-      </section>
+      <HeadDecor tone="tosca" variant="wave">
+        <section className="shell-narrow pt-20">
+          <Crumb
+            locale={l}
+            home={c.articleCommon.crumbHome}
+            trail={[
+              { label: c.articleCommon.crumbResources, href: "/ressources" },
+              { label: t.crumb },
+            ]}
+          />
+          <h1 className="mt-5 max-w-[720px] h-page text-balance text-ink">
+            {t.title}
+          </h1>
+          <p className="lede mt-[18px] max-w-[620px]">{t.lede}</p>
+        </section>
+      </HeadDecor>
 
       <section className="shell-narrow pt-12">
         <CategoryCalculator c={c} locale={l} />

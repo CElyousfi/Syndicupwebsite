@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { SecurityIcon } from "@/components/icons";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
@@ -60,20 +60,22 @@ export default async function SecurityPage({ params }: { params: Promise<{ local
 
   return (
     <>
-      <section className="shell pt-20">
-        <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: s.crumb }]} />
-        <h1 className="h-page mt-5 max-w-[800px]">{s.title}</h1>
-        <p className="lede mt-5 max-w-[660px]">{s.lede}</p>
-        <div className="mt-8">
-          <IsolationDiagram
-            labels={[
-              c.home.why[1]?.title ?? "",
-              s.blocks[0]?.heading ?? "",
-              s.blocks[1]?.heading ?? "",
-            ]}
-          />
-        </div>
-      </section>
+      <HeadDecor tone="tosca" variant="arc">
+        <section className="shell pt-20">
+          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: s.crumb }]} />
+          <h1 className="h-page mt-5 max-w-[800px]">{s.title}</h1>
+          <p className="lede mt-5 max-w-[660px]">{s.lede}</p>
+          <div className="mt-8">
+            <IsolationDiagram
+              labels={[
+                c.home.why[1]?.title ?? "",
+                s.blocks[0]?.heading ?? "",
+                s.blocks[1]?.heading ?? "",
+              ]}
+            />
+          </div>
+        </section>
+      </HeadDecor>
 
       <section className="shell pt-16">
         <div className="grid gap-4">

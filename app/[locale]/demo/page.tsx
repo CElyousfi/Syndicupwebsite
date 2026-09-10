@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Crumb } from "@/components/site-chrome";
+import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { DemoForm } from "@/components/demo-form";
 import { Mockup } from "@/components/mockups";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
-import { SITE } from "@/lib/site";
+import { whatsappHref } from "@/lib/site";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -33,8 +33,9 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
   const d = c.demo;
 
   return (
-    <section className="shell pt-20">
-      <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: d.crumb }]} />
+    <HeadDecor tone="mist" variant="loop">
+      <section className="shell pt-20">
+        <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: d.crumb }]} />
 
       <div className="mt-5 grid items-start gap-10 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
         <div>
@@ -43,12 +44,13 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
           </h1>
           <p className="lede mt-5">{d.lede}</p>
           <a
-            href={SITE.appUrl}
+            href={whatsappHref(c.common.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-lg btn-dark mt-7"
+            className="btn btn-light mt-7"
           >
-            {d.cta}
+            <span className="inline-block h-2 w-2 rounded-full bg-ok" />
+            {c.common.whatsappCta}
           </a>
 
           <div className="card mt-9 px-6 py-[26px]">
@@ -72,6 +74,7 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </HeadDecor>
   );
 }

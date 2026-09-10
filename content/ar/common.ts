@@ -12,8 +12,7 @@ import type { SiteContent } from "../types";
 export const common: SiteContent["common"] = {
   brandSuffix: "برنامج تصرف مغربي",
   demoCta: "حجز عرض توضيحي",
-  sandboxCta: "تجربة النسخة التجريبية",
-  sandboxShort: "النسخة التجريبية",
+  whatsappCta: "راسلنا على واتساب",
   demoShort: "عرض توضيحي",
   bookDemo: "حجز",
   openArrow: "فتح ←",
@@ -42,48 +41,57 @@ export const nav: SiteContent["nav"] = {
   featureLinks: [
     {
       href: "/comptabilite-annexes",
+      icon: "annexes",
       title: "المحاسبة والملاحق",
       desc: "الملاحق الاثنا عشر للمرسوم 2.23.700، مُولَّدة تلقائياً.",
       badge: "أساسي",
     },
     {
       href: "/appels-de-fonds-recouvrement",
+      icon: "appels",
       title: "طلبات الأموال والتحصيل",
       desc: "التوزيع حسب الأنصبة، التذكيرات، الوصولات.",
     },
     {
       href: "/assemblees-generales",
+      icon: "ag",
       title: "الجموع العامة",
       desc: "الاستدعاء، النصاب، التصويت، محضر مؤرَّخ.",
     },
     {
       href: "/depenses-justificatifs",
+      icon: "depenses",
       title: "النفقات والوثائق المثبتة",
       desc: "لا نفقة بدون فاتورتها المرفقة.",
     },
     {
       href: "/application-residents",
+      icon: "residents",
       title: "تطبيق القاطنين",
       desc: "الرصيد، الطلبات، الحوادث، الوثائق.",
     },
     {
       href: "/gardien-et-loge",
+      icon: "gardien",
       title: "الحارس والمقصورة",
       desc: "حوادث بالصور، دوريات، صندوق صغير.",
     },
     {
       href: "/location-courte-duree",
+      icon: "lcd",
       title: "الكراء قصير المدى",
       desc: "إقامات مصرَّح بها، حصة الماء والنفايات.",
       badge: "متفرد",
     },
     {
       href: "/multi-residences-cabinets",
+      icon: "multi",
       title: "إقامات متعددة",
       desc: "محفظة كاملة، شاشة قيادة واحدة.",
     },
     {
       href: "/fonctionnalites",
+      icon: "overview",
       title: "نظرة شاملة ←",
       desc: "كل المنتج في صفحة واحدة.",
     },
@@ -91,16 +99,19 @@ export const nav: SiteContent["nav"] = {
   whoLinks: [
     {
       href: "/pour-syndic-benevole",
+      icon: "benevole",
       title: "المتصرف المتطوع",
       desc: "تدبّر عمارتك مساءً. مجاني تحت 30 قسماً.",
     },
     {
       href: "/pour-cabinet-syndic",
+      icon: "cabinet",
       title: "مكتب التصرف",
       desc: "عشر، خمسون، مائة إقامة تحت الانتداب.",
     },
     {
       href: "/pour-promoteurs",
+      icon: "promoteur",
       title: "المنعشون العقاريون",
       desc: "تسليم إقامة مُدبَّرة منذ اليوم الأول.",
     },
@@ -157,7 +168,7 @@ export const cta: SiteContent["cta"] = {
   title: "جادّ بشأن ملكيتك المشتركة؟",
   lede: "جمعك العام المقبل يمكن أن يكون أول جمع لا يُناقَش فيه رقم واحد.",
   primary: "حجز عرض توضيحي",
-  secondary: "تجربة النسخة التجريبية",
+  secondary: "راسلنا على واتساب",
   note: "عرض توضيحي في عشرين دقيقة، بالعربية أو بالفرنسية. الاسم، الهاتف، عدد الأقسام — لا غير.",
   image: "/images/residence-hero.jpg",
   bullets: [
@@ -208,7 +219,7 @@ export const footer: SiteContent["footer"] = {
     { href: "/a-propos", label: "من نحن" },
     { href: "/tarifs", label: "الأثمنة" },
     { href: "/securite", label: "الأمان" },
-    { href: "/demo", label: "عرض توضيحي ونسخة تجريبية" },
+    { href: "/demo", label: "حجز عرض توضيحي" },
     { href: "/contact", label: "اتصل بنا" },
     { href: "/pour-syndic-benevole", label: "للمتصرف المتطوع" },
     { href: "/pour-cabinet-syndic", label: "لمكاتب التصرف" },
