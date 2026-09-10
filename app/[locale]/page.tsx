@@ -4,7 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { DaysLeft } from "@/components/days-left";
 import { FaqTabs } from "@/components/faq-tabs";
-import { Marquee } from "@/components/marquee";
+import { HeroRotator } from "@/components/hero-rotator";
+import { ScreenRibbon } from "@/components/screen-ribbon";
 import { Mockup, MockupPanel } from "@/components/mockups";
 import { RoleTabs } from "@/components/role-tabs";
 import { SecurityIcon } from "@/components/icons";
@@ -90,29 +91,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </p>
           </div>
 
-          <figure className="mt-14">
-            <div className="overflow-hidden rounded-2xl border border-[rgb(32_31_35_/_0.05)] bg-white shadow-[var(--shadow-pop)]">
-              <div className="flex items-center gap-2 border-b border-hairline bg-hover px-4 py-3">
-                <span className="inline-block h-[9px] w-[9px] rounded-full bg-hairline-strong" />
-                <span className="inline-block h-[9px] w-[9px] rounded-full bg-hairline-strong" />
-                <span className="inline-block h-[9px] w-[9px] rounded-full bg-hairline-strong" />
-                <span className="mono ms-3 truncate text-[11.5px] text-faint" dir="ltr">
-                  {h.heroChrome}
-                </span>
-              </div>
-              <div className="grid [grid-template-columns:minmax(0,1fr)] md:[grid-template-columns:minmax(0,1.35fr)_minmax(0,1fr)]">
-                <div className="border-b border-hairline px-6 py-7 md:border-b-0 md:border-e">
-                  <Mockup kind="dashboard" locale={l} />
-                </div>
-                <div className="bg-hover px-6 py-7">
-                  <Mockup kind="annexe" locale={l} />
-                </div>
-              </div>
-            </div>
-            <figcaption className="mono mt-4 text-center text-[11.5px] tracking-[0.03em] text-faint">
-              {h.heroCaption}
-            </figcaption>
-          </figure>
+          <HeroRotator
+            slides={h.heroSlides}
+            locale={l}
+            playLabel={h.heroPlay}
+            pauseLabel={h.heroPause}
+            caption={h.heroCaption}
+          />
         </section>
       </div>
 
@@ -157,9 +142,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* ── 3 · Ruban défilant des modules ───────────────────────────────── */}
-      <section className="border-y border-rule bg-white py-10">
-        <span className="kicker mb-6 block text-center">{h.marqueeLabel}</span>
-        <Marquee items={h.marquee} />
+      <section className="border-y border-rule bg-white py-12">
+        <span className="kicker mb-8 block text-center">{h.marqueeLabel}</span>
+        <ScreenRibbon cards={h.screens} locale={l} />
       </section>
 
       {/* ── 4 · Urgence : le compte à rebours de la clôture ───────────────── */}

@@ -13,7 +13,6 @@ export const home: SiteContent["home"] = {
   freeNote: "مجاني للملكيات المشتركة التي تضم أقل من 30 قسماً.",
 
   heroCaption: "نموذج من المنتج — لوحة قيادة المتصرف، والملحق 10 مُولَّداً",
-  heroChrome: "app.syndicup.ma / résidence al amal / exercice 2026",
 
   proofKicker: "ما يمكننا إثباته",
   statPhotos: [
@@ -117,23 +116,76 @@ export const home: SiteContent["home"] = {
     },
   ],
 
+  heroPlay: "استئناف العرض",
+  heroPause: "إيقاف مؤقت",
+  heroSlides: [
+    {
+      question: "أين وصلت ملكيتي المشتركة، في لمحة واحدة؟",
+      answer:
+        "الخزينة، المتأخرات، الحوادث المفتوحة، وتقدُّم الملاحق — على الشاشة الأولى، دون طلب أي تقرير.",
+      mockup: "dashboard",
+      chrome: "app.syndicup.ma / résidence al amal / tableau de bord",
+    },
+    {
+      question: "هل يمكن إخراج الملاحق الاثني عشر دون إعادة إدخالها؟",
+      answer:
+        "تُولَّد من قيودك، موزَّعة حسب الأنصبة إلى السنتيم، مع تفصيل الحساب لكل قسم.",
+      mockup: "annexe",
+      chrome: "app.syndicup.ma / exercice 2026 / annexe 10",
+    },
+    {
+      question: "كيف أتأكد أن لا نفقة تمرّ بدون فاتورتها؟",
+      answer:
+        "النفقة بدون وثيقة مثبتة تبقى موقوفة في طابور المصادقة. التوقيف وظيفة، لا خلل.",
+      mockup: "validation",
+      chrome: "app.syndicup.ma / dépenses / file de validation",
+    },
+    {
+      question: "هل يصمد جمعي العام أمام الطعن؟",
+      answer:
+        "نصاب محسوب بالأنصبة، أغلبية معروضة قبل التصويت، ومحضر يُولَّد عند رفع الجلسة ويُوزَّع داخل 48 ساعة.",
+      mockup: "vote",
+      chrome: "app.syndicup.ma / assemblée générale / point 3",
+    },
+    {
+      question: "وماذا يرى المالك من جهته؟",
+      answer:
+        "رصيده، وصولاته، حوادثه، ووثائق التحملات المشتركة. بالعربية أو بالفرنسية.",
+      mockup: "phone-resident",
+      chrome: "app.syndicup.ma / espace résident / lot A-12",
+    },
+  ],
+
   marqueeLabel: "تسع وحدات، ونموذج معطيات واحد",
-  marquee: [
-    "المحاسبة",
-    "الملاحق الاثنا عشر",
-    "طلبات الأموال",
-    "التحصيل المتدرج",
-    "الجموع العامة",
-    "محضر مؤرَّخ",
-    "النفقات والوثائق المثبتة",
-    "تطبيق القاطنين",
-    "الحارس والمقصورة",
-    "الصندوق الصغير",
-    "الكراء قصير المدى",
-    "إقامات متعددة",
-    "سجل التدقيق",
-    "التصدير المحاسبي",
-    "بالعربية والفرنسية",
+  screens: [
+    { caption: "لوحة القيادة", mockup: "dashboard" },
+    {
+      caption: "إقامة الأمل",
+      image: "/images/residence-hero.jpg",
+      imageAlt: "واجهة إقامة في ملكية مشتركة",
+    },
+    { caption: "الملحق 10 مُولَّداً", mockup: "annexe" },
+    { caption: "طابور المصادقة", mockup: "validation" },
+    {
+      caption: "الأجزاء المشتركة",
+      image: "/images/residence-courtyard.jpg",
+      imageAlt: "فناء داخلي لإقامة",
+    },
+    { caption: "التصويت بالأنصبة", mockup: "vote" },
+    { caption: "فضاء القاطن", mockup: "phone-resident" },
+    {
+      caption: "مدخل العمارة",
+      image: "/images/residence-entrance.jpg",
+      imageAlt: "مدخل إقامة",
+    },
+    { caption: "محفظة المكتب", mockup: "cabinet-portfolio" },
+    { caption: "شاشة المقصورة", mockup: "gardien-tiles" },
+    {
+      caption: "الفضاءات المشتركة",
+      image: "/images/espace-piscine.jpg",
+      imageAlt: "فضاء مشترك في إقامة",
+    },
+    { caption: "طلبات الأموال", mockup: "appels-rows" },
   ],
 
   conformityKicker: "مطابقة مدمجة",

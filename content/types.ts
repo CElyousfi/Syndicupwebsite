@@ -80,6 +80,26 @@ export interface PillarCard {
   link: Link;
 }
 
+/**
+ * Diapositive du fold : une question que se pose un syndic, sa réponse courte,
+ * et l'écran du produit qui y répond. Le carrousel les enchaîne tout seul.
+ */
+export interface HeroSlide {
+  question: string;
+  answer: string;
+  mockup: MockupKind;
+  /** Barre d'adresse de la fenêtre qui porte l'écran. */
+  chrome: string;
+}
+
+/** Vignette du ruban défilant : soit un écran du produit, soit une photo. */
+export interface ScreenCard {
+  caption: string;
+  mockup?: MockupKind;
+  image?: string;
+  imageAlt?: string;
+}
+
 /** Trio « conformité intégrée » : trois blocs alternés sous fond sombre. */
 export interface ConformityBlock {
   tag: string;
@@ -251,7 +271,6 @@ export interface SiteContent {
     lede: string;
     freeNote: string;
     heroCaption: string;
-    heroChrome: string;
     proofKicker: string;
     stats: Stat[];
     statPhotos: { image: string; alt: string }[];
@@ -265,8 +284,14 @@ export interface SiteContent {
     pillarsTitle: string;
     pillarsLede: string;
     pillars: PillarCard[];
+    /** Carrousel du fold : questions enchaînées, chacune avec son écran. */
+    heroSlides: HeroSlide[];
+    heroPlay: string;
+    heroPause: string;
+
+    /** Ruban défilant d'écrans et de photos. */
     marqueeLabel: string;
-    marquee: string[];
+    screens: ScreenCard[];
 
     /** Trio « conformité intégrée », sur fond sombre. */
     conformityKicker: string;

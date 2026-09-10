@@ -619,6 +619,12 @@
     padding-inline-end: 12px;
     animation: marquee-slide 42s linear infinite;
   }
+  /* Le ruban de vignettes porte plus de matière : il défile plus lentement. */
+  .marquee-slow .marquee-track {
+    gap: 20px;
+    padding-inline-end: 20px;
+    animation-duration: 80s;
+  }
   .marquee:hover .marquee-track {
     animation-play-state: paused;
   }
@@ -640,6 +646,46 @@
     }
     to {
       transform: translateX(100%);
+    }
+  }
+
+  /*
+   * Progression du carrousel du fold. C'est cette animation qui fait avancer
+   * les diapositives : le composant écoute sa fin. La mettre en pause suspend
+   * donc aussi le défilement, sans minuteur à synchroniser.
+   */
+  @keyframes hero-progress {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.45s ease both;
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
     }
   }
 

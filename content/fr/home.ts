@@ -13,7 +13,6 @@ export const home: SiteContent["home"] = {
   freeNote: "Gratuit pour les copropriétés de moins de 30 lots.",
 
   heroCaption: "MAQUETTE PRODUIT — TABLEAU DE BORD SYNDIC, ANNEXE 10 GÉNÉRÉE",
-  heroChrome: "app.syndicup.ma / résidence al amal / exercice 2026",
 
   proofKicker: "CE QUE NOUS POUVONS PROUVER",
   statPhotos: [
@@ -117,23 +116,76 @@ export const home: SiteContent["home"] = {
     },
   ],
 
+  heroPlay: "Relancer le défilement",
+  heroPause: "Mettre en pause",
+  heroSlides: [
+    {
+      question: "Où en est ma copropriété, en un coup d'œil ?",
+      answer:
+        "Trésorerie, impayés, incidents ouverts et avancement des annexes — sur le premier écran, sans rapport à demander.",
+      mockup: "dashboard",
+      chrome: "app.syndicup.ma / résidence al amal / tableau de bord",
+    },
+    {
+      question: "Puis-je sortir les 12 annexes sans les ressaisir ?",
+      answer:
+        "Elles se génèrent depuis vos écritures, réparties aux tantièmes au centime, avec le détail du calcul par lot.",
+      mockup: "annexe",
+      chrome: "app.syndicup.ma / exercice 2026 / annexe 10",
+    },
+    {
+      question: "Comment être sûr qu'aucune dépense n'échappe à sa facture ?",
+      answer:
+        "La dépense sans justificatif reste bloquée dans la file de validation. Le blocage est le produit, pas un bug.",
+      mockup: "validation",
+      chrome: "app.syndicup.ma / dépenses / file de validation",
+    },
+    {
+      question: "Mon AG tiendra-t-elle devant une contestation ?",
+      answer:
+        "Quorum calculé en tantièmes, majorité affichée avant le vote, PV généré à la clôture de la séance et distribué sous 48 heures.",
+      mockup: "vote",
+      chrome: "app.syndicup.ma / assemblée générale / point 3",
+    },
+    {
+      question: "Et le copropriétaire, il voit quoi de son côté ?",
+      answer:
+        "Son solde, ses quittances, ses incidents et les justificatifs des charges communes. En français ou en arabe.",
+      mockup: "phone-resident",
+      chrome: "app.syndicup.ma / espace résident / lot A-12",
+    },
+  ],
+
   marqueeLabel: "NEUF MODULES, UN SEUL MODÈLE DE DONNÉES",
-  marquee: [
-    "Comptabilité",
-    "Les 12 annexes",
-    "Appels de fonds",
-    "Recouvrement gradué",
-    "Assemblées générales",
-    "PV horodaté",
-    "Dépenses & justificatifs",
-    "Application résidents",
-    "Gardien & loge",
-    "Petite caisse",
-    "Location courte durée",
-    "Multi-résidences",
-    "Journal d'audit",
-    "Export comptable",
-    "FR & AR",
+  screens: [
+    { caption: "Tableau de bord", mockup: "dashboard" },
+    {
+      caption: "Résidence Al Amal",
+      image: "/images/residence-hero.jpg",
+      imageAlt: "Façade d'une résidence en copropriété",
+    },
+    { caption: "Annexe 10 générée", mockup: "annexe" },
+    { caption: "File de validation", mockup: "validation" },
+    {
+      caption: "Parties communes",
+      image: "/images/residence-courtyard.jpg",
+      imageAlt: "Cour intérieure d'une résidence",
+    },
+    { caption: "Vote en tantièmes", mockup: "vote" },
+    { caption: "Espace résident", mockup: "phone-resident" },
+    {
+      caption: "Entrée d'immeuble",
+      image: "/images/residence-entrance.jpg",
+      imageAlt: "Entrée d'une résidence",
+    },
+    { caption: "Portefeuille cabinet", mockup: "cabinet-portfolio" },
+    { caption: "Écran de la loge", mockup: "gardien-tiles" },
+    {
+      caption: "Espaces partagés",
+      image: "/images/espace-piscine.jpg",
+      imageAlt: "Espace commun d'une résidence",
+    },
+    { caption: "Appels de fonds", mockup: "appels-rows" },
   ],
 
   conformityKicker: "CONFORMITÉ INTÉGRÉE",
