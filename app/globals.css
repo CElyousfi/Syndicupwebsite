@@ -1,0 +1,565 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Système SyndicUp — le même que le produit : fond greige chaud, surfaces
+   blanches très arrondies, encre #121212, action vert sauge, accents
+   lilas / sable / tosca. Rayons 24 cartes / 999 pills / 14 champs.
+   Chiffres tabulaires pour l'argent. Propriétés logiques uniquement —
+   l'arabe (RTL) se pose sans redécoupe.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Encre & neutres (chauds, jamais bleutés) */
+  --color-ink: #121212;
+  --color-ink-strong: #201f23;
+  --color-ink-soft: #2e3230;
+  --color-body: #45515c;
+  --color-soft: #596269;
+  --color-faint: #7d8583;
+  --color-hairline: #e9e7df;
+  --color-hairline-strong: #d9d6cb;
+  --color-rule: #e0ded4;
+  --color-ground: #ecebe4;
+  --color-ground-dim: #e3e1d7;
+  --color-hover: #f7f6f2;
+  --color-surface: #ffffff;
+
+  /* Action — vert sauge profond */
+  --color-action: #4c6c5a;
+  --color-action-deep: #3d5a4a;
+  --color-action-tint: #e6efea;
+  --color-action-wash: #f2f6f3;
+  --color-action-mist: #e9eeea;
+
+  /* Accents secondaires */
+  --color-sage: #a4c8ae;
+  --color-army: #395917;
+  --color-lilac: #595d75;
+  --color-lilac-mid: #b8bed5;
+  --color-lilac-tint: #e3e4ea;
+  --color-lilac-line: #d6d8e1;
+  --color-sand: #a39170;
+  --color-sand-mid: #e5d6b8;
+  --color-sand-tint: #f1ead9;
+  --color-sand-line: #e9dfc6;
+  --color-sand-deep: #7a5c1e;
+  --color-tosca: #48707a;
+  --color-tosca-mid: #c1d8da;
+  --color-tosca-tint: #e4eeef;
+  --color-tosca-line: #d5e5e6;
+
+  /* Statuts */
+  --color-ok: #395917;
+  --color-warn: #8a5a00;
+  --color-danger: #98140b;
+  --color-danger-tint: #f8e9e7;
+  --color-danger-line: #f2ddd9;
+  --color-danger-deep: #8a3831;
+
+  /* Rayons */
+  --radius-card: 24px;
+  --radius-panel: 20px;
+  --radius-field: 14px;
+
+  /* Typo */
+  --font-sans: var(--font-geist-sans), var(--font-arabic), ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", sans-serif;
+  /* Geist Mono ne couvre pas l'arabe : la police arabe ferme la pile. */
+  --font-mono: var(--font-geist-mono), var(--font-arabic), ui-monospace, "SF Mono", Menlo,
+    monospace;
+  --font-arabic: var(--font-arabic), "Noto Sans Arabic", sans-serif;
+
+  --shadow-lift: 0 1px 2px rgb(32 31 35 / 0.03), 0 12px 32px -20px rgb(32 31 35 / 0.14);
+  --shadow-float: 0 2px 6px rgb(32 31 35 / 0.04), 0 24px 50px -26px rgb(32 31 35 / 0.22);
+  --shadow-pop: 0 2px 6px rgb(32 31 35 / 0.04), 0 34px 70px -30px rgb(32 31 35 / 0.3);
+  --shadow-btn: 0 14px 26px -12px rgb(18 18 18 / 0.5);
+  --shadow-menu: 0 24px 48px -16px rgb(32 31 35 / 0.18);
+}
+
+/* En arabe la police arabe passe en tête. */
+:root[lang="ar"] {
+  --font-sans: var(--font-arabic), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-ground);
+    color: var(--color-ink-strong);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: var(--color-action);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-action-deep);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-action) 22%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-action);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* ── Ossature ─────────────────────────────────────────────────────────── */
+
+  /* Conteneur du site : 1200px, 24px de gouttière à toutes les tailles. */
+  .shell {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+  .shell-narrow {
+    max-width: 1000px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+  .shell-prose {
+    max-width: 820px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  /* ── Typographie ──────────────────────────────────────────────────────── */
+
+  /* Étiquette mono en capitales : le label de section, partout sur le site. */
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    color: var(--color-faint);
+  }
+  .kicker-sm {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--color-faint);
+  }
+  .crumb {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    color: var(--color-faint);
+  }
+  .crumb a {
+    color: var(--color-faint);
+  }
+  .crumb a:hover {
+    color: var(--color-ink);
+  }
+
+  .h-hero {
+    font-size: clamp(42px, 6.6vw, 80px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+  .h-page {
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+  .h-section {
+    font-size: clamp(30px, 4.2vw, 50px);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+  .h-block {
+    font-size: clamp(28px, 3.6vw, 40px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .h-card {
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .lede {
+    font-size: clamp(17px, 2vw, 19px);
+    line-height: 1.55;
+    color: var(--color-body);
+    text-wrap: pretty;
+  }
+  .prose-p {
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: var(--color-body);
+    text-wrap: pretty;
+  }
+
+  /* L'argent et toute donnée alignée en colonne : chiffres tabulaires. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+  }
+
+  /* L'arabe garde sa police même dans une page française (et l'inverse). */
+  .ar {
+    font-family: var(--font-arabic);
+  }
+
+  /* ── Surfaces ─────────────────────────────────────────────────────────── */
+
+  .card {
+    background: var(--color-surface);
+    border: 1px solid rgb(32 31 35 / 0.05);
+    border-radius: var(--radius-card);
+    min-width: 0;
+  }
+  .card-lift {
+    box-shadow: var(--shadow-lift);
+  }
+  .card-float {
+    box-shadow: var(--shadow-float);
+  }
+  .card-dark {
+    background: var(--color-ink-strong);
+    color: var(--color-surface);
+    border-radius: var(--radius-card);
+    min-width: 0;
+  }
+  .card-dark:hover {
+    background: var(--color-ink);
+  }
+  .card-hover:hover {
+    background: var(--color-hover);
+  }
+
+  /* ── Boutons ──────────────────────────────────────────────────────────── */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 50px;
+    padding-inline: 26px;
+    border-radius: 999px;
+    font-size: 15.5px;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-lg {
+    height: 54px;
+    padding-inline: 30px;
+    font-size: 16.5px;
+  }
+  .btn-sm {
+    height: 40px;
+    padding-inline: 18px;
+    font-size: 14px;
+  }
+  .btn-dark {
+    background: var(--color-ink);
+    color: var(--color-surface);
+    box-shadow: var(--shadow-btn);
+  }
+  .btn-dark:hover {
+    background: var(--color-ink-soft);
+    color: var(--color-surface);
+  }
+  .btn-light {
+    background: var(--color-surface);
+    border-color: var(--color-hairline-strong);
+    color: var(--color-ink-strong);
+  }
+  .btn-light:hover {
+    background: var(--color-hover);
+    border-color: #b9b5a6;
+    color: var(--color-ink-strong);
+  }
+  .btn-invert {
+    background: var(--color-surface);
+    color: var(--color-ink);
+  }
+  .btn-invert:hover {
+    background: var(--color-ground);
+    color: var(--color-ink);
+  }
+  .btn-ghost-invert {
+    background: rgb(255 255 255 / 0.1);
+    border-color: rgb(255 255 255 / 0.28);
+    color: var(--color-surface);
+  }
+  .btn-ghost-invert:hover {
+    background: rgb(255 255 255 / 0.18);
+    color: var(--color-surface);
+  }
+
+  /* Lien d'action en fin de bloc : « Ouvrir → », « Voir comment → ». */
+  .link-arrow {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-action);
+  }
+
+  /* ── Pastilles ────────────────────────────────────────────────────────── */
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    background: var(--color-action-tint);
+    color: var(--color-action-deep);
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ── Champs ───────────────────────────────────────────────────────────── */
+
+  .field {
+    height: 48px;
+    width: 100%;
+    padding-inline: 16px;
+    border-radius: var(--radius-field);
+    border: 1px solid var(--color-hairline-strong);
+    background: var(--color-surface);
+    font-size: 15px;
+    color: var(--color-ink-strong);
+  }
+  .field-label {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--color-body);
+  }
+
+  /* ── Listes ───────────────────────────────────────────────────────────── */
+
+  /* Liste à coches vertes — les bénéfices. */
+  .list-check {
+    display: grid;
+    gap: 11px;
+  }
+  .list-check > li {
+    display: flex;
+    gap: 11px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-body);
+  }
+  .list-check > li::before {
+    content: "✓";
+    color: var(--color-action);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* Liste à puces sauge — les précisions techniques. */
+  .list-dot {
+    display: grid;
+    gap: 12px;
+  }
+  .list-dot > li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--color-body);
+  }
+  .list-dot > li::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--color-sage);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  /* ── FAQ ──────────────────────────────────────────────────────────────── */
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-hairline);
+  }
+  .faq-item:last-child {
+    border-bottom: 0;
+  }
+  .faq-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 26px;
+    font-size: 16.5px;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .faq-plus {
+    flex-shrink: 0;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--color-faint);
+    transition: transform 0.2s ease;
+  }
+  details[open] > .faq-summary .faq-plus {
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    padding: 0 26px 24px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--color-body);
+  }
+
+  /* ── Rail horizontal ──────────────────────────────────────────────────── */
+
+  .rail {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-hairline-strong) transparent;
+    /* La première carte s'aligne sur le titre de section, pas sur le bord. */
+    scroll-padding-inline: 24px;
+    padding: 4px 24px 18px;
+  }
+  .rail::-webkit-scrollbar {
+    height: 8px;
+  }
+  .rail::-webkit-scrollbar-thumb {
+    background: var(--color-hairline-strong);
+    border-radius: 999px;
+  }
+  .rail > * {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+  }
+}
+
+@layer utilities {
+  /* Grille auto-ajustée : le motif de mise en page dominant du site. */
+  .auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  }
+  .auto-grid-sm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+  }
+  .auto-grid-md {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  }
+  .auto-grid-lg {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Corrections typographiques de l'arabe.
+
+   Délibérément hors de tout @layer : les utilitaires Tailwind vivent dans une
+   couche, et une règle sans couche l'emporte sur elles quelle que soit la
+   spécificité. C'est ce qu'il faut ici — le crénage négatif posé classe par
+   classe pour le français casse le tracé lié de l'arabe et doit sauter
+   partout, sans avoir à réécrire chaque page.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root[lang="ar"] :where(*) {
+  /* L'arabe est une écriture liée : tout crénage, positif ou négatif, nuit. */
+  letter-spacing: normal;
+}
+
+:root[lang="ar"] :where(h1, h2, h3, .h-hero, .h-page, .h-section, .h-block, .h-card) {
+  /* Les diacritiques et les hampes demandent plus d'interligne que le latin. */
+  line-height: 1.32;
+}
+
+:root[lang="ar"] :where(p, li) {
+  line-height: 1.75;
+}
+
+/*
+ * Les montants sont des îlots latins. « 184 320 » est vu par l'algorithme
+ * bidirectionnel comme DEUX nombres séparés par une espace : en contexte RTL
+ * il les réordonne et affiche « 320 184 ». Isoler chaque montant en LTR est le
+ * seul correctif fiable — l'espace fine ou insécable ne change rien, elles
+ * restent de classe « espace ». L'alignement, lui, doit rester à droite.
+ */
+:root[lang="ar"] .tnum {
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: right;
+}
+
