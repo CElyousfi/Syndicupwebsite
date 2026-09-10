@@ -1,25 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BrandShape } from "@/components/brand-shape";
 import type { SiteContent } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
 
 /**
- * Bandeau final, présent au bas de chaque page : photo assombrie, gros titre,
- * deux boutons et les trois arguments qui lèvent la dernière objection.
+ * Bandeau final, présent au bas de chaque page : bande pleine couleur de
+ * marque, gros titre, deux boutons et les trois arguments qui lèvent la
+ * dernière objection.
  */
 export function CtaBand({ locale, c }: { locale: Locale; c: SiteContent }) {
   return (
     <section className="shell pt-[112px]">
-      <div className="relative overflow-hidden rounded-2xl bg-ink-strong text-white">
-        <Image
-          src={c.cta.image}
-          alt=""
-          fill
-          sizes="(max-width: 1200px) 100vw, 1200px"
-          className="object-cover opacity-30"
+      {/*
+       * Bande pleine couleur de marque, comme la référence : le vert profond
+       * porte le dernier argument, un ruban estompé anime le fond.
+       */}
+      <div className="relative overflow-hidden rounded-2xl bg-[linear-gradient(130deg,#3d5a4a_0%,#4c6c5a_55%,#557a66_100%)] text-white">
+        <BrandShape
+          variant="wave"
+          className="pointer-events-none absolute -end-32 -top-40 h-[560px] w-[560px] text-white opacity-[0.07]"
         />
-        <div className="relative bg-[linear-gradient(180deg,rgb(32_31_35_/_0.72)_0%,rgb(32_31_35_/_0.92)_100%)] px-6 py-20 text-center sm:px-10">
+        <BrandShape
+          variant="arc"
+          className="pointer-events-none absolute -bottom-44 -start-32 h-[420px] w-[420px] text-white opacity-[0.06]"
+        />
+        <div className="relative px-6 py-20 text-center sm:px-10">
           <span className="mono text-[11.5px] tracking-[0.08em] text-sage">{c.cta.kicker}</span>
           <h2 className="mx-auto mt-4 max-w-[820px] text-[clamp(32px,4.4vw,52px)] font-bold leading-[1.2] text-balance text-white">
             {c.cta.title}
@@ -28,7 +35,9 @@ export function CtaBand({ locale, c }: { locale: Locale; c: SiteContent }) {
             {c.cta.lede}
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link href={href(locale, "/demo")} className="btn btn-lg btn-accent">
+            {/* Sur le vert profond, le bouton principal passe en blanc : le
+                vert d'accent y disparaîtrait. */}
+            <Link href={href(locale, "/demo")} className="btn btn-lg btn-invert">
               {c.cta.primary}
             </Link>
             <Link href={href(locale, "/demo")} className="btn btn-lg btn-ghost-invert">

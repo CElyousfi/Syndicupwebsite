@@ -380,39 +380,3 @@ export function Mockup({ kind, locale }: { kind: MockupKind; locale: Locale }) {
   const Component = REGISTRY[kind];
   return <Component locale={locale} />;
 }
-
-/**
- * Panneau teinté qui porte une maquette. C'est le motif « capture produit »
- * répété sur tout le site : un fond doux, la maquette centrée.
- */
-const PANEL_TONE = {
-  mist: "bg-action-mist",
-  sand: "bg-sand-tint",
-  lilac: "bg-lilac-tint",
-  tosca: "bg-tosca-tint",
-  hover: "bg-hover border border-hairline",
-  plain: "bg-[#f2f1ea]",
-} as const;
-
-export function MockupPanel({
-  kind,
-  locale,
-  tone = "hover",
-  className = "",
-  minHeight = 210,
-}: {
-  kind: MockupKind;
-  locale: Locale;
-  tone?: keyof typeof PANEL_TONE;
-  className?: string;
-  minHeight?: number;
-}) {
-  return (
-    <div
-      className={`flex items-center justify-center rounded-[22px] p-6 ${PANEL_TONE[tone]} ${className}`}
-      style={{ minHeight }}
-    >
-      <Mockup kind={kind} locale={locale} />
-    </div>
-  );
-}

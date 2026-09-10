@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Crumb } from "@/components/site-chrome";
-import { Mockup, MockupPanel } from "@/components/mockups";
+import { FeatureComposition, type CompositionTone } from "@/components/feature-composition";
+import { Mockup } from "@/components/mockups";
 import { DETAIL_SLUGS, type DetailSlug } from "@/content/types";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 function isDetailSlug(value: string): value is DetailSlug {
   return (DETAIL_SLUGS as readonly string[]).includes(value);
 }
+
+/** Teinte des compositions des trois blocs, en rotation. */
+const BLOCK_TONES: CompositionTone[] = ["mist", "sand", "tosca"];
 
 export function generateStaticParams() {
   return LOCALES.flatMap((locale) => DETAIL_SLUGS.map((slug) => ({ locale, slug })));
@@ -90,7 +94,7 @@ export default async function DetailPage({
 
       <section className="shell pt-20">
         <div className="grid gap-4">
-          {page.blocks.map((block) => (
+          {page.blocks.map((block, index) => (
             <div key={block.step} className="card px-8 py-[34px]">
               <div className="auto-grid items-center gap-8">
                 <div>
@@ -107,7 +111,12 @@ export default async function DetailPage({
                     ))}
                   </ul>
                 </div>
-                <MockupPanel kind={block.mockup} locale={l} tone="plain" minHeight={270} />
+                <FeatureComposition
+                  kind={block.mockup}
+                  locale={l}
+                  tone={BLOCK_TONES[index % BLOCK_TONES.length]!}
+                  minHeight={360}
+                />
               </div>
             </div>
           ))}

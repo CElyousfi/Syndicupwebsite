@@ -521,6 +521,11 @@ export const home: SiteContent["home"] = {
     "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. Gratuit, quelle que soit la taille.",
   importCta: "Envoyer mon fichier",
 
+  supportChat: {
+    incoming: "Salam, je vous envoie le fichier Excel de la résidence 📎",
+    outgoing: "Bien reçu ! Vous recevez la reprise à valider sous 48 h.",
+    status: "Répond en général en moins d'une heure",
+  },
   supportKicker: "ACCOMPAGNEMENT",
   supportTitle: "Un interlocuteur qui connaît votre résidence.",
   supportBody:

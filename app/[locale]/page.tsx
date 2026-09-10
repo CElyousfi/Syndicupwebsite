@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BrandShape } from "@/components/brand-shape";
 import { DaysLeft } from "@/components/days-left";
 import { FaqTabs } from "@/components/faq-tabs";
+import { FeatureComposition } from "@/components/feature-composition";
 import { HeroRotator } from "@/components/hero-rotator";
 import { ScreenRibbon } from "@/components/screen-ribbon";
-import { Mockup, MockupPanel } from "@/components/mockups";
+import { Mockup } from "@/components/mockups";
 import { RoleTabs } from "@/components/role-tabs";
 import { SecurityIcon } from "@/components/icons";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
@@ -30,13 +32,17 @@ export async function generateMetadata({
   };
 }
 
-const STAT_TONE = {
-  sage: "bg-action-tint border-[#dae7e0] text-action-deep",
-  sand: "bg-sand-tint border-sand-line text-sand-deep",
-  tosca: "bg-tosca-tint border-tosca-line text-tosca",
-  danger: "bg-danger-tint border-danger-line text-danger-deep",
-  lilac: "bg-lilac-tint border-lilac-line text-[#4a4e63]",
-} as const;
+/**
+ * Une photo par chiffre du bandeau de preuves ; `null` au centre donne la
+ * tuile pleine sauge qui rythme la bande.
+ */
+const STAT_BAND_PHOTOS: (string | null)[] = [
+  "/images/residence-hero.jpg",
+  "/images/residence-courtyard.jpg",
+  null,
+  "/images/residence-entrance.jpg",
+  "/images/espace-piscine.jpg",
+];
 
 const ICON_TONE = {
   sage: "bg-action-tint",
@@ -53,6 +59,27 @@ const ECO_TONE = {
   dot: "bg-action-tint",
 } as const;
 
+/**
+ * Positions des six pastilles d'intégration autour du texte central, en
+ * propriétés logiques : la disposition se reflète toute seule en arabe.
+ */
+/** Ruban et teinte de chaque carte du carrousel de portefeuille, en rotation. */
+const PORTFOLIO_SHAPES = [
+  { variant: "arc", tone: "text-sage" },
+  { variant: "wave", tone: "text-tosca-mid" },
+  { variant: "loop", tone: "text-sand-mid" },
+  { variant: "wave", tone: "text-lilac-mid" },
+] as const;
+
+const ECO_ORBIT = [
+  "start-0 top-14 -rotate-2",
+  "start-10 top-1/2 -translate-y-1/2 rotate-1",
+  "start-2 bottom-14 -rotate-1",
+  "end-0 top-14 rotate-2",
+  "end-10 top-1/2 -translate-y-1/2 -rotate-1",
+  "end-2 bottom-14 rotate-1",
+] as const;
+
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
@@ -63,8 +90,22 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       {/* ── 1 · Fold : promesse, deux CTA, capture produit ────────────────── */}
-      <div className="bg-[linear-gradient(180deg,#e9eeea_0%,#ecebe4_58%,#ecebe4_100%)]">
-        <section className="shell pb-20 pt-20">
+      <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]">
+        {/* Panneaux produit flottants, rognés par les bords — la signature du fold de référence. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -start-24 top-[130px] hidden w-[290px] -rotate-[5deg] rounded-xl border border-[rgb(32_31_35_/_0.05)] bg-white p-4 opacity-90 shadow-[var(--shadow-float)] xl:block"
+        >
+          <Mockup kind="syndic-todo" locale={l} />
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -end-16 top-[170px] hidden w-[270px] rotate-[4deg] rounded-xl border border-[rgb(32_31_35_/_0.05)] bg-white p-4 opacity-90 shadow-[var(--shadow-float)] xl:block"
+        >
+          <Mockup kind="appels-rows" locale={l} />
+        </div>
+
+        <section className="shell relative pb-20 pt-20">
           <div className="mx-auto max-w-[900px] text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#e9e7df] bg-white py-2 pe-4 ps-2.5 text-[14px] font-semibold text-body">
               <span className="inline-block h-5 w-5 rounded-full bg-action-tint" />
@@ -101,43 +142,53 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </section>
       </div>
 
-      {/* ── 2 · Bandeau de preuves : photos et chiffres vérifiables ───────── */}
-      <section className="shell section-pad-sm">
-        <span className="kicker mb-6 block text-center">{h.proofKicker}</span>
-        <div className="auto-grid-sm gap-4">
-          {interleave(h.statPhotos, h.stats).map((tile) =>
-            "image" in tile ? (
-              <div
-                key={tile.image}
-                className="relative min-h-[200px] overflow-hidden rounded-2xl border border-[rgb(32_31_35_/_0.05)] bg-action-mist"
-              >
+      {/* ── 2 · Bandeau de preuves : bord à bord, les chiffres sur les photos ─ */}
+      <section className="bg-ink-strong pb-1 pt-8">
+        <span className="mono mb-6 block text-center text-[11.5px] tracking-[0.08em] text-sage">
+          {h.proofKicker}
+        </span>
+        <div className="grid grid-cols-2 gap-1 md:grid-cols-5">
+          {h.stats.map((stat, i) => {
+            const photo = STAT_BAND_PHOTOS[i];
+            return photo ? (
+              <div key={stat.kicker} className="relative h-[250px] overflow-hidden md:h-[300px]">
                 <Image
-                  src={tile.image}
-                  alt={tile.alt}
+                  src={photo}
+                  alt=""
                   fill
-                  sizes="(max-width: 640px) 100vw, 25vw"
+                  sizes="(max-width: 768px) 50vw, 20vw"
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(32_31_35_/_0.1)_30%,rgb(32_31_35_/_0.82)_100%)]" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <span className="mono block text-[10px] tracking-[0.08em] text-sage">
+                    {stat.kicker}
+                  </span>
+                  <span className="tnum mt-1.5 block text-[clamp(30px,3vw,40px)] font-bold leading-none text-white">
+                    {stat.value}
+                  </span>
+                  <span className="mt-1.5 block text-[13.5px] leading-[1.35] text-white/[0.85]">
+                    {stat.caption}
+                  </span>
+                </div>
               </div>
             ) : (
               <div
-                key={tile.kicker}
-                className={`flex min-h-[200px] flex-col justify-between rounded-2xl border px-6 py-7 ${STAT_TONE[tile.tone]}`}
+                key={stat.kicker}
+                className="flex h-[250px] flex-col justify-end bg-sage p-5 md:h-[300px]"
               >
-                <span className="mono text-[10.5px] tracking-[0.06em]">{tile.kicker}</span>
-                <span>
-                  <span
-                    className={`${tile.tone === "danger" ? "text-danger" : "text-ink"} tnum block text-[clamp(32px,3.4vw,40px)] font-bold leading-none`}
-                  >
-                    {tile.value}
-                  </span>
-                  <span className="mt-2 block text-[15px] leading-[1.4] text-body">
-                    {tile.caption}
-                  </span>
+                <span className="mono block text-[10px] tracking-[0.08em] text-action-deep">
+                  {stat.kicker}
+                </span>
+                <span className="tnum mt-1.5 block text-[clamp(30px,3vw,40px)] font-bold leading-none text-ink-strong">
+                  {stat.value}
+                </span>
+                <span className="mt-1.5 block text-[13.5px] leading-[1.35] text-ink-strong/[0.75]">
+                  {stat.caption}
                 </span>
               </div>
-            )
-          )}
+            );
+          })}
         </div>
       </section>
 
@@ -207,11 +258,11 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     {p.link.label}
                   </Link>
                 </div>
-                <MockupPanel
+                <FeatureComposition
                   kind={p.mockup}
                   locale={l}
                   tone={p.tone}
-                  minHeight={340}
+                  minHeight={420}
                   className={i % 2 === 1 ? "md:order-1" : ""}
                 />
               </div>
@@ -221,8 +272,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </div>
 
       {/* ── 7 · Conformité intégrée, sur fond sombre ──────────────────────── */}
-      <div className="bg-ink-strong">
-        <section className="shell section-pad">
+      <div className="relative overflow-hidden bg-ink-strong">
+        {/* Ruban de marque estompé dans le fond, comme sur la référence. */}
+        <BrandShape
+          variant="wave"
+          className="pointer-events-none absolute -end-40 -top-40 h-[620px] w-[620px] text-white opacity-[0.04]"
+        />
+        <section className="shell section-pad relative">
           <div className="section-head">
             <span className="mono text-[11.5px] tracking-[0.08em] text-sage">
               {h.conformityKicker}
@@ -340,12 +396,31 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <div className="border-y border-rule bg-white">
         <section className="shell section-pad">
           <div className="auto-grid gap-5">
-            <div className="rounded-2xl bg-ink-strong px-9 py-10 text-white">
+            <div className="relative overflow-hidden rounded-2xl bg-ink-strong px-9 py-10 text-white">
+              <BrandShape
+                variant="loop"
+                className="pointer-events-none absolute -bottom-32 -end-28 h-[380px] w-[380px] text-white opacity-[0.05]"
+              />
               <span className="mono text-[11px] tracking-[0.08em] text-sage">
                 {h.supportKicker}
               </span>
               <h2 className="h-card mt-4 text-white">{h.supportTitle}</h2>
               <p className="mt-4 text-[17px] leading-[1.6] text-white/[0.72]">{h.supportBody}</p>
+
+              {/* La conversation, telle qu'elle se passe vraiment. */}
+              <div className="relative mt-8 grid max-w-[380px] gap-2.5">
+                <div className="me-8 rounded-2xl rounded-es-md bg-white/[0.08] px-4 py-3 text-[14.5px] leading-[1.45] text-white/[0.92]">
+                  {h.supportChat.incoming}
+                </div>
+                <div className="ms-8 rounded-2xl rounded-ee-md bg-sage px-4 py-3 text-[14.5px] font-medium leading-[1.45] text-ink-strong">
+                  {h.supportChat.outgoing}
+                </div>
+                <p className="mt-1 flex items-center gap-2 text-[12.5px] text-white/[0.55]">
+                  <span className="inline-block h-2 w-2 rounded-full bg-sage" />
+                  {h.supportChat.status}
+                </p>
+              </div>
+
               <Link
                 href={href(l, "/contact")}
                 className="link-arrow mt-7 text-sage hover:text-sage"
@@ -392,7 +467,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         </div>
         <div className="rail">
-          {h.portfolio.map((card) => (
+          {h.portfolio.map((card, i) => (
             <Link key={card.title} href={href(l, card.href)} className="portfolio-card !flex-[0_0_320px]">
               <Image
                 src={card.image}
@@ -400,6 +475,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 fill
                 sizes="320px"
                 className="object-cover"
+              />
+              {/* Le ruban de marque par-dessus la photo — posé dans la page,
+                  jamais dans l'image : net, à la couleur exacte, recolorable. */}
+              <BrandShape
+                variant={PORTFOLIO_SHAPES[i % PORTFOLIO_SHAPES.length]!.variant}
+                className={`pointer-events-none absolute -end-16 -top-16 h-[260px] w-[260px] opacity-90 ${PORTFOLIO_SHAPES[i % PORTFOLIO_SHAPES.length]!.tone}`}
               />
               <span className="portfolio-card-body">
                 <span className="text-[24px] font-bold leading-[1.25] text-white">
@@ -414,19 +495,18 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* ── 14 · Écosystème ──────────────────────────────────────────────── */}
-      <div className="border-y border-rule bg-white">
-        <section className="shell section-pad">
-          <div className="section-head">
-            <span className="kicker">{h.ecosystemKicker}</span>
-            <h2 className="h-section">{h.ecosystemTitle}</h2>
-            <p>{h.ecosystemNote}</p>
-          </div>
-          <div className="auto-grid-sm gap-4">
-            {h.ecosystem.map((e) => (
-              <div key={e.title} className="rounded-2xl border border-hairline bg-ground/40 p-6">
+      {/* ── 14 · Écosystème : le texte au centre, les intégrations en orbite ─ */}
+      <div className="border-y border-rule bg-[radial-gradient(80%_90%_at_50%_10%,#f4f6f1_0%,#ffffff_70%)]">
+        <section className="shell section-pad relative">
+          {/* Sur grand écran, trois pastilles flottent de chaque côté du texte. */}
+          <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
+            {h.ecosystem.map((e, i) => (
+              <div
+                key={e.title}
+                className={`absolute flex w-[230px] items-center gap-3 rounded-xl border border-hairline bg-white p-3.5 shadow-[var(--shadow-lift)] ${ECO_ORBIT[i]}`}
+              >
                 <span
-                  className={`mono inline-flex h-[46px] w-[46px] items-center justify-center rounded-xl text-[13px] font-bold ${ECO_TONE[e.tone]}`}
+                  className={`mono inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-[12px] font-bold ${ECO_TONE[e.tone]}`}
                 >
                   {e.tone === "dot" ? (
                     <span className="inline-block h-3 w-3 rounded-full bg-ok" />
@@ -434,8 +514,43 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                     e.code
                   )}
                 </span>
-                <h3 className="mt-4 text-[17px] font-bold text-ink">{e.title}</h3>
-                <p className="mt-1.5 text-[15px] leading-[1.5] text-soft">{e.desc}</p>
+                <span className="min-w-0">
+                  <span className="block truncate text-[14px] font-bold text-ink">{e.title}</span>
+                  <span className="block truncate text-[12px] text-soft">{e.desc}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto max-w-[560px] py-10 text-center lg:py-24">
+            <span className="kicker">{h.ecosystemKicker}</span>
+            <h2 className="h-section mt-4">{h.ecosystemTitle}</h2>
+            <p className="mt-4 text-[19px] leading-[1.55] text-body">{h.ecosystemNote}</p>
+            <Link href={href(l, "/demo")} className="link-arrow mx-auto mt-7 justify-center">
+              {c.common.sandboxCta}
+            </Link>
+          </div>
+
+          {/* Sous le seuil, les pastilles reprennent leur grille. */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:hidden">
+            {h.ecosystem.map((e) => (
+              <div
+                key={e.title}
+                className="flex items-center gap-3 rounded-xl border border-hairline bg-white p-3.5"
+              >
+                <span
+                  className={`mono inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-[12px] font-bold ${ECO_TONE[e.tone]}`}
+                >
+                  {e.tone === "dot" ? (
+                    <span className="inline-block h-3 w-3 rounded-full bg-ok" />
+                  ) : (
+                    e.code
+                  )}
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-[14px] font-bold text-ink">{e.title}</span>
+                  <span className="block text-[12px] leading-[1.4] text-soft">{e.desc}</span>
+                </span>
               </div>
             ))}
           </div>
@@ -522,20 +637,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       />
     </>
   );
-}
-
-/**
- * Bandeau de preuves : une photo, un chiffre, une photo, puis le reste des
- * chiffres. Les photos ouvrent la bande au lieu de la clore.
- */
-function interleave<P, S>(photos: P[], stats: S[]): (P | S)[] {
-  const out: (P | S)[] = [];
-  for (const [i, photo] of photos.entries()) {
-    out.push(photo);
-    const stat = stats[i];
-    if (stat) out.push(stat);
-  }
-  return [...out, ...stats.slice(photos.length)];
 }
 
 /** Balisage FAQPage + SoftwareApplication. */

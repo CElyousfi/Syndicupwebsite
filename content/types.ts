@@ -338,6 +338,8 @@ export interface SiteContent {
     importTitle: string;
     importBody: string;
     importCta: string;
+    /** Mini-conversation WhatsApp posée dans le bloc accompagnement. */
+    supportChat: { incoming: string; outgoing: string; status: string };
     supportKicker: string;
     supportTitle: string;
     supportBody: string;
