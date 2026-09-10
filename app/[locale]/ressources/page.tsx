@@ -43,13 +43,13 @@ export default async function ResourcesPage({
 
   return (
     <>
-      <section className="shell pt-16">
+      <section className="shell pt-20">
         <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: r.crumb }]} />
         <h1 className="h-page mt-5 max-w-[780px]">{r.title}</h1>
         <p className="lede mt-5 max-w-[640px]">{r.lede}</p>
       </section>
 
-      <section className="shell pt-11">
+      <section className="shell pt-16">
         <Link
           href={href(l, "/ressources/guide-decret-2-23-700")}
           className="block overflow-hidden rounded-[26px] bg-ink-strong text-white hover:bg-ink"
@@ -57,7 +57,7 @@ export default async function ResourcesPage({
           <div className="grid items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]">
             <div className="px-8 py-11 sm:px-10">
               <span className="mono text-[11px] tracking-[0.08em] text-sage">{r.pillarKicker}</span>
-              <h2 className="mt-4 text-[clamp(26px,3.4vw,38px)] font-semibold leading-[1.1] tracking-[-0.03em] text-white">
+              <h2 className="mt-4 h-block text-white">
                 {r.pillarTitle}
               </h2>
               <p className="mt-4 text-[16.5px] leading-[1.55] text-white/[0.72]">{r.pillarBody}</p>
@@ -76,7 +76,7 @@ export default async function ResourcesPage({
         </Link>
       </section>
 
-      <section className="shell pt-4">
+      <section className="shell pt-8">
         <div className="auto-grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
           {r.cards.map((card) => {
             const body = (
@@ -100,7 +100,7 @@ export default async function ResourcesPage({
                       >
                         {card.kicker}
                       </span>
-                      <h2 className="mt-2.5 text-[19px] font-semibold tracking-[-0.02em] text-ink">
+                      <h2 className="mt-2.5 text-[19px] font-bold text-ink">
                         {card.title}
                       </h2>
                       <p className="mt-2 text-[15px] leading-[1.5] text-body">{card.desc}</p>
@@ -115,7 +115,7 @@ export default async function ResourcesPage({
                     >
                       {card.kicker}
                     </span>
-                    <h2 className="mt-3 text-[19px] font-semibold tracking-[-0.02em] text-ink">
+                    <h2 className="mt-3 text-[19px] font-bold text-ink">
                       {card.title}
                     </h2>
                     <p className="mt-2 text-[15px] leading-[1.5] text-body">{card.desc}</p>

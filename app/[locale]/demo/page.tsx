@@ -33,12 +33,12 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
   const d = c.demo;
 
   return (
-    <section className="shell pt-16">
+    <section className="shell pt-20">
       <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: d.crumb }]} />
 
       <div className="mt-5 grid items-start gap-10 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
         <div>
-          <h1 className="text-[clamp(32px,4.6vw,50px)] font-semibold leading-[1.06] tracking-[-0.035em] text-balance text-ink">
+          <h1 className="h-page text-balance text-ink">
             {d.title}
           </h1>
           <p className="lede mt-5">{d.lede}</p>
@@ -64,7 +64,7 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
         </div>
 
         <div className="card card-float px-[30px] py-8">
-          <h2 className="text-[21px] font-semibold tracking-[-0.02em] text-ink">{d.formTitle}</h2>
+          <h2 className="text-[21px] font-bold text-ink">{d.formTitle}</h2>
           <p className="mt-2 text-[15px] leading-[1.5] text-body">{d.formLede}</p>
           <DemoForm c={c} />
           <div className="mt-6 flex items-center justify-center rounded-[18px] bg-action-mist p-5">

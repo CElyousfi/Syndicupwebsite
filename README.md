@@ -8,6 +8,33 @@ aucun appel API, aucune session. Tout est pré-rendu au build.
 - **RTL réel** en arabe : propriétés logiques, pas de feuille de style miroir.
 - Next.js 15 (App Router) · React 19 · TypeScript strict · Tailwind CSS v4.
 
+## Le système visuel
+
+La mise en page suit l'ossature d'un site SaaS commercial : sections de 112px,
+blocs de titre centrés, titres en 700, boutons à rayon court. Les mesures sont
+regroupées dans `app/globals.css` :
+
+| | Valeur |
+|---|---|
+| Conteneur | 1200px |
+| Rythme de section | 112px (`.section-pad`), 80px resserré |
+| Bloc de titre | centré, 64px avant le contenu (`.section-head`) |
+| H1 / H2 / H3 | 64 / 48 / 32px, graisse 700 |
+| Corps large | 20px / 1.5 |
+| Boutons | rayon 6px, 16/24px, graisse 700 |
+| Cartes | rayon 16 à 24px |
+
+Les **couleurs, la police et les maquettes produit** viennent du produit
+lui-même (`globals.css` de l'application) : greige, encre, vert sauge, Geist,
+chiffres tabulaires. L'ossature est commerciale, la matière reste SyndicUp.
+
+L'accueil se déroule en 17 sections : promesse et capture produit, bandeau de
+preuves, ruban de modules, compte à rebours de clôture, constat du problème,
+quatre blocs produit alternés, trio « conformité intégrée » sur fond sombre,
+trois écrans de preuve, onglets par rôle, « pourquoi SyndicUp », preuve sociale
+volontairement vide, accompagnement, carrousel de portefeuille, écosystème,
+tarifs, reprise de données, FAQ à onglets — puis le bandeau final commun.
+
 ## Démarrer
 
 ```bash

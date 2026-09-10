@@ -1,6 +1,21 @@
-/** Pictogrammes de la section sécurité — repris tels quels du prototype. */
-export function SecurityIcon({ name }: { name: "lock" | "split" | "layers" | "shield" }) {
-  const common = { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", "aria-hidden": true } as const;
+/**
+ * Pictogrammes de la section sécurité. `size` monte à 30 dans les pastilles de
+ * 64px des cartes « pourquoi nous », où un glyphe de 24px se perdrait.
+ */
+export function SecurityIcon({
+  name,
+  size = 24,
+}: {
+  name: "lock" | "split" | "layers" | "shield";
+  size?: number;
+}) {
+  const common = {
+    width: size,
+    height: size,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    "aria-hidden": true,
+  } as const;
 
   if (name === "lock") {
     return (

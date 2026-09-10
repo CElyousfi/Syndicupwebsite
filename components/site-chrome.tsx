@@ -4,10 +4,14 @@ import type { SiteContent } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
 
+/**
+ * Bandeau final, présent au bas de chaque page : photo assombrie, gros titre,
+ * deux boutons et les trois arguments qui lèvent la dernière objection.
+ */
 export function CtaBand({ locale, c }: { locale: Locale; c: SiteContent }) {
   return (
-    <section className="shell pt-[110px]">
-      <div className="relative overflow-hidden rounded-[28px] bg-ink-strong text-white">
+    <section className="shell pt-[112px]">
+      <div className="relative overflow-hidden rounded-2xl bg-ink-strong text-white">
         <Image
           src={c.cta.image}
           alt=""
@@ -15,19 +19,31 @@ export function CtaBand({ locale, c }: { locale: Locale; c: SiteContent }) {
           sizes="(max-width: 1200px) 100vw, 1200px"
           className="object-cover opacity-30"
         />
-        <div className="relative bg-[linear-gradient(180deg,rgb(32_31_35_/_0.72)_0%,rgb(32_31_35_/_0.9)_100%)] px-6 py-[72px] text-center sm:px-10">
-          <h2 className="mx-auto max-w-[820px] text-[clamp(32px,4.6vw,56px)] font-semibold leading-[1.04] tracking-[-0.035em] text-balance text-white">
+        <div className="relative bg-[linear-gradient(180deg,rgb(32_31_35_/_0.72)_0%,rgb(32_31_35_/_0.92)_100%)] px-6 py-20 text-center sm:px-10">
+          <span className="mono text-[11.5px] tracking-[0.08em] text-sage">{c.cta.kicker}</span>
+          <h2 className="mx-auto mt-4 max-w-[820px] text-[clamp(32px,4.4vw,52px)] font-bold leading-[1.2] text-balance text-white">
             {c.cta.title}
           </h2>
-          <div className="mt-[34px] flex flex-wrap justify-center gap-3">
-            <Link href={href(locale, "/demo")} className="btn btn-lg btn-invert">
+          <p className="mx-auto mt-5 max-w-[600px] text-[19px] leading-[1.5] text-white/[0.78]">
+            {c.cta.lede}
+          </p>
+          <div className="mt-9 flex flex-wrap justify-center gap-3">
+            <Link href={href(locale, "/demo")} className="btn btn-lg btn-accent">
               {c.cta.primary}
             </Link>
             <Link href={href(locale, "/demo")} className="btn btn-lg btn-ghost-invert">
               {c.cta.secondary}
             </Link>
           </div>
-          <p className="mt-5 text-[14.5px] text-white/[0.66]">{c.cta.note}</p>
+          <ul className="mt-8 flex flex-wrap justify-center gap-x-7 gap-y-3">
+            {c.cta.bullets.map((b) => (
+              <li key={b} className="flex items-center gap-2 text-[15px] text-white/[0.78]">
+                <span className="text-sage">✓</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-7 text-[14.5px] text-white/[0.55]">{c.cta.note}</p>
         </div>
       </div>
     </section>

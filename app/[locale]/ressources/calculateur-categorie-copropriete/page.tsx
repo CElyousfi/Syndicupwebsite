@@ -36,7 +36,7 @@ export default async function CalculatorPage({
 
   return (
     <>
-      <section className="shell-narrow pt-16">
+      <section className="shell-narrow pt-20">
         <Crumb
           locale={l}
           home={c.articleCommon.crumbHome}
@@ -45,13 +45,13 @@ export default async function CalculatorPage({
             { label: t.crumb },
           ]}
         />
-        <h1 className="mt-5 max-w-[720px] text-[clamp(32px,4.4vw,48px)] font-semibold leading-[1.06] tracking-[-0.035em] text-balance text-ink">
+        <h1 className="mt-5 max-w-[720px] h-page text-balance text-ink">
           {t.title}
         </h1>
         <p className="lede mt-[18px] max-w-[620px]">{t.lede}</p>
       </section>
 
-      <section className="shell-narrow pt-9">
+      <section className="shell-narrow pt-12">
         <CategoryCalculator c={c} locale={l} />
       </section>
     </>

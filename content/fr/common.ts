@@ -145,12 +145,18 @@ export const nav: SiteContent["nav"] = {
 };
 
 export const cta: SiteContent["cta"] = {
-  title:
-    "Votre prochaine AG peut être la première qui se tient sans discussion sur les chiffres.",
+  kicker: "PRÊT À COMMENCER",
+  title: "Sérieux au sujet de votre copropriété ?",
+  lede: "Votre prochaine AG peut être la première qui se tient sans discussion sur les chiffres.",
   primary: "Réserver une démo",
   secondary: "Essayer le bac à sable",
   note: "Démo de 20 minutes, en français ou en arabe. Nom, téléphone, nombre de lots — c'est tout.",
   image: "/images/residence-hero.jpg",
+  bullets: [
+    "Reprise de vos données gratuite",
+    "Gratuit sous 30 lots, sans limite de durée",
+    "Sans engagement, résiliable au mois",
+  ],
 };
 
 export const notFound: SiteContent["notFound"] = {

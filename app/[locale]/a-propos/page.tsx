@@ -32,7 +32,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   return (
     <>
-      <section className="shell pt-16">
+      <section className="shell pt-20">
         <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: a.crumb }]} />
         <h1 className="h-page mt-5 max-w-[800px]">{a.title}</h1>
         <div className="relative mt-8 h-[clamp(220px,28vw,340px)] overflow-hidden rounded-[26px] bg-action-mist">
@@ -47,7 +47,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      <section className="shell pt-10">
+      <section className="shell pt-16">
         <div className="auto-grid items-start gap-9">
           <div className="grid gap-5">
             {a.paras.map((p) => (

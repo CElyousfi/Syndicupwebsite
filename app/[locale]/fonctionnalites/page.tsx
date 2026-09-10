@@ -37,7 +37,7 @@ export default async function FeaturesPage({
 
   return (
     <>
-      <section className="shell pt-16">
+      <section className="shell pt-20">
         <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: f.crumb }]} />
         <h1 className="h-page mt-5 max-w-[780px]">{f.title}</h1>
         <p className="lede mt-5 max-w-[640px]">{f.lede}</p>
@@ -53,7 +53,7 @@ export default async function FeaturesPage({
         </div>
       </section>
 
-      <section className="shell pt-11">
+      <section className="shell pt-16">
         <div className="auto-grid gap-4">
           {f.cards.map((card, i) => (
             <Link
@@ -79,7 +79,7 @@ export default async function FeaturesPage({
               <h2
                 className={`${card.badge ? "mt-3" : ""} ${
                   i === 0 ? "text-[21px] text-white" : "text-[19px] text-ink"
-                } font-semibold tracking-[-0.02em]`}
+                } font-semibold`}
               >
                 {card.title}
               </h2>
@@ -102,9 +102,9 @@ export default async function FeaturesPage({
         </div>
       </section>
 
-      <section className="shell pt-18">
+      <section className="shell pt-20">
         <div className="card px-8 py-9">
-          <h2 className="text-[clamp(22px,2.6vw,28px)] font-semibold leading-[1.15] tracking-[-0.025em] text-ink">
+          <h2 className="h-card text-ink">
             {f.foundationTitle}
           </h2>
           <div className="auto-grid-md mt-[26px] gap-[26px]">

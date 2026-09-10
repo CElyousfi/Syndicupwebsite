@@ -60,14 +60,14 @@ export default async function SecurityPage({ params }: { params: Promise<{ local
 
   return (
     <>
-      <section className="shell pt-16">
+      <section className="shell pt-20">
         <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: s.crumb }]} />
         <h1 className="h-page mt-5 max-w-[800px]">{s.title}</h1>
         <p className="lede mt-5 max-w-[660px]">{s.lede}</p>
         <div className="mt-8">
           <IsolationDiagram
             labels={[
-              c.home.securityTiles[1]?.title ?? "",
+              c.home.why[1]?.title ?? "",
               s.blocks[0]?.heading ?? "",
               s.blocks[1]?.heading ?? "",
             ]}
@@ -75,7 +75,7 @@ export default async function SecurityPage({ params }: { params: Promise<{ local
         </div>
       </section>
 
-      <section className="shell pt-11">
+      <section className="shell pt-16">
         <div className="grid gap-4">
           {s.blocks.map((block, i) => (
             <div
@@ -95,7 +95,7 @@ export default async function SecurityPage({ params }: { params: Promise<{ local
                   </span>
                   <div className="mt-3 flex items-center gap-3">
                     <SecurityIcon name={icons[i] ?? "lock"} />
-                    <h2 className="text-[clamp(21px,2.4vw,27px)] font-semibold leading-[1.18] tracking-[-0.025em] text-ink">
+                    <h2 className="h-card text-ink">
                       {block.heading}
                     </h2>
                   </div>

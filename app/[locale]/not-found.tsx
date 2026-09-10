@@ -11,11 +11,11 @@ export default function NotFound() {
   const nf = c.notFound;
 
   return (
-    <section className="shell pt-16">
+    <section className="shell pt-20">
       <p className="crumb">
         <Link href={href(l)}>{c.articleCommon.crumbHome}</Link> / {nf.crumb}
       </p>
-      <h1 className="mt-5 max-w-[700px] text-[clamp(32px,4.6vw,50px)] font-semibold leading-[1.06] tracking-[-0.035em] text-balance text-ink">
+      <h1 className="mt-5 max-w-[700px] h-page text-balance text-ink">
         {nf.title}
       </h1>
       <p className="lede mt-[18px] max-w-[560px]">{nf.lede}</p>

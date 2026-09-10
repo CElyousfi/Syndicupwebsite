@@ -44,13 +44,13 @@ export default async function DetailPage({
 
   return (
     <>
-      <section className="shell pt-16">
+      <section className="shell pt-20">
         <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: page.crumb }]} />
 
         <div className="auto-grid mt-5 items-start gap-11">
           <div>
             <span className="tag">{page.kicker}</span>
-            <h1 className="mt-[18px] text-[clamp(32px,4.6vw,52px)] font-semibold leading-[1.06] tracking-[-0.035em] text-balance text-ink">
+            <h1 className="mt-[18px] h-page text-balance text-ink">
               {page.title}
             </h1>
             <p className="mt-5 text-[clamp(16.5px,1.9vw,19px)] leading-[1.55] text-pretty text-body">
@@ -95,7 +95,7 @@ export default async function DetailPage({
               <div className="auto-grid items-center gap-8">
                 <div>
                   <span className="mono text-[11px] tracking-[0.08em] text-faint">{block.step}</span>
-                  <h2 className="mt-3 text-[clamp(21px,2.4vw,29px)] font-semibold leading-[1.14] tracking-[-0.028em] text-ink">
+                  <h2 className="mt-3 h-card text-ink">
                     {block.heading}
                   </h2>
                   <p className="mt-3 text-[16.5px] leading-[1.6] text-pretty text-body">
@@ -114,9 +114,9 @@ export default async function DetailPage({
         </div>
       </section>
 
-      <section className="shell pt-14">
+      <section className="shell pt-20">
         <div className="rounded-card border border-sand-line bg-sand-tint px-8 py-[34px]">
-          <h2 className="text-[clamp(20px,2.2vw,25px)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink">
+          <h2 className="h-card text-ink">
             {page.limitTitle}
           </h2>
           <p className="mt-3 max-w-[760px] text-[15.5px] leading-[1.55] text-pretty text-body">
@@ -125,7 +125,7 @@ export default async function DetailPage({
         </div>
       </section>
 
-      <section className="shell pt-14">
+      <section className="shell pt-20">
         <h2 className="mono text-[11px] font-medium tracking-[0.08em] text-faint">
           {c.detailCommon.furtherTitle}
         </h2>

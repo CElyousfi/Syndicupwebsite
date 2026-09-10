@@ -80,14 +80,36 @@ export interface PillarCard {
   link: Link;
 }
 
-export interface ModuleCard {
-  href: string;
+/** Trio « conformité intégrée » : trois blocs alternés sous fond sombre. */
+export interface ConformityBlock {
+  tag: string;
   title: string;
   desc: string;
-  /** La première carte du rail est sombre. */
-  dark?: boolean;
-  /** La carte « location courte durée » est teintée tosca. */
-  tinted?: boolean;
+  points: string[];
+  mockup: MockupKind;
+}
+
+/** Carte « pourquoi nous » : pastille d'icône 64px, titre, texte. */
+export interface WhyCard {
+  icon: "shield" | "lock" | "layers" | "split";
+  tone: "sage" | "sand" | "tosca" | "lilac";
+  title: string;
+  desc: string;
+}
+
+/** Carte du carrousel de portefeuille : photo pleine, texte en surimpression. */
+export interface PortfolioCard {
+  href: string;
+  image: string;
+  imageAlt: string;
+  title: string;
+  desc: string;
+}
+
+/** Onglet de la FAQ : un jeu de questions par thème. */
+export interface FaqTab {
+  label: string;
+  items: FaqItem[];
 }
 
 export interface ProofFigure {
@@ -109,23 +131,6 @@ export interface EcosystemTile {
   tone: "sage" | "sand" | "tosca" | "lilac" | "dot";
   title: string;
   desc: string;
-}
-
-export interface SecurityTile {
-  icon: "lock" | "split" | "layers" | "shield";
-  title: string;
-  desc: string;
-}
-
-export interface SegmentCard {
-  href: string;
-  image: string;
-  imageAlt: string;
-  tone: "mist" | "lilac" | "sand";
-  tag: string;
-  title: string;
-  desc: string;
-  cta: string;
 }
 
 export interface PriceTeaser {
@@ -186,6 +191,18 @@ export interface ArticlePage {
   ctaBody: string;
 }
 
+/** Bandeau final : titre, sous-titre, formulaire court. */
+export interface FinalCta {
+  kicker: string;
+  title: string;
+  lede: string;
+  primary: string;
+  secondary: string;
+  note: string;
+  image: string;
+  bullets: string[];
+}
+
 export interface SiteContent {
   locale: "fr" | "ar";
 
@@ -232,9 +249,6 @@ export interface SiteContent {
     h1Before: string;
     h1Accent: string;
     lede: string;
-    calcPrompt: string;
-    calcPlaceholder: string;
-    calcCta: string;
     freeNote: string;
     heroCaption: string;
     heroChrome: string;
@@ -251,9 +265,31 @@ export interface SiteContent {
     pillarsTitle: string;
     pillarsLede: string;
     pillars: PillarCard[];
-    modulesTitle: string;
-    modulesLink: string;
-    modules: ModuleCard[];
+    marqueeLabel: string;
+    marquee: string[];
+
+    /** Trio « conformité intégrée », sur fond sombre. */
+    conformityKicker: string;
+    conformityTitle: string;
+    conformityLede: string;
+    conformity: ConformityBlock[];
+
+    /** « Pourquoi SyndicUp ? » — trois cartes à pastille. */
+    whyKicker: string;
+    whyTitle: string;
+    whyLede: string;
+    why: WhyCard[];
+
+    /** Carrousel « bâti pour votre portefeuille ». */
+    portfolioKicker: string;
+    portfolioTitle: string;
+    portfolioLede: string;
+    portfolio: PortfolioCard[];
+
+    /** FAQ rangée par onglets. */
+    faqLede: string;
+    faqTabs: FaqTab[];
+
     proofSectionKicker: string;
     proofSectionTitle: string;
     proofSectionLede: string;
@@ -270,13 +306,6 @@ export interface SiteContent {
     ecosystemTitle: string;
     ecosystemNote: string;
     ecosystem: EcosystemTile[];
-    securityKicker: string;
-    securityTitle: string;
-    securityLink: string;
-    securityTiles: SecurityTile[];
-    segmentsKicker: string;
-    segmentsTitle: string;
-    segments: SegmentCard[];
     pricingKicker: string;
     pricingTitle: string;
     pricingLink: string;
@@ -290,7 +319,6 @@ export interface SiteContent {
     supportCta: string;
     timeline: TimelineStep[];
     faqTitle: string;
-    faq: FaqItem[];
   };
 
   features: {
@@ -460,13 +488,7 @@ export interface SiteContent {
     cards: { href: string; title: string; desc: string }[];
   };
 
-  cta: {
-    title: string;
-    primary: string;
-    secondary: string;
-    note: string;
-    image: string;
-  };
+  cta: FinalCta;
 
   footer: {
     tagline: string;

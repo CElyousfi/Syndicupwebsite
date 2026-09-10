@@ -51,9 +51,9 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
   const localeSwitchHref = swapLocale(pathname, otherLocale);
 
   const navButton =
-    "flex items-center gap-1.5 rounded-full border-0 bg-transparent px-[13px] py-[9px] text-[14.5px] font-medium whitespace-nowrap text-body cursor-pointer hover:bg-ground-dim hover:text-ink";
+    "flex items-center gap-1.5 rounded-md border-0 bg-transparent px-3.5 py-2.5 text-[16px] font-semibold whitespace-nowrap text-ink-strong cursor-pointer hover:bg-ground-dim";
   const navLink =
-    "rounded-full px-[13px] py-[9px] text-[14.5px] font-medium whitespace-nowrap text-body hover:bg-ground-dim hover:text-ink";
+    "rounded-md px-3.5 py-2.5 text-[16px] font-semibold whitespace-nowrap text-ink-strong hover:bg-ground-dim";
 
   return (
     <header className="sticky top-0 z-60 border-b border-rule bg-ground/[0.86] backdrop-blur-[14px]">
@@ -100,14 +100,14 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
               <Link href={href(locale, "/demo")} className="btn btn-sm btn-light">
                 {c.common.sandboxShort}
               </Link>
-              <Link href={href(locale, "/demo")} className="btn btn-sm btn-dark">
+              <Link href={href(locale, "/demo")} className="btn btn-sm btn-accent">
                 {c.common.demoCta}
               </Link>
             </div>
           </>
         ) : (
           <div className="flex min-w-0 flex-1 items-center justify-end gap-2.5">
-            <Link href={href(locale, "/demo")} className="btn btn-sm btn-dark">
+            <Link href={href(locale, "/demo")} className="btn btn-sm btn-accent">
               {c.common.demoShort}
             </Link>
             <button

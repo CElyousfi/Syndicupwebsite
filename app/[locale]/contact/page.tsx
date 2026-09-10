@@ -32,15 +32,15 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <section className="shell-narrow pt-16">
+      <section className="shell-narrow pt-20">
         <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: ct.crumb }]} />
-        <h1 className="mt-5 max-w-[700px] text-[clamp(32px,4.6vw,50px)] font-semibold leading-[1.06] tracking-[-0.035em] text-balance text-ink">
+        <h1 className="mt-5 max-w-[700px] h-page text-balance text-ink">
           {ct.title}
         </h1>
         <p className="lede mt-[18px] max-w-[600px]">{ct.lede}</p>
       </section>
 
-      <section className="shell-narrow pt-9">
+      <section className="shell-narrow pt-12">
         <div className="auto-grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
           <a
             href={whatsappHref(c.common.whatsappMessage)}
@@ -49,7 +49,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             className="block rounded-card bg-ink-strong px-[30px] py-8 text-white hover:bg-ink"
           >
             <span className="inline-block h-[11px] w-[11px] rounded-full bg-sage" />
-            <h2 className="mt-4 text-[21px] font-semibold tracking-[-0.02em] text-white">
+            <h2 className="mt-4 text-[21px] font-bold text-white">
               {ct.whatsappTitle}
             </h2>
             <p className="mt-2 text-[15px] leading-[1.5] text-white/[0.72]">{ct.whatsappBody}</p>
@@ -60,7 +60,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
           {ct.cards.map((card) => (
             <div key={card.email} className="card px-[30px] py-8">
-              <h2 className="text-[19px] font-semibold tracking-[-0.02em] text-ink">{card.title}</h2>
+              <h2 className="text-[19px] font-bold text-ink">{card.title}</h2>
               <p className="mt-2 text-[15px] leading-[1.5] text-body">{card.body}</p>
               <a
                 href={`mailto:${card.email}`}

@@ -10,9 +10,6 @@ export const home: SiteContent["home"] = {
   h1Accent: "qui peut prouver",
   lede: "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable.",
 
-  calcPrompt: "Combien vous coûterait votre copropriété ? Réponse en 10 secondes.",
-  calcPlaceholder: "Nombre de lots",
-  calcCta: "Calculer →",
   freeNote: "Gratuit pour les copropriétés de moins de 30 lots.",
 
   heroCaption: "MAQUETTE PRODUIT — TABLEAU DE BORD SYNDIC, ANNEXE 10 GÉNÉRÉE",
@@ -80,7 +77,7 @@ export const home: SiteContent["home"] = {
         "Contrôles bloquants avant clôture d'exercice",
         "PDF horodatés, FR et AR",
       ],
-      link: { href: "/comptabilite-annexes", label: "La comptabilité →" },
+      link: { href: "/comptabilite-annexes", label: "La comptabilité" },
     },
     {
       mockup: "appels-rows",
@@ -92,7 +89,7 @@ export const home: SiteContent["home"] = {
         "Quittances numérotées, émises automatiquement",
         "Échéancier négocié et dossier de mise en demeure",
       ],
-      link: { href: "/appels-de-fonds-recouvrement", label: "Appels de fonds →" },
+      link: { href: "/appels-de-fonds-recouvrement", label: "Appels de fonds" },
     },
     {
       mockup: "vote",
@@ -104,7 +101,7 @@ export const home: SiteContent["home"] = {
         "Pouvoirs plafonnés, feuille de présence numérique",
         "PV distribué à tous sous 48 heures",
       ],
-      link: { href: "/assemblees-generales", label: "Assemblées générales →" },
+      link: { href: "/assemblees-generales", label: "Assemblées générales" },
     },
     {
       mockup: "phone-resident",
@@ -116,54 +113,204 @@ export const home: SiteContent["home"] = {
         "Incident déclaré en photo, escalade automatique",
         "Connexion par code SMS, sans mot de passe",
       ],
-      link: { href: "/application-residents", label: "Application résidents →" },
+      link: { href: "/application-residents", label: "Application résidents" },
     },
   ],
 
-  modulesTitle: "Neuf modules, un seul modèle de données.",
-  modulesLink: "Vue d'ensemble →",
-  modules: [
+  marqueeLabel: "NEUF MODULES, UN SEUL MODÈLE DE DONNÉES",
+  marquee: [
+    "Comptabilité",
+    "Les 12 annexes",
+    "Appels de fonds",
+    "Recouvrement gradué",
+    "Assemblées générales",
+    "PV horodaté",
+    "Dépenses & justificatifs",
+    "Application résidents",
+    "Gardien & loge",
+    "Petite caisse",
+    "Location courte durée",
+    "Multi-résidences",
+    "Journal d'audit",
+    "Export comptable",
+    "FR & AR",
+  ],
+
+  conformityKicker: "CONFORMITÉ INTÉGRÉE",
+  conformityTitle: "La preuve n'est pas une option qu'on active.",
+  conformityLede:
+    "Trois mécanismes tournent en permanence sous le produit. Ce sont eux qui font qu'en janvier, il n'y a rien à reconstituer.",
+  conformity: [
     {
-      href: "/comptabilite-annexes",
-      title: "Comptabilité & annexes",
-      desc: "Les 12 annexes produites, pas ressaisies.",
-      dark: true,
+      tag: "CONTRÔLES BLOQUANTS",
+      title: "L'exercice refuse de se clôturer s'il n'est pas juste",
+      desc: "Dépense sans pièce, écriture non lettrée, solde qui ne boucle pas : la clôture s'arrête et vous dit où. Le contrôle n'arrive pas après l'AG, il arrive avant la génération.",
+      points: [
+        "La liste des anomalies est nominative, pas un compteur d'erreurs.",
+        "Aucune dérogation « juste pour cette fois ».",
+        "Les 12 annexes ne sortent qu'une fois les contrôles passés.",
+      ],
+      mockup: "validation",
     },
     {
-      href: "/appels-de-fonds-recouvrement",
-      title: "Appels de fonds",
-      desc: "Tantièmes, quittances, relances graduées.",
+      tag: "JOURNAL INALTÉRABLE",
+      title: "Une correction s'ajoute, elle n'efface pas",
+      desc: "Votes, notifications, paiements, changements de propriétaire : ces lignes n'ont ni UPDATE ni DELETE. Corriger, c'est écrire une ligne nouvelle liée à la précédente — et l'historique reste lisible.",
+      points: [
+        "Horodatage et auteur sur chaque action financière ou probante.",
+        "Un PV contesté reçoit une annexe, jamais une réécriture.",
+        "Exploitable tel quel en cas de contestation de mandat.",
+      ],
+      mockup: "vote",
     },
     {
-      href: "/assemblees-generales",
-      title: "Assemblées générales",
-      desc: "Quorum, votes en tantièmes, PV horodaté.",
+      tag: "ARITHMÉTIQUE AU CENTIME",
+      title: "L'écart d'arrondi est attribué, pas perdu",
+      desc: "Aucun montant en virgule flottante. La répartition aux tantièmes produit presque toujours un reste de quelques centimes : il est calculé, attribué selon une règle stable, et visible dans l'annexe.",
+      points: [
+        "Un centime perdu sur 48 lots, et le total ne boucle plus.",
+        "Clés multiples : générales, ascenseur, chauffage, cage, commerces.",
+        "Le détail du calcul est joint à l'appel de fonds du lot.",
+      ],
+      mockup: "annexe",
+    },
+  ],
+
+  whyKicker: "POURQUOI SYNDICUP",
+  whyTitle: "Pourquoi SyndicUp ?",
+  whyLede:
+    "Trois raisons qui ne dépendent pas de notre discours commercial, et que vous pouvez vérifier vous-même dans le bac à sable.",
+  why: [
+    {
+      icon: "shield",
+      tone: "sage",
+      title: "Conforme par construction",
+      desc: "Les 12 annexes du Décret 2.23.700 sortent de vos écritures. Pas un module en option, pas une exportation à retravailler : le produit ne sait pas fonctionner autrement.",
     },
     {
-      href: "/depenses-justificatifs",
-      title: "Dépenses & justificatifs",
-      desc: "Pas de facture, pas de comptabilité.",
+      icon: "lock",
+      tone: "tosca",
+      title: "Cloisonné et traçable",
+      desc: "Le cloisonnement entre copropriétés est appliqué dans l'application et dans la base. Chaque action financière est horodatée avec son auteur, et l'historique ne s'efface pas.",
     },
     {
-      href: "/application-residents",
-      title: "Application résidents",
-      desc: "Solde, quittances, incidents. FR & AR.",
+      icon: "layers",
+      tone: "sand",
+      title: "Sans coût d'entrée",
+      desc: "Gratuit sous 30 lots, sans limite de durée. Reprise de vos données gratuite quelle que soit la taille. Tarif public au-delà, résiliable au mois.",
+    },
+  ],
+
+  portfolioKicker: "BÂTI POUR VOTRE SITUATION",
+  portfolioTitle: "Bâti pour votre portefeuille.",
+  portfolioLede:
+    "Un immeuble tenu le soir, un cabinet de cinquante mandats, une résidence neuve à livrer : ce n'est pas le même métier, ce n'est pas le même écran.",
+  portfolio: [
+    {
+      href: "/pour-syndic-benevole",
+      image: "/images/residence-entrance.jpg",
+      imageAlt: "Entrée d'une résidence en copropriété",
+      title: "Syndic bénévole",
+      desc: "Gratuit sous 30 lots. La conformité comme effet secondaire de vos gestes quotidiens.",
     },
     {
-      href: "/gardien-et-loge",
-      title: "Gardien & loge",
-      desc: "Incidents photo, rondes, petite caisse.",
+      href: "/pour-cabinet-syndic",
+      image: "/images/residence-courtyard.jpg",
+      imageAlt: "Cour intérieure d'une résidence sous mandat",
+      title: "Cabinet de syndic",
+      desc: "Une vue portefeuille classée par urgence, et une clôture qui devient prévisible.",
     },
     {
-      href: "/location-courte-duree",
-      title: "Location courte durée",
-      desc: "Unique sur le marché marocain.",
-      tinted: true,
+      href: "/pour-promoteurs",
+      image: "/images/espace-piscine.jpg",
+      imageAlt: "Espace commun d'une résidence neuve",
+      title: "Promoteurs",
+      desc: "Livrer une copropriété déjà administrée, et s'épargner trois ans de réclamations.",
     },
     {
       href: "/multi-residences-cabinets",
+      image: "/images/residence-hero.jpg",
+      imageAlt: "Résidence d'un portefeuille multi-sites",
       title: "Multi-résidences",
-      desc: "Un portefeuille, un écran de pilotage.",
+      desc: "Cinquante résidences, un seul écran de pilotage et des permissions par gestionnaire.",
+    },
+    {
+      href: "/location-courte-duree",
+      image: "/images/espace-piscine.jpg",
+      imageAlt: "Résidence avec location saisonnière",
+      title: "Location courte durée",
+      desc: "Le lot loué à la nuit consomme plus, et sa quote-part le reflète. Unique sur le marché.",
+    },
+    {
+      href: "/gardien-et-loge",
+      image: "/images/residence-entrance.jpg",
+      imageAlt: "Loge de gardien à l'entrée d'une résidence",
+      title: "Gardien & loge",
+      desc: "L'outil du terrain : incidents en photo, rondes horodatées, petite caisse tracée.",
+    },
+  ],
+
+  faqLede:
+    "Ce qu'on nous demande le plus souvent, rangé par sujet. Si votre question n'y est pas, elle tient dans un message WhatsApp.",
+  faqTabs: [
+    {
+      label: "Le produit",
+      items: [
+        {
+          q: "SyndicUp produit-il vraiment les 12 annexes du Décret 2.23.700 ?",
+          a: "Oui. Elles sont générées depuis les écritures saisies pendant l'année — dépenses avec justificatifs, appels de fonds, encaissements, provisions. Rien n'est ressaisi en fin d'exercice, ce qui est précisément la raison pour laquelle un tableur ne suffit plus.",
+        },
+        {
+          q: "Le PV d'assemblée générale est-il opposable ?",
+          a: "Le PV est généré à la clôture de la séance, horodaté, avec la feuille de présence, les pouvoirs, et le détail des votes par tantièmes. Il est distribué à tous les copropriétaires dans les 48 heures et le délai de contestation court à partir de cette distribution, tracée.",
+        },
+        {
+          q: "L'interface existe-t-elle en arabe ?",
+          a: "Oui, en français et en arabe, avec une mise en page de droite à gauche réelle — pas une traduction posée sur une interface pensée pour le français. Les documents produits suivent la langue choisie.",
+        },
+        {
+          q: "Les copropriétaires doivent-ils installer une application ?",
+          a: "Non. L'application existe sur iOS et Android pour ceux qui la veulent, mais tout est accessible depuis un navigateur mobile, avec une connexion par code SMS — sans mot de passe à retenir.",
+        },
+      ],
+    },
+    {
+      label: "Prix & mise en route",
+      items: [
+        {
+          q: "Est-ce vraiment gratuit ?",
+          a: "Gratuit sans limite de durée pour les copropriétés de moins de 30 lots — la majorité des immeubles gérés par un syndic bénévole. Au-delà, le tarif est public : 12 MAD par lot et par mois, 9 MAD dès 500 lots pour les cabinets.",
+        },
+        {
+          q: "Puis-je reprendre mon fichier Excel existant ?",
+          a: "Oui. Vous nous envoyez le fichier tel qu'il est, nous faisons la reprise et vous la validez avant la mise en service. C'est gratuit et c'est notre travail, pas le vôtre.",
+        },
+        {
+          q: "Combien de temps prend la mise en service ?",
+          a: "Trois jours pour une copropriété simple : vous envoyez le fichier, nous vous rendons la reprise à valider sous 48 heures, et la résidence est administrée le lendemain. Pour un portefeuille de cabinet, nous procédons par vagues.",
+        },
+        {
+          q: "Puis-je essayer sans inscription ?",
+          a: "Oui. Le bac à sable ouvre une résidence de démonstration complète en lecture seule : comptabilité, annexes, AG passée avec son PV, incidents. Aucun compte, aucun formulaire.",
+        },
+      ],
+    },
+    {
+      label: "Données & sécurité",
+      items: [
+        {
+          q: "Où sont hébergées les données ?",
+          a: "Sur une infrastructure européenne, chiffrée en transit et au repos, avec un cloisonnement appliqué au niveau de la base de données : une requête ne peut pas franchir la frontière d'une copropriété, même en cas d'erreur applicative. Traitement déclaré à la CNDP.",
+        },
+        {
+          q: "Qui peut voir quoi ?",
+          a: "Les permissions sont attribuées par résidence et par rôle : syndic, conseil syndical, gardien, copropriétaire, locataire, lecture seule. Un locataire ne voit jamais les comptes ni les soldes des lots, et un gestionnaire n'accède pas au portefeuille d'un collègue.",
+        },
+        {
+          q: "Puis-je récupérer mes données si je pars ?",
+          a: "À tout moment, intégralement, sans négociation. L'export complet fait partie du produit et n'est jamais facturé — y compris les justificatifs attachés aux dépenses.",
+        },
+      ],
     },
   ],
 
@@ -200,7 +347,7 @@ export const home: SiteContent["home"] = {
         "Les annexes sortent de vos écritures, vous ne les rédigez pas.",
         "Les relances d'impayés partent seules, en votre nom.",
       ],
-      cta: { href: "/pour-syndic-benevole", label: "Landing syndic bénévole →" },
+      cta: { href: "/pour-syndic-benevole", label: "Landing syndic bénévole" },
       mockup: "syndic-todo",
     },
     {
@@ -211,7 +358,7 @@ export const home: SiteContent["home"] = {
         "Rôles et permissions par gestionnaire, journal d'audit complet.",
         "Clôture d'exercice standardisée, mandat par mandat.",
       ],
-      cta: { href: "/pour-cabinet-syndic", label: "Landing cabinet de syndic →" },
+      cta: { href: "/pour-cabinet-syndic", label: "Landing cabinet de syndic" },
       mockup: "cabinet-portfolio",
     },
     {
@@ -222,7 +369,7 @@ export const home: SiteContent["home"] = {
         "Les comptes de la résidence, en lecture.",
         "Un incident déclaré avec photo, suivi jusqu'à la clôture.",
       ],
-      cta: { href: "/application-residents", label: "L'application résidents →" },
+      cta: { href: "/application-residents", label: "L'application résidents" },
       mockup: "phone-resident",
     },
     {
@@ -233,7 +380,7 @@ export const home: SiteContent["home"] = {
         "Rondes et relevés horodatés.",
         "Petite caisse de la loge, justificatifs photographiés.",
       ],
-      cta: { href: "/gardien-et-loge", label: "Gardien & loge →" },
+      cta: { href: "/gardien-et-loge", label: "Gardien & loge" },
       mockup: "gardien-tiles",
     },
   ],
@@ -242,7 +389,7 @@ export const home: SiteContent["home"] = {
   honestTitle: "Nous n'affichons aucun chiffre que nous ne pouvons pas prouver.",
   honestBody:
     "Le pilote se termine en janvier 2027. Jusque-là, cette section reste vide : pas de « +10 000 immeubles », pas de logos que nous n'avons pas le droit d'afficher, pas de témoignage anonyme. Vous jugerez sur le produit et sur le bac à sable.",
-  honestCta: "Ouvrir le bac à sable →",
+  honestCta: "Ouvrir le bac à sable",
   honestPlaceholders: [
     "résidences en production · publié après le pilote",
     "jours de clôture d'exercice, en moyenne",
@@ -292,54 +439,9 @@ export const home: SiteContent["home"] = {
     },
   ],
 
-  securityKicker: "SÉCURITÉ",
-  securityTitle: "Les comptes d'une copropriété ne sont pas des données ordinaires.",
-  securityLink: "Le détail technique →",
-  securityTiles: [
-    { icon: "lock", title: "Chiffrement", desc: "En transit et au repos." },
-    { icon: "split", title: "Cloisonnement", desc: "Une base, une frontière par résidence." },
-    { icon: "layers", title: "Sauvegardes", desc: "Restauration testée, pas supposée." },
-    { icon: "shield", title: "CNDP", desc: "Déclaration et durées de conservation." },
-  ],
-
-  segmentsKicker: "POUR QUI",
-  segmentsTitle: "Bâti pour la copropriété marocaine, telle qu'elle est.",
-  segments: [
-    {
-      href: "/pour-syndic-benevole",
-      image: "/images/residence-entrance.jpg",
-      imageAlt: "Entrée d'une résidence en copropriété",
-      tone: "mist",
-      tag: "GRATUIT SOUS 30 LOTS",
-      title: "Syndic bénévole",
-      desc: "Vous gérez votre immeuble après votre vrai travail. Le logiciel tient la comptabilité à votre place.",
-      cta: "Voir comment →",
-    },
-    {
-      href: "/pour-cabinet-syndic",
-      image: "/images/residence-courtyard.jpg",
-      imageAlt: "Cour intérieure d'une résidence gérée en cabinet",
-      tone: "lilac",
-      tag: "DÈS 500 LOTS · 9 MAD",
-      title: "Cabinet de syndic",
-      desc: "Dix, cinquante, cent résidences sous mandat. Un écran de pilotage et une clôture qui ne déraille pas.",
-      cta: "Voir comment →",
-    },
-    {
-      href: "/pour-promoteurs",
-      image: "/images/espace-piscine.jpg",
-      imageAlt: "Espace commun d'une résidence neuve",
-      tone: "sand",
-      tag: "LIVRAISON DE RÉSIDENCE",
-      title: "Promoteurs",
-      desc: "Remettre les clés d'une copropriété déjà administrée, et s'épargner trois ans de réclamations.",
-      cta: "Voir comment →",
-    },
-  ],
-
   pricingKicker: "TARIFS",
   pricingTitle: "Par lot. Pas de formulaire pour voir le prix.",
-  pricingLink: "Page tarifs complète →",
+  pricingLink: "Page tarifs complète",
   prices: [
     {
       name: "Bénévole",
@@ -371,7 +473,7 @@ export const home: SiteContent["home"] = {
   supportTitle: "Un interlocuteur qui connaît votre résidence.",
   supportBody:
     "Pas un centre d'appels, pas un robot de chat. La même personne suit votre reprise, votre première clôture et votre première AG. En français ou en arabe, sur WhatsApp.",
-  supportCta: "Nous écrire →",
+  supportCta: "Nous écrire",
   timeline: [
     {
       when: "J+0",
@@ -397,38 +499,5 @@ export const home: SiteContent["home"] = {
   ],
 
   faqTitle: "Questions fréquentes",
-  faq: [
-    {
-      q: "SyndicUp produit-il vraiment les 12 annexes du Décret 2.23.700 ?",
-      a: "Oui. Elles sont générées depuis les écritures saisies pendant l'année — dépenses avec justificatifs, appels de fonds, encaissements, provisions. Rien n'est ressaisi en fin d'exercice, ce qui est précisément la raison pour laquelle un tableur ne suffit plus.",
-    },
-    {
-      q: "Est-ce vraiment gratuit ?",
-      a: "Gratuit sans limite de durée pour les copropriétés de moins de 30 lots — la majorité des immeubles gérés par un syndic bénévole. Au-delà, le tarif est public : 12 MAD par lot et par mois.",
-    },
-    {
-      q: "Puis-je reprendre mon fichier Excel existant ?",
-      a: "Oui. Vous nous envoyez le fichier tel qu'il est, nous faisons la reprise et vous la validez avant la mise en service. C'est gratuit et c'est notre travail, pas le vôtre.",
-    },
-    {
-      q: "Où sont hébergées les données ?",
-      a: "Sur une infrastructure européenne, chiffrée en transit et au repos, avec un cloisonnement appliqué au niveau de la base de données : une requête ne peut pas franchir la frontière d'une copropriété, même en cas d'erreur applicative. Traitement déclaré à la CNDP.",
-    },
-    {
-      q: "Le PV d'assemblée générale est-il opposable ?",
-      a: "Le PV est généré à la clôture de la séance, horodaté, avec la feuille de présence, les pouvoirs, et le détail des votes par tantièmes. Il est distribué à tous les copropriétaires dans les 48 heures et le délai de contestation court à partir de cette distribution, tracée.",
-    },
-    {
-      q: "Les copropriétaires doivent-ils installer une application ?",
-      a: "Non. L'application existe sur iOS et Android pour ceux qui la veulent, mais tout est accessible depuis un navigateur mobile, avec une connexion par code SMS — sans mot de passe à retenir.",
-    },
-    {
-      q: "L'interface existe-t-elle en arabe ?",
-      a: "Oui, en français et en arabe, avec une mise en page de droite à gauche réelle — pas une traduction posée sur une interface pensée pour le français. Les documents produits suivent la langue choisie.",
-    },
-    {
-      q: "Puis-je essayer sans inscription ?",
-      a: "Oui. Le bac à sable ouvre une résidence de démonstration complète en lecture seule : comptabilité, annexes, AG passée avec son PV, incidents. Aucun compte, aucun formulaire.",
-    },
-  ],
+
 };

@@ -33,13 +33,13 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <section className="shell pt-16">
+      <section className="shell pt-20">
         <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: t.crumb }]} />
         <h1 className="h-page mt-5 max-w-[820px]">{t.title}</h1>
         <p className="lede mt-5 max-w-[640px]">{t.lede}</p>
       </section>
 
-      <section className="shell pt-11">
+      <section className="shell pt-16">
         <div className="auto-grid items-start gap-4">
           {t.plans.map((plan) => (
             <div
@@ -55,14 +55,14 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   {plan.badge}
                 </span>
               )}
-              <h2 className={`text-[17px] font-semibold ${plan.featured ? "text-white" : "text-ink"}`}>
+              <h2 className={`text-[17px] font-bold ${plan.featured ? "text-white" : "text-ink"}`}>
                 {plan.name}
               </h2>
               <p className={`mt-1.5 text-[14.5px] ${plan.featured ? "text-white/60" : "text-soft"}`}>
                 {plan.scope}
               </p>
               <p
-                className={`tnum mt-[22px] text-[46px] font-semibold leading-none tracking-[-0.035em] ${
+                className={`tnum mt-[22px] text-[46px] font-bold leading-none ${
                   plan.featured ? "text-white" : "text-ink"
                 }`}
               >
@@ -109,7 +109,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      <section className="shell pt-14">
+      <section className="shell pt-20">
         <div className="auto-grid items-stretch gap-4">
           <div className="relative min-h-[300px] overflow-hidden rounded-card bg-action-mist">
             <Image
@@ -121,7 +121,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
             />
           </div>
           <div className="card px-8 py-[34px]">
-            <h2 className="text-[clamp(21px,2.4vw,26px)] font-semibold leading-[1.18] tracking-[-0.025em] text-ink">
+            <h2 className="h-card text-ink">
               {t.neverBilledTitle}
             </h2>
             <div className="mt-6 grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))]">
@@ -136,7 +136,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      <section className="shell-narrow max-w-[900px] pt-14">
+      <section className="shell-narrow max-w-[900px] pt-20">
         <Faq items={t.faq} />
       </section>
     </>
