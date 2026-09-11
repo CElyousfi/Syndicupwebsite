@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ProductIcon } from "@/components/icons";
-import { Crumb, HeadDecor } from "@/components/site-chrome";
+import { ProductIcon, UiIcon } from "@/components/icons";
+import { PageHero, SectionHead, StepsRail } from "@/components/page-blocks";
+import { SCENES } from "@/content/scenes";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -38,97 +38,63 @@ export default async function FeaturesPage({
 
   return (
     <>
-      <HeadDecor tone="mist" variant="arc">
-        <section className="shell pt-20">
-          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: f.crumb }]} />
-          <h1 className="h-page mt-5 max-w-[780px]">{f.title}</h1>
-          <p className="lede mt-5 max-w-[640px]">{f.lede}</p>
-          <div className="relative mt-8 h-[clamp(230px,30vw,360px)] overflow-hidden rounded-[26px] bg-action-mist">
-            <Image
-              src={f.image}
-              alt={f.imageAlt}
-              fill
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-cover"
-              priority
-            />
-          </div>
-        </section>
-      </HeadDecor>
+      <PageHero
+        locale={l}
+        crumbHome={c.articleCommon.crumbHome}
+        crumb={[{ label: f.crumb }]}
+        kicker={f.crumb}
+        title={f.title}
+        lede={f.lede}
+        scene={SCENES.dashboard}
+        email={{ label: c.cta.emailLabel, placeholder: c.cta.emailPlaceholder, cta: c.common.demoCta }}
+      />
 
-      <section className="shell pt-16">
-        <div className="auto-grid gap-4">
-          {f.cards.map((card, i) => (
-            <Link
-              key={card.href}
-              href={href(l, card.href)}
-              className={`block rounded-card px-[26px] py-7 ${
-                i === 0
-                  ? "bg-ink-strong text-white hover:bg-ink"
-                  : card.badge
-                    ? "border border-tosca-line bg-tosca-tint hover:bg-[#daeaeb]"
-                    : "card card-hover"
-              }`}
-            >
+      {/* ── Les neuf modules ───────────────────────────────────────────── */}
+      <section className="shell section-pad">
+        <SectionHead kicker={f.modulesKicker} title={f.modulesTitle} lede={f.modulesLede} />
+        <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]">
+          {f.cards.map((card) => (
+            <Link key={card.href} href={href(l, card.href)} className="card card-lift group flex flex-col p-7">
               <span className="flex items-center justify-between gap-3">
-                {/* La pastille reste blanche partout : les aplats bitons du
-                    glyphe disparaîtraient sur le fond sombre. */}
-                <span
-                  className={`flex h-[46px] w-[46px] items-center justify-center rounded-xl ${
-                    i === 0 ? "bg-white" : "border border-hairline bg-white"
-                  }`}
-                >
-                  <ProductIcon name={card.icon} size={24} />
+                <span className="icon-tile bg-action-tint">
+                  <ProductIcon name={card.icon} size={28} />
                 </span>
-                {card.badge && (
-                  <span
-                    className={`mono text-[10.5px] font-semibold tracking-[0.06em] ${
-                      i === 0 ? "text-sage" : "text-tosca"
-                    }`}
-                  >
-                    {card.badge}
-                  </span>
-                )}
+                {card.badge && <span className="badge bg-lime text-[10.5px] text-ink">{card.badge}</span>}
               </span>
-              <h2
-                className={`mt-4 ${
-                  i === 0 ? "text-[21px] text-white" : "text-[19px] text-ink"
-                } font-semibold`}
-              >
-                {card.title}
-              </h2>
-              <p
-                className={`mt-2 text-[15px] leading-[1.5] ${
-                  i === 0 ? "text-white/[0.72]" : "text-body"
-                }`}
-              >
-                {card.desc}
-              </p>
-              <span
-                className={`mt-4 inline-block text-[14.5px] font-medium ${
-                  i === 0 ? "text-sage" : card.badge ? "text-tosca" : "text-action"
-                }`}
-              >
-                {c.common.openArrow}
+              <h2 className="mt-5 text-[21px] font-bold leading-[1.25] text-ink">{card.title}</h2>
+              <p className="mt-2.5 text-[15.5px] leading-[1.55] text-body">{card.desc}</p>
+              <span className="feature-link mt-auto pt-6">
+                <span className="feature-link-text">{c.detailCommon.openLabel}</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" className="feature-link-icon">
+                  <path d="M3.125 10h13.75M11.25 4.375 16.875 10l-5.625 5.625" fill="none" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="shell pt-20">
-        <div className="card px-8 py-9">
-          <h2 className="h-card text-ink">
-            {f.foundationTitle}
-          </h2>
-          <div className="auto-grid-md mt-[26px] gap-[26px]">
-            {f.foundations.map((x) => (
-              <div key={x.title}>
-                <h3 className="text-[15.5px] font-semibold text-ink">{x.title}</h3>
-                <p className="mt-1.5 text-[14.5px] leading-[1.5] text-body">{x.desc}</p>
-              </div>
-            ))}
-          </div>
+      {/* ── Le fil rouge : le trajet d'une facture ─────────────────────── */}
+      <div className="border-y border-rule bg-white">
+        <section className="shell section-pad">
+          <SectionHead kicker={f.flowKicker} title={f.flowTitle} lede={f.flowLede} />
+          <StepsRail steps={f.flow} />
+        </section>
+      </div>
+
+      {/* ── Ce qui tient l'ensemble ─────────────────────────────────────── */}
+      <section className="shell section-pad">
+        <SectionHead kicker={f.foundationKicker} title={f.foundationTitle} />
+        <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]">
+          {f.foundations.map((x) => (
+            <div key={x.title} className="card card-lift p-7">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-lime text-ink">
+                <UiIcon name={x.icon} size={22} />
+              </span>
+              <h3 className="mt-5 text-[19px] font-bold leading-[1.3] text-ink">{x.title}</h3>
+              <p className="mt-2.5 text-[15.5px] leading-[1.55] text-body">{x.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
     </>

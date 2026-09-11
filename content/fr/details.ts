@@ -1,4 +1,5 @@
-import type { RelatedCard, SiteContent } from "../types";
+import type { DetailPage, DetailSlug, RelatedCard, SiteContent } from "../types";
+import { detailsExtra } from "./details-extra";
 
 const R_COMPTA: RelatedCard = {
   href: "/comptabilite-annexes",
@@ -41,7 +42,7 @@ const R_TARIFS: RelatedCard = {
   desc: "Le prix, sans formulaire.",
 };
 
-export const details: SiteContent["details"] = {
+const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[DetailSlug]>> = {
   "comptabilite-annexes": {
     crumb: "FONCTIONNALITÉS / COMPTABILITÉ & ANNEXES",
     kicker: "PAGE PILIER · DÉCRET 2.23.700",
@@ -671,3 +672,8 @@ export const details: SiteContent["details"] = {
     related: [R_MULTI, R_AG, R_TARIFS],
   },
 };
+
+/** Chaque page = son socle + son enrichissement ; le compilateur refuse un manque. */
+export const details: SiteContent["details"] = Object.fromEntries(
+  (Object.keys(base) as DetailSlug[]).map((slug) => [slug, { ...base[slug], ...detailsExtra[slug] }]),
+) as SiteContent["details"];

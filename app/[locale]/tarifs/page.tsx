@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Crumb, Faq, HeadDecor } from "@/components/site-chrome";
+import { UiIcon } from "@/components/icons";
+import { MiniFaq, PageHero, SectionHead } from "@/components/page-blocks";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -33,114 +33,117 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <HeadDecor tone="sand" variant="wave">
-        <section className="shell pt-20">
-          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: t.crumb }]} />
-          <h1 className="h-page mt-5 max-w-[820px]">{t.title}</h1>
-          <p className="lede mt-5 max-w-[640px]">{t.lede}</p>
-        </section>
-      </HeadDecor>
+      <PageHero
+        locale={l}
+        crumbHome={c.articleCommon.crumbHome}
+        crumb={[{ label: t.crumb }]}
+        kicker={t.crumb}
+        title={t.title}
+        lede={t.lede}
+      />
 
-      <section className="shell pt-16">
-        <div className="auto-grid items-start gap-4">
+      {/* ── Les trois plans ─────────────────────────────────────────────── */}
+      <section className="shell section-pad">
+        <div className="grid items-start gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]">
           {t.plans.map((plan) => (
             <div
               key={plan.name}
-              className={
-                plan.featured
-                  ? "relative rounded-card bg-ink-strong px-[30px] py-[34px] text-white shadow-[0_28px_56px_-24px_rgb(32_31_35_/_0.45)]"
-                  : "card px-[30px] py-[34px]"
-              }
+              className={`card card-lift relative flex flex-col px-8 py-9 ${
+                plan.featured ? "border-vivid/40 ring-1 ring-vivid/30" : ""
+              }`}
             >
-              {plan.badge && (
-                <span className="absolute -top-[13px] start-[30px] rounded-full bg-sage px-[13px] py-[5px] text-[11px] font-semibold tracking-[0.04em] text-ink-strong">
-                  {plan.badge}
-                </span>
-              )}
-              <h2 className={`text-[17px] font-bold ${plan.featured ? "text-white" : "text-ink"}`}>
-                {plan.name}
-              </h2>
-              <p className={`mt-1.5 text-[14.5px] ${plan.featured ? "text-white/60" : "text-soft"}`}>
-                {plan.scope}
-              </p>
-              <p
-                className={`tnum mt-[22px] text-[46px] font-bold leading-none ${
-                  plan.featured ? "text-white" : "text-ink"
-                }`}
-              >
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-[19px] font-bold text-ink">{plan.name}</h2>
+                {plan.badge && <span className="badge bg-lime text-[10.5px] text-ink">{plan.badge}</span>}
+              </div>
+              <p className="mt-1 text-[14.5px] text-soft">{plan.scope}</p>
+              <p className="tnum mt-5 text-[46px] font-bold leading-none text-ink">
                 {plan.amount}
-                <span
-                  className={`text-[17px] font-medium ${plan.featured ? "text-sage" : "text-soft"}`}
-                >
-                  {" "}
-                  {plan.unit}
-                </span>
+                <span className="text-[17px] font-bold text-soft"> {plan.unit}</span>
               </p>
-              <p className={`mt-2 text-[14px] ${plan.featured ? "text-white/60" : "text-soft"}`}>
-                {plan.note}
-              </p>
+              <p className="mt-3 text-[15px] leading-[1.5] text-body">{plan.note}</p>
+              <ul className="list-check mt-6 gap-3">
+                {plan.features.map((x) => (
+                  <li key={x}>{x}</li>
+                ))}
+              </ul>
+              {plan.muted && (
+                <p className="mt-3 flex gap-2.5 text-[15px] text-faint">
+                  <span aria-hidden="true">—</span>
+                  {plan.muted}
+                </p>
+              )}
               <Link
                 href={href(l, plan.cta.href)}
-                className={`btn mt-6 h-[46px] w-full text-[15px] ${
-                  plan.featured ? "btn-invert" : "btn-light"
-                }`}
+                className={`btn mt-8 ${plan.featured ? "btn-lime" : "btn-light"}`}
               >
                 {plan.cta.label}
               </Link>
-              <ul className="mt-[26px] grid gap-[11px]">
-                {plan.features.map((f) => (
-                  <li
-                    key={f}
-                    className={`flex gap-2.5 text-[14.5px] ${
-                      plan.featured ? "text-white/85" : "text-body"
-                    }`}
-                  >
-                    <span className={plan.featured ? "text-sage" : "text-action"}>✓</span>
-                    {f}
-                  </li>
-                ))}
-                {plan.muted && (
-                  <li className="flex gap-2.5 text-[14.5px] text-faint">
-                    <span className="text-hairline-strong">—</span>
-                    {plan.muted}
-                  </li>
-                )}
-              </ul>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="shell pt-20">
-        <div className="auto-grid items-stretch gap-4">
-          <div className="relative min-h-[300px] overflow-hidden rounded-card bg-action-mist">
-            <Image
-              src={t.image}
-              alt={t.imageAlt}
-              fill
-              sizes="(max-width: 900px) 100vw, 50vw"
-              className="object-cover"
-            />
+      {/* ── Ligne à ligne ───────────────────────────────────────────────── */}
+      <div className="border-y border-rule bg-white">
+        <section className="shell section-pad">
+          <SectionHead kicker={t.compareKicker} title={t.compareTitle} />
+          <div className="card overflow-x-auto">
+            <table className="w-full min-w-[640px] border-collapse text-[15px]">
+              <thead>
+                <tr className="bg-hover">
+                  <th className="px-6 py-4 text-start kicker-sm" />
+                  {t.plans.map((p) => (
+                    <th key={p.name} className={`px-6 py-4 text-start text-[15px] font-bold ${p.featured ? "text-action-deep" : "text-ink"}`}>
+                      {p.name}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {t.compareRows.map((row) => (
+                  <tr key={row.feature} className="border-t border-hairline">
+                    <td className="px-6 py-4 font-semibold text-ink">{row.feature}</td>
+                    {row.cells.map((cell, i) => (
+                      <td key={i} className="px-6 py-4 text-body">
+                        {cell === true ? (
+                          <UiIcon name="check" size={20} className="text-vivid" />
+                        ) : (
+                          cell
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <div className="card px-8 py-[34px]">
-            <h2 className="h-card text-ink">
-              {t.neverBilledTitle}
-            </h2>
-            <div className="mt-6 grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))]">
-              {t.neverBilled.map((n) => (
-                <div key={n.title}>
-                  <h3 className="text-[15px] font-semibold text-ink">{n.title}</h3>
-                  <p className="mt-[5px] text-[14.5px] leading-[1.5] text-body">{n.desc}</p>
-                </div>
-              ))}
+        </section>
+      </div>
+
+      {/* ── Jamais facturé ──────────────────────────────────────────────── */}
+      <section className="shell section-pad">
+        <SectionHead kicker={t.neverBilledKicker} title={t.neverBilledTitle} />
+        <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))]">
+          {t.neverBilled.map((n) => (
+            <div key={n.title} className="card card-lift p-7">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-lime text-ink">
+                <UiIcon name={n.icon} size={22} />
+              </span>
+              <h3 className="mt-5 text-[18px] font-bold leading-[1.3] text-ink">{n.title}</h3>
+              <p className="mt-2 text-[15px] leading-[1.5] text-body">{n.desc}</p>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      <section className="shell-narrow max-w-[900px] pt-20">
-        <Faq items={t.faq} />
-      </section>
+      {/* ── Questions ───────────────────────────────────────────────────── */}
+      <div className="border-t border-rule bg-white">
+        <section className="shell-narrow section-pad max-w-[960px]">
+          <SectionHead kicker={t.faqKicker} title={t.faqTitle} />
+          <MiniFaq items={t.faq} locale={l} />
+        </section>
+      </div>
     </>
   );
 }

@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { FeatureComposition, type CompositionTone } from "@/components/feature-composition";
-import { Mockup } from "@/components/mockups";
+import {
+  AudienceGrid,
+  CompareTable,
+  FeatureRows,
+  LimitNote,
+  MiniFaq,
+  PageHero,
+  PainGrid,
+  RelatedGrid,
+  SectionHead,
+  StatTiles,
+  StepsRail,
+} from "@/components/page-blocks";
 import { Scene } from "@/components/scene";
 import { sceneFor } from "@/content/scenes";
 import { DETAIL_SLUGS, type DetailSlug } from "@/content/types";
-import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
-import { whatsappHref } from "@/lib/site";
+import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 function isDetailSlug(value: string): value is DetailSlug {
   return (DETAIL_SLUGS as readonly string[]).includes(value);
 }
 
-/** Teinte des compositions des trois blocs, en rotation. */
+/** Teinte des compositions HTML de repli, en rotation. */
 const BLOCK_TONES: CompositionTone[] = ["mist", "sand", "tosca"];
 
 export function generateStaticParams() {
@@ -37,6 +46,13 @@ export async function generateMetadata({
   };
 }
 
+/**
+ * Page de fonctionnalité. Même grammaire que l'accueil, dans cet ordre :
+ * le fold (titre, chapô, e-mail + démo, faits, scène) ; ce que le module
+ * règle ; le fonctionnement en rangées alternées ; le parcours en étapes ;
+ * les chiffres ; l'avant/après ; pour qui ; les questions ; la note honnête ;
+ * pour aller plus loin. La bande de fin est posée par la mise en page.
+ */
 export default async function DetailPage({
   params,
 }: {
@@ -48,127 +64,97 @@ export default async function DetailPage({
   const l = locale as Locale;
   const c = getContent(l);
   const page = c.details[slug];
+  const dc = c.detailCommon;
 
   return (
     <>
-      <HeadDecor tone="mist" variant="arc">
-        <section className="shell pt-20">
-        <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: page.crumb }]} />
+      <PageHero
+        locale={l}
+        crumbHome={c.articleCommon.crumbHome}
+        crumb={[{ label: page.crumb }]}
+        kicker={page.kicker}
+        title={page.title}
+        lede={page.lede}
+        scene={sceneFor(page.heroMockup)}
+        email={{
+          label: c.cta.emailLabel,
+          placeholder: c.cta.emailPlaceholder,
+          cta: c.common.demoCta,
+        }}
+        facts={page.outputs}
+      />
 
-        <div className="auto-grid mt-5 items-start gap-11">
-          <div>
-            <span className="tag">{page.kicker}</span>
-            <h1 className="mt-[18px] h-page text-balance text-ink">
-              {page.title}
-            </h1>
-            <p className="mt-5 text-[clamp(16.5px,1.9vw,19px)] leading-[1.55] text-pretty text-body">
-              {page.lede}
-            </p>
-            <div className="mt-[30px] flex flex-wrap gap-3">
-              <Link href={href(l, "/demo")} className="btn btn-accent">
-                {c.common.demoCta}
-              </Link>
-              <a
-                href={whatsappHref(c.common.whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-light"
-              >
-                {c.common.whatsappCta}
-              </a>
-            </div>
-          </div>
+      {/* ── Ce que ça règle ─────────────────────────────────────────────── */}
+      <section className="shell section-pad">
+        <SectionHead kicker={dc.painsKicker} title={page.painsTitle} />
+        <PainGrid items={page.pains} />
+      </section>
 
-          <div className="card card-lift px-[26px] py-7">
-            <h2 className="mono text-[11px] font-medium tracking-[0.08em] text-faint">
-              {c.detailCommon.outputsTitle}
-            </h2>
-            <ul className="mt-[18px] grid gap-3.5">
-              {page.outputs.map((o) => (
-                <li
-                  key={o.k}
-                  className="flex justify-between gap-4 border-b border-hairline pb-3"
-                >
-                  <span className="text-[14.5px] text-body">{o.k}</span>
-                  <span className="text-end text-[14.5px] font-semibold text-ink">{o.v}</span>
-                </li>
-              ))}
-            </ul>
-            {sceneFor(page.heroMockup) ? (
-              <Scene
-                scene={sceneFor(page.heroMockup)!}
-                variant="boxed"
-                sizes="(max-width: 768px) 100vw, 480px"
-                className="mt-5"
-              />
-            ) : (
-              <div className="mt-5 flex items-center justify-center rounded-2xl bg-action-mist p-5">
-                <Mockup kind={page.heroMockup} locale={l} />
-              </div>
-            )}
-          </div>
-        </div>
-        </section>
-      </HeadDecor>
-
-      <section className="shell pt-20">
-        <div className="grid gap-4">
-          {page.blocks.map((block, index) => (
-            <div key={block.step} className="card px-8 py-[34px]">
-              <div className="auto-grid items-center gap-8">
-                <div>
-                  <span className="mono text-[11px] tracking-[0.08em] text-faint">{block.step}</span>
-                  <h2 className="mt-3 h-card text-ink">
-                    {block.heading}
-                  </h2>
-                  <p className="mt-3 text-[16.5px] leading-[1.6] text-pretty text-body">
-                    {block.body}
-                  </p>
-                  <ul className="list-dot mt-5">
-                    {block.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-                <FeatureComposition
-                  kind={block.mockup}
-                  locale={l}
-                  tone={BLOCK_TONES[index % BLOCK_TONES.length]!}
-                  minHeight={360}
+      {/* ── Le fonctionnement, en rangées alternées ─────────────────────── */}
+      <div className="border-y border-rule bg-white">
+        <section className="shell section-pad">
+          <SectionHead title={page.blocksTitle} lede={page.blocksLede} />
+          <FeatureRows
+            rows={page.blocks.map((b, i) => ({
+              step: b.step,
+              heading: b.heading,
+              body: b.body,
+              bullets: b.bullets,
+              visual: sceneFor(b.mockup) ? (
+                <Scene
+                  scene={sceneFor(b.mockup)!}
+                  variant="boxed"
+                  sizes="(max-width: 768px) 100vw, 580px"
                 />
-              </div>
-            </div>
-          ))}
+              ) : (
+                <FeatureComposition
+                  kind={b.mockup}
+                  locale={l}
+                  tone={BLOCK_TONES[i % BLOCK_TONES.length]!}
+                  minHeight={420}
+                />
+              ),
+            }))}
+          />
+        </section>
+      </div>
+
+      {/* ── Le parcours ─────────────────────────────────────────────────── */}
+      <section className="shell section-pad">
+        <SectionHead kicker={dc.stepsKicker} title={page.stepsTitle} />
+        <StepsRail steps={page.steps} />
+      </section>
+
+      {/* ── Les chiffres ────────────────────────────────────────────────── */}
+      <section className="shell pb-[112px]">
+        <SectionHead kicker={dc.statsKicker} title={page.compareTitle} />
+        <StatTiles stats={page.stats} id={`stat-${slug}`} />
+        <div className="mt-8">
+          <CompareTable rows={page.compare} beforeLabel={dc.beforeLabel} afterLabel={dc.afterLabel} />
         </div>
       </section>
 
-      <section className="shell pt-20">
-        <div className="rounded-card border border-sand-line bg-sand-tint px-8 py-[34px]">
-          <h2 className="h-card text-ink">
-            {page.limitTitle}
-          </h2>
-          <p className="mt-3 max-w-[760px] text-[15.5px] leading-[1.55] text-pretty text-body">
-            {page.limitBody}
-          </p>
+      {/* ── Pour qui ────────────────────────────────────────────────────── */}
+      <div className="border-y border-rule bg-white">
+        <section className="shell section-pad">
+          <SectionHead kicker={dc.audiencesKicker} title={page.audiencesTitle} />
+          <AudienceGrid items={page.audiences} locale={l} />
+        </section>
+      </div>
+
+      {/* ── Questions, puis la note honnête ─────────────────────────────── */}
+      <section className="shell-narrow section-pad max-w-[960px]">
+        <SectionHead kicker={dc.faqKicker} title={page.faqTitle} />
+        <MiniFaq items={page.faq} locale={l} />
+        <div className="mt-8">
+          <LimitNote kicker={dc.limitKicker} title={page.limitTitle} body={page.limitBody} />
         </div>
       </section>
 
-      <section className="shell pt-20">
-        <h2 className="mono text-[11px] font-medium tracking-[0.08em] text-faint">
-          {c.detailCommon.furtherTitle}
-        </h2>
-        <div className="auto-grid-md mt-[18px] gap-3">
-          {page.related.map((r) => (
-            <Link
-              key={r.href}
-              href={href(l, r.href)}
-              className="card card-hover block rounded-[20px] p-[22px]"
-            >
-              <span className="block text-[15.5px] font-semibold text-ink">{r.title}</span>
-              <span className="mt-1 block text-[14px] text-soft">{r.desc}</span>
-            </Link>
-          ))}
-        </div>
+      {/* ── Pour aller plus loin ────────────────────────────────────────── */}
+      <section className="shell pb-8">
+        <h2 className="h-card mb-6 text-ink">{dc.furtherTitle}</h2>
+        <RelatedGrid items={page.related} locale={l} openLabel={dc.openLabel} />
       </section>
     </>
   );

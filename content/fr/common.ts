@@ -224,7 +224,16 @@ export const footer: SiteContent["footer"] = {
 
 export const detailCommon: SiteContent["detailCommon"] = {
   outputsTitle: "CE QUE LE MODULE PRODUIT",
-  furtherTitle: "POUR ALLER PLUS LOIN",
+  furtherTitle: "Pour aller plus loin",
+  limitKicker: "EN TOUTE FRANCHISE",
+  beforeLabel: "AVANT — TABLEUR, CAHIER, WHATSAPP",
+  afterLabel: "AVEC SYNDICUP",
+  openLabel: "Découvrir",
+  stepsKicker: "COMMENT ÇA MARCHE",
+  statsKicker: "EN CHIFFRES",
+  painsKicker: "CE QUE ÇA RÈGLE",
+  audiencesKicker: "POUR QUI",
+  faqKicker: "QUESTIONS SUR CE MODULE",
 };
 
 export const articleCommon: SiteContent["articleCommon"] = {

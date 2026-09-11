@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Crumb, HeadDecor } from "@/components/site-chrome";
+import Image from "next/image";
+import { UiIcon } from "@/components/icons";
+import { AudienceGrid, PageHero, SectionHead } from "@/components/page-blocks";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
 
@@ -32,49 +34,62 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <HeadDecor tone="mist" variant="wave">
-        <section className="shell-narrow pt-20">
-          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: ct.crumb }]} />
-          <h1 className="mt-5 max-w-[700px] h-page text-balance text-ink">
-            {ct.title}
-          </h1>
-          <p className="lede mt-[18px] max-w-[600px]">{ct.lede}</p>
-        </section>
-      </HeadDecor>
+      <PageHero
+        locale={l}
+        crumbHome={c.articleCommon.crumbHome}
+        crumb={[{ label: ct.crumb }]}
+        kicker={ct.crumb}
+        title={ct.title}
+        lede={ct.lede}
+        facts={ct.hours}
+      />
 
-      <section className="shell-narrow pt-12">
-        <div className="auto-grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
+      <section className="shell section-pad">
+        <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
           <a
             href={whatsappHref(c.common.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="block rounded-card bg-ink-strong px-[30px] py-8 text-white hover:bg-ink"
+            className="card card-lift flex flex-col p-7 ring-1 ring-vivid/30"
           >
-            <span className="inline-block h-[11px] w-[11px] rounded-full bg-sage" />
-            <h2 className="mt-4 text-[21px] font-bold text-white">
-              {ct.whatsappTitle}
-            </h2>
-            <p className="mt-2 text-[15px] leading-[1.5] text-white/[0.72]">{ct.whatsappBody}</p>
-            <span dir="ltr" className="mono mt-[18px] inline-block text-[14px] text-sage">
+            <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white shadow-[var(--shadow-lift)]">
+              <Image src="/images/logos/whatsapp.svg" alt="" width={24} height={24} unoptimized />
+            </span>
+            <h2 className="mt-5 text-[21px] font-bold text-ink">{ct.whatsappTitle}</h2>
+            <p className="mt-2 text-[15.5px] leading-[1.55] text-body">{ct.whatsappBody}</p>
+            <span dir="ltr" className="tnum mt-auto pt-5 text-[16px] font-bold text-action-deep">
               {c.common.phoneDisplay}
             </span>
           </a>
 
           {ct.cards.map((card) => (
-            <div key={card.email} className="card px-[30px] py-8">
-              <h2 className="text-[19px] font-bold text-ink">{card.title}</h2>
-              <p className="mt-2 text-[15px] leading-[1.5] text-body">{card.body}</p>
-              <a
-                href={`mailto:${card.email}`}
-                dir="ltr"
-                className="mono mt-3.5 inline-block text-[14px] text-action"
-              >
+            <a key={card.email} href={`mailto:${card.email}`} className="card card-lift flex flex-col p-7">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-lime text-ink">
+                <UiIcon name={card.icon} size={22} />
+              </span>
+              <h2 className="mt-5 text-[19px] font-bold text-ink">{card.title}</h2>
+              <p className="mt-2 text-[15.5px] leading-[1.55] text-body">{card.body}</p>
+              <span dir="ltr" className="mono mt-auto pt-5 text-[14px] text-action-deep">
                 {card.email}
-              </a>
-            </div>
+              </span>
+            </a>
           ))}
         </div>
       </section>
+
+      <div className="border-t border-rule bg-white">
+        <section className="shell section-pad">
+          <SectionHead kicker={ct.hoursKicker} title={ct.hoursTitle} />
+          <div className="mx-auto max-w-[760px]">
+            <AudienceGrid
+              locale={l}
+              items={[
+                { illustration: "support", title: c.home.supportTitle, desc: c.home.supportBody },
+              ]}
+            />
+          </div>
+        </section>
+      </div>
     </>
   );
 }

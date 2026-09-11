@@ -237,15 +237,52 @@ export interface DetailBlock {
   mockup: MockupKind;
 }
 
+/** Pictogrammes disponibles pour les briques des pages intérieures. */
+export type PageIcon =
+  | "check"
+  | "card"
+  | "bank"
+  | "whatsapp"
+  | "sms"
+  | "excel"
+  | "mobile"
+  | "upload"
+  | "review"
+  | "building"
+  | "assembly"
+  | "gift"
+  | "unlock";
+
 export interface DetailPage {
   crumb: string;
   kicker: string;
   title: string;
   lede: string;
   metaDescription: string;
+  /** Faits courts sous le chapô du fold. */
   outputs: { k: string; v: string }[];
   heroMockup: MockupKind;
+  /** Ce que la fonctionnalité règle : trois douleurs, trois réponses. */
+  painsTitle: string;
+  pains: { icon: PageIcon; pain: string; fix: string }[];
+  /** Les rangées alternées : le fonctionnement, en détail. */
+  blocksTitle: string;
+  blocksLede: string;
   blocks: DetailBlock[];
+  /** Le parcours, en étapes. */
+  stepsTitle: string;
+  steps: { icon: PageIcon; title: string; desc: string }[];
+  /** Chiffres clés de la fonctionnalité. */
+  stats: { value: string; unit?: string; caption: string }[];
+  /** Avant / après. */
+  compareTitle: string;
+  compare: { topic: string; before: string; after: string }[];
+  /** Pour qui. */
+  audiencesTitle: string;
+  audiences: { illustration: IllustrationKey; title: string; desc: string; link?: Link }[];
+  /** Questions propres à la fonctionnalité. */
+  faqTitle: string;
+  faq: FaqItem[];
   limitTitle: string;
   limitBody: string;
   related: RelatedCard[];
@@ -420,8 +457,17 @@ export interface SiteContent {
     image: string;
     imageAlt: string;
     cards: { href: string; title: string; desc: string; badge?: string; icon: IconName }[];
+    /** Le fil rouge : une donnée saisie une fois, réutilisée partout. */
+    flowKicker: string;
+    flowTitle: string;
+    flowLede: string;
+    flow: { icon: PageIcon; title: string; desc: string }[];
+    foundationKicker: string;
     foundationTitle: string;
-    foundations: { title: string; desc: string }[];
+    foundations: { icon: PageIcon; title: string; desc: string }[];
+    modulesKicker: string;
+    modulesTitle: string;
+    modulesLede: string;
   };
 
   details: Record<DetailSlug, DetailPage>;
@@ -430,6 +476,16 @@ export interface SiteContent {
   detailCommon: {
     outputsTitle: string;
     furtherTitle: string;
+    /** Libellés partagés par toutes les pages de fonctionnalité. */
+    limitKicker: string;
+    beforeLabel: string;
+    afterLabel: string;
+    openLabel: string;
+    stepsKicker: string;
+    statsKicker: string;
+    painsKicker: string;
+    audiencesKicker: string;
+    faqKicker: string;
   };
 
   articleCommon: {
@@ -458,8 +514,15 @@ export interface SiteContent {
     }[];
     image: string;
     imageAlt: string;
+    neverBilledKicker: string;
     neverBilledTitle: string;
-    neverBilled: { title: string; desc: string }[];
+    neverBilled: { icon: PageIcon; title: string; desc: string }[];
+    /** Ce que chaque plan comprend, ligne à ligne. */
+    compareKicker: string;
+    compareTitle: string;
+    compareRows: { feature: string; cells: (boolean | string)[] }[];
+    faqKicker: string;
+    faqTitle: string;
     faq: FaqItem[];
   };
 
@@ -471,6 +534,10 @@ export interface SiteContent {
     lede: string;
     inspectTitle: string;
     inspect: string[];
+    /** Le déroulé de la démo, en étapes. */
+    stepsKicker: string;
+    stepsTitle: string;
+    steps: { icon: PageIcon; title: string; desc: string }[];
     formTitle: string;
     formLede: string;
     fields: { name: string; email: string; phone: string; lots: string };
@@ -489,7 +556,20 @@ export interface SiteContent {
     crumb: string;
     title: string;
     lede: string;
+    facts: { k: string; v: string }[];
+    principlesKicker: string;
+    principlesTitle: string;
+    principles: { icon: PageIcon; title: string; desc: string }[];
+    blocksTitle: string;
+    blocksLede: string;
     blocks: { step: string; heading: string; body: string; points: string[]; tinted?: boolean }[];
+    rolesKicker: string;
+    rolesTitle: string;
+    rolesLede: string;
+    roles: { role: string; sees: string; never: string }[];
+    faqKicker: string;
+    faqTitle: string;
+    faq: FaqItem[];
   };
 
   ressources: {
@@ -552,7 +632,11 @@ export interface SiteContent {
     title: string;
     image: string;
     imageAlt: string;
+    lede: string;
     paras: string[];
+    principlesKicker: string;
+    principlesTitle: string;
+    principles: { icon: PageIcon; title: string; desc: string }[];
     commitmentsTitle: string;
     commitments: string[];
     companyTitle: string;
@@ -567,7 +651,10 @@ export interface SiteContent {
     lede: string;
     whatsappTitle: string;
     whatsappBody: string;
-    cards: { title: string; body: string; email: string }[];
+    cards: { icon: PageIcon; title: string; body: string; email: string }[];
+    hoursKicker: string;
+    hoursTitle: string;
+    hours: { k: string; v: string }[];
   };
 
   notFound: {

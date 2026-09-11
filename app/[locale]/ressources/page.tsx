@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Crumb, HeadDecor } from "@/components/site-chrome";
+import { UiIcon, type UiIconName } from "@/components/icons";
+import { PageHero } from "@/components/page-blocks";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -24,11 +25,6 @@ export async function generateMetadata({
   };
 }
 
-const TINT = {
-  mist: "bg-action-mist",
-  sand: "bg-sand-tint",
-  tosca: "bg-tosca-line",
-} as const;
 
 export default async function ResourcesPage({
   params,
@@ -43,103 +39,84 @@ export default async function ResourcesPage({
 
   return (
     <>
-      <HeadDecor tone="lilac" variant="loop">
-        <section className="shell pt-20">
-          <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: r.crumb }]} />
-          <h1 className="h-page mt-5 max-w-[780px]">{r.title}</h1>
-          <p className="lede mt-5 max-w-[640px]">{r.lede}</p>
-        </section>
-      </HeadDecor>
+      <PageHero
+        locale={l}
+        crumbHome={c.articleCommon.crumbHome}
+        crumb={[{ label: r.crumb }]}
+        kicker={r.crumb}
+        title={r.title}
+        lede={r.lede}
+      />
 
-      <section className="shell pt-16">
+      {/* ── Le guide pilier ─────────────────────────────────────────────── */}
+      <section className="shell section-pad">
         <Link
           href={href(l, "/ressources/guide-decret-2-23-700")}
-          className="block overflow-hidden rounded-[26px] bg-ink-strong text-white hover:bg-ink"
+          className="card card-lift group block overflow-hidden"
         >
           <div className="grid items-stretch [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]">
-            <div className="px-8 py-11 sm:px-10">
-              <span className="mono text-[11px] tracking-[0.08em] text-sage">{r.pillarKicker}</span>
-              <h2 className="mt-4 h-block text-white">
-                {r.pillarTitle}
-              </h2>
-              <p className="mt-4 text-[16.5px] leading-[1.55] text-white/[0.72]">{r.pillarBody}</p>
-              <span className="mt-6 inline-block text-[15px] text-sage">{r.pillarCta}</span>
+            <div className="p-9 sm:p-11">
+              <span className="badge bg-lime text-[10.5px] text-ink">{r.pillarKicker}</span>
+              <h2 className="h-section mt-5 text-ink">{r.pillarTitle}</h2>
+              <p className="mt-4 text-[17px] leading-[1.6] text-body">{r.pillarBody}</p>
+              <span className="feature-link mt-7">
+                <span className="feature-link-text">{r.pillarCta}</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" className="feature-link-icon">
+                  <path d="M3.125 10h13.75M11.25 4.375 16.875 10l-5.625 5.625" fill="none" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
             </div>
-            <div className="relative min-h-[280px] bg-ink-soft">
+            <div className="relative min-h-[300px]">
               <Image
                 src={r.pillarImage}
                 alt={r.pillarImageAlt}
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               />
             </div>
           </div>
         </Link>
-      </section>
 
-      <section className="shell pt-8">
-        <div className="auto-grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
+        <div className="mt-6 grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
           {r.cards.map((card) => {
-            const body = (
+            const icon: UiIconName =
+              card.tone === "tosca" ? "check" : card.tone === "dashed" ? "sms" : card.kicker.startsWith("MODÈLE") ? "review" : "excel";
+            const inner = (
               <>
                 {card.image ? (
-                  <>
-                    <div className={`relative h-[170px] ${TINT[card.tint ?? "mist"]}`}>
-                      <Image
-                        src={card.image}
-                        alt={card.imageAlt ?? ""}
-                        fill
-                        sizes="(max-width: 900px) 100vw, 33vw"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="px-[26px] pb-7 pt-6">
-                      <span
-                        className={`mono text-[10.5px] tracking-[0.06em] ${
-                          card.tone === "tosca" ? "text-tosca" : "text-faint"
-                        }`}
-                      >
-                        {card.kicker}
-                      </span>
-                      <h2 className="mt-2.5 text-[19px] font-bold text-ink">
-                        {card.title}
-                      </h2>
-                      <p className="mt-2 text-[15px] leading-[1.5] text-body">{card.desc}</p>
-                    </div>
-                  </>
+                  <div className="relative h-[180px]">
+                    <Image src={card.image} alt={card.imageAlt ?? ""} fill sizes="(max-width: 900px) 100vw, 33vw" className="object-cover" />
+                  </div>
                 ) : (
-                  <div className="px-[26px] py-7">
-                    <span
-                      className={`mono text-[10.5px] tracking-[0.06em] ${
-                        card.tone === "tosca" ? "text-tosca" : "text-faint"
-                      }`}
-                    >
-                      {card.kicker}
+                  <div className="px-7 pt-7">
+                    <span className={`inline-flex h-11 w-11 items-center justify-center rounded-lg ${card.tone === "tosca" ? "bg-lime text-ink" : "bg-action-tint text-action"}`}>
+                      <UiIcon name={icon} size={22} />
                     </span>
-                    <h2 className="mt-3 text-[19px] font-bold text-ink">
-                      {card.title}
-                    </h2>
-                    <p className="mt-2 text-[15px] leading-[1.5] text-body">{card.desc}</p>
                   </div>
                 )}
+                <div className="flex flex-1 flex-col px-7 pb-7 pt-5">
+                  <span className="kicker-sm">{card.kicker}</span>
+                  <h2 className="mt-2.5 text-[20px] font-bold leading-[1.25] text-ink">{card.title}</h2>
+                  <p className="mt-2 text-[15.5px] leading-[1.55] text-body">{card.desc}</p>
+                  {card.href && (
+                    <span className="feature-link mt-auto pt-5 !text-[14.5px]">
+                      <span className="feature-link-text">{c.detailCommon.openLabel}</span>
+                      <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" className="feature-link-icon">
+                        <path d="M3.125 10h13.75M11.25 4.375 16.875 10l-5.625 5.625" fill="none" stroke="currentColor" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  )}
+                </div>
               </>
             );
-
-            const shell =
-              card.tone === "tosca"
-                ? "overflow-hidden rounded-card border border-tosca-line bg-tosca-tint hover:bg-[#daeaeb]"
-                : card.tone === "dashed"
-                  ? "overflow-hidden rounded-card border border-dashed border-hairline-strong bg-white"
-                  : "card card-hover overflow-hidden";
-
             return card.href ? (
-              <Link key={card.title} href={href(l, card.href)} className={`block ${shell}`}>
-                {body}
+              <Link key={card.title} href={href(l, card.href)} className="card card-lift flex flex-col overflow-hidden">
+                {inner}
               </Link>
             ) : (
-              <div key={card.title} className={shell}>
-                {body}
+              <div key={card.title} className="card flex flex-col overflow-hidden border-dashed opacity-80">
+                {inner}
               </div>
             );
           })}
