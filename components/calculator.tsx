@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import type { SiteContent } from "@/content/types";
-import type { Locale } from "@/lib/i18n";
 
 /** Seuils appliqués dans le produit — à confirmer sur le texte officiel. */
 const SEUIL_STANDARD = 30;
@@ -12,7 +11,7 @@ const TARIF_STANDARD = 12;
 const TARIF_CABINET = 9;
 const SEUIL_CABINET = 500;
 
-export function CategoryCalculator({ c, locale }: { c: SiteContent; locale: Locale }) {
+export function CategoryCalculator({ c }: { c: SiteContent }) {
   const t = c.calc;
   const [lots, setLots] = useState("48");
   const [budget, setBudget] = useState("330000");
@@ -24,7 +23,7 @@ export function CategoryCalculator({ c, locale }: { c: SiteContent; locale: Loca
 
     // Espace fine insécable en sortie française : on la normalise en espace simple.
     const fmt = (value: number) =>
-      new Intl.NumberFormat(locale === "ar" ? "ar-MA" : "fr-FR", {
+      new Intl.NumberFormat("fr-FR", {
         maximumFractionDigits: 0,
       })
         .format(Math.round(value))
@@ -52,7 +51,7 @@ export function CategoryCalculator({ c, locale }: { c: SiteContent; locale: Loca
             : `${((annual / b) * 100).toFixed(1).replace(".", ",")} % ${t.ofBudget}`
           : "—",
     };
-  }, [lots, budget, commercial, locale, t]);
+  }, [lots, budget, commercial, t]);
 
   const pill = (on: boolean) =>
     `h-12 cursor-pointer rounded-[14px] border px-[22px] text-[15px] font-medium ${

@@ -24,6 +24,16 @@
   --color-hover: #f7f6f2;
   --color-surface: #ffffff;
 
+  /*
+   * Vif — le vert saturé des bandes et des moments forts, avec son jaune-vert
+   * d'accent. À utiliser partout où la page doit s'élever au-dessus de la
+   * sauge : bandes de confiance, chiffres clés, points d'appui visuels.
+   */
+  --color-vivid: #1e7a50;
+  --color-vivid-deep: #1b7049;
+  --color-vivid-bright: #22875a;
+  --color-lime: #dff28a;
+
   /* Action — vert sauge profond */
   --color-action: #4c6c5a;
   --color-action-deep: #3d5a4a;
@@ -74,11 +84,6 @@
   --shadow-pop: 0 2px 6px rgb(32 31 35 / 0.04), 0 34px 70px -30px rgb(32 31 35 / 0.3);
   --shadow-btn: 0 14px 26px -12px rgb(18 18 18 / 0.5);
   --shadow-menu: 0 24px 48px -16px rgb(32 31 35 / 0.18);
-}
-
-/* En arabe la police arabe passe en tête. */
-:root[lang="ar"] {
-  --font-sans: var(--font-arabic), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -373,6 +378,119 @@
     background: var(--color-action-deep);
     color: var(--color-surface);
   }
+  /*
+   * Barre de navigation, comportement de la référence : transparente sur le
+   * fold ; blanche au survol, quand un menu est ouvert, et dès 20 px de
+   * défilement (avec son ombre basse). Le bouton d'action perd son ombre dès
+   * que la barre a un fond. Chaque entrée porte un trait qui se déploie.
+   */
+  .site-nav {
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .site-nav:hover,
+  .site-nav[data-solid="true"] {
+    background-color: var(--color-surface);
+    border-bottom-color: var(--color-rule);
+  }
+  .site-nav[data-solid="true"] {
+    box-shadow: 0 10px 30px -18px rgb(32 31 35 / 0.25);
+  }
+  .site-nav .nav-cta {
+    box-shadow: 0 10.7px 25px rgb(30 122 80 / 0.22);
+    transition: box-shadow 0.3s ease, background-color 0.2s ease;
+  }
+  .site-nav:hover .nav-cta,
+  .site-nav[data-solid="true"] .nav-cta {
+    box-shadow: none;
+  }
+  .nav-item {
+    position: relative;
+  }
+  .nav-item::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 6px;
+    height: 2px;
+    width: 0;
+    border-radius: 2px;
+    background: var(--color-vivid);
+    transition: width 0.3s ease;
+  }
+  .nav-item:hover::after,
+  .nav-item[data-open]::after {
+    width: calc(100% - 28px);
+  }
+
+  /*
+   * Hexagone de logo, comme sur la référence : une tuile blanche coupée en
+   * nid d'abeille, une ombre douce, le logo réel au centre.
+   */
+  .logo-hex {
+    position: relative;
+    display: inline-flex;
+    width: 112px;
+    height: 124px;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 12px 22px rgb(32 31 35 / 0.1));
+  }
+  .logo-hex::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-surface);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+  .logo-hex > * {
+    position: relative;
+  }
+
+  /* Lien de section, comme sur la référence : le trait se déploie, la flèche avance. */
+  .feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-action-deep);
+  }
+  .feature-link-text {
+    position: relative;
+  }
+  .feature-link-text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+  .feature-link-icon {
+    transition: transform 0.3s ease;
+  }
+  .feature-link:hover .feature-link-text::after {
+    width: 100%;
+  }
+  .feature-link:hover .feature-link-icon {
+    transform: translateX(6px);
+  }
+
+  /* CTA vif : le jaune-vert de la bande de confiance, pour le bouton qui compte. */
+  .btn-lime {
+    background: var(--color-lime);
+    color: var(--color-ink);
+    box-shadow: 0 10.7px 25px rgb(30 122 80 / 0.22);
+  }
+  .btn-lime:hover {
+    background: #d3ec6e;
+    color: var(--color-ink);
+  }
   .btn-light {
     background: var(--color-surface);
     border-color: var(--color-hairline-strong);
@@ -419,14 +537,8 @@
     content: "→";
     transition: transform 0.2s ease;
   }
-  :root[dir="rtl"] .link-arrow::after {
-    content: "←";
-  }
   .link-arrow:hover::after {
     transform: translateX(3px);
-  }
-  :root[dir="rtl"] .link-arrow:hover::after {
-    transform: translateX(-3px);
   }
 
   /* Pastille d'icône des cartes « pourquoi nous » : 64px, rayon 12px, teintée. */
@@ -497,10 +609,14 @@
     color: var(--color-body);
   }
   .list-check > li::before {
-    content: "✓";
-    color: var(--color-action);
-    font-weight: 600;
+    content: "";
     flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 1px;
+    background-color: var(--color-action);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='%23000' fill-opacity='0.16'/%3E%3Cpath d='m7.6 12.3 3 3 5.8-6.2' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='%23000' fill-opacity='0.16'/%3E%3Cpath d='m7.6 12.3 3 3 5.8-6.2' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
   }
 
   /* Liste à puces sauge — les précisions techniques. */
@@ -556,7 +672,7 @@
     transform: rotate(45deg);
   }
   .faq-answer {
-    padding: 0 24px 32px;
+    padding: 0 24px 28px;
     font-size: 17px;
     line-height: 1.6;
     color: var(--color-body);
@@ -585,8 +701,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    min-height: 250px;
-    padding: 80px 32px 32px;
+    min-height: 200px;
+    padding: 80px 24px 26px;
     background: linear-gradient(
       180deg,
       rgb(32 31 35 / 0) 0%,
@@ -596,9 +712,8 @@
   }
 
   /*
-   * Bandeau défilant. Deux copies de la liste glissent sur 50 % : la boucle est
-   * sans couture parce que la seconde copie prend exactement la place de la
-   * première au terme de l'animation.
+   * Fenêtre du ruban de preuves : la piste (deux copies, déplacée en JS pour
+   * pouvoir être attrapée) défile dedans, fondue sur les bords.
    */
   .marquee {
     display: flex;
@@ -612,42 +727,6 @@
       transparent
     );
   }
-  .marquee-track {
-    display: flex;
-    flex-shrink: 0;
-    gap: 12px;
-    padding-inline-end: 12px;
-    animation: marquee-slide 42s linear infinite;
-  }
-  /* Le ruban de vignettes porte plus de matière : il défile plus lentement. */
-  .marquee-slow .marquee-track {
-    gap: 20px;
-    padding-inline-end: 20px;
-    animation-duration: 80s;
-  }
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-  @keyframes marquee-slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-  /* En RTL le ruban doit défiler dans l'autre sens. */
-  :root[dir="rtl"] .marquee-track {
-    animation-name: marquee-slide-rtl;
-  }
-  @keyframes marquee-slide-rtl {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(100%);
-    }
-  }
 
   /*
    * Progression du carrousel du fold. C'est cette animation qui fait avancer
@@ -660,6 +739,97 @@
     }
     to {
       width: 100%;
+    }
+  }
+
+  /*
+   * Vie du fold. À l'arrivée d'une diapositive, ses éléments montent l'un
+   * après l'autre (`--d` règle le décalage de chacun) ; les cartes flottent
+   * ensuite lentement ; les grands rubans du fond dérivent à peine. Tout
+   * s'éteint avec la règle de mouvement réduit.
+   */
+  [data-entering="true"] .hero-enter {
+    animation: hero-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+  [data-entering="true"] .hero-enter-fade {
+    animation: hero-fade 0.9s ease both;
+    animation-delay: var(--d, 0ms);
+  }
+  @keyframes hero-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  /* L'écran illustré porte son propre fond uni : on estompe ses quatre bords
+     pour qu'aucun rectangle ne se voie sur le dégradé du fold. */
+  .hero-feather {
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent),
+      linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:
+      linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent),
+      linear-gradient(180deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+  /* Curseur de l'encart du fold : un trait qui clignote après le texte tapé. */
+  .tw-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    margin-inline-start: 3px;
+    vertical-align: -0.12em;
+    background: currentColor;
+    animation: tw-blink 1s steps(1) infinite;
+  }
+  @keyframes tw-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .hero-float {
+    animation: hero-float 7s ease-in-out infinite;
+  }
+  .hero-float-alt {
+    animation: hero-float 8.5s ease-in-out -3.2s infinite;
+  }
+  @keyframes hero-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-9px);
+    }
+  }
+  .hero-drift {
+    transform-origin: 50% 50%;
+    animation: hero-drift 26s ease-in-out infinite alternate;
+  }
+  .hero-drift-alt {
+    transform-origin: 50% 50%;
+    animation: hero-drift 32s ease-in-out -14s infinite alternate-reverse;
+  }
+  @keyframes hero-drift {
+    from {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    to {
+      transform: translate3d(1.5%, 2%, 0) rotate(1.4deg);
     }
   }
 
@@ -734,42 +904,3 @@
     grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   }
 }
-
-/* ══════════════════════════════════════════════════════════════════════════
-   Corrections typographiques de l'arabe.
-
-   Délibérément hors de tout @layer : les utilitaires Tailwind vivent dans une
-   couche, et une règle sans couche l'emporte sur elles quelle que soit la
-   spécificité. C'est ce qu'il faut ici — le crénage négatif posé classe par
-   classe pour le français casse le tracé lié de l'arabe et doit sauter
-   partout, sans avoir à réécrire chaque page.
-   ══════════════════════════════════════════════════════════════════════════ */
-
-:root[lang="ar"] :where(*) {
-  /* L'arabe est une écriture liée : tout crénage, positif ou négatif, nuit. */
-  letter-spacing: normal;
-}
-
-:root[lang="ar"] :where(h1, h2, h3, .h-hero, .h-page, .h-section, .h-block, .h-card) {
-  /* Les diacritiques et les hampes demandent plus d'interligne que le latin. */
-  line-height: 1.32;
-}
-
-:root[lang="ar"] :where(p, li) {
-  line-height: 1.75;
-}
-
-/*
- * Les montants sont des îlots latins. « 184 320 » est vu par l'algorithme
- * bidirectionnel comme DEUX nombres séparés par une espace : en contexte RTL
- * il les réordonne et affiche « 320 184 ». Isoler chaque montant en LTR est le
- * seul correctif fiable — l'espace fine ou insécable ne change rien, elles
- * restent de classe « espace ». L'alignement, lui, doit rester à droite.
- */
-:root[lang="ar"] .tnum {
-  font-variant-numeric: tabular-nums;
-  direction: ltr;
-  unicode-bidi: isolate;
-  text-align: right;
-}
-

@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { FeatureComposition, type CompositionTone } from "@/components/feature-composition";
 import { Mockup } from "@/components/mockups";
+import { Scene } from "@/components/scene";
+import { sceneFor } from "@/content/scenes";
 import { DETAIL_SLUGS, type DetailSlug } from "@/content/types";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
@@ -92,9 +94,18 @@ export default async function DetailPage({
                 </li>
               ))}
             </ul>
-            <div className="mt-5 flex items-center justify-center rounded-2xl bg-action-mist p-5">
-              <Mockup kind={page.heroMockup} locale={l} />
-            </div>
+            {sceneFor(page.heroMockup) ? (
+              <Scene
+                scene={sceneFor(page.heroMockup)!}
+                variant="boxed"
+                sizes="(max-width: 768px) 100vw, 480px"
+                className="mt-5"
+              />
+            ) : (
+              <div className="mt-5 flex items-center justify-center rounded-2xl bg-action-mist p-5">
+                <Mockup kind={page.heroMockup} locale={l} />
+              </div>
+            )}
           </div>
         </div>
         </section>

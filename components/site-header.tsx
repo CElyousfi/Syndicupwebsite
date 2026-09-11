@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ProductIcon } from "@/components/icons";
 import type { IconName, SiteContent } from "@/content/types";
-import { href, swapLocale, type Locale } from "@/lib/i18n";
+import { href, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
 
 type MenuKey = "features" | "who" | "resources" | "all" | null;
@@ -49,16 +49,26 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
   const toggle = (key: Exclude<MenuKey, null>) => () =>
     setMenu((prev) => (prev === key ? null : key));
 
-  const otherLocale: Locale = locale === "fr" ? "ar" : "fr";
-  const localeSwitchHref = swapLocale(pathname, otherLocale);
+  // Passé 20 px de défilement, la barre prend son fond blanc et son ombre —
+  // exactement le seuil de la référence.
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navButton =
-    "flex items-center gap-1.5 rounded-md border-0 bg-transparent px-3.5 py-2.5 text-[16px] font-semibold whitespace-nowrap text-ink-strong cursor-pointer hover:bg-ground-dim";
+    "nav-item flex items-center gap-1.5 border-0 bg-transparent px-3.5 py-2.5 text-[16px] font-semibold whitespace-nowrap text-ink-strong cursor-pointer";
   const navLink =
-    "rounded-md px-3.5 py-2.5 text-[16px] font-semibold whitespace-nowrap text-ink-strong hover:bg-ground-dim";
+    "nav-item px-3.5 py-2.5 text-[16px] font-semibold whitespace-nowrap text-ink-strong";
 
   return (
-    <header className="sticky top-0 z-60 border-b border-rule bg-ground/[0.86] backdrop-blur-[14px]">
+    <header
+      data-solid={menu || scrolled ? "true" : undefined}
+      className="site-nav sticky top-0 z-60"
+    >
       <div className="shell flex h-[70px] items-center gap-7">
         <Link href={href(locale)} className="flex shrink-0 items-center gap-2.5">
           <Image
@@ -77,15 +87,15 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
         {wide ? (
           <>
             <nav className="flex min-w-0 flex-1 items-center gap-0.5">
-              <button type="button" onClick={toggle("features")} className={navButton} aria-expanded={menu === "features"}>
+              <button type="button" onClick={toggle("features")} className={navButton} data-open={menu === "features" || undefined} aria-expanded={menu === "features"}>
                 {c.nav.features}
                 <span className="text-[10px] text-faint">▾</span>
               </button>
-              <button type="button" onClick={toggle("who")} className={navButton} aria-expanded={menu === "who"}>
+              <button type="button" onClick={toggle("who")} className={navButton} data-open={menu === "who" || undefined} aria-expanded={menu === "who"}>
                 {c.nav.who}
                 <span className="text-[10px] text-faint">▾</span>
               </button>
-              <button type="button" onClick={toggle("resources")} className={navButton} aria-expanded={menu === "resources"}>
+              <button type="button" onClick={toggle("resources")} className={navButton} data-open={menu === "resources" || undefined} aria-expanded={menu === "resources"}>
                 {c.nav.resources}
                 <span className="text-[10px] text-faint">▾</span>
               </button>
@@ -98,24 +108,14 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
             </nav>
 
             <div className="flex shrink-0 items-center gap-2.5">
-              <LocaleSwitch locale={locale} target={localeSwitchHref} />
-              <a
-                href={whatsappHref(c.common.whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-sm btn-light"
-              >
-                <span className="inline-block h-2 w-2 rounded-full bg-ok" />
-                {c.common.whatsapp}
-              </a>
-              <Link href={href(locale, "/demo")} className="btn btn-sm btn-accent">
+              <Link href={href(locale, "/demo")} className="btn btn-sm btn-lime nav-cta">
                 {c.common.demoCta}
               </Link>
             </div>
           </>
         ) : (
           <div className="flex min-w-0 flex-1 items-center justify-end gap-2.5">
-            <Link href={href(locale, "/demo")} className="btn btn-sm btn-accent">
+            <Link href={href(locale, "/demo")} className="btn btn-sm btn-lime nav-cta">
               {c.common.demoShort}
             </Link>
             <button
@@ -132,86 +132,54 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
         )}
       </div>
 
-      {wide && menu === "features" && (
-        <MegaMenu locale={locale} links={c.nav.featureLinks} />
-      )}
-      {wide && menu === "who" && <MegaMenu locale={locale} links={c.nav.whoLinks} />}
-      {wide && menu === "resources" && (
-        <MegaMenu locale={locale} links={c.nav.resourceLinks} />
-      )}
+      {/* Les menus se posent PAR-DESSUS la page, ancrés sous la barre :
+          ouvrir un menu ne déplace jamais le contenu. */}
+      {menu && (
+        <div className="absolute inset-x-0 top-full z-50">
+          {wide && menu === "features" && (
+            <MegaMenu locale={locale} links={c.nav.featureLinks} />
+          )}
+          {wide && menu === "who" && <MegaMenu locale={locale} links={c.nav.whoLinks} />}
+          {wide && menu === "resources" && (
+            <MegaMenu locale={locale} links={c.nav.resourceLinks} />
+          )}
 
-      {!wide && menu === "all" && (
-        <div className="max-h-[78vh] overflow-y-auto border-t border-rule bg-white shadow-[var(--shadow-menu)]">
-          <div className="shell grid gap-[22px] pb-[30px] pt-[22px]">
-            <StackedGroup
-              locale={locale}
-              title={c.nav.groups.product}
-              links={c.nav.featureLinks.map((l) => ({ href: l.href, label: l.title }))}
-            />
-            <StackedGroup
-              locale={locale}
-              title={c.nav.groups.who}
-              links={c.nav.whoLinks.map((l) => ({ href: l.href, label: l.title }))}
-            />
-            <StackedGroup
-              locale={locale}
-              title={c.nav.groups.resources}
-              links={c.nav.resourceLinks.map((l) => ({ href: l.href, label: l.title }))}
-            />
-            <StackedGroup locale={locale} title={c.nav.groups.company} links={c.nav.companyLinks} />
-            <div className="flex flex-wrap items-center gap-2.5">
-              <a
-                href={whatsappHref(c.common.whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-light"
-              >
-                <span className="inline-block h-2 w-2 rounded-full bg-ok" />
-                {c.common.whatsapp}
-              </a>
-              <LocaleSwitch locale={locale} target={localeSwitchHref} large />
+          {!wide && menu === "all" && (
+            <div className="max-h-[78vh] overflow-y-auto border-t border-rule bg-white shadow-[var(--shadow-menu)]">
+              <div className="shell grid gap-[22px] pb-[30px] pt-[22px]">
+                <StackedGroup
+                  locale={locale}
+                  title={c.nav.groups.product}
+                  links={c.nav.featureLinks.map((l) => ({ href: l.href, label: l.title }))}
+                />
+                <StackedGroup
+                  locale={locale}
+                  title={c.nav.groups.who}
+                  links={c.nav.whoLinks.map((l) => ({ href: l.href, label: l.title }))}
+                />
+                <StackedGroup
+                  locale={locale}
+                  title={c.nav.groups.resources}
+                  links={c.nav.resourceLinks.map((l) => ({ href: l.href, label: l.title }))}
+                />
+                <StackedGroup locale={locale} title={c.nav.groups.company} links={c.nav.companyLinks} />
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <a
+                    href={whatsappHref(c.common.whatsappMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-light"
+                  >
+                    <span className="inline-block h-2 w-2 rounded-full bg-ok" />
+                    {c.common.whatsapp}
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </header>
-  );
-}
-
-function LocaleSwitch({
-  locale,
-  target,
-  large = false,
-}: {
-  locale: Locale;
-  target: string;
-  large?: boolean;
-}) {
-  const pad = large ? "px-3 py-[5px] text-[13px]" : "px-2.5 py-1 text-[12.5px]";
-  const activeFr = locale === "fr";
-  return (
-    <div className="flex items-center gap-0.5 rounded-full bg-ground-dim p-[3px]">
-      <Link
-        href={activeFr ? "#" : target}
-        aria-current={activeFr ? "true" : undefined}
-        className={`rounded-full font-semibold ${pad} ${
-          activeFr ? "bg-white text-ink" : "text-soft hover:text-ink"
-        }`}
-      >
-        FR
-      </Link>
-      <Link
-        href={activeFr ? target : "#"}
-        dir="rtl"
-        aria-current={activeFr ? undefined : "true"}
-        aria-label="العربية"
-        className={`ar rounded-full font-semibold ${pad} ${
-          activeFr ? "text-soft hover:text-ink" : "bg-white text-ink"
-        }`}
-      >
-        ع
-      </Link>
-    </div>
   );
 }
 

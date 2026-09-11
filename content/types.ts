@@ -1,3 +1,5 @@
+import type { IllustrationKey } from "@/content/scenes";
+
 /**
  * Forme du contenu du site. `fr.ts` et `ar.ts` implémentent tous les deux
  * `SiteContent` : le compilateur refuse une traduction incomplète, ce qui est
@@ -81,19 +83,34 @@ export interface RelatedCard {
 
 export interface Stat {
   kicker: string;
+  /** Le grand chiffre. */
   value: string;
+  /** Unité ou suffixe posé en petit à côté du chiffre : « MAD », « /an ». */
+  unit?: string;
+  /** Deux lignes au plus : c'est le libellé sous le grand chiffre. */
   caption: string;
-  /** Clé de teinte : sage | sand | tosca | danger | lilac */
-  tone: "sage" | "sand" | "tosca" | "danger" | "lilac";
+}
+
+/** Affirmation de la barre de confiance ; `accent` est la partie mise en couleur. */
+export interface TrustClaim {
+  /** Pictogramme qui illustre l'affirmation : décret, gratuité, langues. */
+  icon: "decree" | "free" | "languages";
+  before?: string;
+  accent: string;
+  after?: string;
 }
 
 export interface FaqItem {
   q: string;
   a: string;
+  /** Lien vers la page qui traite le sujet en détail. */
+  link?: Link;
 }
 
 export interface PillarCard {
   mockup: MockupKind;
+  /** Illustration propre à l'accueil ; la maquette reste le repli. */
+  illustration: IllustrationKey;
   /** Fond du panneau qui porte la maquette. */
   tone: "mist" | "sand" | "lilac" | "tosca";
   title: string;
@@ -102,33 +119,56 @@ export interface PillarCard {
   link: Link;
 }
 
-/**
- * Diapositive du fold : une question que se pose un syndic, sa réponse courte,
- * et l'écran du produit qui y répond. Le carrousel les enchaîne tout seul.
- */
-export interface HeroSlide {
-  question: string;
-  answer: string;
-  mockup: MockupKind;
-  /** Barre d'adresse de la fenêtre qui porte l'écran. */
-  chrome: string;
+/** Ligne d'une carte flottante du fold. */
+export interface HeroCardRow {
+  label: string;
+  /** Seconde ligne, plus discrète : contexte, date, détail du calcul. */
+  meta?: string;
+  /** Valeur alignée en bout de ligne : montant, tantièmes, nom. */
+  value?: string;
+  badge?: string;
+  badgeTone?: "ok" | "warn" | "danger" | "neutral";
 }
 
-/** Vignette du ruban défilant : soit un écran du produit, soit une photo. */
-export interface ScreenCard {
-  caption: string;
-  mockup?: MockupKind;
-  image?: string;
-  imageAlt?: string;
+/**
+ * Carte flottante du fold : une vue secondaire du produit, complète — en-tête
+ * avec contexte, lignes détaillées, pied de carte avec le chiffre qui compte.
+ */
+export interface HeroCard {
+  /** Contexte en petites capitales : résidence, échéance, nombre d'éléments. */
+  kicker: string;
+  title: string;
+  tone: "sage" | "sand" | "tosca" | "lilac";
+  rows: HeroCardRow[];
+  footer: { label: string; value: string };
+}
+
+/**
+ * Diapositive du fold : un fold complet — accroche, titre, chapô, l'écran du
+ * produit et ses deux cartes flottantes. Le carrousel fait glisser le tout.
+ */
+export interface HeroSlide {
+  eyebrow: string;
+  h1Before: string;
+  h1Accent: string;
+  lede: string;
+  /** La question du syndic, tapée lettre à lettre dans l'encart d'appel à l'action. */
+  question: string;
+  /** L'écran illustré (panneaux flottants + personnage), 2624 × 1632, dans /images/hero. */
+  image: string;
+  imageAlt: string;
+  /** Les deux cartes flottantes (début, fin) qui glissent avec la diapositive. */
+  cards: [HeroCard, HeroCard];
 }
 
 /** Trio « conformité intégrée » : trois blocs alternés sous fond sombre. */
 export interface ConformityBlock {
   tag: string;
   title: string;
+  /** Une phrase : le mécanisme, pas la démonstration. */
   desc: string;
-  points: string[];
   mockup: MockupKind;
+  illustration: IllustrationKey;
 }
 
 /** Carte « pourquoi nous » : pastille d'icône 64px, titre, texte. */
@@ -137,6 +177,8 @@ export interface WhyCard {
   tone: "sage" | "sand" | "tosca" | "lilac";
   title: string;
   desc: string;
+  /** Petite illustration au trait, au-dessus du titre, quand elle existe. */
+  illustration: IllustrationKey;
 }
 
 /** Carte du carrousel de portefeuille : photo pleine, texte en surimpression. */
@@ -145,19 +187,14 @@ export interface PortfolioCard {
   image: string;
   imageAlt: string;
   title: string;
-  desc: string;
 }
 
 /** Onglet de la FAQ : un jeu de questions par thème. */
 export interface FaqTab {
   label: string;
+  /** Une ligne sous l'onglet actif : ce que ce thème couvre. */
+  intro: string;
   items: FaqItem[];
-}
-
-export interface ProofFigure {
-  title: string;
-  desc: string;
-  mockup: MockupKind;
 }
 
 export interface RoleTab {
@@ -166,11 +203,12 @@ export interface RoleTab {
   points: string[];
   cta: Link;
   mockup: MockupKind;
+  illustration: IllustrationKey;
 }
 
+/** Une intégration : le logo réel de l'outil, sous /images/logos. */
 export interface EcosystemTile {
-  code: string;
-  tone: "sage" | "sand" | "tosca" | "lilac" | "dot";
+  logo: string;
   title: string;
   desc: string;
 }
@@ -185,6 +223,7 @@ export interface PriceTeaser {
 
 export interface TimelineStep {
   when: string;
+  icon: "upload" | "review" | "building" | "assembly";
   title: string;
   desc: string;
   highlight?: boolean;
@@ -238,15 +277,16 @@ export interface FinalCta {
   kicker: string;
   title: string;
   lede: string;
+  emailLabel: string;
+  emailPlaceholder: string;
   primary: string;
-  secondary: string;
   note: string;
   image: string;
   bullets: string[];
 }
 
 export interface SiteContent {
-  locale: "fr" | "ar";
+  locale: "fr";
 
   common: {
     brandSuffix: string;
@@ -287,33 +327,25 @@ export interface SiteContent {
   home: {
     metaTitle: string;
     metaDescription: string;
-    eyebrow: string;
-    h1Before: string;
-    h1Accent: string;
-    lede: string;
     freeNote: string;
-    heroCaption: string;
-    proofKicker: string;
+    /** Encart d'appel à l'action du fold : champ e-mail + bouton. */
+    heroEmailPlaceholder: string;
+    heroEmailLabel: string;
+    /** Nom de la région carrousel pour les technologies d'assistance. */
+    heroRegion: string;
+    /** Barre de confiance sombre, sous le fold : trois choses prouvables. */
+    trustBar: TrustClaim[];
+    /** Ruban défilant : ces chiffres alternent avec les photos. */
     stats: Stat[];
     statPhotos: { image: string; alt: string }[];
-    urgencyKicker: string;
-    urgencyBefore: string;
-    urgencyAfter: string;
-    urgencyCta: string;
-    problemBefore: string;
-    problemAccent: string;
     pillarsKicker: string;
     pillarsTitle: string;
     pillarsLede: string;
     pillars: PillarCard[];
-    /** Carrousel du fold : questions enchaînées, chacune avec son écran. */
+    /** Carrousel du fold : un fold complet par diapositive, en boucle. */
     heroSlides: HeroSlide[];
-    heroPlay: string;
-    heroPause: string;
 
     /** Ruban défilant d'écrans et de photos. */
-    marqueeLabel: string;
-    screens: ScreenCard[];
 
     /** Trio « conformité intégrée », sur fond sombre. */
     conformityKicker: string;
@@ -332,15 +364,19 @@ export interface SiteContent {
     portfolioTitle: string;
     portfolioLede: string;
     portfolio: PortfolioCard[];
+    portfolioPrev: string;
+    portfolioNext: string;
+    portfolioSlide: string;
 
     /** FAQ rangée par onglets. */
     faqLede: string;
     faqTabs: FaqTab[];
+    faqSearchPlaceholder: string;
+    faqNoResult: string;
+    faqStillTitle: string;
+    faqStillBody: string;
+    faqStillCta: string;
 
-    proofSectionKicker: string;
-    proofSectionTitle: string;
-    proofSectionLede: string;
-    proofFigures: ProofFigure[];
     rolesKicker: string;
     rolesTitle: string;
     roles: RoleTab[];
@@ -352,13 +388,18 @@ export interface SiteContent {
     ecosystemKicker: string;
     ecosystemTitle: string;
     ecosystemNote: string;
+    ecosystemCta: string;
     ecosystem: EcosystemTile[];
     pricingKicker: string;
     pricingTitle: string;
     pricingLink: string;
+    pricingFeaturedBadge: string;
+    pricingCardCta: string;
     prices: PriceTeaser[];
+    importKicker: string;
     importTitle: string;
     importBody: string;
+    importPoints: string[];
     importCta: string;
     /** Mini-conversation WhatsApp posée dans le bloc accompagnement. */
     supportChat: { incoming: string; outgoing: string; status: string };
@@ -432,8 +473,8 @@ export interface SiteContent {
     inspect: string[];
     formTitle: string;
     formLede: string;
-    fields: { name: string; phone: string; lots: string };
-    placeholders: { name: string; phone: string; lots: string };
+    fields: { name: string; email: string; phone: string; lots: string };
+    placeholders: { name: string; email: string; phone: string; lots: string };
     languageLabel: string;
     languageFr: string;
     languageAr: string;

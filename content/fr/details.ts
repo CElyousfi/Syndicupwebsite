@@ -49,7 +49,7 @@ export const details: SiteContent["details"] = {
     lede: "La comptabilité d'une copropriété n'est pas un tableur de fin d'année. Chaque dépense, chaque appel de fonds, chaque encaissement entre une fois, au moment où il se produit, avec sa pièce. En janvier, les annexes ne se rédigent pas : elles se génèrent.",
     metaDescription:
       "Les 12 annexes du Décret 2.23.700 générées depuis vos écritures : répartition aux tantièmes au centime, contrôles bloquants avant clôture, PDF horodatés en FR et AR.",
-    heroMockup: "validation",
+    heroMockup: "annexe",
     outputs: [
       { k: "Annexes du décret", v: "12 / 12" },
       { k: "Format", v: "PDF horodaté + export tableur" },
@@ -104,7 +104,7 @@ export const details: SiteContent["details"] = {
     lede: "Un appel de fonds n'a de valeur que s'il est réparti correctement, envoyé de façon prouvable, et suivi jusqu'au paiement. Les trois se font au même endroit, et le recouvrement démarre sans que vous y pensiez.",
     metaDescription:
       "Appels de fonds répartis aux tantièmes, encaissement par CMI, virement ou espèces, quittances numérotées et relances graduées automatiques.",
-    heroMockup: "phone-resident",
+    heroMockup: "appels-rows",
     outputs: [
       { k: "Répartition", v: "aux tantièmes, au centime" },
       { k: "Envoi", v: "e-mail, SMS, push — tracé" },
@@ -159,7 +159,7 @@ export const details: SiteContent["details"] = {
     lede: "Convocation dans les délais et prouvable, quorum calculé en direct, pouvoirs plafonnés, votes comptés en tantièmes, procès-verbal généré à la clôture de la séance et distribué sous 48 heures. Ce n'est pas une visioconférence avec un compte rendu : c'est une chaîne de preuve.",
     metaDescription:
       "Convocation tracée par destinataire, quorum calculé en tantièmes, votes inaltérables et PV horodaté distribué à tous sous 48 heures.",
-    heroMockup: "annexe-mini",
+    heroMockup: "vote",
     outputs: [
       { k: "Convocation", v: "tracée par destinataire" },
       { k: "Quorum", v: "calculé en tantièmes" },
@@ -214,7 +214,7 @@ export const details: SiteContent["details"] = {
     lede: "C'est la règle la plus simple du produit, et la plus impopulaire au début : une dépense sans justificatif reste bloquée dans la file de validation. Trois mois plus tard, c'est ce qui permet de répondre à un copropriétaire en dix secondes.",
     metaDescription:
       "Justificatif obligatoire et bloquant, validation à deux yeux au-delà du seuil voté, stockage privé par URL signée, journal inaltérable.",
-    heroMockup: "annexe-mini",
+    heroMockup: "validation",
     outputs: [
       { k: "Justificatif", v: "obligatoire, bloquant" },
       { k: "Validation", v: "à deux yeux au-delà d'un seuil" },
@@ -273,7 +273,7 @@ export const details: SiteContent["details"] = {
     lede: "Son solde, ses quittances, les comptes de la résidence, ses incidents en cours, les documents de la copropriété — dans une application iOS et Android, ou dans un simple navigateur mobile. En français ou en arabe, de droite à gauche pour de vrai.",
     metaDescription:
       "Solde, quittances, comptes de la résidence, incidents avec photo et documents — sur iOS, Android ou simple navigateur mobile, en FR et AR.",
-    heroMockup: "appels-rows",
+    heroMockup: "phone-resident",
     outputs: [
       { k: "Plateformes", v: "iOS, Android, web mobile" },
       { k: "Connexion", v: "code SMS, sans mot de passe" },
@@ -332,7 +332,7 @@ export const details: SiteContent["details"] = {
     lede: "C'est lui qui voit la fuite, qui reçoit le prestataire, qui achète les fournitures. Si son outil ne tient pas dans une main, ne marche pas au sous-sol et ne parle pas arabe, la donnée n'entre jamais dans le système — et la comptabilité est fausse dès le premier mois.",
     metaDescription:
       "Application gardien : incidents déclarés en photo, rondes et relevés horodatés, petite caisse tracée. Arabe par défaut, saisie hors couverture réseau.",
-    heroMockup: "phone-resident",
+    heroMockup: "gardien-tiles",
     outputs: [
       { k: "Interface", v: "mobile, gros boutons" },
       { k: "Hors-réseau", v: "saisie différée, envoi au retour" },
@@ -446,7 +446,7 @@ export const details: SiteContent["details"] = {
     lede: "Un cabinet ne veut pas cinquante tableaux de bord. Il veut savoir, en ouvrant son navigateur le lundi matin, quelles résidences sont en retard de clôture, où les impayés dérivent, et quelle AG doit être convoquée cette semaine.",
     metaDescription:
       "Vue portefeuille classée par urgence, permissions par gestionnaire, journal d'audit et clôture standardisée mandat par mandat.",
-    heroMockup: "annexe-mini",
+    heroMockup: "cabinet-portfolio",
     outputs: [
       { k: "Portefeuille", v: "illimité" },
       { k: "Alertes", v: "par résidence, priorisées" },
@@ -568,7 +568,7 @@ export const details: SiteContent["details"] = {
     lede: "Un cabinet perd ses semaines à reconstituer des comptes et à répondre au téléphone. Les deux se traitent par le même moyen : une donnée saisie une fois sur le terrain, et des copropriétaires qui voient leurs comptes sans vous appeler.",
     metaDescription:
       "9 MAD par lot et par mois dès 500 lots : vue portefeuille, rôles et permissions, application résidents et clôture standardisée par mandat.",
-    heroMockup: "syndic-todo",
+    heroMockup: "cabinet-portfolio",
     outputs: [
       { k: "Tarif", v: "9 MAD / lot / mois dès 500 lots" },
       { k: "Résidences", v: "illimitées" },
@@ -623,7 +623,7 @@ export const details: SiteContent["details"] = {
     lede: "La première année d'une copropriété neuve détermine sa réputation. Un promoteur qui remet les clés avec des tantièmes propres, un budget prévisionnel et une AG constitutive bien tenue s'épargne trois ans de réclamations.",
     metaDescription:
       "Mise en service avant remise des clés : tantièmes importés du règlement, budget prévisionnel, AG constitutive outillée et passation au syndic élu.",
-    heroMockup: "cabinet-portfolio",
+    heroMockup: "dashboard",
     outputs: [
       { k: "Mise en service", v: "avant remise des clés" },
       { k: "Tantièmes", v: "importés du règlement" },

@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
 import { CtaBand, SiteFooter, WhatsappFloat } from "@/components/site-chrome";
-import { getContent, isLocale, dirFor, LOCALES, type Locale } from "@/lib/i18n";
+import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
 import "../globals.css";
 
@@ -42,12 +42,11 @@ export async function generateMetadata({
     applicationName: SITE.name,
     alternates: {
       canonical: `/${locale}`,
-      languages: { fr: "/fr", ar: "/ar" },
     },
     openGraph: {
       type: "website",
       siteName: SITE.name,
-      locale: locale === "ar" ? "ar_MA" : "fr_MA",
+      locale: "fr_MA",
       title: c.home.metaTitle,
       description: c.home.metaDescription,
     },
@@ -72,10 +71,13 @@ export default async function LocaleLayout({
   return (
     <html
       lang={typed}
-      dir={dirFor(typed)}
+      dir="ltr"
       className={`${GeistSans.variable} ${GeistMono.variable} ${notoArabic.variable}`}
     >
-      <body>
+      {/* Les extensions de navigateur (ColorZilla, Grammarly…) posent leurs
+          attributs sur <body> avant l'hydratation : on ignore ces écarts-là,
+          et uniquement ceux-là — le reste de l'arbre reste vérifié. */}
+      <body suppressHydrationWarning>
         <a
           href="#contenu"
           className="sr-only focus:not-sr-only focus:absolute focus:z-100 focus:m-3 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white"

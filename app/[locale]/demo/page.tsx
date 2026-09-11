@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Crumb, HeadDecor } from "@/components/site-chrome";
 import { DemoForm } from "@/components/demo-form";
-import { Mockup } from "@/components/mockups";
+import { Scene } from "@/components/scene";
+import { SCENES } from "@/content/scenes";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
 
@@ -69,9 +70,7 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
           <h2 className="text-[21px] font-bold text-ink">{d.formTitle}</h2>
           <p className="mt-2 text-[15px] leading-[1.5] text-body">{d.formLede}</p>
           <DemoForm c={c} />
-          <div className="mt-6 flex items-center justify-center rounded-[18px] bg-action-mist p-5">
-            <Mockup kind="annexe-mini" locale={l} />
-          </div>
+          <Scene scene={SCENES.annexe} variant="boxed" sizes="(max-width: 768px) 100vw, 480px" className="mt-6" />
         </div>
       </div>
       </section>

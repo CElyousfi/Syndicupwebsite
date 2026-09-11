@@ -5,61 +5,35 @@ export const home: SiteContent["home"] = {
   metaDescription:
     "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable. Gratuit sous 30 lots.",
 
-  eyebrow: "Logiciel de syndic marocain · FR & AR",
-  h1Before: "Le logiciel de syndic pour la copropriété",
-  h1Accent: "qui peut prouver",
-  lede: "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable.",
-
   freeNote: "Gratuit pour les copropriétés de moins de 30 lots.",
 
-  heroCaption: "MAQUETTE PRODUIT — TABLEAU DE BORD SYNDIC, ANNEXE 10 GÉNÉRÉE",
+  heroEmailPlaceholder: "Votre e-mail professionnel",
+  heroEmailLabel: "Votre e-mail",
+  heroRegion: "Présentation du produit",
 
-  proofKicker: "CE QUE NOUS POUVONS PROUVER",
+  trustBar: [
+    { icon: "decree", before: "Conforme au", accent: "Décret 2.23.700" },
+    { icon: "free", accent: "Gratuit", after: "pour les copropriétés de moins de 30 lots" },
+    { icon: "languages", accent: "Français et arabe", after: "en droite à gauche réelle" },
+  ],
   statPhotos: [
+    { image: "/images/residence-seafront.jpg", alt: "Résidence en front de mer, jardins et palmiers" },
+    { image: "/images/technician-radiator.jpg", alt: "Technicien sur une échelle, intervenant sur un radiateur" },
+    { image: "/images/residence-fountain.jpg", alt: "Résidence avec fontaine et pelouse" },
+    { image: "/images/laptop-profit-loss.jpg", alt: "Compte de résultat consulté sur un ordinateur portable" },
     { image: "/images/residence-hero.jpg", alt: "Façade d'une résidence" },
+    { image: "/images/couple-moving.jpg", alt: "Couple installé au milieu de cartons de déménagement" },
     { image: "/images/residence-courtyard.jpg", alt: "Cour intérieure d'une résidence" },
+    { image: "/images/residence-entrance.jpg", alt: "Entrée d'une résidence" },
+    { image: "/images/espace-piscine.jpg", alt: "Piscine d'une résidence" },
   ],
   stats: [
-    {
-      kicker: "CONFORMITÉ",
-      value: "12 / 12",
-      caption: "annexes du décret générées",
-      tone: "sage",
-    },
-    {
-      kicker: "TARIF",
-      value: "0 MAD",
-      caption: "sous 30 lots, sans limite de durée",
-      tone: "sand",
-    },
-    {
-      kicker: "LANGUES",
-      value: "FR · ع",
-      caption: "arabe en droite à gauche réelle",
-      tone: "tosca",
-    },
-    {
-      kicker: "TRAÇABILITÉ",
-      value: "0",
-      caption: "dépense acceptée sans justificatif",
-      tone: "danger",
-    },
-    {
-      kicker: "GOUVERNANCE",
-      value: "48 h",
-      caption: "pour distribuer le PV à tous",
-      tone: "lilac",
-    },
+    { kicker: "CONFORMITÉ", value: "12/12", caption: "Annexes du décret générées" },
+    { kicker: "TARIF", value: "0", unit: "MAD", caption: "Sous 30 lots, sans limite" },
+    { kicker: "GOUVERNANCE", value: "48", unit: "h", caption: "Pour distribuer le PV" },
+    { kicker: "TRAÇABILITÉ", value: "100", unit: "%", caption: "Des dépenses justifiées" },
+    { kicker: "LANGUES", value: "2", unit: "langues", caption: "Français et arabe, RTL réel" },
   ],
-
-  urgencyKicker: "CLÔTURE 2026",
-  urgencyBefore: "Votre AG doit se tenir dans les 30 jours suivant la fin de l'exercice. Il vous reste",
-  urgencyAfter: "jours.",
-  urgencyCta: "Voir la checklist →",
-
-  problemBefore:
-    "Un cahier, un fichier Excel, un groupe WhatsApp. Puis l'AG arrive, et il faut produire des comptes que personne n'a tenus.",
-  problemAccent: "Le Décret 2.23.700 n'accepte plus ça.",
 
   pillarsKicker: "UNE PLATEFORME, TOUTE LA COPROPRIÉTÉ",
   pillarsTitle: "Conformité, traçabilité, transparence.",
@@ -68,6 +42,7 @@ export const home: SiteContent["home"] = {
   pillars: [
     {
       mockup: "annexe-mini",
+      illustration: "pillar-annexes",
       tone: "mist",
       title: "Comptabilité conforme, annexes générées",
       desc: "Les 12 annexes du décret sortent de vos écritures, pas d'une ressaisie la veille de l'AG.",
@@ -80,6 +55,7 @@ export const home: SiteContent["home"] = {
     },
     {
       mockup: "appels-rows",
+      illustration: "pillar-appels",
       tone: "sand",
       title: "Appels de fonds encaissés, impayés relancés",
       desc: "Le recouvrement démarre seul, par paliers, en votre nom — sans que vous ayez à téléphoner à un voisin.",
@@ -92,6 +68,7 @@ export const home: SiteContent["home"] = {
     },
     {
       mockup: "vote",
+      illustration: "pillar-ag",
       tone: "lilac",
       title: "Assemblées tenues, PV opposable",
       desc: "Convocation prouvable, quorum calculé, votes en tantièmes, procès-verbal généré à la clôture de la séance.",
@@ -104,6 +81,7 @@ export const home: SiteContent["home"] = {
     },
     {
       mockup: "phone-resident",
+      illustration: "pillar-residents",
       tone: "tosca",
       title: "Copropriétaires informés, gardien équipé",
       desc: "Chacun voit ce qui le concerne depuis son téléphone. Le gardien saisit les incidents et les factures sur place.",
@@ -116,76 +94,176 @@ export const home: SiteContent["home"] = {
     },
   ],
 
-  heroPlay: "Relancer le défilement",
-  heroPause: "Mettre en pause",
   heroSlides: [
     {
-      question: "Où en est ma copropriété, en un coup d'œil ?",
-      answer:
-        "Trésorerie, impayés, incidents ouverts et avancement des annexes — sur le premier écran, sans rapport à demander.",
-      mockup: "dashboard",
-      chrome: "app.syndicup.ma / résidence al amal / tableau de bord",
+      eyebrow: "Logiciel de syndic marocain · FR & AR",
+      h1Before: "Le logiciel de syndic pour la copropriété",
+      h1Accent: "qui peut prouver",
+      lede: "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable.",
+      question: "Où en est ma copropriété, ce matin ?",
+      image: "/images/hero/dashboard.jpg",
+      imageAlt: "Tableau de bord du syndic : trésorerie, impayés, lots, incidents et les 12 annexes prêtes",
+      cards: [
+        {
+          kicker: "RÉS. AL AMAL · SEMAINE 37",
+          title: "À faire cette semaine",
+          tone: "sage",
+          rows: [
+            { label: "Convoquer l'AG ordinaire", meta: "Délai légal : 6 jours", badge: "Urgent", badgeTone: "danger" },
+            { label: "Valider 2 dépenses", meta: "Ascenseur, plomberie", badge: "À valider", badgeTone: "warn" },
+            { label: "3 relances d'impayés", meta: "Parties hier, automatiquement", badge: "Auto", badgeTone: "neutral" },
+            { label: "Annexes 2026", meta: "12 / 12 générées", badge: "Prêt", badgeTone: "ok" },
+          ],
+          footer: { label: "Trésorerie au 8 sept.", value: "184 320 MAD" },
+        },
+        {
+          kicker: "48 LOTS · ÉCHÉANCE 30 SEPT.",
+          title: "Appels de fonds · T3 2026",
+          tone: "sand",
+          rows: [
+            { label: "Lot A-12 · M. Bennani", meta: "Payé le 4 sept.", value: "1 065,20 MAD", badge: "Payé", badgeTone: "ok" },
+            { label: "Lot B-04 · Mme Alaoui", meta: "Relance 2 envoyée", value: "1 165,05 MAD", badge: "Relance", badgeTone: "warn" },
+            { label: "Lot C-07 · SCI Yasmine", meta: "Prélèvement programmé", value: "980,00 MAD", badge: "Prévu", badgeTone: "neutral" },
+          ],
+          footer: { label: "Encaissé", value: "41 / 48 lots · 86 %" },
+        },
+      ],
     },
     {
+      eyebrow: "Annexes du Décret 2.23.700",
+      h1Before: "Les 12 annexes de l'exercice,",
+      h1Accent: "générées sans ressaisie",
+      lede: "Elles se génèrent depuis vos écritures, réparties aux tantièmes au centime, avec le détail du calcul par lot et le justificatif derrière chaque ligne.",
       question: "Puis-je sortir les 12 annexes sans les ressaisir ?",
-      answer:
-        "Elles se génèrent depuis vos écritures, réparties aux tantièmes au centime, avec le détail du calcul par lot.",
-      mockup: "annexe",
-      chrome: "app.syndicup.ma / exercice 2026 / annexe 10",
+      image: "/images/hero/annexe.jpg",
+      imageAlt: "Annexe 10 générée : charges par lot, tantièmes et quote-part, total 332 815,00 MAD",
+      cards: [
+        {
+          kicker: "DÉCRET 2.23.700 · 12 DOCUMENTS",
+          title: "Annexes de l'exercice 2026",
+          tone: "tosca",
+          rows: [
+            { label: "Annexe 3 · Budget prévisionnel", meta: "Adopté en AG du 12 mars", badge: "Généré", badgeTone: "ok" },
+            { label: "Annexe 7 · État des impayés", meta: "Arrêté au 31 août", badge: "Généré", badgeTone: "ok" },
+            { label: "Annexe 10 · Charges par lot", meta: "48 lots · 10 000 tantièmes", badge: "Généré", badgeTone: "ok" },
+            { label: "Annexe 12 · Trésorerie", meta: "Rapprochée avec la banque", badge: "Généré", badgeTone: "ok" },
+          ],
+          footer: { label: "Avancement", value: "12 / 12 prêtes" },
+        },
+        {
+          kicker: "CLÉ : TANTIÈMES GÉNÉRAUX",
+          title: "Répartition · Annexe 10",
+          tone: "sage",
+          rows: [
+            { label: "Lot A-12", meta: "128 / 10 000", value: "4 260,80 MAD" },
+            { label: "Lot A-13", meta: "96 / 10 000", value: "3 195,60 MAD" },
+            { label: "Lot B-04", meta: "140 / 10 000", value: "4 660,25 MAD" },
+            { label: "Lot B-05", meta: "112 / 10 000", value: "3 728,20 MAD" },
+          ],
+          footer: { label: "Total réparti", value: "332 815,00 MAD" },
+        },
+      ],
     },
     {
-      question: "Comment être sûr qu'aucune dépense n'échappe à sa facture ?",
-      answer:
-        "La dépense sans justificatif reste bloquée dans la file de validation. Le blocage est le produit, pas un bug.",
-      mockup: "validation",
-      chrome: "app.syndicup.ma / dépenses / file de validation",
+      eyebrow: "Dépenses et justificatifs",
+      h1Before: "Aucune dépense",
+      h1Accent: "sans sa facture",
+      lede: "La dépense sans justificatif reste bloquée dans la file de validation jusqu'à ce que la pièce soit jointe. Le blocage est le produit, pas un bug.",
+      question: "Une dépense peut-elle passer sans sa facture ?",
+      image: "/images/hero/validation.jpg",
+      imageAlt: "File de validation : une dépense à valider, une validée, une bloquée faute de justificatif",
+      cards: [
+        {
+          kicker: "3 DÉPENSES · 2 À TRAITER",
+          title: "File de validation",
+          tone: "sand",
+          rows: [
+            { label: "Ascenseur · Schindler Maroc", meta: "Facture n° 2026-0412 jointe", value: "18 400,00 MAD", badge: "À valider", badgeTone: "warn" },
+            { label: "Plomberie · Ets Rahmani", meta: "Devis signé + facture", value: "3 250,00 MAD", badge: "Validée", badgeTone: "ok" },
+            { label: "Fournitures · sans facture", meta: "Pièce manquante", value: "640,00 MAD", badge: "Bloquée", badgeTone: "danger" },
+          ],
+          footer: { label: "Justifiées", value: "2 / 3 · 21 650,00 MAD" },
+        },
+        {
+          kicker: "FACTURE 2026-0412 · PDF",
+          title: "Pièce jointe",
+          tone: "lilac",
+          rows: [
+            { label: "Fournisseur", value: "Schindler Maroc" },
+            { label: "Date de facture", value: "3 sept. 2026" },
+            { label: "Montant TTC", value: "18 400,00 MAD" },
+            { label: "Écriture liée", value: "n° 1 284 · Ascenseur" },
+          ],
+          footer: { label: "Contrôle", value: "Montant = facture" },
+        },
+      ],
     },
     {
-      question: "Mon AG tiendra-t-elle devant une contestation ?",
-      answer:
-        "Quorum calculé en tantièmes, majorité affichée avant le vote, PV généré à la clôture de la séance et distribué sous 48 heures.",
-      mockup: "vote",
-      chrome: "app.syndicup.ma / assemblée générale / point 3",
+      eyebrow: "Assemblées générales",
+      h1Before: "Une assemblée qui tient",
+      h1Accent: "devant toute contestation",
+      lede: "Quorum calculé en tantièmes, majorité affichée avant le vote, procès-verbal généré à la clôture de la séance et distribué à tous sous 48 heures.",
+      question: "Mon PV tiendra-t-il devant une contestation ?",
+      image: "/images/hero/vote.jpg",
+      imageAlt: "Vote du point 3 en assemblée : pour, contre, abstention, quorum atteint, PV généré",
+      cards: [
+        {
+          kicker: "CONVOCATION · J-6",
+          title: "AG ordinaire · 14 sept. 2026",
+          tone: "lilac",
+          rows: [
+            { label: "Convocations envoyées", meta: "48 / 48 · e-mail + courrier", badge: "Tracé", badgeTone: "ok" },
+            { label: "Pouvoirs reçus", meta: "9 · plafond respecté", badge: "OK", badgeTone: "ok" },
+            { label: "Feuille de présence", meta: "Signature numérique", badge: "Prête", badgeTone: "neutral" },
+          ],
+          footer: { label: "Quorum requis", value: "5 001 / 10 000 tantièmes" },
+        },
+        {
+          kicker: "MAJORITÉ ART. 20 · ABSOLUE",
+          title: "Point 3 · Ravalement de façade",
+          tone: "sage",
+          rows: [
+            { label: "Pour", meta: "31 lots", value: "6 420 tantièmes", badge: "Majorité", badgeTone: "ok" },
+            { label: "Contre", meta: "8 lots", value: "1 180 tantièmes" },
+            { label: "Abstention", meta: "4 lots", value: "540 tantièmes" },
+          ],
+          footer: { label: "Résultat", value: "Adopté · PV sous 48 h" },
+        },
+      ],
     },
     {
-      question: "Et le copropriétaire, il voit quoi de son côté ?",
-      answer:
-        "Son solde, ses quittances, ses incidents et les justificatifs des charges communes. En français ou en arabe.",
-      mockup: "phone-resident",
-      chrome: "app.syndicup.ma / espace résident / lot A-12",
+      eyebrow: "Application résidents",
+      h1Before: "Le copropriétaire voit",
+      h1Accent: "tout ce qui le concerne",
+      lede: "Son solde, ses quittances, ses incidents et les justificatifs des charges communes, depuis son téléphone. En français ou en arabe.",
+      question: "Que voit le copropriétaire depuis son téléphone ?",
+      image: "/images/hero/resident.jpg",
+      imageAlt: "Espace résident : solde à jour, annexes prêtes, justificatifs et maintenance en cours",
+      cards: [
+        {
+          kicker: "M. BENNANI · CONNECTÉ PAR SMS",
+          title: "Espace résident · Lot A-12",
+          tone: "tosca",
+          rows: [
+            { label: "Solde du compte", meta: "À jour au 8 sept.", value: "0,00 MAD", badge: "À jour", badgeTone: "ok" },
+            { label: "Quittance T3 2026", meta: "Téléchargée le 4 sept.", badge: "PDF", badgeTone: "neutral" },
+            { label: "Fuite parking −1", meta: "Déclarée en photo · il y a 2 j", badge: "En cours", badgeTone: "warn" },
+          ],
+          footer: { label: "Quote-part 2026", value: "4 260,80 MAD" },
+        },
+        {
+          kicker: "PARTIES COMMUNES · 2026",
+          title: "Justificatifs des charges",
+          tone: "sand",
+          rows: [
+            { label: "Ascenseur", meta: "Contrat annuel", value: "42 000,00 MAD" },
+            { label: "Nettoyage", meta: "12 factures", value: "36 000,00 MAD" },
+            { label: "Eau · parties communes", meta: "Relevés mensuels", value: "9 840,00 MAD" },
+          ],
+          footer: { label: "Ouvert aux résidents", value: "Chaque facture consultable" },
+        },
+      ],
     },
-  ],
-
-  marqueeLabel: "NEUF MODULES, UN SEUL MODÈLE DE DONNÉES",
-  screens: [
-    { caption: "Tableau de bord", mockup: "dashboard" },
-    {
-      caption: "Résidence Al Amal",
-      image: "/images/residence-hero.jpg",
-      imageAlt: "Façade d'une résidence en copropriété",
-    },
-    { caption: "Annexe 10 générée", mockup: "annexe" },
-    { caption: "File de validation", mockup: "validation" },
-    {
-      caption: "Parties communes",
-      image: "/images/residence-courtyard.jpg",
-      imageAlt: "Cour intérieure d'une résidence",
-    },
-    { caption: "Vote en tantièmes", mockup: "vote" },
-    { caption: "Espace résident", mockup: "phone-resident" },
-    {
-      caption: "Entrée d'immeuble",
-      image: "/images/residence-entrance.jpg",
-      imageAlt: "Entrée d'une résidence",
-    },
-    { caption: "Portefeuille cabinet", mockup: "cabinet-portfolio" },
-    { caption: "Écran de la loge", mockup: "gardien-tiles" },
-    {
-      caption: "Espaces partagés",
-      image: "/images/espace-piscine.jpg",
-      imageAlt: "Espace commun d'une résidence",
-    },
-    { caption: "Appels de fonds", mockup: "appels-rows" },
   ],
 
   conformityKicker: "CONFORMITÉ INTÉGRÉE",
@@ -196,35 +274,23 @@ export const home: SiteContent["home"] = {
     {
       tag: "CONTRÔLES BLOQUANTS",
       title: "L'exercice refuse de se clôturer s'il n'est pas juste",
-      desc: "Dépense sans pièce, écriture non lettrée, solde qui ne boucle pas : la clôture s'arrête et vous dit où. Le contrôle n'arrive pas après l'AG, il arrive avant la génération.",
-      points: [
-        "La liste des anomalies est nominative, pas un compteur d'erreurs.",
-        "Aucune dérogation « juste pour cette fois ».",
-        "Les 12 annexes ne sortent qu'une fois les contrôles passés.",
-      ],
+      desc: "Dépense sans pièce, solde qui ne boucle pas : la clôture s'arrête et vous dit où, avant que les annexes ne sortent.",
       mockup: "validation",
+      illustration: "conformity-validation",
     },
     {
       tag: "JOURNAL INALTÉRABLE",
       title: "Une correction s'ajoute, elle n'efface pas",
-      desc: "Votes, notifications, paiements, changements de propriétaire : ces lignes n'ont ni UPDATE ni DELETE. Corriger, c'est écrire une ligne nouvelle liée à la précédente — et l'historique reste lisible.",
-      points: [
-        "Horodatage et auteur sur chaque action financière ou probante.",
-        "Un PV contesté reçoit une annexe, jamais une réécriture.",
-        "Exploitable tel quel en cas de contestation de mandat.",
-      ],
+      desc: "Aucune ligne n'est modifiée ni supprimée : corriger, c'est écrire une ligne nouvelle, horodatée, liée à la précédente.",
       mockup: "vote",
+      illustration: "conformity-vote",
     },
     {
       tag: "ARITHMÉTIQUE AU CENTIME",
       title: "L'écart d'arrondi est attribué, pas perdu",
-      desc: "Aucun montant en virgule flottante. La répartition aux tantièmes produit presque toujours un reste de quelques centimes : il est calculé, attribué selon une règle stable, et visible dans l'annexe.",
-      points: [
-        "Un centime perdu sur 48 lots, et le total ne boucle plus.",
-        "Clés multiples : générales, ascenseur, chauffage, cage, commerces.",
-        "Le détail du calcul est joint à l'appel de fonds du lot.",
-      ],
+      desc: "La répartition aux tantièmes laisse toujours quelques centimes : ils sont calculés, attribués selon une règle stable, et visibles dans l'annexe.",
       mockup: "annexe",
+      illustration: "conformity-annexe",
     },
   ],
 
@@ -235,18 +301,21 @@ export const home: SiteContent["home"] = {
   why: [
     {
       icon: "shield",
+      illustration: "why-proof",
       tone: "sage",
       title: "Conforme par construction",
       desc: "Les 12 annexes du Décret 2.23.700 sortent de vos écritures. Pas un module en option, pas une exportation à retravailler : le produit ne sait pas fonctionner autrement.",
     },
     {
       icon: "lock",
+      illustration: "why-morocco",
       tone: "tosca",
       title: "Cloisonné et traçable",
       desc: "Le cloisonnement entre copropriétés est appliqué dans l'application et dans la base. Chaque action financière est horodatée avec son auteur, et l'historique ne s'efface pas.",
     },
     {
       icon: "layers",
+      illustration: "why-support",
       tone: "sand",
       title: "Sans coût d'entrée",
       desc: "Gratuit sous 30 lots, sans limite de durée. Reprise de vos données gratuite quelle que soit la taille. Tarif public au-delà, résiliable au mois.",
@@ -260,133 +329,38 @@ export const home: SiteContent["home"] = {
   portfolio: [
     {
       href: "/pour-syndic-benevole",
-      image: "/images/residence-entrance.jpg",
+      image: "/images/portfolio/benevole-v2.jpg",
       imageAlt: "Entrée d'une résidence en copropriété",
       title: "Syndic bénévole",
-      desc: "Gratuit sous 30 lots. La conformité comme effet secondaire de vos gestes quotidiens.",
     },
     {
       href: "/pour-cabinet-syndic",
-      image: "/images/residence-courtyard.jpg",
+      image: "/images/portfolio/cabinet-v2.jpg",
       imageAlt: "Cour intérieure d'une résidence sous mandat",
       title: "Cabinet de syndic",
-      desc: "Une vue portefeuille classée par urgence, et une clôture qui devient prévisible.",
     },
     {
       href: "/pour-promoteurs",
-      image: "/images/espace-piscine.jpg",
+      image: "/images/portfolio/promoteur-v2.jpg",
       imageAlt: "Espace commun d'une résidence neuve",
       title: "Promoteurs",
-      desc: "Livrer une copropriété déjà administrée, et s'épargner trois ans de réclamations.",
     },
     {
       href: "/multi-residences-cabinets",
-      image: "/images/residence-hero.jpg",
+      image: "/images/portfolio/multi-v2.jpg",
       imageAlt: "Résidence d'un portefeuille multi-sites",
       title: "Multi-résidences",
-      desc: "Cinquante résidences, un seul écran de pilotage et des permissions par gestionnaire.",
     },
     {
       href: "/location-courte-duree",
-      image: "/images/espace-piscine.jpg",
+      image: "/images/portfolio/lcd-v2.jpg",
       imageAlt: "Résidence avec location saisonnière",
       title: "Location courte durée",
-      desc: "Le lot loué à la nuit consomme plus, et sa quote-part le reflète. Unique sur le marché.",
-    },
-    {
-      href: "/gardien-et-loge",
-      image: "/images/residence-entrance.jpg",
-      imageAlt: "Loge de gardien à l'entrée d'une résidence",
-      title: "Gardien & loge",
-      desc: "L'outil du terrain : incidents en photo, rondes horodatées, petite caisse tracée.",
     },
   ],
-
-  faqLede:
-    "Ce qu'on nous demande le plus souvent, rangé par sujet. Si votre question n'y est pas, elle tient dans un message WhatsApp.",
-  faqTabs: [
-    {
-      label: "Le produit",
-      items: [
-        {
-          q: "SyndicUp produit-il vraiment les 12 annexes du Décret 2.23.700 ?",
-          a: "Oui. Elles sont générées depuis les écritures saisies pendant l'année — dépenses avec justificatifs, appels de fonds, encaissements, provisions. Rien n'est ressaisi en fin d'exercice, ce qui est précisément la raison pour laquelle un tableur ne suffit plus.",
-        },
-        {
-          q: "Le PV d'assemblée générale est-il opposable ?",
-          a: "Le PV est généré à la clôture de la séance, horodaté, avec la feuille de présence, les pouvoirs, et le détail des votes par tantièmes. Il est distribué à tous les copropriétaires dans les 48 heures et le délai de contestation court à partir de cette distribution, tracée.",
-        },
-        {
-          q: "L'interface existe-t-elle en arabe ?",
-          a: "Oui, en français et en arabe, avec une mise en page de droite à gauche réelle — pas une traduction posée sur une interface pensée pour le français. Les documents produits suivent la langue choisie.",
-        },
-        {
-          q: "Les copropriétaires doivent-ils installer une application ?",
-          a: "Non. L'application existe sur iOS et Android pour ceux qui la veulent, mais tout est accessible depuis un navigateur mobile, avec une connexion par code SMS — sans mot de passe à retenir.",
-        },
-      ],
-    },
-    {
-      label: "Prix & mise en route",
-      items: [
-        {
-          q: "Est-ce vraiment gratuit ?",
-          a: "Gratuit sans limite de durée pour les copropriétés de moins de 30 lots — la majorité des immeubles gérés par un syndic bénévole. Au-delà, le tarif est public : 12 MAD par lot et par mois, 9 MAD dès 500 lots pour les cabinets.",
-        },
-        {
-          q: "Puis-je reprendre mon fichier Excel existant ?",
-          a: "Oui. Vous nous envoyez le fichier tel qu'il est, nous faisons la reprise et vous la validez avant la mise en service. C'est gratuit et c'est notre travail, pas le vôtre.",
-        },
-        {
-          q: "Combien de temps prend la mise en service ?",
-          a: "Trois jours pour une copropriété simple : vous envoyez le fichier, nous vous rendons la reprise à valider sous 48 heures, et la résidence est administrée le lendemain. Pour un portefeuille de cabinet, nous procédons par vagues.",
-        },
-        {
-          q: "Comment se passe la démonstration ?",
-          a: "Vingt minutes, en visio ou au téléphone, sur une résidence de démonstration complète : comptabilité, annexes, AG passée avec son PV, incidents. Vous posez vos questions sur votre propre cas, et le récapitulatif arrive sur WhatsApp.",
-        },
-      ],
-    },
-    {
-      label: "Données & sécurité",
-      items: [
-        {
-          q: "Où sont hébergées les données ?",
-          a: "Sur une infrastructure européenne, chiffrée en transit et au repos, avec un cloisonnement appliqué au niveau de la base de données : une requête ne peut pas franchir la frontière d'une copropriété, même en cas d'erreur applicative. Traitement déclaré à la CNDP.",
-        },
-        {
-          q: "Qui peut voir quoi ?",
-          a: "Les permissions sont attribuées par résidence et par rôle : syndic, conseil syndical, gardien, copropriétaire, locataire, lecture seule. Un locataire ne voit jamais les comptes ni les soldes des lots, et un gestionnaire n'accède pas au portefeuille d'un collègue.",
-        },
-        {
-          q: "Puis-je récupérer mes données si je pars ?",
-          a: "À tout moment, intégralement, sans négociation. L'export complet fait partie du produit et n'est jamais facturé — y compris les justificatifs attachés aux dépenses.",
-        },
-      ],
-    },
-  ],
-
-  proofSectionKicker: "PREUVE PRODUIT",
-  proofSectionTitle: "Trois écrans, pas trois promesses.",
-  proofSectionLede:
-    "Les écrans du produit, pas des illustrations décoratives. Vous les retrouvez à l'identique lors de la démonstration.",
-  proofFigures: [
-    {
-      title: "Annexe 10, générée",
-      desc: "Un clic depuis l'exercice clos. Répartition aux tantièmes, écart d'arrondi géré, PDF horodaté.",
-      mockup: "annexe",
-    },
-    {
-      title: "File de validation",
-      desc: "Une dépense sans justificatif ne passe pas en comptabilité. Le blocage est le produit, pas un bug.",
-      mockup: "validation",
-    },
-    {
-      title: "Application résident",
-      desc: "Son solde, ses quittances, ses incidents, les comptes de la résidence. En français ou en arabe.",
-      mockup: "phone-resident",
-    },
-  ],
+  portfolioPrev: "Carte précédente",
+  portfolioNext: "Carte suivante",
+  portfolioSlide: "Carte",
 
   rolesKicker: "PAR RÔLE",
   rolesTitle: "Le même immeuble, quatre métiers.",
@@ -401,6 +375,7 @@ export const home: SiteContent["home"] = {
       ],
       cta: { href: "/pour-syndic-benevole", label: "Landing syndic bénévole" },
       mockup: "syndic-todo",
+      illustration: "role-benevole",
     },
     {
       tab: "Cabinet",
@@ -412,6 +387,7 @@ export const home: SiteContent["home"] = {
       ],
       cta: { href: "/pour-cabinet-syndic", label: "Landing cabinet de syndic" },
       mockup: "cabinet-portfolio",
+      illustration: "role-cabinet",
     },
     {
       tab: "Copropriétaire",
@@ -423,6 +399,7 @@ export const home: SiteContent["home"] = {
       ],
       cta: { href: "/application-residents", label: "L'application résidents" },
       mockup: "phone-resident",
+      illustration: "role-resident",
     },
     {
       tab: "Gardien",
@@ -434,6 +411,7 @@ export const home: SiteContent["home"] = {
       ],
       cta: { href: "/gardien-et-loge", label: "Gardien & loge" },
       mockup: "gardien-tiles",
+      illustration: "role-gardien",
     },
   ],
 
@@ -454,46 +432,43 @@ export const home: SiteContent["home"] = {
     "Aucun changement de banque, aucun matériel à acheter, aucune formation de trois jours.",
   ecosystem: [
     {
-      code: "CMI",
-      tone: "sage",
-      title: "Paiement par carte",
-      desc: "Le copropriétaire paie son appel en ligne, la quittance sort seule.",
-    },
-    {
-      code: "VIR",
-      tone: "sand",
-      title: "Virement bancaire",
-      desc: "Référence unique par appel, lettrage automatique au relevé.",
-    },
-    {
-      code: "",
-      tone: "dot",
+      logo: "/images/logos/whatsapp.svg",
       title: "WhatsApp",
       desc: "Convocations et relances sur le canal que tout le monde ouvre.",
     },
     {
-      code: "SMS",
-      tone: "tosca",
-      title: "SMS & e-mail",
-      desc: "Un destinataire sans adresse e-mail bascule en SMS, automatiquement.",
+      logo: "/images/logos/gmail.svg",
+      title: "Gmail & e-mail",
+      desc: "Convocations tracées, accusés de réception, pièces jointes.",
     },
     {
-      code: "XLS",
-      tone: "lilac",
-      title: "Excel & comptable",
+      logo: "/images/logos/microsoftexcel.svg",
+      title: "Microsoft Excel",
       desc: "Import de votre historique, exports normalisés pour votre expert-comptable.",
     },
     {
-      code: "iOS",
-      tone: "sage",
-      title: "iOS & Android",
-      desc: "Applications natives, ou simple navigateur mobile — au choix du résident.",
+      logo: "/images/logos/adobeacrobatreader.svg",
+      title: "PDF",
+      desc: "Annexes, quittances et PV générés en PDF horodatés.",
+    },
+    {
+      logo: "/images/logos/appstore.svg",
+      title: "App Store",
+      desc: "Application résidents native sur iPhone et iPad.",
+    },
+    {
+      logo: "/images/logos/googleplay.svg",
+      title: "Google Play",
+      desc: "Application résidents et gardien sur Android.",
     },
   ],
+  ecosystemCta: "Voir les intégrations",
 
   pricingKicker: "TARIFS",
   pricingTitle: "Par lot. Pas de formulaire pour voir le prix.",
   pricingLink: "Page tarifs complète",
+  pricingFeaturedBadge: "LE PLUS CHOISI",
+  pricingCardCta: "Voir le détail",
   prices: [
     {
       name: "Bénévole",
@@ -516,9 +491,15 @@ export const home: SiteContent["home"] = {
     },
   ],
 
+  importKicker: "REPRISE DE DONNÉES",
   importTitle: "Envoyez votre Excel. On s'occupe du reste.",
   importBody:
     "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. Gratuit, quelle que soit la taille.",
+  importPoints: [
+    "Lots, tantièmes, propriétaires et soldes d'ouverture repris",
+    "Vous validez ligne à ligne avant la mise en service",
+    "Gratuit, quelle que soit la taille de la copropriété",
+  ],
   importCta: "Envoyer mon fichier",
 
   supportChat: {
@@ -534,21 +515,25 @@ export const home: SiteContent["home"] = {
   timeline: [
     {
       when: "J+0",
+      icon: "upload",
       title: "Vous envoyez votre fichier",
       desc: "Même incomplet, même avec un onglet par année. Sur WhatsApp ou par mail.",
     },
     {
       when: "J+2",
+      icon: "review",
       title: "Nous vous rendons la reprise à valider",
       desc: "Lots, tantièmes, soldes d'ouverture. Vous vérifiez, vous corrigez, vous validez.",
     },
     {
       when: "J+3",
+      icon: "building",
       title: "La copropriété est administrée",
       desc: "Copropriétaires invités par SMS, gardien équipé, premier appel de fonds prêt.",
     },
     {
       when: "AG",
+      icon: "assembly",
       title: "Nous sommes là pour la première clôture",
       desc: "Relecture des annexes avant diffusion, et disponibilité le jour de l'assemblée.",
       highlight: true,
@@ -556,5 +541,200 @@ export const home: SiteContent["home"] = {
   ],
 
   faqTitle: "Questions fréquentes",
+  faqLede:
+    "Tout ce qu'un syndic, un cabinet ou un copropriétaire nous demande avant de commencer — rangé par sujet, avec le lien vers la page qui va plus loin.",
+  faqSearchPlaceholder: "Rechercher une question : annexes, quorum, impayés, gardien…",
+  faqNoResult: "Aucune question ne correspond. Posez-la nous directement, la réponse arrive sur WhatsApp.",
+  faqStillTitle: "Votre question n'y est pas ?",
+  faqStillBody:
+    "Décrivez votre situation en une phrase. La même personne qui suivra votre reprise vous répond, en français ou en arabe.",
+  faqStillCta: "Poser ma question",
+  faqTabs: [
+    {
+      label: "Conformité & annexes",
+      intro: "Le Décret 2.23.700, les 12 annexes, la clôture d'exercice.",
+      items: [
+        {
+          q: "SyndicUp produit-il vraiment les 12 annexes du Décret 2.23.700 ?",
+          a: "Oui. Elles sont générées depuis les écritures saisies pendant l'année — dépenses avec justificatifs, appels de fonds, encaissements, provisions. Rien n'est ressaisi en fin d'exercice, ce qui est précisément la raison pour laquelle un tableur ne suffit plus.",
+          link: { href: "/comptabilite-annexes", label: "Comptabilité & annexes" },
+        },
+        {
+          q: "À quoi sert chaque annexe, et qui la lit ?",
+          a: "Budget prévisionnel, état des dépenses, état des impayés, répartition par lot, trésorerie… chaque état répond à une question précise d'un copropriétaire ou d'un contrôleur. Nous les avons expliquées une par une, avec un exemple chiffré.",
+          link: { href: "/ressources/les-12-annexes-expliquees", label: "Les 12 annexes expliquées" },
+        },
+        {
+          q: "Que se passe-t-il si une dépense n'a pas de facture ?",
+          a: "Elle reste bloquée dans la file de validation. Elle n'entre pas en comptabilité, elle n'apparaît dans aucune annexe, et la clôture d'exercice refuse de se faire tant que la pièce manque. Le blocage est nominatif : vous savez quelle dépense, quel montant, qui l'a saisie.",
+          link: { href: "/depenses-justificatifs", label: "Dépenses & justificatifs" },
+        },
+        {
+          q: "Comment sont gérés les centimes d'arrondi dans la répartition ?",
+          a: "La répartition aux tantièmes laisse presque toujours un écart de quelques centimes. Il est calculé, attribué selon une règle stable — au plus grand lot ou au dernier — et visible dans l'annexe. Le total boucle au centime, sur 48 lots comme sur 400.",
+        },
+        {
+          q: "Puis-je corriger une écriture après coup ?",
+          a: "Oui, mais jamais en l'effaçant. Une correction s'ajoute comme une ligne nouvelle, horodatée, liée à l'écriture d'origine. L'historique reste lisible, ce qui est exactement ce qu'un contrôleur ou un copropriétaire en contestation demande.",
+        },
+        {
+          q: "Gérez-vous plusieurs clés de répartition ?",
+          a: "Oui : charges générales, ascenseur, chauffage, cage d'escalier, parkings, lots commerciaux — chaque poste a sa clé, et un lot peut avoir plusieurs titulaires (indivision, usufruit, MRE).",
+          link: { href: "/comptabilite-annexes", label: "Comptabilité & annexes" },
+        },
+        {
+          q: "Que dois-je faire avant ma clôture d'exercice ?",
+          a: "Quatorze gestes, dans l'ordre : rapprochement bancaire, lettrage des appels, justificatifs manquants, provisions, convocation dans les délais… Nous en avons fait une checklist, et le produit la reprend comme contrôles bloquants.",
+          link: { href: "/ressources/checklist-cloture-2026", label: "Checklist de clôture 2026" },
+        },
+      ],
+    },
+    {
+      label: "Assemblées & votes",
+      intro: "Convocation, quorum, pouvoirs, procès-verbal.",
+      items: [
+        {
+          q: "Le PV d'assemblée générale est-il opposable ?",
+          a: "Le PV est généré à la clôture de la séance, horodaté, avec la feuille de présence, les pouvoirs, et le détail des votes par tantièmes. Il est distribué à tous les copropriétaires dans les 48 heures et le délai de contestation court à partir de cette distribution, tracée.",
+          link: { href: "/assemblees-generales", label: "Assemblées générales" },
+        },
+        {
+          q: "Comment prouver que la convocation est partie dans les délais ?",
+          a: "Chaque convocation est tracée par destinataire : date d'envoi, canal (e-mail, WhatsApp, courrier), accusé de réception quand il existe. Le délai légal est contrôlé avant l'envoi ; le produit refuse une convocation hors délai.",
+          link: { href: "/ressources/modele-convocation-ag", label: "Modèle de convocation" },
+        },
+        {
+          q: "Le quorum est-il calculé en tantièmes ou en têtes ?",
+          a: "En tantièmes, et en direct : la feuille de présence se remplit à l'entrée, le quorum se recalcule à chaque arrivée, et la majorité requise pour chaque point s'affiche avant le vote — simple, absolue ou renforcée, selon ce que votre règlement prévoit.",
+        },
+        {
+          q: "Comment sont gérés les pouvoirs ?",
+          a: "Formulaire de pouvoir pré-rempli, plafond de mandats vérifié à la réception. Un mandataire ne peut pas dépasser le plafond fixé par votre copropriété, et le pouvoir apparaît nommément sur la feuille de présence et dans le PV.",
+        },
+        {
+          q: "Qui fixe les taux, plafonds et délais ?",
+          a: "Vous. Ce sont des paramètres de votre copropriété, votés en AG et confirmés par votre conseil juridique. Le produit les applique, il ne les décide pas et ne les invente pas.",
+        },
+        {
+          q: "Un copropriétaire conteste le vote : que peut-il consulter ?",
+          a: "Le PV, la feuille de présence, les pouvoirs et le détail du vote point par point, en tantièmes. Tout est horodaté et inaltérable. C'est une chaîne de preuve, pas un compte rendu.",
+          link: { href: "/ressources/modele-pv-ag", label: "Modèle de procès-verbal" },
+        },
+      ],
+    },
+    {
+      label: "Appels de fonds & impayés",
+      intro: "Encaissement, quittances, relances, recouvrement.",
+      items: [
+        {
+          q: "Comment un copropriétaire paie-t-il son appel de fonds ?",
+          a: "Par virement avec une référence unique par appel, lettré automatiquement au relevé, ou en espèces tracées à la loge. La quittance numérotée sort seule dès que le paiement est rapproché.",
+          link: { href: "/appels-de-fonds-recouvrement", label: "Appels de fonds & recouvrement" },
+        },
+        {
+          q: "Comment fonctionnent les relances d'impayés ?",
+          a: "Par paliers, automatiquement, en votre nom : rappel amical, relance formelle, dernier avis, puis dossier de mise en demeure constitué avec toutes les pièces, prêt pour l'avocat. Vous gardez la main sur l'escalade à chaque étape.",
+        },
+        {
+          q: "Peut-on négocier un échéancier avec un copropriétaire en retard ?",
+          a: "Oui. L'échéancier est saisi dans le produit, les échéances sont suivies, et la relance s'arrête tant qu'il est respecté. S'il ne l'est plus, l'escalade reprend là où elle s'était arrêtée.",
+        },
+        {
+          q: "Comment sont traités les lots loués en courte durée ?",
+          a: "Un appartement loué à la nuit consomme plus — ascenseur, eau, gardiennage. Le module documente les séjours déclarés, signale les écarts avec les constats du gardien, et répartit une quote-part qui le reflète. Il documente et répartit ; la décision d'autoriser ou d'interdire reste à l'AG.",
+          link: { href: "/location-courte-duree", label: "Location courte durée" },
+        },
+      ],
+    },
+    {
+      label: "Résidents & gardien",
+      intro: "L'application des copropriétaires, la loge, les incidents.",
+      items: [
+        {
+          q: "Les copropriétaires doivent-ils installer une application ?",
+          a: "Non. L'application existe sur iOS et Android pour ceux qui la veulent, mais tout est accessible depuis un navigateur mobile, avec une connexion par code SMS — sans mot de passe à retenir.",
+          link: { href: "/application-residents", label: "Application résidents" },
+        },
+        {
+          q: "Que voit un copropriétaire depuis son téléphone ?",
+          a: "Son solde, ses quittances, ses appels de fonds, ses incidents, et les justificatifs des charges communes — chaque facture consultable. Il ne voit jamais le solde ni les données des autres lots.",
+        },
+        {
+          q: "Comment un incident est-il déclaré et suivi ?",
+          a: "Photo, localisation dans l'immeuble, description facultative. L'incident est routé au gardien ou au prestataire, avec un niveau d'escalade qui monte tout seul si personne ne répond : gardien, syndic, conseil syndical.",
+          link: { href: "/gardien-et-loge", label: "Gardien & loge" },
+        },
+        {
+          q: "Que fait le gardien dans l'application ?",
+          a: "Quatre gestes sur un écran de loge : déclarer un incident, saisir une dépense de petite caisse en photographiant la facture, relever un compteur, faire sa ronde. La facture est attachée avant que le montant n'existe en comptabilité.",
+        },
+        {
+          q: "L'interface existe-t-elle en arabe ?",
+          a: "Oui, en français et en arabe, avec une mise en page de droite à gauche réelle — pas une traduction posée sur une interface pensée pour le français. Les documents produits suivent la langue choisie.",
+        },
+      ],
+    },
+    {
+      label: "Prix & mise en route",
+      intro: "Gratuité, tarifs, reprise de données, démonstration.",
+      items: [
+        {
+          q: "Est-ce vraiment gratuit ?",
+          a: "Gratuit sans limite de durée pour les copropriétés de moins de 30 lots — la majorité des immeubles gérés par un syndic bénévole. Au-delà, le tarif est public, par lot et par mois, sans formulaire pour le connaître.",
+          link: { href: "/tarifs", label: "Tarifs" },
+        },
+        {
+          q: "Puis-je reprendre mon fichier Excel existant ?",
+          a: "Oui. Vous nous envoyez le fichier tel qu'il est — même incomplet, même avec un onglet par année. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. C'est gratuit et c'est notre travail, pas le vôtre.",
+        },
+        {
+          q: "Combien de temps prend la mise en service ?",
+          a: "Trois jours pour une copropriété simple : vous envoyez le fichier, nous vous rendons la reprise à valider sous 48 heures, et la résidence est administrée le lendemain. Pour un portefeuille de cabinet, nous procédons par vagues.",
+        },
+        {
+          q: "Comment se passe la démonstration ?",
+          a: "Vingt minutes, en visio ou au téléphone, sur une résidence de démonstration complète : comptabilité, annexes, AG passée avec son PV, incidents. Vous posez vos questions sur votre propre cas, et le récapitulatif arrive sur WhatsApp.",
+          link: { href: "/demo", label: "Réserver une démo" },
+        },
+        {
+          q: "Y a-t-il un engagement ?",
+          a: "Non. Sans engagement, résiliable au mois. L'export complet de vos données fait partie du produit et n'est jamais facturé.",
+        },
+        {
+          q: "Je suis un cabinet avec plusieurs résidences : est-ce le même produit ?",
+          a: "Oui, avec une vue portefeuille : toutes vos résidences sur un seul écran, un statut par résidence (clôture en retard, AG à convoquer, à jour), des permissions par gestionnaire, et des modèles de plan comptable et de clés réutilisables.",
+          link: { href: "/multi-residences-cabinets", label: "Multi-résidences & cabinets" },
+        },
+        {
+          q: "Je suis promoteur : que se passe-t-il à la livraison ?",
+          a: "Vous livrez une copropriété déjà administrée : lots, tantièmes et propriétaires chargés, premier appel de fonds prêt, résidents invités par SMS. Vous vous épargnez trois ans de réclamations.",
+          link: { href: "/pour-promoteurs", label: "Pour promoteurs" },
+        },
+      ],
+    },
+    {
+      label: "Données & sécurité",
+      intro: "Hébergement, cloisonnement, permissions, réversibilité.",
+      items: [
+        {
+          q: "Où sont hébergées les données ?",
+          a: "Sur une infrastructure européenne, chiffrée en transit et au repos, avec un cloisonnement appliqué au niveau de la base de données : une requête ne peut pas franchir la frontière d'une copropriété, même en cas d'erreur applicative. Traitement déclaré à la CNDP.",
+          link: { href: "/securite", label: "Sécurité" },
+        },
+        {
+          q: "Qui peut voir quoi ?",
+          a: "Les permissions sont attribuées par résidence et par rôle : syndic, conseil syndical, gardien, copropriétaire, locataire, lecture seule. Un locataire ne voit jamais les comptes ni les soldes des lots, et un gestionnaire n'accède pas au portefeuille d'un collègue.",
+        },
+        {
+          q: "Chaque action est-elle tracée ?",
+          a: "Oui. Horodatage et auteur sur chaque action financière ou probante : votes, notifications, paiements, changements de propriétaire. Ces lignes n'ont ni modification ni suppression.",
+        },
+        {
+          q: "Puis-je récupérer mes données si je pars ?",
+          a: "À tout moment, intégralement, sans négociation. L'export complet fait partie du produit et n'est jamais facturé — y compris les justificatifs attachés aux dépenses.",
+        },
+      ],
+    },
+  ],
 
 };

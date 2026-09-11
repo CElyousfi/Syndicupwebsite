@@ -54,7 +54,7 @@ export default async function CalculatorPage({
       </HeadDecor>
 
       <section className="shell-narrow pt-12">
-        <CategoryCalculator c={c} locale={l} />
+        <CategoryCalculator c={c} />
       </section>
     </>
   );

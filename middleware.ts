@@ -1,47 +1,25 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Une seule responsabilité : toute URL vit sous /fr/** ou /ar/**.
- * Le site est public — pas de session, pas de garde d'authentification.
+ * Une seule responsabilité : toute URL vit sous /fr/**. Le site est public —
+ * pas de session, pas de garde d'authentification.
+ *
+ * L'ancienne version arabe (/ar/**) n'existe plus : ses adresses sont
+ * redirigées définitivement vers la page française correspondante, pour que
+ * les liens déjà partagés et indexés continuent d'aboutir.
  */
-const LOCALES = ["fr", "ar"] as const;
-const DEFAULT_LOCALE = "fr";
-const COOKIE_LOCALE = "su_locale";
-
-type Locale = (typeof LOCALES)[number];
-
-function isLocale(value: string | undefined): value is Locale {
-  return LOCALES.includes(value as Locale);
-}
-
-/** Locale préférée : cookie posé lors d'une visite précédente, puis en-tête du navigateur. */
-function preferredLocale(req: NextRequest): Locale {
-  const fromCookie = req.cookies.get(COOKIE_LOCALE)?.value;
-  if (isLocale(fromCookie)) return fromCookie;
-
-  const header = req.headers.get("accept-language") ?? "";
-  // « ar-MA,ar;q=0.9,fr;q=0.8 » → on retient la première langue connue.
-  for (const part of header.split(",")) {
-    const tag = part.split(";")[0]?.trim().slice(0, 2).toLowerCase();
-    if (isLocale(tag)) return tag;
-  }
-  return DEFAULT_LOCALE;
-}
+const LOCALE = "fr";
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const segment = pathname.split("/")[1];
 
-  if (!isLocale(segment)) {
-    const locale = preferredLocale(req);
-    const url = req.nextUrl.clone();
-    url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
-    return NextResponse.redirect(url);
-  }
+  if (segment === LOCALE) return NextResponse.next();
 
-  const res = NextResponse.next();
-  res.cookies.set(COOKIE_LOCALE, segment, { path: "/", maxAge: 60 * 60 * 24 * 365 });
-  return res;
+  const url = req.nextUrl.clone();
+  const rest = segment === "ar" ? pathname.slice("/ar".length) : pathname;
+  url.pathname = `/${LOCALE}${rest === "/" ? "" : rest}`;
+  return NextResponse.redirect(url, segment === "ar" ? 308 : 307);
 }
 
 export const config = {

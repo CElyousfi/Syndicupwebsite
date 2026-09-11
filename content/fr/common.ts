@@ -159,8 +159,9 @@ export const cta: SiteContent["cta"] = {
   kicker: "PRÊT À COMMENCER",
   title: "Sérieux au sujet de votre copropriété ?",
   lede: "Votre prochaine AG peut être la première qui se tient sans discussion sur les chiffres.",
+  emailLabel: "Votre e-mail",
+  emailPlaceholder: "Votre e-mail professionnel",
   primary: "Réserver une démo",
-  secondary: "Nous écrire sur WhatsApp",
   note: "Démo de 20 minutes, en français ou en arabe. Nom, téléphone, nombre de lots — c'est tout.",
   image: "/images/residence-hero.jpg",
   bullets: [
