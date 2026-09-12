@@ -522,6 +522,7 @@ export interface SiteContent {
       badge?: string;
     }[];
     ttcNote: string;
+    whichPlan: string;
     cabinetKicker: string;
     cabinetTitle: string;
     cabinetLede: string;

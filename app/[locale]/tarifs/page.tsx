@@ -63,23 +63,17 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 <h2 className="text-[20px] font-bold text-ink">{plan.name}</h2>
                 {plan.badge && <span className="badge bg-lime text-[10.5px] text-ink">{plan.badge}</span>}
               </div>
-              <p className="kicker-sm mt-1.5 !text-action-deep">{plan.scope}</p>
-              <p className="mt-3 text-[14.5px] leading-[1.5] text-body">{plan.profile}</p>
-              <p className="tnum mt-5 text-[44px] font-bold leading-none text-ink">
+              <p className="mt-1.5 text-[14.5px] leading-[1.5] text-body">{plan.profile}</p>
+              <p className="tnum mt-6 text-[46px] font-bold leading-none text-ink">
                 {plan.amount}
                 <span className="block text-[14px] font-semibold text-soft">{plan.unit}</span>
               </p>
-              <p className="mt-2 text-[14px] font-semibold text-ink">{plan.floorLabel}</p>
-              <p className="mt-1 text-[13.5px] text-soft">{plan.billing}</p>
+              <p className="mt-2 text-[14.5px] font-semibold text-ink">{plan.floorLabel}</p>
               {plan.example && (
-                <p className="mt-4 rounded-lg bg-action-tint px-3.5 py-2.5 text-[13.5px] leading-[1.45] font-medium text-action-deep">
+                <p className="mt-4 rounded-lg bg-action-tint px-3.5 py-2.5 text-[14px] font-semibold text-action-deep">
                   {plan.example}
                 </p>
               )}
-              <p className="mt-4 text-[13.5px] leading-[1.45] text-body">
-                <UiIcon name="review" size={15} className="me-1.5 inline-block align-[-2px] text-action" />
-                {plan.annexes}
-              </p>
               <ul className="list-check mt-5 gap-2.5 text-[14.5px]">
                 {plan.features.map((x) => (
                   <li key={x}>{x}</li>
@@ -94,7 +88,13 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
             </div>
           ))}
         </div>
-        <p className="mx-auto mt-6 max-w-[860px] text-center text-[14px] leading-[1.55] text-soft">{t.ttcNote}</p>
+        <div className="mx-auto mt-8 flex max-w-[860px] flex-col items-center gap-4 text-center">
+          <p className="text-[14.5px] leading-[1.55] text-soft">{t.ttcNote}</p>
+          <Link href={href(l, "/ressources/calculateur-categorie-copropriete")} className="feature-link">
+            <span className="feature-link-text">{t.whichPlan}</span>
+            {ARROW}
+          </Link>
+        </div>
       </section>
 
       {/* ── L'essai ─────────────────────────────────────────────────────── */}
@@ -178,37 +178,6 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         </section>
       </div>
 
-      {/* ── Ligne à ligne ───────────────────────────────────────────────── */}
-      <section className="shell section-pad">
-        <SectionHead kicker={t.compareKicker} title={t.compareTitle} />
-        <div className="card overflow-x-auto">
-          <table className="w-full min-w-[760px] border-collapse text-[14.5px]">
-            <thead>
-              <tr className="bg-hover">
-                <th className="px-6 py-4 text-start kicker-sm" />
-                {t.plans.map((p) => (
-                  <th key={p.key} className={`px-5 py-4 text-start text-[15px] font-bold ${p.featured ? "text-action-deep" : "text-ink"}`}>
-                    {p.name}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {t.compareRows.map((row) => (
-                <tr key={row.feature} className="border-t border-hairline">
-                  <td className="px-6 py-3.5 font-semibold text-ink">{row.feature}</td>
-                  {row.cells.map((cell, i) => (
-                    <td key={i} className="px-5 py-3.5 text-body">
-                      {cell === true ? <UiIcon name="check" size={20} className="text-vivid" /> : cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       {/* ── Options et jamais facturé ───────────────────────────────────── */}
       <div className="border-y border-rule bg-white">
         <section className="shell section-pad">
@@ -242,21 +211,6 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
       </div>
-
-      {/* ── La résolution d'AG ──────────────────────────────────────────── */}
-      <section className="shell section-pad">
-        <SectionHead kicker={t.resolutionKicker} title={t.resolutionTitle} lede={t.resolutionBody} />
-        <blockquote className="mx-auto max-w-[860px] rounded-2xl border border-sand-line bg-sand-tint p-8 text-[16.5px] leading-[1.7] text-ink">
-          <UiIcon name="assembly" size={24} className="mb-4 text-sand-deep" />
-          {t.resolutionText}
-        </blockquote>
-        <div className="mt-8 flex justify-center">
-          <Link href={href(l, "/ressources/calculateur-categorie-copropriete")} className="feature-link">
-            <span className="feature-link-text">{c.calc.title}</span>
-            {ARROW}
-          </Link>
-        </div>
-      </section>
 
       {/* ── Questions ───────────────────────────────────────────────────── */}
       <div className="border-t border-rule bg-white">
