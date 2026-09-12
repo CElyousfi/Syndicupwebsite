@@ -49,34 +49,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         facts={t.facts}
       />
 
-      {/* ── Lequel est le vôtre ? ───────────────────────────────────────── */}
-      <section className="shell pt-20">
-        <SectionHead kicker={t.whoKicker} title={t.whoTitle} />
-        <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))]">
-          {t.who.map((w) => (
-            <div key={w.key} className="card p-6">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime text-ink">
-                  <UiIcon name={w.icon} size={20} />
-                </span>
-                <h3 className="text-[18px] font-bold text-ink">{w.title}</h3>
-              </div>
-              <p className="mt-3.5 text-[14.5px] leading-[1.55] text-body">{w.desc}</p>
-              <ul className="mt-4 grid gap-1.5">
-                {w.signs.map((sg) => (
-                  <li key={sg} className="flex items-center gap-2 text-[13.5px] font-semibold text-ink">
-                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-vivid" />
-                    {sg}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── Les quatre plans ────────────────────────────────────────────── */}
-      <section className="shell section-pad">
+      <section className="shell section-pad !pt-16">
         <div className="grid items-stretch gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))]">
           {t.plans.map((plan) => (
             <div
@@ -89,7 +63,9 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 <h2 className="text-[20px] font-bold text-ink">{plan.name}</h2>
                 {plan.badge && <span className="badge bg-lime text-[10.5px] text-ink">{plan.badge}</span>}
               </div>
-              <p className="mt-2 min-h-[44px] text-[14.5px] leading-[1.5] text-body">{plan.profile}</p>
+              <p className="mt-3 inline-flex h-8 w-fit items-center whitespace-nowrap rounded-full bg-action-tint px-3 text-[12.5px] font-semibold text-action-deep">
+                {plan.profile}
+              </p>
               <p className="tnum mt-6 text-[46px] font-bold leading-none text-ink">{plan.amount}</p>
               <p className="mt-1.5 text-[14px] font-semibold text-soft">{plan.unit}</p>
               <p className="mt-2 text-[14.5px] font-semibold text-ink">{plan.floorLabel}</p>

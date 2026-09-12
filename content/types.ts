@@ -507,7 +507,7 @@ export interface SiteContent {
       name: string;
       /** La condition du décret : « charges ≤ 200 000 MAD / an ». */
       scope: string;
-      /** Ce que ce type de copropriété est, en une ligne. */
+      /** La pastille sous le nom : la taille en lots, et le signe qui fait reconnaître le plan. */
       profile: string;
       /** Prix affiché : « 8 » ; l'unité et le plancher viennent de lib/pricing. */
       amount: string;
@@ -523,10 +523,6 @@ export interface SiteContent {
     }[];
     ttcNote: string;
     whichPlan: string;
-    /** Les quatre plans expliqués en mots simples, avec les signes qui font reconnaître le sien. */
-    whoKicker: string;
-    whoTitle: string;
-    who: { key: "petit" | "moyen" | "grand" | "cabinet"; icon: PageIcon; title: string; desc: string; signs: string[] }[];
     cabinetKicker: string;
     cabinetTitle: string;
     cabinetLede: string;
