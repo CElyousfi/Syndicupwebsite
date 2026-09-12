@@ -79,12 +79,14 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   <li key={x}>{x}</li>
                 ))}
               </ul>
-              <Link
-                href={href(l, plan.cta.href)}
-                className={`btn mt-auto w-full justify-center text-center ${plan.featured ? "btn-lime" : "btn-light"} !mt-8`}
-              >
-                {plan.cta.label}
-              </Link>
+              <div className="mt-auto pt-8">
+                <Link
+                  href={href(l, plan.cta.href)}
+                  className={`btn w-full justify-center text-center ${plan.featured ? "btn-lime" : "btn-light"}`}
+                >
+                  {plan.cta.label}
+                </Link>
+              </div>
             </div>
           ))}
         </div>
