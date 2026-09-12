@@ -49,9 +49,35 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         facts={t.facts}
       />
 
+      {/* ── Lequel est le vôtre ? ───────────────────────────────────────── */}
+      <section className="shell pt-20">
+        <SectionHead kicker={t.whoKicker} title={t.whoTitle} />
+        <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))]">
+          {t.who.map((w) => (
+            <div key={w.key} className="card p-6">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime text-ink">
+                  <UiIcon name={w.icon} size={20} />
+                </span>
+                <h3 className="text-[18px] font-bold text-ink">{w.title}</h3>
+              </div>
+              <p className="mt-3.5 text-[14.5px] leading-[1.55] text-body">{w.desc}</p>
+              <ul className="mt-4 grid gap-1.5">
+                {w.signs.map((sg) => (
+                  <li key={sg} className="flex items-center gap-2 text-[13.5px] font-semibold text-ink">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-vivid" />
+                    {sg}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── Les quatre plans ────────────────────────────────────────────── */}
       <section className="shell section-pad">
-        <div className="grid items-stretch gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))]">
+        <div className="grid items-stretch gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))]">
           {t.plans.map((plan) => (
             <div
               key={plan.key}
@@ -59,29 +85,27 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 plan.featured ? "border-vivid/40 ring-1 ring-vivid/30" : ""
               }`}
             >
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex h-7 items-center justify-between gap-3">
                 <h2 className="text-[20px] font-bold text-ink">{plan.name}</h2>
                 {plan.badge && <span className="badge bg-lime text-[10.5px] text-ink">{plan.badge}</span>}
               </div>
-              <p className="mt-1.5 text-[14.5px] leading-[1.5] text-body">{plan.profile}</p>
-              <p className="tnum mt-6 text-[46px] font-bold leading-none text-ink">
-                {plan.amount}
-                <span className="block text-[14px] font-semibold text-soft">{plan.unit}</span>
-              </p>
+              <p className="mt-2 min-h-[44px] text-[14.5px] leading-[1.5] text-body">{plan.profile}</p>
+              <p className="tnum mt-6 text-[46px] font-bold leading-none text-ink">{plan.amount}</p>
+              <p className="mt-1.5 text-[14px] font-semibold text-soft">{plan.unit}</p>
               <p className="mt-2 text-[14.5px] font-semibold text-ink">{plan.floorLabel}</p>
               {plan.example && (
-                <p className="mt-4 rounded-lg bg-action-tint px-3.5 py-2.5 text-[14px] font-semibold text-action-deep">
+                <p className="mt-5 flex min-h-[46px] items-center rounded-lg bg-action-tint px-3.5 py-2.5 text-[14px] font-semibold text-action-deep">
                   {plan.example}
                 </p>
               )}
-              <ul className="list-check mt-5 gap-2.5 text-[14.5px]">
+              <ul className="list-check mt-6 gap-2.5 text-[14.5px]">
                 {plan.features.map((x) => (
                   <li key={x}>{x}</li>
                 ))}
               </ul>
               <Link
                 href={href(l, plan.cta.href)}
-                className={`btn mt-auto pt-0 ${plan.featured ? "btn-lime" : "btn-light"} !mt-7`}
+                className={`btn mt-auto w-full justify-center text-center ${plan.featured ? "btn-lime" : "btn-light"} !mt-8`}
               >
                 {plan.cta.label}
               </Link>

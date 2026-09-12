@@ -523,6 +523,10 @@ export interface SiteContent {
     }[];
     ttcNote: string;
     whichPlan: string;
+    /** Les quatre plans expliqués en mots simples, avec les signes qui font reconnaître le sien. */
+    whoKicker: string;
+    whoTitle: string;
+    who: { key: "petit" | "moyen" | "grand" | "cabinet"; icon: PageIcon; title: string; desc: string; signs: string[] }[];
     cabinetKicker: string;
     cabinetTitle: string;
     cabinetLede: string;
