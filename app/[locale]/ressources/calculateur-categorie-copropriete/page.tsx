@@ -46,7 +46,7 @@ export default async function CalculatorPage({
       />
 
       <section className="shell-narrow section-pad">
-        <CategoryCalculator c={c} />
+        <CategoryCalculator c={c} locale={l} />
       </section>
     </>
   );

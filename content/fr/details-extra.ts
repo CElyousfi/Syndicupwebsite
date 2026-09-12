@@ -425,7 +425,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       { icon: "check", title: "Vous n'y pensez plus", desc: "Relances, quittances, contrôles : le produit tourne, vous décidez." },
     ],
     stats: [
-      { value: "0", unit: "MAD", caption: "sous 30 lots, sans limite de durée" },
+      { value: "99", unit: "MAD / mois", caption: "minimum, pour tout l'immeuble, après 30 jours d'essai" },
       { value: "3", unit: "jours", caption: "de l'envoi du fichier à la résidence administrée" },
       { value: "20", unit: "min", caption: "pour la mise en place initiale" },
       { value: "1", unit: "personne", caption: "qui suit votre reprise, votre clôture et votre AG" },
@@ -435,7 +435,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       { topic: "Comptes", before: "Un cahier, un tableur, des soirées.", after: "Saisie guidée, contrôles automatiques, annexes générées." },
       { topic: "Impayés", before: "Vous, au téléphone, avec un voisin.", after: "Le produit relance en votre nom ; vous n'intervenez qu'à l'escalade." },
       { topic: "Assemblée", before: "Redoutée, contestée, rédigée de mémoire.", after: "Convocation tracée, quorum en direct, PV sous 48 h." },
-      { topic: "Coût", before: "Votre temps, et parfois un comptable.", after: "Gratuit sous 30 lots, reprise et support inclus." },
+      { topic: "Coût", before: "Votre temps, et parfois un comptable à 500 MAD par mois.", after: "6 MAD par lot et par mois, 99 MAD minimum, reprise et support compris." },
     ],
     audiencesTitle: "Et autour de vous",
     audiences: [
@@ -445,9 +445,9 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     faqTitle: "Questions des syndics bénévoles",
     faq: [
-      { q: "Pourquoi est-ce gratuit ?", a: "Parce que les copropriétés de moins de 30 lots sont la majorité des immeubles au Maroc, et qu'elles n'ont jamais eu d'outil. Le modèle se finance sur les résidences plus grandes et les cabinets ; le plan bénévole n'a ni limite de durée ni option payante cachée.", link: { href: "/tarifs", label: "Tarifs" } },
+      { q: "Combien ça coûte, pour un petit immeuble ?", a: "Trente jours d'essai complet sans carte, puis 6 MAD par lot et par mois avec un minimum de 99 MAD par mois pour tout l'immeuble — 1 188 MAD par an, votés une fois en AG. Les résidents ne paient jamais.", link: { href: "/tarifs", label: "Tarifs" } },
       { q: "Je n'y connais rien en comptabilité. Est-ce un problème ?", a: "Non. La saisie est guidée poste par poste, les contrôles sont automatiques, et une personne suit votre première clôture." },
-      { q: "Que se passe-t-il si nous dépassons 30 lots ?", a: "Vous passez au plan Résidence, au tarif public par lot et par mois. Rien ne change dans le produit ni dans vos données." },
+      { q: "Que se passe-t-il si nos charges dépassent 200 000 MAD par an ?", a: "Vous passez au plan Moyen, à 8 MAD par lot et par mois, à la clôture de l'exercice suivant. Rien ne change dans le produit ni dans vos données ; vous êtes prévenus avant l'AG." },
       { q: "Puis-je transmettre à mon successeur ?", a: "Oui : le mandat change de titulaire, l'historique reste. Votre successeur reprend une copropriété administrée, pas un carton." },
     ],
   },
@@ -469,7 +469,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       { icon: "check", title: "Le portefeuille est piloté", desc: "Alertes, taux de recouvrement, clôtures : sur un écran." },
     ],
     stats: [
-      { value: "9", unit: "MAD / lot / mois", caption: "dès 500 lots sous mandat" },
+      { value: "5 → 3", unit: "MAD / lot / mois", caption: "dégressif sur tout le portefeuille" },
       { value: "∞", caption: "résidences par portefeuille" },
       { value: "5", unit: "rôles", caption: "plus la lecture seule, par gestionnaire" },
       { value: "1", unit: "procédure", caption: "de clôture, sur tous les mandats" },
@@ -489,7 +489,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     faqTitle: "Questions des cabinets",
     faq: [
-      { q: "Le tarif à 9 MAD couvre-t-il tout ?", a: "Tout le produit, le support et la reprise, pour l'ensemble du portefeuille dès 500 lots sous mandat. Aucune option payante.", link: { href: "/tarifs", label: "Tarifs" } },
+      { q: "Le tarif Cabinet couvre-t-il tout ?", a: "Tout le produit, le support et la reprise par vagues, pour l'ensemble du portefeuille, dès trois mandats. 5 MAD par lot et par mois jusqu'à 499 lots, 4 MAD de 500 à 1 999, 3 MAD au-delà — appliqué à tout le portefeuille dès le seuil franchi. Minimum 490 MAD par mois.", link: { href: "/tarifs", label: "Tarifs" } },
       { q: "L'application peut-elle porter le nom du cabinet ?", a: "Oui : vos mandants voient votre nom et votre logo dans leur espace résident." },
       { q: "Comment se passe la reprise d'un gros portefeuille ?", a: "Par vagues, à partir de trois résidences pilotes. Nous faisons la reprise, vos gestionnaires valident sur leur périmètre, et l'activité ne s'arrête pas." },
       { q: "Peut-on exporter vers notre expert-comptable ?", a: "Oui, par résidence, dans un format normalisé — écritures, pièces, annexes." },

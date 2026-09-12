@@ -499,28 +499,58 @@ export interface SiteContent {
     crumb: string;
     title: string;
     lede: string;
+    /** Faits sous le chapô : essai, TTC, sans carte… */
+    facts: { k: string; v: string }[];
+    /** Les quatre plans, dans l'ordre Petit, Moyen, Grand, Cabinet. */
     plans: {
+      key: "petit" | "moyen" | "grand" | "cabinet";
       name: string;
+      /** La condition du décret : « charges ≤ 200 000 MAD / an ». */
       scope: string;
+      /** Ce que ce type de copropriété est, en une ligne. */
+      profile: string;
+      /** Prix affiché : « 8 » ; l'unité et le plancher viennent de lib/pricing. */
       amount: string;
       unit: string;
-      note: string;
+      floorLabel: string;
+      billing: string;
+      annexes: string;
+      example?: string;
+      features: string[];
       cta: Link;
       featured?: boolean;
       badge?: string;
-      features: string[];
-      /** Dernière ligne grisée (« — ») du plan Bénévole. */
-      muted?: string;
     }[];
-    image: string;
-    imageAlt: string;
+    ttcNote: string;
+    cabinetKicker: string;
+    cabinetTitle: string;
+    cabinetLede: string;
+    cabinetTiers: { range: string; rate: string }[];
+    cabinetMath: { title: string; lines: string[]; result: string };
+    trialKicker: string;
+    trialTitle: string;
+    trialLede: string;
+    trialSteps: { icon: PageIcon; title: string; desc: string }[];
+    founderKicker: string;
+    founderTitle: string;
+    founderBody: string;
+    founderPoints: string[];
+    founderCta: Link;
+    referralTitle: string;
+    referralBody: string;
+    addonsKicker: string;
+    addonsTitle: string;
+    addons: { icon: PageIcon; title: string; price: string; desc: string }[];
     neverBilledKicker: string;
     neverBilledTitle: string;
     neverBilled: { icon: PageIcon; title: string; desc: string }[];
-    /** Ce que chaque plan comprend, ligne à ligne. */
     compareKicker: string;
     compareTitle: string;
     compareRows: { feature: string; cells: (boolean | string)[] }[];
+    resolutionKicker: string;
+    resolutionTitle: string;
+    resolutionBody: string;
+    resolutionText: string;
     faqKicker: string;
     faqTitle: string;
     faq: FaqItem[];
@@ -604,25 +634,30 @@ export interface SiteContent {
     lede: string;
     lotsLabel: string;
     budgetLabel: string;
+    budgetHint: string;
     commercialLabel: string;
+    cabinetLabel: string;
     yes: string;
     no: string;
     regimeKicker: string;
     dutiesKicker: string;
+    planKicker: string;
     perLotLabel: string;
     priceLabel: string;
+    annualLabel: string;
     shareLabel: string;
+    floorNote: string;
     perYear: string;
-    disclaimer: string;
-    regimes: {
-      light: { name: string; summary: string; duties: string[] };
-      standard: { name: string; summary: string; duties: string[] };
-      strong: { name: string; summary: string; duties: string[] };
-    };
-    commercialDuty: string;
-    freePrice: string;
     perMonth: string;
     ofBudget: string;
+    disclaimer: string;
+    regimes: {
+      petit: { name: string; summary: string; annexes: string; duties: string[] };
+      moyen: { name: string; summary: string; annexes: string; duties: string[] };
+      grand: { name: string; summary: string; annexes: string; duties: string[] };
+    };
+    commercialDuty: string;
+    cta: Link;
   };
 
   apropos: {

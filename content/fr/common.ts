@@ -93,7 +93,7 @@ export const nav: SiteContent["nav"] = {
       href: "/pour-syndic-benevole",
       icon: "benevole",
       title: "Syndic bénévole",
-      desc: "Vous gérez votre immeuble le soir. Gratuit sous 30 lots.",
+      desc: "Vous gérez votre immeuble le soir. Le produit fait le travail comptable.",
     },
     {
       href: "/pour-cabinet-syndic",
@@ -165,8 +165,8 @@ export const cta: SiteContent["cta"] = {
   note: "Démo de 20 minutes, en français ou en arabe. Nom, téléphone, nombre de lots — c'est tout.",
   image: "/images/residence-hero.jpg",
   bullets: [
-    "Reprise de vos données gratuite",
-    "Gratuit sous 30 lots, sans limite de durée",
+    "Essai de 30 jours, sans carte",
+    "Reprise de votre Excel comprise",
     "Sans engagement, résiliable au mois",
   ],
 };

@@ -66,8 +66,8 @@ export function HeadDecor({
  * marque, gros titre, deux boutons et les trois arguments qui lèvent la
  * dernière objection.
  */
-/** Un pictogramme par promesse de la bande de fin : reprise, gratuité, liberté. */
-const CTA_ICONS: UiIconName[] = ["upload", "gift", "unlock"];
+/** Un pictogramme par promesse de la bande de fin : essai, reprise, liberté. */
+const CTA_ICONS: UiIconName[] = ["gift", "upload", "unlock"];
 
 export function CtaBand({ locale, c }: { locale: Locale; c: SiteContent }) {
   return (

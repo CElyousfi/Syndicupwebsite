@@ -3,9 +3,9 @@ import type { SiteContent } from "../types";
 export const home: SiteContent["home"] = {
   metaTitle: "SyndicUp — le logiciel de syndic qui peut prouver",
   metaDescription:
-    "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable. Gratuit sous 30 lots.",
+    "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable. Essai de 30 jours, sans carte.",
 
-  freeNote: "Gratuit pour les copropriétés de moins de 30 lots.",
+  freeNote: "Essai de 30 jours, produit complet, sans carte bancaire.",
 
   heroEmailPlaceholder: "Votre e-mail professionnel",
   heroEmailLabel: "Votre e-mail",
@@ -13,7 +13,7 @@ export const home: SiteContent["home"] = {
 
   trustBar: [
     { icon: "decree", before: "Conforme au", accent: "Décret 2.23.700" },
-    { icon: "free", accent: "Gratuit", after: "pour les copropriétés de moins de 30 lots" },
+    { icon: "free", accent: "30 jours d'essai", after: "produit complet, sans carte bancaire" },
     { icon: "languages", accent: "Français et arabe", after: "en droite à gauche réelle" },
   ],
   statPhotos: [
@@ -29,7 +29,7 @@ export const home: SiteContent["home"] = {
   ],
   stats: [
     { kicker: "CONFORMITÉ", value: "12/12", caption: "Annexes du décret générées" },
-    { kicker: "TARIF", value: "0", unit: "MAD", caption: "Sous 30 lots, sans limite" },
+    { kicker: "TARIF", value: "1,4", unit: "%", caption: "Du budget d'une résidence de 48 lots" },
     { kicker: "GOUVERNANCE", value: "48", unit: "h", caption: "Pour distribuer le PV" },
     { kicker: "TRAÇABILITÉ", value: "100", unit: "%", caption: "Des dépenses justifiées" },
     { kicker: "LANGUES", value: "2", unit: "langues", caption: "Français et arabe, RTL réel" },
@@ -317,8 +317,8 @@ export const home: SiteContent["home"] = {
       icon: "layers",
       illustration: "why-support",
       tone: "sand",
-      title: "Sans coût d'entrée",
-      desc: "Gratuit sous 30 lots, sans limite de durée. Reprise de vos données gratuite quelle que soit la taille. Tarif public au-delà, résiliable au mois.",
+      title: "Un prix public, voté une fois",
+      desc: "Trente jours d'essai complet, sans carte. Puis un tarif par lot et par mois, TTC, affiché sur cette page — 1 à 2 % du budget d'une résidence, facturé à la copropriété et voté en AG.",
     },
   ],
 
@@ -369,7 +369,7 @@ export const home: SiteContent["home"] = {
       tab: "Syndic bénévole",
       line: "Vous gérez votre immeuble le soir, après votre vrai travail. Le produit doit faire le travail comptable à votre place.",
       points: [
-        "Gratuit sous 30 lots, sans limite de durée.",
+        "Trente jours d'essai, puis 99 MAD par mois minimum pour tout l'immeuble.",
         "Les annexes sortent de vos écritures, vous ne les rédigez pas.",
         "Les relances d'impayés partent seules, en votre nom.",
       ],
@@ -465,40 +465,46 @@ export const home: SiteContent["home"] = {
   ecosystemCta: "Voir les intégrations",
 
   pricingKicker: "TARIFS",
-  pricingTitle: "Par lot. Pas de formulaire pour voir le prix.",
+  pricingTitle: "Par lot, par catégorie du décret. Trente jours d'essai avant.",
   pricingLink: "Page tarifs complète",
   pricingFeaturedBadge: "LE PLUS CHOISI",
   pricingCardCta: "Voir le détail",
   prices: [
     {
-      name: "Bénévole",
-      amount: "0",
-      unit: "MAD",
-      note: "Moins de 30 lots, sans limite de durée.",
+      name: "Petit",
+      amount: "6",
+      unit: "MAD / lot / mois",
+      note: "Charges ≤ 200 000 MAD / an. Minimum 99 MAD / mois, facturé à l'année.",
     },
     {
-      name: "Résidence",
-      amount: "12",
+      name: "Moyen",
+      amount: "8",
       unit: "MAD / lot / mois",
-      note: "Tout le produit, support inclus, reprise gratuite.",
+      note: "Charges 200 000 à 500 000 MAD / an. 48 lots → 390 MAD / mois, 1,4 % du budget.",
       featured: true,
     },
     {
-      name: "Cabinet",
-      amount: "9",
+      name: "Grand",
+      amount: "10",
       unit: "MAD / lot / mois",
-      note: "À partir de 500 lots sous mandat.",
+      note: "Charges ≥ 500 000 MAD / an. Huit annexes, RH et paie, interlocuteur nommé.",
+    },
+    {
+      name: "Cabinet",
+      amount: "5 → 3",
+      unit: "MAD / lot / mois",
+      note: "Dégressif sur tout le portefeuille. Trois mandats ou plus.",
     },
   ],
 
   importKicker: "REPRISE DE DONNÉES",
   importTitle: "Envoyez votre Excel. On s'occupe du reste.",
   importBody:
-    "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. Gratuit, quelle que soit la taille.",
+    "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. Comprise dans tous les plans, dès l'essai.",
   importPoints: [
     "Lots, tantièmes, propriétaires et soldes d'ouverture repris",
     "Vous validez ligne à ligne avant la mise en service",
-    "Gratuit, quelle que soit la taille de la copropriété",
+    "Comprise dans tous les plans, y compris pendant l'essai",
   ],
   importCta: "Envoyer mon fichier",
 
@@ -676,16 +682,16 @@ export const home: SiteContent["home"] = {
     },
     {
       label: "Prix & mise en route",
-      intro: "Gratuité, tarifs, reprise de données, démonstration.",
+      intro: "Essai, tarifs, reprise de données, démonstration.",
       items: [
         {
-          q: "Est-ce vraiment gratuit ?",
-          a: "Gratuit sans limite de durée pour les copropriétés de moins de 30 lots — la majorité des immeubles gérés par un syndic bénévole. Au-delà, le tarif est public, par lot et par mois, sans formulaire pour le connaître.",
+          q: "Y a-t-il un essai gratuit ?",
+          a: "Oui : trente jours, produit complet, sans carte bancaire. Nous reprenons votre Excel dans les 48 premières heures, vous émettez votre premier appel de fonds, et vous recevez votre annexe 10 avant la fin. Ensuite, le tarif est public : par lot et par mois, selon la catégorie de votre copropriété au sens du décret, TTC.",
           link: { href: "/tarifs", label: "Tarifs" },
         },
         {
           q: "Puis-je reprendre mon fichier Excel existant ?",
-          a: "Oui. Vous nous envoyez le fichier tel qu'il est — même incomplet, même avec un onglet par année. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. C'est gratuit et c'est notre travail, pas le vôtre.",
+          a: "Oui. Vous nous envoyez le fichier tel qu'il est — même incomplet, même avec un onglet par année. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. L'exercice en cours est compris dans tous les plans ; c'est notre travail, pas le vôtre.",
         },
         {
           q: "Combien de temps prend la mise en service ?",

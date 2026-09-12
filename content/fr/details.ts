@@ -501,16 +501,16 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
 
   "pour-syndic-benevole": {
     crumb: "POUR QUI / SYNDIC BÉNÉVOLE",
-    kicker: "GRATUIT SOUS 30 LOTS",
+    kicker: "SYNDIC BÉNÉVOLE · PLAN PETIT",
     title: "Vous gérez l'immeuble le soir. Le logiciel travaille pendant ce temps.",
     lede: "Vous n'êtes pas comptable, vous n'avez pas signé pour ça, et vous le faites quand même. Le produit est conçu pour que la conformité soit un effet secondaire de vos gestes quotidiens, pas un chantier de janvier.",
     metaDescription:
-      "Gratuit sans limite de durée sous 30 lots : reprise Excel offerte, relances automatiques, annexes générées et PV d'AG produit à la clôture de séance.",
+      "Trente jours d'essai sans carte, puis 6 MAD par lot et par mois (99 MAD minimum) : reprise Excel comprise, relances automatiques, annexes générées et PV d'AG produit à la clôture de séance.",
     heroMockup: "syndic-todo",
     outputs: [
-      { k: "Prix", v: "0 MAD sous 30 lots" },
+      { k: "Prix", v: "6 MAD / lot / mois, 99 MAD minimum" },
       { k: "Durée", v: "illimitée" },
-      { k: "Reprise Excel", v: "gratuite" },
+      { k: "Reprise Excel", v: "comprise" },
       { k: "Support", v: "WhatsApp" },
     ],
     blocks: [
@@ -519,7 +519,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
         heading: "Vingt minutes pour tout mettre en place",
         body: "Vous envoyez votre fichier — même désordonné. Nous le reprenons, vous validez les lots, les tantièmes et les soldes d'ouverture. Le lendemain, la copropriété est administrée.",
         bullets: [
-          "Reprise de votre Excel, faite par nous, gratuitement.",
+          "Reprise de votre Excel, faite par nous, comprise.",
           "Invitation des copropriétaires par SMS, sans mot de passe à créer.",
           "Visite guidée dans le produit : rien à lire ailleurs.",
         ],
@@ -548,9 +548,9 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
         mockup: "annexe",
       },
     ],
-    limitTitle: "Pourquoi c'est gratuit, honnêtement",
+    limitTitle: "Pourquoi ce n'est plus gratuit, honnêtement",
     limitBody:
-      "Parce qu'une copropriété de 18 lots n'a pas de budget logiciel, et parce que ces immeubles sont ceux que le décret met le plus en difficulté. Notre modèle repose sur les résidences plus grandes et les cabinets. Il n'y a pas de fonctionnalité bridée pour vous pousser à payer.",
+      "Un logiciel gratuit sans limite de durée ne paie ni l'hébergement, ni le support, ni la personne qui reprend votre fichier. Nous avons choisi l'inverse : trente jours d'essai complet, un tarif public de 99 MAD par mois minimum pour tout l'immeuble — voté une fois en AG — et des résidents qui ne paient jamais. Après l'essai, vos données restent lisibles et exportables ; rien n'est supprimé.",
     related: [
       R_GUIDE,
       R_COMPTA,
@@ -568,10 +568,10 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     title: "Votre marge est dans la clôture, pas dans la saisie.",
     lede: "Un cabinet perd ses semaines à reconstituer des comptes et à répondre au téléphone. Les deux se traitent par le même moyen : une donnée saisie une fois sur le terrain, et des copropriétaires qui voient leurs comptes sans vous appeler.",
     metaDescription:
-      "9 MAD par lot et par mois dès 500 lots : vue portefeuille, rôles et permissions, application résidents et clôture standardisée par mandat.",
+      "De 5 à 3 MAD par lot et par mois, dégressif sur tout le portefeuille : vue portefeuille, rôles et permissions, application au nom du cabinet et clôture standardisée par mandat.",
     heroMockup: "cabinet-portfolio",
     outputs: [
-      { k: "Tarif", v: "9 MAD / lot / mois dès 500 lots" },
+      { k: "Tarif", v: "5 → 3 MAD / lot / mois, dégressif" },
       { k: "Résidences", v: "illimitées" },
       { k: "Rôles", v: "5 niveaux + lecture seule" },
       { k: "Reprise", v: "accompagnée par vagues" },

@@ -366,7 +366,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <span className="kicker">{h.pricingKicker}</span>
           <h2 className="h-section">{h.pricingTitle}</h2>
         </div>
-        <div className="auto-grid-md gap-5">
+        <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))]">
           {h.prices.map((p) => (
             <div
               key={p.name}
@@ -380,9 +380,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <span className="badge bg-lime text-[10.5px] text-ink">{h.pricingFeaturedBadge}</span>
                 )}
               </div>
-              <p className="tnum mt-5 text-[44px] font-bold leading-none text-ink">
+              <p className="tnum mt-5 text-[40px] font-bold leading-none text-ink">
                 {p.amount}
-                <span className="text-[17px] font-bold text-soft"> {p.unit}</span>
+                <span className="block text-[13.5px] font-semibold text-soft">{p.unit}</span>
               </p>
               <p className="mt-3 text-[15px] leading-[1.5] text-body">{p.note}</p>
               <Link
