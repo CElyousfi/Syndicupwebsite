@@ -15,6 +15,7 @@ import { Scene } from "@/components/scene";
 import { SecurityIcon, TrustIcon, UiIcon } from "@/components/icons";
 import { illustration } from "@/content/scenes";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
+import { CABINET_TIERS, PLANS } from "@/lib/pricing";
 import { whatsappHref } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -466,22 +467,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <FaqJsonLd
         faq={h.faqTabs.flatMap((t) => t.items)}
-        name={c.home.metaTitle}
         description={c.home.metaDescription}
+        offers={c.tarifs.plans.map((p) => ({
+          name: p.name,
+          price: p.key === "cabinet" ? CABINET_TIERS[0].rate : PLANS[p.key].rate,
+          ht: p.key === "cabinet",
+        }))}
       />
     </>
   );
 }
 
-/** Balisage FAQPage + SoftwareApplication. */
+/** Balisage FAQPage + SoftwareApplication, avec une Offer par plan (prix catalogue par lot et par mois). */
 function FaqJsonLd({
   faq,
-  name,
   description,
+  offers,
 }: {
   faq: { q: string; a: string }[];
-  name: string;
   description: string;
+  offers: { name: string; price: number; ht: boolean }[];
 }) {
   const graph = {
     "@context": "https://schema.org",
@@ -493,12 +498,19 @@ function FaqJsonLd({
         operatingSystem: "Web, iOS, Android",
         inLanguage: ["fr-MA", "ar-MA"],
         description,
-        offers: {
+        offers: offers.map((o) => ({
           "@type": "Offer",
-          price: "0",
+          name: o.name,
+          price: String(o.price),
           priceCurrency: "MAD",
-          description: name,
-        },
+          priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: String(o.price),
+            priceCurrency: "MAD",
+            unitText: "lot / mois",
+            valueAddedTaxIncluded: !o.ht,
+          },
+        })),
       },
       {
         "@type": "FAQPage",

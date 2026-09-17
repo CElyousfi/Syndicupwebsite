@@ -165,9 +165,9 @@ export const cta: SiteContent["cta"] = {
   note: "Démo de 20 minutes, en français ou en arabe. Nom, téléphone, nombre de lots — c'est tout.",
   image: "/images/residence-hero.jpg",
   bullets: [
-    "Essai de 30 jours, sans carte",
-    "Reprise de votre Excel comprise",
-    "Sans engagement, résiliable au mois",
+    "30 jours avec vos données, rien à payer si vous ne continuez pas",
+    "Reprise faite par nous pendant l'essai",
+    "Prix public, TTC, voté une fois en AG",
   ],
 };
 

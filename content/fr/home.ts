@@ -3,9 +3,9 @@ import type { SiteContent } from "../types";
 export const home: SiteContent["home"] = {
   metaTitle: "SyndicUp — le logiciel de syndic qui peut prouver",
   metaDescription:
-    "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable. Essai de 30 jours, sans carte.",
+    "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable. 30 jours avec vos propres données : si vous ne continuez pas, vous ne payez rien.",
 
-  freeNote: "Essai de 30 jours, produit complet, sans carte bancaire.",
+  freeNote: "30 jours avec vos propres données, reprise faite par nous. Si vous ne continuez pas, vous ne payez rien.",
 
   heroEmailPlaceholder: "Votre e-mail professionnel",
   heroEmailLabel: "Votre e-mail",
@@ -13,7 +13,7 @@ export const home: SiteContent["home"] = {
 
   trustBar: [
     { icon: "decree", before: "Conforme au", accent: "Décret 2.23.700" },
-    { icon: "free", accent: "30 jours d'essai", after: "produit complet, sans carte bancaire" },
+    { icon: "free", accent: "30 jours avec vos données", after: "reprise faite par nous, rien à payer si vous ne continuez pas" },
     { icon: "languages", accent: "Français et arabe", after: "en droite à gauche réelle" },
   ],
   statPhotos: [
@@ -29,7 +29,7 @@ export const home: SiteContent["home"] = {
   ],
   stats: [
     { kicker: "CONFORMITÉ", value: "12/12", caption: "Annexes du décret générées" },
-    { kicker: "TARIF", value: "1,4", unit: "%", caption: "Du budget d'une résidence de 48 lots" },
+    { kicker: "TARIF", value: "1,5", unit: "%", caption: "Du budget d'une résidence de 48 lots" },
     { kicker: "GOUVERNANCE", value: "48", unit: "h", caption: "Pour distribuer le PV" },
     { kicker: "TRAÇABILITÉ", value: "100", unit: "%", caption: "Des dépenses justifiées" },
     { kicker: "LANGUES", value: "2", unit: "langues", caption: "Français et arabe, RTL réel" },
@@ -318,7 +318,7 @@ export const home: SiteContent["home"] = {
       illustration: "why-support",
       tone: "sand",
       title: "Un prix public, voté une fois",
-      desc: "Trente jours d'essai complet, sans carte. Puis un tarif par lot et par mois, TTC, affiché sur cette page — 1 à 2 % du budget d'une résidence, facturé à la copropriété et voté en AG.",
+      desc: "Trente jours avec vos propres données, reprise faite par nous. Puis un tarif par lot et par mois, TTC, affiché publiquement — 1 à 3 % du budget d'une résidence, facturé à la copropriété et voté en AG.",
     },
   ],
 
@@ -369,7 +369,7 @@ export const home: SiteContent["home"] = {
       tab: "Syndic bénévole",
       line: "Vous gérez votre immeuble le soir, après votre vrai travail. Le produit doit faire le travail comptable à votre place.",
       points: [
-        "Trente jours d'essai, puis 99 MAD par mois minimum pour tout l'immeuble.",
+        "Trente jours avec vos données, puis à partir de 149 MAD par mois pour tout l'immeuble.",
         "Les annexes sortent de vos écritures, vous ne les rédigez pas.",
         "Les relances d'impayés partent seules, en votre nom.",
       ],
@@ -465,46 +465,46 @@ export const home: SiteContent["home"] = {
   ecosystemCta: "Voir les intégrations",
 
   pricingKicker: "TARIFS",
-  pricingTitle: "Par lot, par mois. Trente jours d'essai avant.",
+  pricingTitle: "Par lot, par mois. Trente jours avec vos données avant.",
   pricingLink: "Page tarifs complète",
   pricingFeaturedBadge: "LE PLUS CHOISI",
   pricingCardCta: "Voir le détail",
   prices: [
     {
       name: "Petit",
-      amount: "6",
-      unit: "MAD / lot / mois",
-      note: "Petit immeuble, sans gardien. À partir de 99 MAD par mois.",
+      amount: "8",
+      unit: "MAD / lot / mois · 5,60 au tarif fondateur",
+      note: "Petit immeuble, sans gardien. À partir de 149 MAD par mois. Import autonome inclus.",
     },
     {
       name: "Moyen",
-      amount: "8",
-      unit: "MAD / lot / mois",
-      note: "Résidence avec gardien et ascenseur. 48 lots → 390 MAD par mois.",
+      amount: "12",
+      unit: "MAD / lot / mois · 8,40 au tarif fondateur",
+      note: "Résidence avec gardien et ascenseur. 48 lots → 403,20 MAD par mois. Option Accompagné disponible.",
       featured: true,
     },
     {
       name: "Grand",
-      amount: "10",
-      unit: "MAD / lot / mois",
-      note: "Grande copropriété avec du personnel. À partir de 990 MAD par mois.",
+      amount: "15",
+      unit: "MAD / lot / mois · 10,50 au tarif fondateur",
+      note: "Grande copropriété avec du personnel. À partir de 990 MAD par mois, mise en service accompagnée incluse.",
     },
     {
       name: "Cabinet",
-      amount: "5 → 3",
-      unit: "MAD / lot / mois",
-      note: "Syndic professionnel. Dégressif sur tout le portefeuille.",
+      amount: "10 → 7",
+      unit: "MAD HT / lot / mois · 7 → 4,90 au tarif fondateur",
+      note: "Syndic professionnel. Dégressif par taille de portefeuille, contrat annuel, devis en 24 h.",
     },
   ],
 
   importKicker: "REPRISE DE DONNÉES",
   importTitle: "Envoyez votre Excel. On s'occupe du reste.",
   importBody:
-    "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. Comprise dans tous les plans, dès l'essai.",
+    "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise pendant vos 30 jours, vous la validez ligne à ligne. Ensuite, deux chemins : l'import autonome, inclus, ou la mise en service accompagnée par nous, à prix fixe.",
   importPoints: [
     "Lots, tantièmes, propriétaires et soldes d'ouverture repris",
     "Vous validez ligne à ligne avant la mise en service",
-    "Comprise dans tous les plans, y compris pendant l'essai",
+    "Reprise faite par nous pendant les 30 jours ; import autonome inclus ensuite, accompagnée à prix fixe",
   ],
   importCta: "Envoyer mon fichier",
 
@@ -541,7 +541,7 @@ export const home: SiteContent["home"] = {
       when: "AG",
       icon: "assembly",
       title: "Nous sommes là pour la première clôture",
-      desc: "Relecture des annexes avant diffusion, et disponibilité le jour de l'assemblée.",
+      desc: "Avec la mise en service accompagnée : relecture des annexes avant diffusion, et disponibilité le jour de l'assemblée.",
       highlight: true,
     },
   ],
@@ -685,17 +685,17 @@ export const home: SiteContent["home"] = {
       intro: "Essai, tarifs, reprise de données, démonstration.",
       items: [
         {
-          q: "Y a-t-il un essai gratuit ?",
-          a: "Oui : trente jours, produit complet, sans carte bancaire. Nous reprenons votre Excel dans les 48 premières heures, vous émettez votre premier appel de fonds, et vous recevez votre annexe 10 avant la fin. Ensuite, le tarif est public : par lot et par mois, selon la catégorie de votre copropriété au sens du décret, TTC.",
+          q: "Y a-t-il un essai gratuit ?",
+          a: "30 jours avec vos propres données. Nous faisons la reprise. Si vous ne continuez pas, vous ne payez rien. Ensuite, le tarif est public : 8, 12 ou 15 MAD par lot et par mois selon la catégorie de votre copropriété au sens du décret, TTC — 5,60, 8,40 et 10,50 MAD avec la remise fondateur de 30 %.",
           link: { href: "/tarifs", label: "Tarifs" },
         },
         {
           q: "Puis-je reprendre mon fichier Excel existant ?",
-          a: "Oui. Vous nous envoyez le fichier tel qu'il est — même incomplet, même avec un onglet par année. Nous faisons la reprise, vous la validez ligne à ligne avant la mise en service. L'exercice en cours est compris dans tous les plans ; c'est notre travail, pas le vôtre.",
+          a: "Oui. Vous nous envoyez le fichier tel qu'il est — même incomplet, même avec un onglet par année. Nous faisons la reprise pendant vos 30 jours, vous la validez ligne à ligne. Ensuite, l'import autonome est inclus dans tous les plans ; la mise en service accompagnée, faite par nous, est à prix fixe : 990 MAD sur Petit, 2 490 MAD sur Moyen, incluse sur Grand.",
         },
         {
           q: "Combien de temps prend la mise en service ?",
-          a: "Trois jours pour une copropriété simple : vous envoyez le fichier, nous vous rendons la reprise à valider sous 48 heures, et la résidence est administrée le lendemain. Pour un portefeuille de cabinet, nous procédons par vagues.",
+          a: "Trois jours pour une copropriété simple : vous envoyez le fichier, nous vous rendons la reprise à valider sous 48 heures, et la résidence est administrée le lendemain. Pour un portefeuille de cabinet, nous procédons par vagues, à 490 MAD HT par résidence, offerte à partir de la 10e.",
         },
         {
           q: "Comment se passe la démonstration ?",
@@ -704,7 +704,7 @@ export const home: SiteContent["home"] = {
         },
         {
           q: "Y a-t-il un engagement ?",
-          a: "Non. Sans engagement, résiliable au mois. L'export complet de vos données fait partie du produit et n'est jamais facturé.",
+          a: "Aucun au-delà de la période facturée : l'année pour une copropriété, le contrat annuel pour un cabinet. L'export complet de vos données fait partie du produit et n'est jamais facturé.",
         },
         {
           q: "Je suis un cabinet avec plusieurs résidences : est-ce le même produit ?",

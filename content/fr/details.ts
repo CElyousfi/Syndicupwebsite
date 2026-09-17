@@ -505,12 +505,12 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     title: "Vous gérez l'immeuble le soir. Le logiciel travaille pendant ce temps.",
     lede: "Vous n'êtes pas comptable, vous n'avez pas signé pour ça, et vous le faites quand même. Le produit est conçu pour que la conformité soit un effet secondaire de vos gestes quotidiens, pas un chantier de janvier.",
     metaDescription:
-      "Trente jours d'essai sans carte, puis 6 MAD par lot et par mois (99 MAD minimum) : reprise Excel comprise, relances automatiques, annexes générées et PV d'AG produit à la clôture de séance.",
+      "Trente jours avec vos propres données, puis 8 MAD par lot et par mois (5,60 au tarif fondateur, 149 MAD minimum) : reprise faite par nous, relances automatiques, annexes générées et PV d'AG produit à la clôture de séance.",
     heroMockup: "syndic-todo",
     outputs: [
-      { k: "Prix", v: "6 MAD / lot / mois, 99 MAD minimum" },
-      { k: "Durée", v: "illimitée" },
-      { k: "Reprise Excel", v: "comprise" },
+      { k: "Prix", v: "8 MAD / lot / mois, à partir de 149 MAD" },
+      { k: "Tarif fondateur", v: "5,60 MAD / lot / mois" },
+      { k: "Mise en service", v: "import inclus, accompagnée 990 MAD" },
       { k: "Support", v: "WhatsApp" },
     ],
     blocks: [
@@ -519,7 +519,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
         heading: "Vingt minutes pour tout mettre en place",
         body: "Vous envoyez votre fichier — même désordonné. Nous le reprenons, vous validez les lots, les tantièmes et les soldes d'ouverture. Le lendemain, la copropriété est administrée.",
         bullets: [
-          "Reprise de votre Excel, faite par nous, comprise.",
+          "Reprise de votre Excel, faite par nous, pendant vos 30 jours.",
           "Invitation des copropriétaires par SMS, sans mot de passe à créer.",
           "Visite guidée dans le produit : rien à lire ailleurs.",
         ],
@@ -550,7 +550,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     ],
     limitTitle: "Pourquoi ce n'est plus gratuit, honnêtement",
     limitBody:
-      "Un logiciel gratuit sans limite de durée ne paie ni l'hébergement, ni le support, ni la personne qui reprend votre fichier. Nous avons choisi l'inverse : trente jours d'essai complet, un tarif public de 99 MAD par mois minimum pour tout l'immeuble — voté une fois en AG — et des résidents qui ne paient jamais. Après l'essai, vos données restent lisibles et exportables ; rien n'est supprimé.",
+      "Un logiciel gratuit sans limite de durée ne paie ni l'hébergement, ni le support, ni la personne qui reprend votre fichier. Nous avons choisi l'inverse : trente jours avec vos propres données, un tarif public à partir de 149 MAD par mois pour tout l'immeuble — voté une fois en AG — et des résidents qui ne paient jamais. Après l'essai, vos données restent lisibles et exportables ; rien n'est supprimé.",
     related: [
       R_GUIDE,
       R_COMPTA,
@@ -568,13 +568,13 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     title: "Votre marge est dans la clôture, pas dans la saisie.",
     lede: "Un cabinet perd ses semaines à reconstituer des comptes et à répondre au téléphone. Les deux se traitent par le même moyen : une donnée saisie une fois sur le terrain, et des copropriétaires qui voient leurs comptes sans vous appeler.",
     metaDescription:
-      "De 5 à 3 MAD par lot et par mois, dégressif sur tout le portefeuille : vue portefeuille, rôles et permissions, application au nom du cabinet et clôture standardisée par mandat.",
+      "De 10 à 7 MAD HT par lot et par mois, dégressif par taille de portefeuille (7 à 4,90 au tarif fondateur) : vue portefeuille, rôles et permissions, application au nom du cabinet et clôture standardisée par mandat.",
     heroMockup: "cabinet-portfolio",
     outputs: [
-      { k: "Tarif", v: "5 → 3 MAD / lot / mois, dégressif" },
-      { k: "Résidences", v: "illimitées" },
+      { k: "Tarif", v: "10 → 7 MAD HT / lot / mois, dégressif" },
+      { k: "Minimum", v: "12 000 MAD HT / an, contrat annuel" },
       { k: "Rôles", v: "5 niveaux + lecture seule" },
-      { k: "Reprise", v: "accompagnée par vagues" },
+      { k: "Mise en service", v: "490 MAD HT / résidence, offerte dès la 10e" },
     ],
     blocks: [
       {

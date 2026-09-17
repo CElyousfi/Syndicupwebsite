@@ -66,7 +66,13 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
               <p className="mt-3 inline-flex h-8 w-fit items-center whitespace-nowrap rounded-full bg-action-tint px-3 text-[12.5px] font-semibold text-action-deep">
                 {plan.profile}
               </p>
-              <p className="tnum mt-6 text-[46px] font-bold leading-none text-ink">{plan.amount}</p>
+              <p className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1">
+                <span className="tnum text-[46px] font-bold leading-none text-ink">{plan.amount}</span>
+                <span className="flex flex-col pb-0.5">
+                  <span className="tnum text-[22px] font-bold leading-none text-action-deep">{plan.netAmount}</span>
+                  <span className="mt-1 text-[11px] font-semibold text-action-deep">{t.netLabel}</span>
+                </span>
+              </p>
               <p className="mt-1.5 text-[14px] font-semibold text-soft">{plan.unit}</p>
               <p className="mt-2 text-[14.5px] font-semibold text-ink">{plan.floorLabel}</p>
               {plan.example && (
@@ -74,11 +80,29 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   {plan.example}
                 </p>
               )}
+              {plan.callout && <p className="mt-3 text-[13.5px] leading-[1.5] text-body">{plan.callout}</p>}
+              <p className="mt-4 text-[13px] leading-[1.5] text-soft">
+                <span className="font-semibold text-ink">{t.setupLabel} · </span>
+                {plan.setup}
+              </p>
               <ul className="list-check mt-6 gap-2.5 text-[14.5px]">
                 {plan.features.map((x) => (
                   <li key={x}>{x}</li>
                 ))}
               </ul>
+              {plan.option && (
+                <div className="mt-5 rounded-lg border border-dashed border-hairline-strong p-3.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[13.5px] font-bold text-ink">{plan.option.title}</span>
+                    <span className="badge bg-sand-tint text-[10px] text-ink">{plan.option.limited}</span>
+                  </div>
+                  <p className="tnum mt-2 text-[15px] font-bold text-ink">
+                    {plan.option.amount} <span className="text-action-deep">→ {plan.option.netAmount}</span>{" "}
+                    <span className="text-[12px] font-semibold text-soft">{plan.option.unit}</span>
+                  </p>
+                  <p className="mt-1.5 text-[13px] leading-[1.5] text-body">{plan.option.desc}</p>
+                </div>
+              )}
               <div className="mt-auto pt-8">
                 <Link
                   href={href(l, plan.cta.href)}
@@ -99,6 +123,73 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
+      {/* ── Mise en service : deux chemins, des prix fixes ──────────────── */}
+      <div className="border-y border-rule bg-white">
+        <section className="shell section-pad">
+          <SectionHead kicker={t.setupKicker} title={t.setupTitle} lede={t.setupLede} />
+          <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
+            <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))]">
+              {t.setupPaths.map((p) => (
+                <div key={p.title} className="card card-lift p-7">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-action-tint text-action">
+                    <UiIcon name={p.icon} size={22} />
+                  </span>
+                  <h3 className="mt-5 text-[18px] font-bold text-ink">{p.title}</h3>
+                  <p className="mt-1 text-[14.5px] font-semibold text-action-deep">{p.price}</p>
+                  <p className="mt-2.5 text-[14.5px] leading-[1.55] text-body">{p.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="card overflow-hidden">
+              {t.setupPrices.map((row) => (
+                <div key={row.plan} className="flex items-center justify-between gap-4 border-b border-hairline px-7 py-5 last:border-b-0">
+                  <span className="flex flex-col">
+                    <span className="text-[16px] font-semibold text-ink">{row.plan}</span>
+                    <span className="text-[13px] text-soft">{row.note}</span>
+                  </span>
+                  <span className="tnum whitespace-nowrap text-[16px] font-bold text-action-deep">{row.price}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* ── Option Accompagné, sur Moyen et Grand ───────────────────────── */}
+      <section className="shell section-pad">
+        <SectionHead kicker={t.optionKicker} title={t.optionTitle} lede={t.optionLede} />
+        <div className="grid gap-5 lg:grid-cols-[1fr_1.3fr]">
+          <div className="grid gap-5">
+            {t.optionPrices.map((o) => (
+              <div key={o.plan} className="card card-lift flex flex-wrap items-center justify-between gap-4 p-7">
+                <div>
+                  <p className="text-[20px] font-bold text-ink">{o.plan}</p>
+                  <p className="mt-1 text-[14px] font-semibold text-soft">{o.unit}</p>
+                </div>
+                <p className="flex items-end gap-3">
+                  <span className="tnum text-[40px] font-bold leading-none text-ink">{o.amount}</span>
+                  <span className="flex flex-col pb-0.5">
+                    <span className="tnum text-[20px] font-bold leading-none text-action-deep">{o.netAmount}</span>
+                    <span className="mt-1 text-[11px] font-semibold text-action-deep">{t.netLabel}</span>
+                  </span>
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-2xl bg-action-tint p-8">
+            <span className="badge bg-sand-tint text-[10.5px] text-ink">{t.optionLimited}</span>
+            <ul className="mt-5 grid gap-3">
+              {t.optionIncludes.map((x) => (
+                <li key={x} className="flex items-start gap-3 text-[15.5px] leading-[1.5] text-body">
+                  <UiIcon name="check" size={18} className="mt-[3px] shrink-0 text-vivid" />
+                  {x}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* ── L'essai ─────────────────────────────────────────────────────── */}
       <div className="border-y border-rule bg-white">
         <section className="shell section-pad">
@@ -106,6 +197,22 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
           <StepsRail steps={t.trialSteps} />
         </section>
       </div>
+
+      {/* ── Facturation : les règles, telles qu'elles sont énoncées ─────── */}
+      <section className="shell section-pad !pb-0">
+        <SectionHead kicker={t.billingKicker} title={t.billingTitle} />
+        <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))]">
+          {t.billingRules.map((r) => (
+            <div key={r.title} className="card card-lift p-7">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-lime text-ink">
+                <UiIcon name={r.icon} size={22} />
+              </span>
+              <h3 className="mt-5 text-[18px] font-bold leading-[1.3] text-ink">{r.title}</h3>
+              <p className="mt-2 text-[15px] leading-[1.5] text-body">{r.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ── Tarif fondateur + parrainage ────────────────────────────────── */}
       <section className="shell section-pad">

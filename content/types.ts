@@ -499,8 +499,12 @@ export interface SiteContent {
     crumb: string;
     title: string;
     lede: string;
-    /** Faits sous le chapô : essai, TTC, sans carte… */
+    /** Faits sous le chapô : essai, TTC, remise fondateur… */
     facts: { k: string; v: string }[];
+    /** Libellés communs aux cartes : « Prix catalogue », « Remise fondateur −30 % », « Mise en service ». */
+    catalogueLabel: string;
+    netLabel: string;
+    setupLabel: string;
     /** Les quatre plans, dans l'ordre Petit, Moyen, Grand, Cabinet. */
     plans: {
       key: "petit" | "moyen" | "grand" | "cabinet";
@@ -509,13 +513,22 @@ export interface SiteContent {
       scope: string;
       /** La pastille sous le nom : la taille en lots, et le signe qui fait reconnaître le plan. */
       profile: string;
-      /** Prix affiché : « 8 » ; l'unité et le plancher viennent de lib/pricing. */
+      /** Prix catalogue, en grand : « 12 » ; l'unité et le plancher viennent de lib/pricing. */
       amount: string;
+      /** Prix après remise fondateur, posé à côté du catalogue : « 8,40 ». */
+      netAmount: string;
       unit: string;
+      /** Le plancher : « à partir de 390 MAD / mois ». */
       floorLabel: string;
       billing: string;
       annexes: string;
       example?: string;
+      /** Une phrase en plus sous l'exemple : l'ordre de grandeur qu'on porte en AG. */
+      callout?: string;
+      /** La mise en service de ce plan : import autonome inclus, accompagnée à prix fixe, ou incluse. */
+      setup: string;
+      /** Option Accompagné (Moyen et Grand) : +50 % du prix catalogue. */
+      option?: { title: string; amount: string; netAmount: string; unit: string; desc: string; limited: string };
       features: string[];
       cta: Link;
       featured?: boolean;
@@ -523,6 +536,23 @@ export interface SiteContent {
     }[];
     ttcNote: string;
     whichPlan: string;
+    /** Mise en service : deux chemins (autonome, accompagnée) et les prix fixes par plan. */
+    setupKicker: string;
+    setupTitle: string;
+    setupLede: string;
+    setupPaths: { icon: PageIcon; title: string; price: string; desc: string }[];
+    setupPrices: { plan: string; price: string; note: string }[];
+    /** Option Accompagné sur Moyen et Grand. */
+    optionKicker: string;
+    optionTitle: string;
+    optionLede: string;
+    optionIncludes: string[];
+    optionPrices: { plan: string; amount: string; netAmount: string; unit: string }[];
+    optionLimited: string;
+    /** Les règles de facturation, telles qu'elles sont énoncées sur la page. */
+    billingKicker: string;
+    billingTitle: string;
+    billingRules: { icon: PageIcon; title: string; desc: string }[];
     cabinetKicker: string;
     cabinetTitle: string;
     cabinetLede: string;
@@ -638,6 +668,9 @@ export interface SiteContent {
     budgetHint: string;
     commercialLabel: string;
     cabinetLabel: string;
+    /** Le choix de la mise en service accompagnée (incluse sur Grand). */
+    setupLabel: string;
+    setupHint: string;
     yes: string;
     no: string;
     regimeKicker: string;
@@ -645,12 +678,23 @@ export interface SiteContent {
     planKicker: string;
     perLotLabel: string;
     priceLabel: string;
-    annualLabel: string;
+    /** « Coût année 1 » : mise en service (si choisie) + douze mois. */
+    yearOneLabel: string;
+    yearOneHint: string;
+    /** « À partir de l'année 2 » : douze mois d'abonnement. */
+    yearTwoLabel: string;
     shareLabel: string;
     floorNote: string;
     perYear: string;
     perMonth: string;
+    /** Sous le grand pourcentage : « du budget de la copropriété ». */
     ofBudget: string;
+    /** Sous le prix : le catalogue et la remise fondateur ; `{catalogue}` est remplacé. */
+    founderNote: string;
+    /** Quand la mise en service est incluse dans le plan. */
+    setupIncludedNote: string;
+    /** Pour un cabinet : HT, contrat annuel, minimum, mise en service par résidence. */
+    cabinetNote: string;
     disclaimer: string;
     regimes: {
       petit: { name: string; summary: string; annexes: string; duties: string[] };
