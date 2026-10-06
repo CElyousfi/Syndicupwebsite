@@ -16,7 +16,7 @@ import { SecurityIcon, TrustIcon, UiIcon } from "@/components/icons";
 import { illustration } from "@/content/scenes";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { CABINET_TIERS, PLANS } from "@/lib/pricing";
-import { whatsappHref } from "@/lib/site";
+import { SITE, whatsappHref } from "@/lib/site";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -87,6 +87,33 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
       <section className="bg-white py-12">
         <ProofRibbon stats={h.stats} photos={h.statPhotos} />
+      </section>
+
+      {/* ── 2 bis · Film de lancement : le vrai produit, 65 secondes ─────── */}
+      <section id="film" className="shell section-pad">
+        <div className="section-head">
+          <span className="kicker">{h.video.kicker}</span>
+          <h2 className="h-section">{h.video.title}</h2>
+          <p>{h.video.lede}</p>
+        </div>
+        <div className="mx-auto max-w-[1080px]">
+          <div className="overflow-hidden rounded-[24px] bg-ink shadow-[0_40px_80px_-40px_rgb(32_31_35_/_0.45)]">
+            <video
+              className="block aspect-video h-auto w-full"
+              controls
+              playsInline
+              preload="none"
+              poster={SITE.launchVideo.poster}
+              aria-label={h.video.name}
+            >
+              <source src={SITE.launchVideo.src} type="video/mp4" />
+            </video>
+          </div>
+          <details className="mt-5 text-[15px] leading-[1.6] text-body">
+            <summary className="cursor-pointer font-semibold text-ink">{h.video.transcriptLabel}</summary>
+            <p className="mt-3 max-w-[820px]">{h.video.transcript}</p>
+          </details>
+        </div>
       </section>
 
       {/* ── 6 · Une plateforme : quatre blocs alternés ────────────────────── */}
@@ -466,6 +493,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </div>
 
       <FaqJsonLd
+        video={{ name: h.video.name, description: h.video.description, transcript: h.video.transcript }}
         faq={h.faqTabs.flatMap((t) => t.items)}
         description={c.home.metaDescription}
         offers={c.tarifs.plans.map((p) => ({
@@ -480,10 +508,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
 /** Balisage FAQPage + SoftwareApplication, avec une Offer par plan (prix catalogue par lot et par mois). */
 function FaqJsonLd({
+  video,
   faq,
   description,
   offers,
 }: {
+  video: { name: string; description: string; transcript: string };
   faq: { q: string; a: string }[];
   description: string;
   offers: { name: string; price: number; ht: boolean }[];
@@ -491,6 +521,28 @@ function FaqJsonLd({
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE.url}/#organization`,
+        name: SITE.name,
+        url: SITE.url,
+        logo: `${SITE.url}/images/logo.png`,
+        email: SITE.emails.contact,
+        address: { "@type": "PostalAddress", addressLocality: SITE.city, addressCountry: "MA" },
+        sameAs: [SITE.social.facebook, SITE.social.instagram],
+      },
+      {
+        "@type": "VideoObject",
+        name: video.name,
+        description: video.description,
+        thumbnailUrl: [`${SITE.url}${SITE.launchVideo.poster}`],
+        contentUrl: `${SITE.url}${SITE.launchVideo.src}`,
+        uploadDate: SITE.launchVideo.uploadDate,
+        duration: SITE.launchVideo.duration,
+        inLanguage: "fr",
+        transcript: video.transcript,
+        publisher: { "@id": `${SITE.url}/#organization` },
+      },
       {
         "@type": "SoftwareApplication",
         name: "SyndicUp",

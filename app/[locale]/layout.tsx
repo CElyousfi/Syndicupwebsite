@@ -49,8 +49,23 @@ export async function generateMetadata({
       locale: "fr_MA",
       title: c.home.metaTitle,
       description: c.home.metaDescription,
+      images: [{ url: "/brand/og-syndicup.jpg", width: 1200, height: 630, alt: "SyndicUp — le logiciel de syndic qui peut prouver" }],
+      videos: [{ url: `${SITE.url}${SITE.launchVideo.src}`, width: 1920, height: 1080, type: "video/mp4" }],
     },
-    icons: { icon: "/images/logo.png" },
+    twitter: {
+      card: "summary_large_image",
+      title: c.home.metaTitle,
+      description: c.home.metaDescription,
+      images: ["/brand/og-syndicup.jpg"],
+    },
+    icons: {
+      icon: [
+        { url: "/brand/syndicup-icon.svg", type: "image/svg+xml" },
+        { url: "/brand/favicon-48.png", sizes: "48x48", type: "image/png" },
+        { url: "/images/logo.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: { url: "/brand/apple-touch-icon.png", sizes: "180x180" },
+    },
     formatDetection: { telephone: false },
   };
 }

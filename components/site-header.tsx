@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import { usePathname } from "next/navigation";
 import { ProductIcon } from "@/components/icons";
 import type { IconName, SiteContent } from "@/content/types";
@@ -70,18 +70,8 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
       className="site-nav sticky top-0 z-60"
     >
       <div className="shell flex h-[70px] items-center gap-7">
-        <Link href={href(locale)} className="flex shrink-0 items-center gap-2.5">
-          <Image
-            src="/images/logo.png"
-            alt=""
-            width={34}
-            height={34}
-            className="block rounded-lg"
-            priority
-          />
-          <span dir="ltr" className="text-[18px] font-semibold tracking-[-0.02em] text-ink">
-            Syndic<span className="text-action">Up</span>
-          </span>
+        <Link href={href(locale)} className="flex shrink-0 items-center" aria-label="SyndicUp — accueil">
+          <BrandLogo height={30} priority />
         </Link>
 
         {wide ? (

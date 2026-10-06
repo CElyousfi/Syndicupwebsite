@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import { BrandShape, type BrandShapeVariant } from "@/components/brand-shape";
 import { DemoEmailForm } from "@/components/demo-email-form";
 import { UiIcon, type UiIconName } from "@/components/icons";
 import type { SiteContent } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
-import { whatsappHref } from "@/lib/site";
+import { SITE, whatsappHref } from "@/lib/site";
 
 /**
  * Décor de tête de page — LE traitement commun des pages intérieures : un
@@ -151,15 +152,39 @@ export function SiteFooter({ locale, c }: { locale: Locale; c: SiteContent }) {
     <footer className="border-t border-rule">
       <div className="shell grid gap-x-7 gap-y-10 pb-10 pt-14 [grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr))]">
         <div className="min-w-[200px]">
-          <Link href={href(locale)} className="flex items-center gap-2.5">
-            <Image src="/images/logo.png" alt="" width={30} height={30} className="block rounded-[7px]" />
-            <span dir="ltr" className="text-[17px] font-semibold tracking-[-0.02em] text-ink">
-              Syndic<span className="text-action">Up</span>
-            </span>
+          <Link href={href(locale)} className="inline-flex items-center" aria-label="SyndicUp — accueil">
+            <BrandLogo height={28} />
           </Link>
           <p className="mt-3.5 max-w-[230px] text-[14px] leading-[1.5] text-soft">
             {c.footer.tagline}
           </p>
+          {/* Comptes officiels. */}
+          <div className="mt-4 flex items-center gap-2">
+            <a
+              href={SITE.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${c.footer.followOn} Facebook`}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink hover:bg-ink hover:text-white"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 21v-7.5h2.53l.38-2.94H13.5V8.69c0-.85.24-1.43 1.46-1.43h1.56V4.63a20.9 20.9 0 0 0-2.27-.12c-2.25 0-3.79 1.37-3.79 3.9v2.15H7.92v2.94h2.54V21h3.04Z" />
+              </svg>
+            </a>
+            <a
+              href={SITE.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${c.footer.followOn} Instagram`}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink hover:bg-ink hover:text-white"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </div>
           {/* Les deux magasins d'applications, avec leurs vrais logos. */}
           <div className="mt-[18px] flex flex-wrap gap-2">
             <a

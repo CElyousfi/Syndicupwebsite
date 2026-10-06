@@ -185,6 +185,7 @@ export const notFound: SiteContent["notFound"] = {
 
 export const footer: SiteContent["footer"] = {
   tagline: "Logiciel de gestion de copropriété conçu au Maroc, pour le droit marocain.",
+  followOn: "Suivre SyndicUp sur",
   product: "PRODUIT",
   resources: "RESSOURCES",
   company: "SOCIÉTÉ",

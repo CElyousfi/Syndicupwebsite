@@ -375,6 +375,17 @@ export interface SiteContent {
     /** Ruban défilant : ces chiffres alternent avec les photos. */
     stats: Stat[];
     statPhotos: { image: string; alt: string }[];
+    /** Film de lancement (65 s), sous la barre de confiance. */
+    video: {
+      kicker: string;
+      title: string;
+      lede: string;
+      /** Titre du VideoObject (JSON-LD) et libellé accessible du lecteur. */
+      name: string;
+      description: string;
+      transcriptLabel: string;
+      transcript: string;
+    };
     pillarsKicker: string;
     pillarsTitle: string;
     pillarsLede: string;
@@ -748,6 +759,8 @@ export interface SiteContent {
 
   footer: {
     tagline: string;
+    /** Préfixe des libellés accessibles des liens réseaux sociaux (« Suivre SyndicUp sur »). */
+    followOn: string;
     product: string;
     resources: string;
     company: string;

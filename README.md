@@ -35,6 +35,21 @@ trois écrans de preuve, onglets par rôle, « pourquoi SyndicUp », preuve soci
 volontairement vide, accompagnement, carrousel de portefeuille, écosystème,
 tarifs, reprise de données, FAQ à onglets — puis le bandeau final commun.
 
+## Marque, film et réseaux
+
+- **Logo** : double chevron + wordmark « SyndicUp » (S et U capitales), « Syndic » encre
+  `#121212`, chevrons et « Up » vert `#1E7A50`. Fichiers vectoriels dans `public/brand/`
+  (`syndicup-logo.svg`, version inversée lime `#DFF28A`, symbole seul, icône d'app) — le
+  wordmark y est en contours (Archivo Black, SIL OFL), aucune police à charger. Composant :
+  `components/brand-logo.tsx`. Favicons, icône Apple et image de partage (`og-syndicup.jpg`,
+  1200 × 630) sont déclarés dans `app/[locale]/layout.tsx`.
+- **Film de lancement** (65 s, 1080p, H.264 + AAC, faststart) : `public/video/`, affiché sur
+  l'accueil (section `#film`, chargement différé, transcription accessible) et déclaré en
+  `VideoObject` dans le JSON-LD.
+- **Réseaux sociaux** : URL dans `lib/site.ts` (`SITE.social`), affichées dans le pied de page
+  et déclarées en `sameAs` de l'`Organization` (JSON-LD).
+- Le middleware laisse passer `/brand/` et `/video/` sans préfixe de locale.
+
 ## Démarrer
 
 ```bash

@@ -20,6 +20,18 @@ export const SITE = {
   rc: "000000",
   ice: "000000000000000",
   city: "Casablanca",
+  /** Comptes officiels — affichés dans le pied de page et déclarés en `sameAs` (JSON-LD). */
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=61595192518925",
+    instagram: "https://www.instagram.com/syndicup_/",
+  },
+  /** Film de lancement (65 s) — servi depuis /public/video. */
+  launchVideo: {
+    src: "/video/syndicup-lancement.mp4",
+    poster: "/video/syndicup-lancement-poster.jpg",
+    duration: "PT1M5S",
+    uploadDate: "2026-10-06",
+  },
 } as const;
 
 export function whatsappHref(message: string): string {
