@@ -92,12 +92,17 @@ export interface Stat {
 }
 
 /** Affirmation de la barre de confiance ; `accent` est la partie mise en couleur. */
-export interface TrustClaim {
-  /** Pictogramme qui illustre l'affirmation : décret, gratuité, langues. */
-  icon: "decree" | "free" | "languages";
-  before?: string;
-  accent: string;
-  after?: string;
+/**
+ * Une entrée du téléscripteur sous le fold : une rubrique en capitales, une
+ * valeur mise en avant, un complément — et la page du site où la vérifier.
+ * `live: "closing"` remplace la valeur par le compte à rebours de clôture.
+ */
+export interface TickerItem {
+  label: string;
+  value: string;
+  note?: string;
+  href: string;
+  live?: "closing";
 }
 
 export interface FaqItem {
@@ -370,8 +375,8 @@ export interface SiteContent {
     heroEmailLabel: string;
     /** Nom de la région carrousel pour les technologies d'assistance. */
     heroRegion: string;
-    /** Barre de confiance sombre, sous le fold : trois choses prouvables. */
-    trustBar: TrustClaim[];
+    /** Téléscripteur sous le fold : l'horloge de Casablanca, puis le site en une ligne. */
+    ticker: { clockLabel: string; clockNote: string; ariaLabel: string; items: TickerItem[] };
     /** Ruban défilant : ces chiffres alternent avec les photos. */
     stats: Stat[];
     statPhotos: { image: string; alt: string }[];

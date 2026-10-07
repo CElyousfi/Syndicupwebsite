@@ -11,11 +11,22 @@ export const home: SiteContent["home"] = {
   heroEmailLabel: "Votre e-mail",
   heroRegion: "Présentation du produit",
 
-  trustBar: [
-    { icon: "decree", before: "Conforme au", accent: "Décret 2.23.700" },
-    { icon: "free", accent: "30 jours sur vos données", after: "reprise incluse, sans engagement" },
-    { icon: "languages", accent: "Français & arabe", after: "RTL native" },
-  ],
+  ticker: {
+    clockLabel: "Casablanca",
+    clockNote: "Support FR · AR",
+    ariaLabel: "SyndicUp en bref",
+    items: [
+      { label: "Clôture 2026", value: "J-00", note: "les 14 gestes avant l'AG", href: "/ressources/checklist-cloture-2026", live: "closing" },
+      { label: "Décret 2.23.700", value: "12/12 annexes", note: "générées automatiquement", href: "/comptabilite-annexes" },
+      { label: "Petite copropriété", value: "5,60 MAD", note: "par lot et par mois · remise fondateur −30 %", href: "/tarifs" },
+      { label: "Essai", value: "30 jours", note: "sur vos vraies données · sans engagement", href: "/demo" },
+      { label: "Assemblée générale", value: "PV en 48 h", note: "distribué à chaque copropriétaire", href: "/assemblees-generales" },
+      { label: "Dépenses", value: "100 %", note: "avec leur facture", href: "/depenses-justificatifs" },
+      { label: "Résidents", value: "FR · العربية", note: "de droite à gauche, pour de vrai", href: "/application-residents" },
+      { label: "Modèles gratuits", value: "Convocation & PV", note: "en français et en arabe", href: "/ressources/modele-convocation-ag" },
+      { label: "Le film", value: "65 s", note: "le vrai produit, sans maquette", href: "#film" },
+    ],
+  },
   statPhotos: [
     { image: "/images/residence-seafront.jpg", alt: "Résidence en front de mer, jardins et palmiers" },
     { image: "/images/technician-radiator.jpg", alt: "Technicien sur une échelle, intervenant sur un radiateur" },

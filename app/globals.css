@@ -730,81 +730,113 @@
 
 
   /*
-   * Barre de confiance. Bande vert profond, filets lumineux haut et bas,
-   * un reflet qui la traverse toutes les 9 s. Les pastilles d'icônes sont en
-   * verre dépoli ; le ruban mobile défile en 38 s et s'arrête au survol.
+   * Téléscripteur sous le fold. Bande verte, capitales espacées ; à gauche
+   * l'horloge sur fond lime, fixe ; à droite le ruban qui défile en 70 s.
+   * Chaque entrée est un lien : au survol, la valeur passe au blanc et une
+   * flèche apparaît. Mouvement réduit : le ruban s'arrête et se fait défiler
+   * à la main.
    */
-  .trust-band {
+  .ticker {
     background:
-      radial-gradient(120% 220% at 50% -60%, rgb(223 242 138 / 0.16), transparent 55%),
-      linear-gradient(90deg, #145a3a 0%, var(--color-vivid) 50%, #145a3a 100%);
+      radial-gradient(80% 260% at 30% -120%, rgb(223 242 138 / 0.14), transparent 60%),
+      linear-gradient(90deg, #17623f, var(--color-vivid) 45%, #17623f);
+    color: #f4f3ec;
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.14),
-      inset 0 -1px 0 rgb(0 0 0 / 0.18);
+      inset 0 1px 0 rgb(223 242 138 / 0.35),
+      inset 0 -1px 0 rgb(0 0 0 / 0.2);
   }
-  .trust-band::before,
-  .trust-band::after {
+  .ticker-clock {
+    background: var(--color-lime);
+    color: var(--color-ink);
+    box-shadow: 14px 0 24px -10px rgb(0 0 0 / 0.35);
+  }
+  .ticker-clock::after {
+    /* Biseau : la pastille lime se termine en pointe vers le ruban. */
     content: "";
     position: absolute;
-    inset-inline: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgb(223 242 138 / 0.55), transparent);
-    pointer-events: none;
-  }
-  .trust-band::before {
     top: 0;
+    right: -14px;
+    width: 14px;
+    height: 100%;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
   }
-  .trust-band::after {
-    bottom: 0;
-    opacity: 0.45;
-  }
-  .trust-sheen {
-    position: absolute;
-    inset-block: 0;
-    left: -40%;
-    width: 40%;
-    z-index: -1;
-    background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.09), transparent);
-    animation: trust-sheen 9s cubic-bezier(0.45, 0, 0.2, 1) infinite;
-  }
-  @keyframes trust-sheen {
-    0%,
-    55% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(350%);
-    }
-  }
-  .trust-icon {
-    display: inline-grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    flex: none;
+  .ticker-pulse {
+    position: relative;
+    width: 7px;
+    height: 7px;
     border-radius: 999px;
-    background: linear-gradient(180deg, rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.05));
-    box-shadow:
-      inset 0 0 0 1px rgb(255 255 255 / 0.18),
-      inset 0 1px 0 rgb(255 255 255 / 0.22),
-      0 6px 14px -8px rgb(0 0 0 / 0.5);
+    background: var(--color-vivid);
   }
-  .trust-marquee {
-    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  .ticker-pulse::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 999px;
+    border: 1.5px solid var(--color-vivid);
+    animation: ticker-pulse 2s ease-out infinite;
   }
-  .trust-track {
-    display: flex;
-    width: max-content;
-    animation: trust-marquee 38s linear infinite;
+  @keyframes ticker-pulse {
+    from {
+      transform: scale(0.4);
+      opacity: 0.9;
+    }
+    to {
+      transform: scale(1.4);
+      opacity: 0;
+    }
   }
-  .trust-marquee:hover .trust-track {
-    animation-play-state: paused;
+  .ticker-viewport {
+    mask-image: linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 60px), transparent);
+    padding-left: 20px;
   }
-  @keyframes trust-marquee {
+  .ticker-track {
+    animation: ticker-scroll 70s linear infinite;
+  }
+  @keyframes ticker-scroll {
     to {
       transform: translateX(-50%);
     }
   }
+  .ticker .ticker-item {
+    color: #f4f3ec;
+  }
+  .ticker-value {
+    color: var(--color-lime);
+    transition: color 0.2s;
+  }
+  .ticker-arrow {
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      width 0.2s,
+      opacity 0.2s;
+  }
+  .ticker-item:hover .ticker-value,
+  .ticker-item:focus-visible .ticker-value {
+    color: #fff;
+  }
+  .ticker-item:hover .ticker-arrow,
+  .ticker-item:focus-visible .ticker-arrow {
+    width: 1em;
+    opacity: 1;
+  }
+  .ticker-item:focus-visible {
+    outline: 2px solid var(--color-lime);
+    outline-offset: -6px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-viewport {
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+  }
+
 
   /*
    * Progression du carrousel du fold. C'est cette animation qui fait avancer

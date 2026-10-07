@@ -72,7 +72,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </div>
 
       {/* ── 2 · Barre de confiance, puis le ruban de preuves ─────────────── */}
-      <TrustBar claims={h.trustBar} />
+      <TrustBar ticker={h.ticker} locale={l} />
       <section className="bg-white py-12">
         <ProofRibbon stats={h.stats} photos={h.statPhotos} />
       </section>
