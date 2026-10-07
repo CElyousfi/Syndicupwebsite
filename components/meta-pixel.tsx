@@ -2,14 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import {
-  CONSENT_EVENT,
-  META_PIXEL_ID,
-  metaEnabled,
-  readConsent,
-  rememberOrigin,
-  track,
-} from "@/lib/meta";
+import { CONSENT_EVENT, hasConsent } from "@/lib/consent";
+import { META_PIXEL_ID, metaEnabled, rememberOrigin, track } from "@/lib/meta";
 
 /** Pages dont la simple visite signale un intérêt fort : comptées en ViewContent. */
 const INTENT_PAGES: Record<string, string> = {
@@ -34,8 +28,8 @@ export function MetaPixel() {
   useEffect(() => {
     rememberOrigin();
     if (!metaEnabled) return;
-    setGranted(readConsent() === "granted");
-    const onConsent = (e: Event) => setGranted((e as CustomEvent).detail === "granted");
+    setGranted(hasConsent("publicite"));
+    const onConsent = () => setGranted(hasConsent("publicite"));
     window.addEventListener(CONSENT_EVENT, onConsent);
     return () => window.removeEventListener(CONSENT_EVENT, onConsent);
   }, []);

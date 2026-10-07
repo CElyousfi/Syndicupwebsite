@@ -46,7 +46,7 @@ const SECTIONS: { heading: string; paras: string[]; bullets?: string[] }[] = [
   {
     heading: "Mesure publicitaire (Meta)",
     paras: [
-      "Uniquement si vous l'acceptez dans le bandeau, nous utilisons le pixel Meta et l'API Conversions de Meta Platforms Ireland Ltd. Ils nous indiquent quelles annonces Facebook et Instagram conduisent à une visite, à une demande de démo ou à une prise de contact.",
+      "Uniquement si vous acceptez la finalité « Publicité et mesure des campagnes » dans la fenêtre « Votre confidentialité », nous utilisons le pixel Meta et l'API Conversions de Meta Platforms Ireland Ltd. Ils nous indiquent quelles annonces Facebook et Instagram conduisent à une visite, à une demande de démo ou à une prise de contact.",
       "Lorsque vous envoyez une demande de démo après avoir accepté, votre e-mail et votre téléphone sont transformés par notre serveur en empreintes (hachage SHA-256) avant d'être transmis à Meta, qui s'en sert pour rapprocher la demande d'une annonce. Ils ne sont jamais envoyés en clair.",
     ],
     bullets: [
@@ -56,9 +56,10 @@ const SECTIONS: { heading: string; paras: string[]; bullets?: string[] }[] = [
     ],
   },
   {
-    heading: "Changer d'avis",
+    heading: "Vos choix et leur durée",
     paras: [
-      "Le lien « Gérer les cookies », en bas de chaque page, rouvre le bandeau. Un refus prend effet immédiatement. Vous pouvez aussi supprimer les cookies depuis votre navigateur, et régler vos préférences publicitaires dans votre compte Facebook ou Instagram.",
+      "Quatre finalités vous sont présentées : cookies strictement nécessaires (toujours actifs), mesure d'audience et de performance, personnalisation des contenus, publicité et mesure des campagnes. Vous pouvez tout accepter, tout refuser ou choisir finalité par finalité ; seuls les outils réellement actifs sont listés dans la fenêtre. Vos choix sont conservés 6 mois, puis vous sont redemandés.",
+      "Le lien « Préférences cookies », en bas de chaque page, rouvre vos paramètres. Un refus prend effet immédiatement. Vous pouvez aussi supprimer les cookies depuis votre navigateur, et régler vos préférences publicitaires dans votre compte Facebook ou Instagram.",
     ],
   },
   {

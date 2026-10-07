@@ -93,16 +93,13 @@ export interface Stat {
 
 /** Affirmation de la barre de confiance ; `accent` est la partie mise en couleur. */
 /**
- * Une entrée du téléscripteur sous le fold : une rubrique en capitales, une
- * valeur mise en avant, un complément — et la page du site où la vérifier.
- * `live: "closing"` remplace la valeur par le compte à rebours de clôture.
+ * Une entrée du téléscripteur sous le fold : le module, ce qu'il fait — et
+ * la page du site qui le montre.
  */
 export interface TickerItem {
   label: string;
   value: string;
-  note?: string;
   href: string;
-  live?: "closing";
 }
 
 export interface FaqItem {
@@ -375,8 +372,8 @@ export interface SiteContent {
     heroEmailLabel: string;
     /** Nom de la région carrousel pour les technologies d'assistance. */
     heroRegion: string;
-    /** Téléscripteur sous le fold : l'horloge de Casablanca, puis le site en une ligne. */
-    ticker: { clockLabel: string; clockNote: string; ariaLabel: string; items: TickerItem[] };
+    /** Téléscripteur sous le fold : ce que fait l'application, module par module. */
+    ticker: { label: string; ariaLabel: string; items: TickerItem[] };
     /** Ruban défilant : ces chiffres alternent avec les photos. */
     stats: Stat[];
     statPhotos: { image: string; alt: string }[];

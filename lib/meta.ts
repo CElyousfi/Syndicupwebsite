@@ -3,13 +3,15 @@
  *
  * Rien ne se charge tant que deux conditions ne sont pas réunies :
  *   1. `NEXT_PUBLIC_META_PIXEL_ID` est défini au build ;
- *   2. le visiteur a accepté la mesure dans le bandeau (loi 09-08, CNDP).
+ *   2. le visiteur a accepté la finalité « Publicité » (lib/consent.ts).
  *
  * Chaque événement part deux fois, avec le même `eventID` : par le pixel
  * (navigateur) et par l'API Conversions (`/api/meta-events`, serveur). Meta
  * dédoublonne sur cet identifiant ; la voie serveur rattrape les visiteurs
  * dont le navigateur bloque le pixel.
  */
+
+import { hasConsent } from "@/lib/consent";
 
 export const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "";
 export const metaEnabled = META_PIXEL_ID.length > 0;
@@ -21,36 +23,6 @@ declare global {
   interface Window {
     fbq?: Fbq;
   }
-}
-
-/* ── Consentement ──────────────────────────────────────────────────────── */
-
-const CONSENT_KEY = "syndicup:consent:v1";
-export const CONSENT_EVENT = "syndicup:consent";
-export const CONSENT_OPEN_EVENT = "syndicup:consent:open";
-export type Consent = "granted" | "denied" | null;
-
-export function readConsent(): Consent {
-  try {
-    const v = window.localStorage.getItem(CONSENT_KEY);
-    return v === "granted" || v === "denied" ? v : null;
-  } catch {
-    return null;
-  }
-}
-
-export function writeConsent(value: "granted" | "denied") {
-  try {
-    window.localStorage.setItem(CONSENT_KEY, value);
-  } catch {
-    /* navigation privée : le choix vaut pour la page en cours */
-  }
-  window.dispatchEvent(new CustomEvent(CONSENT_EVENT, { detail: value }));
-}
-
-/** Rouvre le bandeau (lien « Gérer les cookies » du pied de page). */
-export function openConsent() {
-  window.dispatchEvent(new Event(CONSENT_OPEN_EVENT));
 }
 
 /* ── Provenance de la visite (UTM, fbclid) ─────────────────────────────── */
@@ -118,7 +90,7 @@ export function track(
   data: Record<string, string | number> = {},
   user?: { email?: string; phone?: string },
 ) {
-  if (!metaEnabled || typeof window === "undefined" || readConsent() !== "granted") return;
+  if (!metaEnabled || typeof window === "undefined" || !hasConsent("publicite")) return;
   const eventID = newEventId();
   window.fbq?.("track", event, data, { eventID });
 

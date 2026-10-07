@@ -730,31 +730,27 @@
 
 
   /*
-   * Téléscripteur sous le fold. Bande verte, capitales espacées ; à gauche
-   * l'horloge sur fond lime, fixe ; à droite le ruban qui défile en 70 s.
-   * Chaque entrée est un lien : au survol, la valeur passe au blanc et une
-   * flèche apparaît. Mouvement réduit : le ruban s'arrête et se fait défiler
-   * à la main.
+   * Téléscripteur sous le fold. Bande verte ; à gauche l'étiquette lime en
+   * biseau, fixe ; à droite le ruban qui défile en 80 s. Casse normale,
+   * 15 px, graisse moyenne : lisible en passant. Rubrique en lime, description
+   * en blanc ; au survol la description se souligne et une flèche apparaît.
    */
   .ticker {
     background:
-      radial-gradient(80% 260% at 30% -120%, rgb(223 242 138 / 0.14), transparent 60%),
+      radial-gradient(80% 260% at 30% -120%, rgb(223 242 138 / 0.12), transparent 60%),
       linear-gradient(90deg, #17623f, var(--color-vivid) 45%, #17623f);
-    color: #f4f3ec;
-    font-size: 11.5px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: -0.005em;
     box-shadow:
       inset 0 1px 0 rgb(223 242 138 / 0.35),
       inset 0 -1px 0 rgb(0 0 0 / 0.2);
   }
-  .ticker-clock {
+  .ticker-tab {
     background: var(--color-lime);
     color: var(--color-ink);
     box-shadow: 14px 0 24px -10px rgb(0 0 0 / 0.35);
   }
-  .ticker-clock::after {
-    /* Biseau : la pastille lime se termine en pointe vers le ruban. */
+  .ticker-tab::after {
     content: "";
     position: absolute;
     top: 0;
@@ -764,37 +760,12 @@
     background: inherit;
     clip-path: polygon(0 0, 100% 50%, 0 100%);
   }
-  .ticker-pulse {
-    position: relative;
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: var(--color-vivid);
-  }
-  .ticker-pulse::after {
-    content: "";
-    position: absolute;
-    inset: -4px;
-    border-radius: 999px;
-    border: 1.5px solid var(--color-vivid);
-    animation: ticker-pulse 2s ease-out infinite;
-  }
-  @keyframes ticker-pulse {
-    from {
-      transform: scale(0.4);
-      opacity: 0.9;
-    }
-    to {
-      transform: scale(1.4);
-      opacity: 0;
-    }
-  }
   .ticker-viewport {
     mask-image: linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 60px), transparent);
-    padding-left: 20px;
+    padding-left: 22px;
   }
   .ticker-track {
-    animation: ticker-scroll 70s linear infinite;
+    animation: ticker-scroll 80s linear infinite;
   }
   @keyframes ticker-scroll {
     to {
@@ -802,24 +773,29 @@
     }
   }
   .ticker .ticker-item {
-    color: #f4f3ec;
+    color: #ffffff;
+  }
+  .ticker-label {
+    color: var(--color-lime);
   }
   .ticker-value {
-    color: var(--color-lime);
-    transition: color 0.2s;
+    text-decoration: underline transparent;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.2s;
   }
   .ticker-arrow {
     display: inline-block;
     width: 0;
     overflow: hidden;
     opacity: 0;
+    color: var(--color-lime);
     transition:
       width 0.2s,
       opacity 0.2s;
   }
   .ticker-item:hover .ticker-value,
   .ticker-item:focus-visible .ticker-value {
-    color: #fff;
+    text-decoration-color: rgb(255 255 255 / 0.6);
   }
   .ticker-item:hover .ticker-arrow,
   .ticker-item:focus-visible .ticker-arrow {
@@ -828,7 +804,7 @@
   }
   .ticker-item:focus-visible {
     outline: 2px solid var(--color-lime);
-    outline-offset: -6px;
+    outline-offset: -8px;
   }
   @media (prefers-reduced-motion: reduce) {
     .ticker-viewport {
