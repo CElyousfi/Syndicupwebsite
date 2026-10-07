@@ -383,8 +383,6 @@ export interface SiteContent {
       /** Titre du VideoObject (JSON-LD) et libellé accessible du lecteur. */
       name: string;
       description: string;
-      transcriptLabel: string;
-      transcript: string;
     };
     pillarsKicker: string;
     pillarsTitle: string;

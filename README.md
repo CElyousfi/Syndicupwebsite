@@ -44,7 +44,7 @@ tarifs, reprise de données, FAQ à onglets — puis le bandeau final commun.
   `components/brand-logo.tsx`. Favicons, icône Apple et image de partage (`og-syndicup.jpg`,
   1200 × 630) sont déclarés dans `app/[locale]/layout.tsx`.
 - **Film de lancement** (65 s, 1080p, H.264 + AAC, faststart) : `public/video/`, affiché sur
-  l'accueil (section `#film`, chargement différé, transcription accessible) et déclaré en
+  l'accueil (section `#film`, chargement différé) et déclaré en
   `VideoObject` dans le JSON-LD.
 - **Réseaux sociaux** : URL dans `lib/site.ts` (`SITE.social`), affichées dans le pied de page
   et déclarées en `sameAs` de l'`Organization` (JSON-LD).

@@ -42,9 +42,6 @@ export const home: SiteContent["home"] = {
     name: "SyndicUp — le logiciel de syndic qui peut prouver",
     description:
       "Film de lancement de SyndicUp : tableau de bord du syndic, appels de fonds et impayés, dépenses justifiées, application résidents et vote d'assemblée générale en tantièmes, en français et en arabe.",
-    transcriptLabel: "Lire la transcription",
-    transcript:
-      "Dans une copropriété, tout le monde pose les mêmes questions. SyndicUp. Ici, chaque réponse a sa preuve. Trésorerie, impayés, incidents, assemblée : toute votre résidence, sur un seul écran. Les appels de fonds sont répartis au tantième près. Et les retards sont relancés pour vous. Chaque dirham dépensé est justifié, facture à l'appui, et visible par tous. Les résidents, eux, ont tout dans leur téléphone : charges, incidents, annonces. Fini le groupe WhatsApp. Et le jour de l'AG ? Chacun vote depuis son téléphone, en tantièmes. Le résultat se calcule en direct. Lot en indivision impayé ? Vote bloqué. Chaque vote est horodaté. En français, et en arabe. SyndicUp. Le logiciel de syndic qui peut prouver. Trente jours avec vos propres données.",
   },
 
   pillarsKicker: "UNE PLATEFORME, TOUTE LA COPROPRIÉTÉ",

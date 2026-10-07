@@ -109,10 +109,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <source src={SITE.launchVideo.src} type="video/mp4" />
             </video>
           </div>
-          <details className="mt-5 text-[15px] leading-[1.6] text-body">
-            <summary className="cursor-pointer font-semibold text-ink">{h.video.transcriptLabel}</summary>
-            <p className="mt-3 max-w-[820px]">{h.video.transcript}</p>
-          </details>
         </div>
       </section>
 
@@ -493,7 +489,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </div>
 
       <FaqJsonLd
-        video={{ name: h.video.name, description: h.video.description, transcript: h.video.transcript }}
+        video={{ name: h.video.name, description: h.video.description }}
         faq={h.faqTabs.flatMap((t) => t.items)}
         description={c.home.metaDescription}
         offers={c.tarifs.plans.map((p) => ({
@@ -513,7 +509,7 @@ function FaqJsonLd({
   description,
   offers,
 }: {
-  video: { name: string; description: string; transcript: string };
+  video: { name: string; description: string };
   faq: { q: string; a: string }[];
   description: string;
   offers: { name: string; price: number; ht: boolean }[];
@@ -540,7 +536,6 @@ function FaqJsonLd({
         uploadDate: SITE.launchVideo.uploadDate,
         duration: SITE.launchVideo.duration,
         inLanguage: "fr",
-        transcript: video.transcript,
         publisher: { "@id": `${SITE.url}/#organization` },
       },
       {

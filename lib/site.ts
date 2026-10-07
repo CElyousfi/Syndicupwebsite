@@ -27,10 +27,10 @@ export const SITE = {
   },
   /** Film de lancement (65 s) — servi depuis /public/video. */
   launchVideo: {
-    src: "/video/syndicup-lancement.mp4",
-    poster: "/video/syndicup-lancement-poster.jpg",
+    src: "/video/syndicup-lancement-v2.mp4",
+    poster: "/video/syndicup-lancement-v2-poster.jpg",
     duration: "PT1M5S",
-    uploadDate: "2026-10-06",
+    uploadDate: "2026-10-07",
   },
 } as const;
 
