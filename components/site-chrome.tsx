@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 import { BrandShape, type BrandShapeVariant } from "@/components/brand-shape";
 import { DemoEmailForm } from "@/components/demo-email-form";
+import { ManageCookiesLink } from "@/components/cookie-consent";
 import { UiIcon, type UiIconName } from "@/components/icons";
 import type { SiteContent } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
@@ -233,7 +234,13 @@ export function SiteFooter({ locale, c }: { locale: Locale; c: SiteContent }) {
       <div className="border-t border-rule">
         <div className="shell flex flex-wrap items-center justify-between gap-x-7 gap-y-3 pb-10 pt-[22px]">
           <p className="mono text-[11.5px] text-faint">{c.footer.legal}</p>
-          <p className="mono text-[11.5px] text-faint">{c.footer.rights}</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href={href(locale, "/confidentialite")} className="mono text-[11.5px] text-faint hover:text-ink">
+              CONFIDENTIALITÉ
+            </Link>
+            <ManageCookiesLink className="mono cursor-pointer text-[11.5px] text-faint hover:text-ink" />
+            <p className="mono text-[11.5px] text-faint">{c.footer.rights}</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -13,8 +13,8 @@ export const home: SiteContent["home"] = {
 
   trustBar: [
     { icon: "decree", before: "Conforme au", accent: "Décret 2.23.700" },
-    { icon: "free", accent: "30 jours avec vos données", after: "reprise faite par nous, rien à payer si vous ne continuez pas" },
-    { icon: "languages", accent: "Français et arabe", after: "en droite à gauche réelle" },
+    { icon: "free", accent: "30 jours sur vos données", after: "reprise incluse, sans engagement" },
+    { icon: "languages", accent: "Français & arabe", after: "RTL native" },
   ],
   statPhotos: [
     { image: "/images/residence-seafront.jpg", alt: "Résidence en front de mer, jardins et palmiers" },

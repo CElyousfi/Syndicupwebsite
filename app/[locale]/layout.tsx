@@ -7,6 +7,8 @@ import { SiteHeader } from "@/components/site-header";
 import { CtaBand, SiteFooter, WhatsappFloat } from "@/components/site-chrome";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
+import { MetaPixel } from "@/components/meta-pixel";
+import { CookieConsent } from "@/components/cookie-consent";
 import "../globals.css";
 
 const notoArabic = localFont({
@@ -67,6 +69,10 @@ export async function generateMetadata({
       apple: { url: "/brand/apple-touch-icon.png", sizes: "180x180" },
     },
     formatDetection: { telephone: false },
+    // Vérification du domaine dans le Business Manager de Meta (code fourni par Meta).
+    ...(process.env.NEXT_PUBLIC_META_DOMAIN_VERIFICATION
+      ? { other: { "facebook-domain-verification": process.env.NEXT_PUBLIC_META_DOMAIN_VERIFICATION } }
+      : {}),
   };
 }
 
@@ -104,6 +110,8 @@ export default async function LocaleLayout({
         <CtaBand locale={typed} c={c} />
         <SiteFooter locale={typed} c={c} />
         <WhatsappFloat c={c} />
+        <CookieConsent locale={typed} />
+        <MetaPixel />
       </body>
     </html>
   );

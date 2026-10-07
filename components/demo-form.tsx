@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { SiteContent } from "@/content/types";
 import { whatsappHref } from "@/lib/site";
+import { originLine, track } from "@/lib/meta";
 
 /**
  * Le formulaire n'envoie rien à un serveur : il compose le message WhatsApp
@@ -33,7 +34,12 @@ export function DemoForm({ c }: { c: SiteContent }) {
       `${d.fields.phone}: ${phone || "—"}`,
       `${d.fields.lots}: ${lots || "—"}`,
       `${d.languageLabel} ${lang === "ar" ? d.languageAr : d.languageFr}`,
-    ].join("\n");
+      originLine(),
+    ]
+      .filter(Boolean)
+      .join("\n");
+    // Conversion principale des campagnes : la demande de démo.
+    track("Lead", { content_name: "Demande de démo", lots: lots || "—" }, { email, phone });
     window.open(whatsappHref(message), "_blank", "noopener,noreferrer");
     setSent(true);
   };

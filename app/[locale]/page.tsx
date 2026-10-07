@@ -12,7 +12,8 @@ import { ProofRibbon } from "@/components/proof-ribbon";
 import { Mockup } from "@/components/mockups";
 import { RoleTabs } from "@/components/role-tabs";
 import { Scene } from "@/components/scene";
-import { SecurityIcon, TrustIcon, UiIcon } from "@/components/icons";
+import { SecurityIcon, UiIcon } from "@/components/icons";
+import { TrustBar } from "@/components/trust-bar";
 import { illustration } from "@/content/scenes";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { CABINET_TIERS, PLANS } from "@/lib/pricing";
@@ -71,20 +72,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </div>
 
       {/* ── 2 · Barre de confiance, puis le ruban de preuves ─────────────── */}
-      <section className="bg-[linear-gradient(90deg,var(--color-vivid-deep)_0%,var(--color-vivid)_50%,var(--color-vivid-bright)_100%)]">
-        <ul className="shell flex flex-wrap items-center justify-center gap-x-14 gap-y-3 py-[18px] text-[15.5px] font-semibold text-white">
-          {h.trustBar.map((claim) => (
-            <li key={claim.accent} className="inline-flex items-center gap-3">
-              <TrustIcon name={claim.icon} size={26} />
-              <span>
-                {claim.before && <>{claim.before} </>}
-                <span className="text-lime">{claim.accent}</span>
-                {claim.after && <> {claim.after}</>}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <TrustBar claims={h.trustBar} />
       <section className="bg-white py-12">
         <ProofRibbon stats={h.stats} photos={h.statPhotos} />
       </section>

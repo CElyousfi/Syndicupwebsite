@@ -12,6 +12,7 @@ const PATHS = [
   "/securite",
   "/a-propos",
   "/contact",
+  "/confidentialite",
   "/ressources",
   "/ressources/calculateur-categorie-copropriete",
   ...DETAIL_SLUGS.map((s) => `/${s}`),
