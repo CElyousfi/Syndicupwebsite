@@ -39,8 +39,9 @@ const SECTIONS: { heading: string; paras: string[]; bullets?: string[] }[] = [
   {
     heading: "Ce que le site collecte",
     paras: [
-      "Le formulaire de démo ne transmet rien à nos serveurs : il prépare un message WhatsApp que vous choisissez d'envoyer. Ce que vous y écrivez (nom, e-mail, téléphone, nombre de lots) nous parvient donc uniquement par WhatsApp, si vous l'envoyez.",
-      "Si vous arrivez depuis une de nos annonces, le site garde pour la durée de votre visite l'identifiant de la campagne (paramètres utm). Il est ajouté au message WhatsApp de démo pour que nous sachions quelle annonce vous a amené.",
+      "Le formulaire de démo transmet ce que vous y saisissez (rôle, nom, numéro WhatsApp, e-mail facultatif, nombre de lots et, si vous les ajoutez, résidence, ville, créneau et message) à notre équipe sous forme d'e-mail, par l'intermédiaire de notre prestataire d'envoi Resend. Le site ne conserve aucune base de prospects : la demande sert uniquement à vous contacter pour organiser la démonstration, puis est supprimée de notre messagerie au plus tard 12 mois après le dernier échange, sauf si vous devenez client.",
+      "Pendant que vous remplissez le formulaire, votre brouillon est gardé dans votre propre navigateur, pour la durée de la visite seulement (stockage de session), afin que rien ne soit perdu si la page se recharge. Il est effacé dès l'envoi.",
+      "Si vous arrivez depuis une de nos annonces, le site garde pour la durée de votre visite l'identifiant de la campagne (paramètres utm). Il est joint à votre demande de démo pour que nous sachions quelle annonce vous a amené.",
     ],
   },
   {
@@ -85,7 +86,7 @@ export default async function ConfidentialitePage({ params }: { params: Promise<
           <span className="kicker mt-8 block">CONFIDENTIALITÉ &amp; COOKIES</span>
           <h1 className="h-page mt-4 text-balance text-ink">Ce que le site sait de vous, et pourquoi.</h1>
           <p className="lede mt-5 text-pretty">
-            Le moins possible : pas de compte, pas de formulaire stocké, et aucune mesure publicitaire sans votre accord.
+            Le moins possible : pas de compte, pas de base de prospects sur le site, et aucune mesure publicitaire sans votre accord.
           </p>
           <p className="kicker-sm mt-6">MISE À JOUR · OCTOBRE 2026</p>
         </section>

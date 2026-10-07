@@ -612,14 +612,34 @@ export interface SiteContent {
     steps: { icon: PageIcon; title: string; desc: string }[];
     formTitle: string;
     formLede: string;
-    fields: { name: string; email: string; phone: string; lots: string };
-    placeholders: { name: string; email: string; phone: string; lots: string };
+    fields: {
+      role: string;
+      name: string;
+      email: string;
+      phone: string;
+      lots: string;
+      lotsCabinet: string;
+      residences: string;
+      organisation: string;
+      organisationCabinet: string;
+      city: string;
+      slot: string;
+      message: string;
+    };
+    placeholders: { name: string; email: string; phone: string; lots: string; organisation: string; city: string; message: string };
+    /** Sous-titre de chaque rôle, dans l'ordre de ROLES (lib/lead.ts). */
+    roleHints: { benevole: string; cabinet: string; coproprietaire: string; promoteur: string };
+    optional: string;
+    detailsToggle: string;
+    emailSuggest: string;
     languageLabel: string;
     languageFr: string;
     languageAr: string;
     submit: string;
+    sending: string;
     formNote: string;
-    formSent: string;
+    success: { kicker: string; title: string; body: string; whatsapp: string; again: string };
+    failure: { title: string; body: string; whatsapp: string; retry: string };
   };
 
   securite: {
