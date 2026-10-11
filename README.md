@@ -126,8 +126,8 @@ Tout est regroupé dans **`lib/site.ts`** et signalé dans le contenu :
 |---|---|---|
 | Téléphone WhatsApp | `lib/site.ts` | `+212600000000` |
 | RC / ICE | `lib/site.ts`, `footer.legal`, `apropos.companyLines` | `000000` / `000000000000000` |
-| URL canonique | `NEXT_PUBLIC_SITE_URL` ou `lib/site.ts` | `https://syndicup.ma` |
-| URL du bac à sable | `lib/site.ts` (`appUrl`) | `https://app.syndicup.ma` |
+| URL canonique | `NEXT_PUBLIC_SITE_URL` ou `lib/site.ts` | `https://syndicup.pro` |
+| URL du bac à sable | `lib/site.ts` (`appUrl`) | `https://app.syndicup.pro` |
 
 Le contenu porte aussi des **réserves juridiques assumées** : délais de convocation,
 quorums, majorités et intitulés officiels des annexes sont présentés comme des

@@ -33,7 +33,7 @@ const SECTIONS: { heading: string; paras: string[]; bullets?: string[] }[] = [
     heading: "Qui est responsable",
     paras: [
       `${SITE.name} SARL, ${SITE.city}, Maroc, est responsable des traitements décrits ici. Pour toute question sur vos données : ${SITE.emails.donnees}.`,
-      "Cette page concerne le site syndicup.ma. Les données de vos résidences dans l'application SyndicUp relèvent du contrat de service et de la page Sécurité.",
+      "Cette page concerne le site syndicup.pro. Les données de vos résidences dans l'application SyndicUp relèvent du contrat de service et de la page Sécurité.",
     ],
   },
   {

@@ -760,7 +760,7 @@ export const apropos: SiteContent["apropos"] = {
     "SYNDICUP SARL",
     "Casablanca, Maroc",
     "RC 000000 · ICE 000000000000000",
-    "contact@syndicup.ma",
+    "contact@syndicup.pro",
   ],
 };
 
@@ -779,19 +779,19 @@ export const contact: SiteContent["contact"] = {
       icon: "upload",
       title: "Reprise de données",
       body: "Envoyez votre fichier tel qu'il est — même incomplet, même avec des onglets par année. Nous vous renvoyons une reprise à valider.",
-      email: "reprise@syndicup.ma",
+      email: "reprise@syndicup.pro",
     },
     {
       icon: "building",
       title: "Cabinets & promoteurs",
       body: "Portefeuille de plusieurs résidences, reprise groupée, interlocuteur nommé.",
-      email: "cabinets@syndicup.ma",
+      email: "cabinets@syndicup.pro",
     },
     {
       icon: "unlock",
       title: "Données personnelles",
       body: "Droit d'accès, de rectification, d'effacement. Réponse sous les délais légaux.",
-      email: "donnees@syndicup.ma",
+      email: "donnees@syndicup.pro",
     },
   ],
   hoursKicker: "QUAND NOUS RÉPONDONS",

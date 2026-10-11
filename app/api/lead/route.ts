@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
   if (Object.keys(errors).length > 0) return NextResponse.json({ ok: false, errors }, { status: 422 });
 
   const key = process.env.RESEND_API_KEY;
-  let to = (process.env.LEADS_TO_EMAIL || "contact@syndicup.ma").split(",").map((s) => s.trim()).filter(Boolean);
+  let to = (process.env.LEADS_TO_EMAIL || "contact@syndicup.pro").split(",").map((s) => s.trim()).filter(Boolean);
   if (!key) {
     console.error("[lead] RESEND_API_KEY manquant");
     return NextResponse.json({ ok: false, error: "config" }, { status: 503 });

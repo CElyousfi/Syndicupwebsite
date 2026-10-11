@@ -6,15 +6,15 @@
  */
 export const SITE = {
   name: "SyndicUp",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://syndicup.ma",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://syndicup.pro",
   /** Placeholder — à remplacer par le numéro réel. */
   phone: "+212600000000",
   phoneDisplay: "+212 6 00 00 00 00",
   emails: {
-    contact: "contact@syndicup.ma",
-    reprise: "reprise@syndicup.ma",
-    cabinets: "cabinets@syndicup.ma",
-    donnees: "donnees@syndicup.ma",
+    contact: "contact@syndicup.pro",
+    reprise: "reprise@syndicup.pro",
+    cabinets: "cabinets@syndicup.pro",
+    donnees: "donnees@syndicup.pro",
   },
   /** Placeholders — à remplacer par les mentions réelles. */
   rc: "000000",
