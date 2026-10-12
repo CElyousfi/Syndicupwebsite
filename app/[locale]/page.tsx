@@ -248,44 +248,39 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
 
             {/* Le tableau de bord du pilote : trois mesures en cours, une date de publication. */}
-            <div className="relative bg-ink p-7 text-white lg:p-9">
-              <svg viewBox="0 0 256 256" aria-hidden="true" className="absolute -end-16 -top-16 h-[260px] w-[260px] opacity-[0.08]">
-                <path d="M -60 70 C 30 -40 150 10 128 100 C 106 190 -20 220 26 140 C 72 60 210 20 240 110 C 270 200 160 310 92 250 C 24 190 120 100 330 150" stroke="#fff" strokeWidth="32" strokeLinecap="round" fill="none" />
-              </svg>
-              <div className="relative">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="mono text-[11px] tracking-[0.08em] text-white/60">{h.honestPilot.kicker}</span>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-lime/40 bg-lime/10 px-2.5 py-1 text-[11.5px] font-semibold text-lime">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime opacity-60" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-lime" />
-                    </span>
-                    {h.honestPilot.status}
+            <div className="bg-action-tint p-7 lg:p-9">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <span className="kicker-sm">{h.honestPilot.kicker}</span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-lime px-2.5 py-1 text-[11.5px] font-semibold text-ink">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-action opacity-50" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-action" />
                   </span>
-                </div>
-                <div className="mt-5">
-                  <div className="flex items-baseline justify-between">
-                    <span className="mono text-[11px] tracking-[0.06em] text-white/60" dir="ltr">{h.honestPilot.start}</span>
-                    <span className="mono text-[11px] tracking-[0.06em] text-lime" dir="ltr">{h.honestPilot.end}</span>
-                  </div>
-                  <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
-                    <span className="block h-full rounded-full bg-lime" style={{ width: `${h.honestPilot.progress}%` }} />
-                  </div>
-                </div>
-
-                <ul className="mt-7 grid gap-2.5">
-                  {h.honestPlaceholders.map((p, i) => (
-                    <li key={p} className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3.5">
-                      <span className="mono shrink-0 text-[11px] text-white/45" dir="ltr">0{i + 1}</span>
-                      <span className="flex-1 text-[15px] font-medium leading-[1.35] text-white">{p}</span>
-                      <span className="shrink-0 rounded-md bg-white/10 px-2 py-1 text-[10.5px] font-semibold tracking-[0.04em] text-white/70">
-                        {h.honestPilot.pending}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 text-[13px] leading-[1.5] text-white/55">{h.honestPilot.note}</p>
+                  {h.honestPilot.status}
+                </span>
               </div>
+              <div className="mt-5">
+                <div className="flex items-baseline justify-between">
+                  <span className="mono text-[11px] tracking-[0.06em] text-soft" dir="ltr">{h.honestPilot.start}</span>
+                  <span className="mono text-[11px] tracking-[0.06em] font-bold text-action-deep" dir="ltr">{h.honestPilot.end}</span>
+                </div>
+                <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white">
+                  <span className="block h-full rounded-full bg-action" style={{ width: `${h.honestPilot.progress}%` }} />
+                </div>
+              </div>
+
+              <ul className="mt-7 grid gap-2.5">
+                {h.honestPlaceholders.map((p, i) => (
+                  <li key={p} className="flex items-center gap-4 rounded-xl border border-hairline bg-white px-4 py-3.5">
+                    <span className="mono shrink-0 text-[11px] text-faint" dir="ltr">0{i + 1}</span>
+                    <span className="flex-1 text-[15px] font-semibold leading-[1.35] text-ink">{p}</span>
+                    <span className="shrink-0 rounded-md bg-hover px-2 py-1 text-[10.5px] font-semibold tracking-[0.04em] text-soft">
+                      {h.honestPilot.pending}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-[13px] leading-[1.5] text-soft">{h.honestPilot.note}</p>
             </div>
           </div>
         </div>
