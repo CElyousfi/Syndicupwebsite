@@ -747,6 +747,8 @@ export interface SiteContent {
     metaDescription: string;
     crumb: string;
     title: string;
+    heroImage: string;
+    heroImageAlt: string;
     image: string;
     imageAlt: string;
     lede: string;
