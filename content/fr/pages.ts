@@ -517,6 +517,17 @@ export const securite: SiteContent["securite"] = {
     { k: "Cloisonnement", v: "applicatif + base (RLS)" },
     { k: "CNDP", v: "traitement déclaré" },
   ],
+  diagram: {
+    tenants: [
+      { name: "Résidence Al Manar", lots: 48, city: "Casablanca" },
+      { name: "Les Jardins d'Anfa", lots: 112, city: "Casablanca" },
+      { name: "Riad Bouskoura", lots: 24, city: "Bouskoura" },
+    ],
+    appLayer: { kicker: "COUCHE 1 · APPLICATION", label: "Cloisonnement par copropriété, rôle par rôle" },
+    dbLayer: { kicker: "COUCHE 2 · BASE DE DONNÉES", label: "Row Level Security : la base refuse elle-même" },
+    isolatedTag: "Isolée",
+    lotsUnit: "lots",
+  },
   principlesKicker: "QUATRE PRINCIPES",
   principlesTitle: "Ce que nous nous interdisons",
   principles: [

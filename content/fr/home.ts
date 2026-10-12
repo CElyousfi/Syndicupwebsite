@@ -452,10 +452,19 @@ export const home: SiteContent["home"] = {
     "Le pilote se termine en janvier 2027. Jusque-là, cette section reste vide : pas de « +10 000 immeubles », pas de logos que nous n'avons pas le droit d'afficher, pas de témoignage anonyme. Vous jugerez sur le produit, en démonstration.",
   honestCta: "Réserver une démo",
   honestPlaceholders: [
-    "résidences en production · publié après le pilote",
-    "jours de clôture d'exercice, en moyenne",
-    "taux de recouvrement constaté",
+    "Résidences en production",
+    "Jours de clôture d'exercice, en moyenne",
+    "Taux de recouvrement constaté",
   ],
+  honestPilot: {
+    kicker: "PILOTE · TABLEAU DE MESURE",
+    status: "En cours de mesure",
+    start: "OCT. 2026",
+    end: "JANV. 2027 · PUBLICATION",
+    progress: 12,
+    pending: "À PUBLIER",
+    note: "Les trois chiffres seront publiés ici, avec leur méthode de calcul, à la fin du pilote.",
+  },
 
   ecosystemKicker: "ÉCOSYSTÈME",
   ecosystemTitle: "Se branche sur ce que vous utilisez déjà.",

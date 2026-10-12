@@ -24,29 +24,88 @@ export async function generateMetadata({
 }
 
 /** Schéma des deux couches d'isolation — la « photo » de cette page est un schéma. */
-function IsolationDiagram({ labels }: { labels: string[] }) {
+function IsolationDiagram({
+  tenants,
+  appLayer,
+  dbLayer,
+  isolatedTag,
+  lotsUnit,
+}: {
+  tenants: { name: string; lots: number; city: string }[];
+  appLayer: { kicker: string; label: string };
+  dbLayer: { kicker: string; label: string };
+  isolatedTag: string;
+  lotsUnit: string;
+}) {
   return (
-    <div className="grid gap-3 rounded-[26px] border border-lilac-line bg-lilac-tint px-6 py-9 sm:px-10">
-      <div className="grid gap-2.5 [grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr))]">
-        {["A", "B", "C"].map((r) => (
-          <div key={r} className="rounded-[18px] border border-hairline bg-white p-4">
-            <span className="mono text-[10.5px] tracking-[0.06em] text-faint">
-              {labels[0]} {r}
-            </span>
-            <div className="mt-2.5 grid gap-1.5">
-              <span className="block h-1.5 rounded-full bg-ground" />
-              <span className="block h-1.5 w-[70%] rounded-full bg-action-tint" />
+    <div className="mx-auto max-w-[920px] overflow-hidden rounded-[26px] border border-white/15 bg-white/[0.08] p-3 shadow-[0_40px_80px_-40px_rgb(0_0_0_/_0.6)] backdrop-blur-xl sm:p-4">
+      {/* Trois copropriétés : chacune dans sa propre carte, aucune ne voit l'autre. */}
+      <div className="grid gap-3 sm:grid-cols-3">
+        {tenants.map((t, i) => (
+          <div
+            key={t.name}
+            className="relative rounded-[18px] border border-white/10 bg-ink/70 p-4 text-start"
+          >
+            <div className="flex items-start justify-between gap-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-lime">
+                <UiIcon name="building" size={18} />
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-lime/40 bg-lime/10 px-2 py-0.5 text-[10.5px] font-semibold text-lime">
+                <SecurityIcon name="lock" size={11} />
+                {isolatedTag}
+              </span>
             </div>
+            <p className="mt-3 text-[15px] font-bold leading-[1.25] text-white">{t.name}</p>
+            <p className="mono mt-1 text-[11px] tracking-[0.04em] text-white/60" dir="ltr">
+              {t.lots} {lotsUnit} · {t.city}
+            </p>
+            <div className="mt-3.5 grid gap-1.5">
+              <span className="block h-1.5 w-[85%] rounded-full bg-white/15" />
+              <span className="block h-1.5 w-[60%] rounded-full bg-white/15" />
+              <span className="block h-1.5 w-[72%] rounded-full bg-lime/50" />
+            </div>
+            {/* Le mur entre deux cartes : un trait clair, visible sur grand écran. */}
+            {i < tenants.length - 1 && (
+              <span
+                aria-hidden="true"
+                className="absolute inset-y-4 -end-[7px] hidden w-px bg-[repeating-linear-gradient(180deg,rgb(255_255_255_/_0.35)_0_4px,transparent_4px_8px)] sm:block"
+              />
+            )}
           </div>
         ))}
       </div>
-      <div className="rounded-[18px] border border-dashed border-lilac-mid bg-white/70 px-5 py-3 text-center">
-        <span className="mono text-[10.5px] tracking-[0.06em] text-lilac">{labels[1]}</span>
-      </div>
-      <div className="rounded-[18px] bg-vivid px-5 py-3 text-center">
-        <span className="mono text-[10.5px] tracking-[0.06em] text-lime">{labels[2]}</span>
-      </div>
+
+      {/* Couche 1 : l'application. */}
+      <Layer tone="app" kicker={appLayer.kicker} label={appLayer.label} />
+      {/* Couche 2 : la base, qui ne fait pas confiance à la couche 1. */}
+      <Layer tone="db" kicker={dbLayer.kicker} label={dbLayer.label} />
     </div>
+  );
+}
+
+function Layer({ tone, kicker, label }: { tone: "app" | "db"; kicker: string; label: string }) {
+  const db = tone === "db";
+  return (
+    <>
+      <div className="flex justify-center py-1" aria-hidden="true">
+        <svg width="14" height="18" viewBox="0 0 14 18" className="text-white/50">
+          <path d="M7 0v14M1.5 9.5 7 15l5.5-5.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+      <div
+        className={`flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-[18px] px-5 py-3.5 ${
+          db ? "bg-vivid text-white" : "border border-white/15 bg-white/[0.07] text-white"
+        }`}
+      >
+        <span className="flex items-center gap-2.5">
+          <span className={`inline-flex h-8 w-8 items-center justify-center rounded-md ${db ? "bg-white/15 text-lime" : "bg-white/10 text-white"}`}>
+            <SecurityIcon name={db ? "lock" : "split"} size={16} />
+          </span>
+          <span className="text-[14.5px] font-semibold">{label}</span>
+        </span>
+        <span className={`mono text-[10.5px] tracking-[0.08em] ${db ? "text-lime" : "text-white/55"}`}>{kicker}</span>
+      </div>
+    </>
   );
 }
 
@@ -72,11 +131,11 @@ export default async function SecurityPage({ params }: { params: Promise<{ local
       >
         <div className="mt-10">
           <IsolationDiagram
-            labels={[
-              c.home.why[1]?.title ?? "",
-              s.blocks[0]?.heading ?? "",
-              s.blocks[1]?.heading ?? "",
-            ]}
+            tenants={s.diagram.tenants}
+            appLayer={s.diagram.appLayer}
+            dbLayer={s.diagram.dbLayer}
+            isolatedTag={s.diagram.isolatedTag}
+            lotsUnit={s.diagram.lotsUnit}
           />
         </div>
       </PageHero>

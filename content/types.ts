@@ -439,6 +439,15 @@ export interface SiteContent {
     honestBody: string;
     honestCta: string;
     honestPlaceholders: string[];
+    honestPilot: {
+      kicker: string;
+      status: string;
+      start: string;
+      end: string;
+      progress: number;
+      pending: string;
+      note: string;
+    };
     ecosystemKicker: string;
     ecosystemTitle: string;
     ecosystemNote: string;
@@ -659,6 +668,13 @@ export interface SiteContent {
     heroImageAlt: string;
     lede: string;
     facts: { k: string; v: string }[];
+    diagram: {
+      tenants: { name: string; lots: number; city: string }[];
+      appLayer: { kicker: string; label: string };
+      dbLayer: { kicker: string; label: string };
+      isolatedTag: string;
+      lotsUnit: string;
+    };
     principlesKicker: string;
     principlesTitle: string;
     principles: { icon: PageIcon; title: string; desc: string }[];
