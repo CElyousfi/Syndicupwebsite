@@ -102,8 +102,8 @@ export const tarifs: SiteContent["tarifs"] = {
     "Un prix par lot et par mois, TTC, selon la catégorie du décret : Petit 8 MAD, Moyen 12 MAD, Grand 15 MAD — 5,60, 8,40 et 10,50 MAD avec la remise fondateur de 30 %. Cabinets de 10 à 7 MAD HT. Mise en service à prix fixe. Trente jours avec vos propres données.",
   crumb: "TARIFS",
   title: "Le prix est sur cette page. Pas derrière un formulaire.",
-  heroImage: "/images/maroc/casablanca-coucher.jpg",
-  heroImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
+  heroImage: "/images/maroc/marrakech-koutoubia.jpg",
+  heroImageAlt: "Marrakech, la Koutoubia et les toits de la médina au coucher du soleil",
   lede: "Trente jours avec vos propres données, reprise faite par nous : si vous ne continuez pas, vous ne payez rien. Ensuite, un prix par lot et par mois, TTC, facturé à la copropriété — et voté une fois en AG. Remise fondateur de 30 % pour les 100 premières résidences, jusqu'au 31 mars 2027.",
   facts: [
     { k: "Essai", v: "30 jours avec vos données" },
@@ -302,7 +302,7 @@ export const tarifs: SiteContent["tarifs"] = {
   trialTitle: "30 jours avec vos propres données. Nous faisons la reprise. Si vous ne continuez pas, vous ne payez rien.",
   trialLede: "L'essai n'est pas une visite : il se fait sur votre copropriété, et il se termine par un document que vous ne pouvez pas produire seul.",
   trialSteps: [
-    { icon: "mobile", title: "Vous vous inscrivez par SMS", desc: "Un code, pas de carte bancaire, pas de mot de passe." },
+    { icon: "mobile", title: "Vous créez votre compte", desc: "Un e-mail, un mot de passe. Pas de carte bancaire." },
     { icon: "upload", title: "Nous reprenons vos données sous 48 h", desc: "Lots, tantièmes, propriétaires, soldes d'ouverture. Vous validez ligne à ligne." },
     { icon: "bank", title: "Vous émettez votre premier appel de fonds", desc: "Réparti aux tantièmes, envoyé, tracé — pendant l'essai." },
     { icon: "review", title: "Vous recevez votre annexe 10", desc: "Le vingt-cinquième jour, la version que vous présenterez à l'AG. Pour continuer, vous choisissez votre plan ; la mise en service accompagnée, si vous la prenez, est facturée avec la première facture annuelle — jamais avant." },
@@ -555,7 +555,7 @@ export const securite: SiteContent["securite"] = {
       body: "TLS obligatoire, chiffrement du stockage, documents servis par URL signée à durée limitée. Une facture jointe à une dépense n'est jamais accessible par une adresse devinable.",
       points: [
         "Bucket documents privé, URL signée 15 minutes.",
-        "Connexion par code à usage unique, sans mot de passe stocké.",
+        "Mots de passe hachés, jamais stockés en clair ; Face ID ou empreinte sur mobile.",
         "Aucune donnée personnelle en clair dans les journaux techniques.",
       ],
     },
@@ -778,7 +778,6 @@ export const apropos: SiteContent["apropos"] = {
   companyLines: [
     "SYNDICUP SARL",
     "Casablanca, Maroc",
-    "RC 000000 · ICE 000000000000000",
     "contact@syndicup.pro",
   ],
 };
@@ -789,8 +788,8 @@ export const contact: SiteContent["contact"] = {
     "WhatsApp, reprise de données, cabinets et promoteurs, données personnelles — les bonnes adresses pour joindre SyndicUp, en français ou en arabe.",
   crumb: "CONTACT",
   title: "WhatsApp d'abord. C'est plus rapide pour vous.",
-  heroImage: "/images/maroc/rabat-kasbah.jpg",
-  heroImageAlt: "Kasbah des Oudayas à Rabat, vue depuis le Bouregreg",
+  heroImage: "/images/maroc/tanger-baie.jpg",
+  heroImageAlt: "Tanger et sa baie au coucher du soleil, la médina blanche et le port",
   lede: "Nous répondons pendant les heures ouvrables, en français ou en arabe. Si vous préférez le mail ou le téléphone, c'est en bas.",
   whatsappTitle: "WhatsApp",
   whatsappBody:

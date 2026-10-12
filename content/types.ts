@@ -23,6 +23,19 @@ export const DETAIL_SLUGS = [
   "pour-promoteurs",
 ] as const;
 
+/** Une ville couverte : sa photo, son problème de syndic, la réponse du produit. */
+export type CityCard = {
+  city: string;
+  theme: string;
+  problem: string;
+  answer: string;
+  href: string;
+  linkLabel: string;
+  image: string;
+  alt: string;
+  position: string;
+};
+
 export type DetailSlug = (typeof DETAIL_SLUGS)[number];
 
 export const ARTICLE_SLUGS = [
@@ -428,6 +441,10 @@ export interface SiteContent {
     rolesKicker: string;
     rolesTitle: string;
     roles: RoleTab[];
+    citiesKicker: string;
+    citiesTitle: string;
+    citiesLede: string;
+    cities: CityCard[];
     placeKicker: string;
     placeTitle: string;
     placeBody: string;

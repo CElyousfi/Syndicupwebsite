@@ -102,7 +102,7 @@ export default async function FeaturesPage({
       <PhotoBand
         locale={l}
         copy={{ kicker: c.home.placeKicker, title: c.home.placeTitle, body: c.home.placeBody, cta: c.home.placeCta }}
-        {...MAROC_PHOTOS.rabat}
+        {...MAROC_PHOTOS.tanger}
       />
     </>
   );

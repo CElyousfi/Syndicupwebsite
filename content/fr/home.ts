@@ -111,7 +111,7 @@ export const home: SiteContent["home"] = {
       points: [
         "Solde, quittances, justificatifs des charges communes",
         "Incident déclaré en photo, escalade automatique",
-        "Connexion par code SMS, sans mot de passe",
+        "Accès par invitation, Face ID ou empreinte sur mobile",
       ],
       link: { href: "/application-residents", label: "Application résidents" },
     },
@@ -124,7 +124,7 @@ export const home: SiteContent["home"] = {
       h1Accent: "qui peut prouver",
       lede: "Les 12 annexes du Décret 2.23.700 générées automatiquement, chaque dépense avec sa facture, chaque assemblée avec son PV opposable.",
       question: "Où en est ma copropriété, ce matin ?",
-      image: "/images/hero/dashboard.jpg",
+      image: "/images/hero/dashboard-v2.jpg",
       imageAlt: "Tableau de bord du syndic : trésorerie, impayés, lots, incidents et les 12 annexes prêtes",
       cards: [
         {
@@ -260,11 +260,11 @@ export const home: SiteContent["home"] = {
       h1Accent: "tout ce qui le concerne",
       lede: "Son solde, ses quittances, ses incidents et les justificatifs des charges communes, depuis son téléphone. En français ou en arabe.",
       question: "Que voit le copropriétaire depuis son téléphone ?",
-      image: "/images/hero/resident.jpg",
+      image: "/images/hero/resident-v2.jpg",
       imageAlt: "Espace résident : solde à jour, annexes prêtes, justificatifs et maintenance en cours",
       cards: [
         {
-          kicker: "M. BENNANI · CONNECTÉ PAR SMS",
+          kicker: "M. BENNANI · CONNECTÉ PAR FACE ID",
           title: "Espace résident · Lot A-12",
           tone: "tosca",
           rows: [
@@ -345,10 +345,61 @@ export const home: SiteContent["home"] = {
     },
   ],
 
-  placeKicker: "CONÇU AU MAROC",
-  placeTitle: "Pensé à Casablanca, pour les copropriétés d'ici.",
+  citiesKicker: "NOS VILLES",
+  citiesTitle: "Nés là où la copropriété déborde.",
+  citiesLede:
+    "Casablanca, Rabat, Marrakech, Tanger : les mêmes problèmes de syndic, chacun avec son accent. Nous les avons vus de près avant d'écrire une ligne de code.",
+  cities: [
+    {
+      city: "Casablanca",
+      theme: "Les grandes résidences",
+      problem: "Cent lots et plus, des impayés qui passent d'un exercice à l'autre, et une AG où personne ne croit les chiffres.",
+      answer: "Relances graduées en votre nom, chaque dirham relié à sa pièce.",
+      href: "/appels-de-fonds-recouvrement",
+      linkLabel: "Recouvrement",
+      image: "/images/maroc/casablanca-coucher.jpg",
+      alt: "Casablanca au coucher du soleil, ses tours d'habitation et la mosquée Hassan II à l'horizon",
+      position: "72% 50%",
+    },
+    {
+      city: "Rabat",
+      theme: "Les comptes à mettre au décret",
+      problem: "Des résidences tenues sur un cahier ou un tableur, qui doivent rendre leurs comptes conformes au Décret 2.23.700.",
+      answer: "Nous reprenons votre fichier ; les 12 annexes sortent à chaque clôture.",
+      href: "/comptabilite-annexes",
+      linkLabel: "Comptabilité et annexes",
+      image: "/images/maroc/rabat-carte.jpg",
+      alt: "Rabat, la Kasbah des Oudayas au-dessus du Bouregreg",
+      position: "48% 50%",
+    },
+    {
+      city: "Marrakech",
+      theme: "La location courte durée",
+      problem: "Des occupants qui changent chaque semaine, et des charges d'eau et de déchets que personne ne recalcule.",
+      answer: "Séjours déclarés, quote-part recalculée, registre des occupants à jour.",
+      href: "/location-courte-duree",
+      linkLabel: "Location courte durée",
+      image: "/images/maroc/marrakech-koutoubia.jpg",
+      alt: "Marrakech, la Koutoubia et les toits de la médina au coucher du soleil, l'Atlas au loin",
+      position: "30% 50%",
+    },
+    {
+      city: "Tanger",
+      theme: "Les résidences neuves",
+      problem: "Une ville qui construit vite, et des acquéreurs qui appellent encore le promoteur pour la copropriété.",
+      answer: "Copropriété installée avant la remise des clés, acquéreurs invités avec leurs clés.",
+      href: "/pour-promoteurs",
+      linkLabel: "Pour les promoteurs",
+      image: "/images/maroc/tanger-baie.jpg",
+      alt: "Tanger et sa baie au coucher du soleil : la médina blanche, le port et les nouveaux quartiers",
+      position: "62% 50%",
+    },
+  ],
+
+  placeKicker: "CASABLANCA · RABAT · MARRAKECH · TANGER",
+  placeTitle: "Pensé au Maroc, pour les copropriétés d'ici.",
   placeBody:
-    "Le Décret 2.23.700, les AG en deux langues, les charges en dirhams, les fournisseurs du quartier : SyndicUp n'est pas un logiciel étranger adapté. Il est né ici, dans un immeuble de 48 lots, et il est construit avec ceux qui le gèrent.",
+    "Le Décret 2.23.700, les AG en deux langues, les charges en dirhams, les fournisseurs du quartier : SyndicUp n'est pas un logiciel étranger adapté. Il est né dans un immeuble de 48 lots à Casablanca, et il est construit avec ceux qui gèrent.",
   placeImage: "/images/maroc/casablanca-coucher.jpg",
   placeImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
   placeCta: "Notre histoire",
@@ -366,26 +417,26 @@ export const home: SiteContent["home"] = {
     },
     {
       href: "/pour-cabinet-syndic",
-      image: "/images/portfolio/cabinet-v2.jpg",
-      imageAlt: "Cour intérieure d'une résidence sous mandat",
+      image: "/images/portfolio/cabinet-v3.jpg",
+      imageAlt: "Casablanca au coucher du soleil, ses tours et ses immeubles d'habitation",
       title: "Cabinet de syndic",
     },
     {
       href: "/pour-promoteurs",
-      image: "/images/portfolio/promoteur-v2.jpg",
-      imageAlt: "Espace commun d'une résidence neuve",
+      image: "/images/portfolio/promoteur-v3.jpg",
+      imageAlt: "Tanger et sa baie : la médina blanche, le port et les nouveaux quartiers",
       title: "Promoteurs",
     },
     {
       href: "/multi-residences-cabinets",
-      image: "/images/portfolio/multi-v2.jpg",
-      imageAlt: "Résidence d'un portefeuille multi-sites",
+      image: "/images/portfolio/multi-v3.jpg",
+      imageAlt: "Rabat, la Kasbah des Oudayas au-dessus du Bouregreg",
       title: "Multi-résidences",
     },
     {
       href: "/location-courte-duree",
-      image: "/images/portfolio/lcd-v2.jpg",
-      imageAlt: "Résidence avec location saisonnière",
+      image: "/images/portfolio/lcd-v3.jpg",
+      imageAlt: "Marrakech, la Koutoubia et les toits de la médina au coucher du soleil",
       title: "Location courte durée",
     },
   ],
@@ -575,7 +626,7 @@ export const home: SiteContent["home"] = {
       when: "J+3",
       icon: "building",
       title: "La copropriété est administrée",
-      desc: "Copropriétaires invités par SMS, gardien équipé, premier appel de fonds prêt.",
+      desc: "Copropriétaires invités par QR code, gardien équipé, premier appel de fonds prêt.",
     },
     {
       when: "AG",
@@ -698,7 +749,7 @@ export const home: SiteContent["home"] = {
       items: [
         {
           q: "Les copropriétaires doivent-ils installer une application ?",
-          a: "Non. L'application existe sur iOS et Android pour ceux qui la veulent, mais tout est accessible depuis un navigateur mobile, avec une connexion par code SMS — sans mot de passe à retenir.",
+          a: "Non. L'application existe sur iOS et Android pour ceux qui la veulent, mais tout est accessible depuis un navigateur mobile, avec le même compte : e-mail et mot de passe, Face ID ou empreinte sur l'application.",
           link: { href: "/application-residents", label: "Application résidents" },
         },
         {
@@ -753,7 +804,7 @@ export const home: SiteContent["home"] = {
         },
         {
           q: "Je suis promoteur : que se passe-t-il à la livraison ?",
-          a: "Vous livrez une copropriété déjà administrée : lots, tantièmes et propriétaires chargés, premier appel de fonds prêt, résidents invités par SMS. Vous vous épargnez trois ans de réclamations.",
+          a: "Vous livrez une copropriété déjà administrée : lots, tantièmes et propriétaires chargés, premier appel de fonds prêt, résidents invités. Vous vous épargnez trois ans de réclamations.",
           link: { href: "/pour-promoteurs", label: "Pour promoteurs" },
         },
       ],

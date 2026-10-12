@@ -47,7 +47,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         title={t.title}
         lede={t.lede}
         facts={t.facts}
-        photo={{ image: t.heroImage, alt: t.heroImageAlt, position: "center 45%" }}
+        photo={{ image: t.heroImage, alt: t.heroImageAlt, position: "40% 45%" }}
       />
 
       {/* ── Les quatre plans ────────────────────────────────────────────── */}

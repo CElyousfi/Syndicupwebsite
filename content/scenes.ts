@@ -20,7 +20,7 @@ export interface Scene {
 
 export const SCENES = {
   dashboard: {
-    src: "/images/hero/dashboard.jpg",
+    src: "/images/hero/dashboard-v2.jpg",
     width: 2624,
     height: 1632,
     alt: "Tableau de bord du syndic : trésorerie, impayés, lots, incidents et les 12 annexes prêtes",
@@ -44,7 +44,7 @@ export const SCENES = {
     alt: "Vote du point 3 en assemblée : pour, contre, abstention, quorum atteint, PV généré",
   },
   resident: {
-    src: "/images/hero/resident.jpg",
+    src: "/images/hero/resident-v2.jpg",
     width: 2624,
     height: 1632,
     alt: "Espace résident : solde à jour, annexes prêtes, justificatifs et maintenance en cours",
@@ -111,8 +111,8 @@ export type IllustrationKey =
 
 export const ILLUSTRATIONS: Partial<Record<IllustrationKey, Scene>> = {
   "conformity-annexe": {
-    src: "/images/accueil/conformity-annexe.jpg",
-    alt: "Répartition au centime : l'écart d'arrondi attribué à un lot",
+    src: "/images/hero/annexe.jpg",
+    alt: "Annexe 10, charges par lot : tantièmes et quotes-parts au centime, total 10 000 tantièmes",
     width: 2624,
     height: 1632,
   },
@@ -153,9 +153,9 @@ export const ILLUSTRATIONS: Partial<Record<IllustrationKey, Scene>> = {
     height: 1632,
   },
   "pillar-residents": {
-    src: "/images/accueil/pillar-residents.jpg",
-    alt: "Espace résident sur mobile : solde à jour, quittances, incidents, justificatifs",
-    width: 2578,
+    src: "/images/hero/resident-v2.jpg",
+    alt: "Espace résidents : statut de chaque copropriétaire, solde à jour, pièces du mois, maintenance en cours",
+    width: 2624,
     height: 1632,
   },
   "role-benevole": {

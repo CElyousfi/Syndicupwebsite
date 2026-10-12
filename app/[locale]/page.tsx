@@ -7,7 +7,7 @@ import { FeatureComposition } from "@/components/feature-composition";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { HeroRotator } from "@/components/hero-rotator";
 import { LogoHive } from "@/components/logo-hive";
-import { PhotoBand } from "@/components/photo-band";
+import { CityGrid } from "@/components/city-grid";
 import { PortfolioCarousel } from "@/components/portfolio-carousel";
 import { ProofRibbon } from "@/components/proof-ribbon";
 import { Mockup } from "@/components/mockups";
@@ -224,13 +224,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      {/* ── 10 bis · Conçu au Maroc : une vraie photo, pleine largeur ─────── */}
-      <PhotoBand
-        locale={l}
-        copy={{ kicker: h.placeKicker, title: h.placeTitle, body: h.placeBody, cta: h.placeCta }}
-        image={h.placeImage}
-        alt={h.placeImageAlt}
-      />
+      {/* ── 10 bis · Nos villes : là où le produit est né ─────────────────── */}
+      <section className="shell section-pad !pt-4">
+        <div className="section-head">
+          <span className="kicker">{h.citiesKicker}</span>
+          <h2 className="h-section">{h.citiesTitle}</h2>
+          <p>{h.citiesLede}</p>
+        </div>
+        <CityGrid cities={h.cities} locale={l} />
+      </section>
 
       {/* ── 11 · Preuve sociale : rien d'inventé — le tableau de mesure du pilote ── */}
       <section className="shell pb-20">

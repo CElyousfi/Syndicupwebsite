@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/site";
 import type { SiteContent } from "../types";
 
 export const common: SiteContent["common"] = {
@@ -13,8 +14,8 @@ export const common: SiteContent["common"] = {
   whatsapp: "WhatsApp",
   whatsappMessage:
     "Bonjour, je gère une copropriété et je voudrais en savoir plus sur SyndicUp.",
-  phone: "+212600000000",
-  phoneDisplay: "+212 6 00 00 00 00",
+  phone: SITE.phone,
+  phoneDisplay: SITE.phoneDisplay,
   mockupCaption: "MAQUETTE PRODUIT",
 };
 
@@ -219,7 +220,7 @@ export const footer: SiteContent["footer"] = {
     { href: "/pour-cabinet-syndic", label: "Pour cabinet de syndic" },
     { href: "/pour-promoteurs", label: "Pour promoteurs" },
   ],
-  legal: "SYNDICUP SARL · CASABLANCA · RC 000000 · ICE 000000000000000",
+  legal: "SYNDICUP SARL · CASABLANCA",
   rights: "FR-MA · AR-MA · © 2026",
 };
 

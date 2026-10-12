@@ -75,7 +75,7 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
       <PhotoBand
         locale={l}
         copy={{ kicker: c.home.placeKicker, title: c.home.placeTitle, body: c.home.placeBody, cta: c.home.placeCta }}
-        {...MAROC_PHOTOS.ciel}
+        {...MAROC_PHOTOS.marrakech}
       />
 
       {/* ── La résidence de démonstration ───────────────────────────────── */}

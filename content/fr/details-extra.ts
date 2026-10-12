@@ -241,11 +241,11 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       { icon: "sms", pain: "« Il y a une fuite au parking, qui prévenir ? »", fix: "Photo, localisation, envoi : l'incident est routé au gardien et escalade tout seul si personne ne répond." },
     ],
     blocksTitle: "Ce que le copropriétaire voit, et ce qu'il peut faire",
-    blocksLede: "Son compte, les comptes communs en lecture, et la vie courante de l'immeuble — sans mot de passe, en français ou en arabe.",
+    blocksLede: "Son compte, les comptes communs en lecture, et la vie courante de l'immeuble — depuis son téléphone, en français ou en arabe.",
     stepsTitle: "Sa première connexion, en trois gestes",
     steps: [
-      { icon: "sms", title: "Il reçoit un SMS", desc: "Une invitation nominative, envoyée par le syndic ou automatiquement à la mise en service." },
-      { icon: "unlock", title: "Il entre son code", desc: "Connexion par code SMS ; aucun mot de passe à créer ni à retenir." },
+      { icon: "sms", title: "Il reçoit son invitation", desc: "Un QR code ou un code personnel, remis par le syndic ou envoyé à la mise en service." },
+      { icon: "unlock", title: "Il crée son accès", desc: "Un e-mail et un mot de passe, puis Face ID ou l'empreinte sur mobile : il ne le retape plus." },
       { icon: "mobile", title: "Il voit son lot", desc: "Solde, quittances, incidents, justificatifs des charges communes. Sur iOS, Android ou navigateur mobile." },
     ],
     stats: [
@@ -270,7 +270,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     faqTitle: "Questions sur l'application",
     faq: [
       { q: "Un locataire voit-il les comptes ?", a: "Non. Il voit les incidents, les informations pratiques et ce qui relève de son occupation. Les comptes et les soldes des lots sont réservés aux copropriétaires." },
-      { q: "Un copropriétaire à l'étranger peut-il s'en servir ?", a: "Oui : le code SMS fonctionne sur un numéro étranger, et l'espace est le même. C'est souvent l'usage qui déclenche l'adoption dans une résidence." },
+      { q: "Un copropriétaire à l'étranger peut-il s'en servir ?", a: "Oui : l'accès se fait par e-mail, depuis n'importe quel pays, et l'espace est le même. C'est souvent l'usage qui déclenche l'adoption dans une résidence." },
       { q: "Faut-il forcément l'application native ?", a: "Non. Tout est accessible depuis un navigateur mobile. L'application iOS et Android ajoute les notifications et l'accès hors-ligne aux documents." },
       { q: "Qui invite les résidents ?", a: "Le syndic, en un envoi groupé, ou automatiquement à la mise en service. Un résident qui change de numéro est réinvité en un geste." },
     ],
@@ -377,7 +377,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     steps: [
       { icon: "upload", title: "Vous envoyez les fichiers", desc: "Résidence par résidence, tels qu'ils sont ; nous faisons la reprise." },
       { icon: "review", title: "Vos gestionnaires valident", desc: "Chacun sur son périmètre, ligne à ligne, avant la mise en service." },
-      { icon: "building", title: "Les résidences s'allument", desc: "Par vagues, sans arrêter l'activité ; les résidents sont invités par SMS." },
+      { icon: "building", title: "Les résidences s'allument", desc: "Par vagues, sans arrêter l'activité ; les résidents reçoivent leur invitation." },
       { icon: "check", title: "Le portefeuille est piloté", desc: "Alertes priorisées, journal d'audit complet, export par résidence." },
     ],
     stats: [
@@ -421,7 +421,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     steps: [
       { icon: "upload", title: "Vous envoyez votre fichier", desc: "Même incomplet, même avec un onglet par année. Sur WhatsApp ou par mail." },
       { icon: "review", title: "Vous validez la reprise", desc: "Lots, tantièmes, soldes d'ouverture, sous 48 h, ligne à ligne." },
-      { icon: "sms", title: "Les résidents sont invités", desc: "Par SMS, sans mot de passe ; le premier appel de fonds est prêt." },
+      { icon: "sms", title: "Les résidents sont invités", desc: "Par QR code ou code personnel ; le premier appel de fonds est prêt." },
       { icon: "check", title: "Vous n'y pensez plus", desc: "Relances, quittances, contrôles : le produit tourne, vous décidez." },
     ],
     stats: [
@@ -465,7 +465,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     steps: [
       { icon: "review", title: "Trois résidences pilotes", desc: "Vous choisissez, nous reprenons, vos gestionnaires valident." },
       { icon: "building", title: "Le reste par vagues", desc: "Sans interrompre l'activité, avec la même procédure." },
-      { icon: "sms", title: "Les résidents basculent", desc: "Invitation par SMS, application au nom du cabinet." },
+      { icon: "sms", title: "Les résidents basculent", desc: "Invitation par QR code, application au nom du cabinet." },
       { icon: "check", title: "Le portefeuille est piloté", desc: "Alertes, taux de recouvrement, clôtures : sur un écran." },
     ],
     stats: [
@@ -508,7 +508,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     stepsTitle: "De la livraison à l'AG constitutive",
     steps: [
       { icon: "upload", title: "Le règlement est chargé", desc: "Lots, tantièmes, clés de répartition : depuis le règlement de copropriété, avant la livraison." },
-      { icon: "mobile", title: "Les acquéreurs reçoivent leur accès", desc: "Avec leurs clés : un SMS, pas une pile de papiers." },
+      { icon: "mobile", title: "Les acquéreurs reçoivent leur accès", desc: "Avec leurs clés : un QR code, pas une pile de papiers." },
       { icon: "bank", title: "Le premier appel de fonds part", desc: "Réparti aux tantièmes, avec le détail du calcul." },
       { icon: "assembly", title: "L'AG constitutive se tient", desc: "Convocation tracée, quorum en direct, syndic élu, transfert sans rupture." },
     ],

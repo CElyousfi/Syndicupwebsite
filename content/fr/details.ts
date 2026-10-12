@@ -184,7 +184,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
         heading: "Présence, quorum, vote par tantièmes",
         body: "La feuille de présence se remplit à l'entrée, le quorum se recalcule à chaque arrivée. Pour chaque point, le vote est compté en tantièmes selon la majorité requise, et le résultat s'affiche avant de passer au suivant.",
         bullets: [
-          "Feuille de présence numérique, signature ou code SMS.",
+          "Feuille de présence numérique, émargement dans l'application.",
           "Majorité requise affichée par point, avant le vote.",
           "Vote inaltérable : une correction crée une ligne liée, jamais un écrasement.",
         ],
@@ -277,7 +277,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     heroMockup: "phone-resident",
     outputs: [
       { k: "Plateformes", v: "iOS, Android, web mobile" },
-      { k: "Connexion", v: "code SMS, sans mot de passe" },
+      { k: "Connexion", v: "e-mail, Face ID ou empreinte" },
       { k: "Langues", v: "FR & AR (RTL réel)" },
       { k: "Rôles", v: "propriétaire, locataire, MRE" },
     ],
@@ -520,7 +520,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
         body: "Vous envoyez votre fichier — même désordonné. Nous le reprenons, vous validez les lots, les tantièmes et les soldes d'ouverture. Le lendemain, la copropriété est administrée.",
         bullets: [
           "Reprise de votre Excel, faite par nous, pendant vos 30 jours.",
-          "Invitation des copropriétaires par SMS, sans mot de passe à créer.",
+          "Invitation des copropriétaires par QR code ou code personnel.",
           "Visite guidée dans le produit : rien à lire ailleurs.",
         ],
         mockup: "dashboard",
@@ -593,7 +593,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
         heading: "Moins d'appels, parce que la réponse est déjà visible",
         body: "« Pourquoi j'ai payé 4 260 dirhams ? » se répond dans l'application du copropriétaire, avec la facture au bout du lien. Votre assistante ne cherche plus dans un classeur.",
         bullets: [
-          "Application résidents, FR et AR, sans mot de passe.",
+          "Application résidents, FR et AR, Face ID ou empreinte.",
           "Justificatifs consultables par les copropriétaires.",
           "Contestations enregistrées et suivies, avec réponse tracée.",
         ],
@@ -646,7 +646,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
       {
         step: "02 · À LA REMISE",
         heading: "Chaque acquéreur reçoit son accès, pas une pile de papiers",
-        body: "L'acquéreur est invité par SMS, retrouve son lot, ses tantièmes, son premier appel de fonds et les documents de la résidence. Vos réclamations tombent avant d'être écrites.",
+        body: "L'acquéreur reçoit son invitation avec ses clés, retrouve son lot, ses tantièmes, son premier appel de fonds et les documents de la résidence. Vos réclamations tombent avant d'être écrites.",
         bullets: [
           "Invitation des acquéreurs au fil des remises de clés.",
           "Documents de la résidence disponibles dès le premier jour.",

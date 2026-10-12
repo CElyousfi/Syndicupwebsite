@@ -98,7 +98,10 @@ export function PageHero({
                 className={`mt-8 flex flex-wrap gap-x-8 gap-y-3 ${split ? "" : "justify-center"}`}
               >
                 {facts.map((f) => (
-                  <div key={f.k} className="flex items-baseline gap-2">
+                  <div
+                    key={f.k}
+                    className={`flex gap-2 ${split ? "items-baseline" : "flex-col items-center gap-0.5 sm:flex-row sm:items-baseline sm:gap-2"}`}
+                  >
                     <dt className="kicker-sm">{f.k}</dt>
                     <dd className="text-[15px] font-semibold text-ink">{f.v}</dd>
                   </div>

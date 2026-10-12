@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { CityGrid } from "@/components/city-grid";
 import { UiIcon } from "@/components/icons";
 import { PageHero, SectionHead } from "@/components/page-blocks";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
@@ -56,6 +57,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <Image src={a.image} alt={a.imageAlt} fill sizes="(max-width: 1024px) 100vw, 520px" className="object-cover object-[center_30%]" />
           </div>
         </div>
+      </section>
+
+      {/* ── Nos villes ──────────────────────────────────────────────────── */}
+      <section className="shell pb-24">
+        <SectionHead kicker={c.home.citiesKicker} title={c.home.citiesTitle} lede={c.home.citiesLede} />
+        <CityGrid cities={c.home.cities} locale={l} />
       </section>
 
       <div className="border-y border-rule bg-white">
