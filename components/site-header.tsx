@@ -12,7 +12,7 @@ import { whatsappHref } from "@/lib/site";
 type MenuKey = "features" | "who" | "resources" | "all" | null;
 
 /** Les pages dont le fold est une photo pleine page : l'en-tête s'y pose en blanc. */
-const PHOTO_HERO_PATHS = ["", "/a-propos", "/tarifs", "/contact", "/securite", "/ressources"];
+const PHOTO_HERO_PATHS = ["/a-propos", "/tarifs", "/contact", "/securite", "/ressources"];
 
 /** Au-dessus de cette largeur la navigation complète tient sans passer à la ligne. */
 const WIDE_BREAKPOINT = 1060;

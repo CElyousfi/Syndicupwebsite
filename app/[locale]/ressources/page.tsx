@@ -70,6 +70,7 @@ export default async function ResourcesPage({
             <div className="relative min-h-[300px]">
               <Image
                 src={r.pillarImage}
+                quality={95}
                 alt={r.pillarImageAlt}
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
@@ -87,7 +88,7 @@ export default async function ResourcesPage({
               <>
                 {card.image ? (
                   <div className="relative h-[180px]">
-                    <Image src={card.image} alt={card.imageAlt ?? ""} fill sizes="(max-width: 900px) 100vw, 33vw" className="object-cover" />
+                    <Image src={card.image} alt={card.imageAlt ?? ""} fill quality={95} sizes="(max-width: 900px) 100vw, 33vw" className="object-cover" />
                   </div>
                 ) : (
                   <div className="px-7 pt-7">

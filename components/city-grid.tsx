@@ -23,7 +23,7 @@ export function CityGrid({ cities, locale }: { cities: CityCard[]; locale: Local
               alt={c.alt}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
-              quality={92}
+              quality={95}
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               style={{ objectPosition: c.position }}
             />

@@ -36,7 +36,7 @@ export function Scene({
           alt={scene.alt}
           fill
           sizes={sizes}
-          quality={92}
+          quality={95}
           priority={priority}
           unoptimized={scene.src.endsWith(".svg")}
           draggable={false}
@@ -52,7 +52,7 @@ export function Scene({
       width={scene.width}
       height={scene.height}
       sizes={sizes}
-      quality={92}
+      quality={95}
       priority={priority}
       unoptimized={scene.src.endsWith(".svg")}
       draggable={false}

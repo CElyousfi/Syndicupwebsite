@@ -73,7 +73,7 @@ export function ProofRibbon({ stats, photos }: { stats: Stat[]; photos: Photo[] 
               alt={duplicate ? "" : card.photo.alt}
               fill
               sizes="512px"
-              quality={92}
+              quality={95}
               draggable={false}
               className="object-cover"
             />

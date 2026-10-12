@@ -317,7 +317,7 @@ export function HeroRotator({
                       width={2624}
                       height={1632}
                       sizes="(max-width: 1120px) 100vw, 1080px"
-                      quality={92}
+                      quality={95}
                       priority={i === 1}
                       draggable={false}
                       className="hero-feather h-auto w-full select-none"

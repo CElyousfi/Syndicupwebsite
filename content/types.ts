@@ -32,8 +32,6 @@ export type CityCard = {
   href: string;
   linkLabel: string;
   image: string;
-  /** Cadrage large pour le fold pleine page, quand la photo de carte est trop serrée. */
-  wideImage?: string;
   alt: string;
   position: string;
 };
@@ -406,8 +404,6 @@ export interface SiteContent {
     pillarsLede: string;
     pillars: PillarCard[];
     /** Carrousel du fold : un fold complet par diapositive, en boucle. */
-    heroPills: { tag: string; text: string }[];
-    heroCitiesLabel: string;
     heroSlides: HeroSlide[];
 
     /** Ruban défilant d'écrans et de photos. */

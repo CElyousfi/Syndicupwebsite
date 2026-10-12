@@ -28,18 +28,18 @@ export const home: SiteContent["home"] = {
     ],
   },
   statPhotos: [
-    { image: "/images/maroc/rabat-kasbah.jpg", alt: "Kasbah des Oudayas à Rabat, vue depuis le Bouregreg" },
+    { image: "/images/maroc/rabat-kasbah-hd.jpg", alt: "Kasbah des Oudayas à Rabat, vue depuis le Bouregreg" },
     { image: "/images/residence-seafront.jpg", alt: "Résidence en front de mer, jardins et palmiers" },
     { image: "/images/technician-radiator.jpg", alt: "Technicien sur une échelle, intervenant sur un radiateur" },
     { image: "/images/residence-fountain.jpg", alt: "Résidence avec fontaine et pelouse" },
     { image: "/images/laptop-profit-loss.jpg", alt: "Compte de résultat consulté sur un ordinateur portable" },
-    { image: "/images/maroc/chefchaouen-ruelle.jpg", alt: "Ruelle blanche et bleue d'une médina marocaine" },
+    { image: "/images/maroc/chefchaouen-ruelle-hd.jpg", alt: "Ruelle blanche et bleue d'une médina marocaine" },
     { image: "/images/residence-hero.jpg", alt: "Façade d'une résidence" },
-    { image: "/images/couple-moving.jpg", alt: "Couple installé au milieu de cartons de déménagement" },
+    { image: "/images/couple-moving-hd.jpg", alt: "Couple installé au milieu de cartons de déménagement" },
     { image: "/images/residence-courtyard.jpg", alt: "Cour intérieure d'une résidence" },
     { image: "/images/residence-entrance.jpg", alt: "Entrée d'une résidence" },
     { image: "/images/espace-piscine.jpg", alt: "Piscine d'une résidence" },
-    { image: "/images/maroc/ciel-oiseaux.jpg", alt: "Vol d'oiseaux dans un ciel bleu, à contre-jour" },
+    { image: "/images/maroc/ciel-oiseaux-hd.jpg", alt: "Vol d'oiseaux dans un ciel bleu, à contre-jour" },
   ],
   stats: [
     { kicker: "CONFORMITÉ", value: "12/12", caption: "Annexes du décret générées" },
@@ -116,12 +116,6 @@ export const home: SiteContent["home"] = {
       link: { href: "/application-residents", label: "Application résidents" },
     },
   ],
-
-  heroPills: [
-    { tag: "NOUVEAU", text: "Face ID et empreinte dans l'application mobile" },
-    { tag: "−30 %", text: "pour les 100 premières résidences, jusqu'au 31 mars 2027" },
-  ],
-  heroCitiesLabel: "Présents à",
 
   heroSlides: [
     {
@@ -363,7 +357,7 @@ export const home: SiteContent["home"] = {
       answer: "Relances graduées en votre nom, chaque dirham relié à sa pièce.",
       href: "/appels-de-fonds-recouvrement",
       linkLabel: "Recouvrement",
-      image: "/images/maroc/casablanca-coucher.jpg",
+      image: "/images/maroc/casablanca-coucher-hd.jpg",
       alt: "Casablanca au coucher du soleil, ses tours d'habitation et la mosquée Hassan II à l'horizon",
       position: "72% 50%",
     },
@@ -374,8 +368,7 @@ export const home: SiteContent["home"] = {
       answer: "Nous reprenons votre fichier ; les 12 annexes sortent à chaque clôture.",
       href: "/comptabilite-annexes",
       linkLabel: "Comptabilité et annexes",
-      image: "/images/maroc/rabat-carte.jpg",
-      wideImage: "/images/maroc/rabat-kasbah-large.jpg",
+      image: "/images/maroc/rabat-carte-hd.jpg",
       alt: "Rabat, la Kasbah des Oudayas au-dessus du Bouregreg",
       position: "48% 50%",
     },
@@ -386,7 +379,7 @@ export const home: SiteContent["home"] = {
       answer: "Séjours déclarés, quote-part recalculée, registre des occupants à jour.",
       href: "/location-courte-duree",
       linkLabel: "Location courte durée",
-      image: "/images/maroc/marrakech-koutoubia.jpg",
+      image: "/images/maroc/marrakech-koutoubia-hd.jpg",
       alt: "Marrakech, la Koutoubia et les toits de la médina au coucher du soleil, l'Atlas au loin",
       position: "30% 50%",
     },
@@ -397,7 +390,7 @@ export const home: SiteContent["home"] = {
       answer: "Copropriété installée avant la remise des clés, acquéreurs invités avec leurs clés.",
       href: "/pour-promoteurs",
       linkLabel: "Pour les promoteurs",
-      image: "/images/maroc/tanger-baie.jpg",
+      image: "/images/maroc/tanger-baie-hd.jpg",
       alt: "Tanger et sa baie au coucher du soleil : la médina blanche, le port et les nouveaux quartiers",
       position: "62% 50%",
     },
@@ -407,7 +400,7 @@ export const home: SiteContent["home"] = {
   placeTitle: "Pensé au Maroc, pour les copropriétés d'ici.",
   placeBody:
     "Le Décret 2.23.700, les AG en deux langues, les charges en dirhams, les fournisseurs du quartier : SyndicUp n'est pas un logiciel étranger adapté. Il est né dans un immeuble de 48 lots à Casablanca, et il est construit avec ceux qui gèrent.",
-  placeImage: "/images/maroc/casablanca-coucher.jpg",
+  placeImage: "/images/maroc/casablanca-coucher-hd.jpg",
   placeImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
   placeCta: "Notre histoire",
 
@@ -416,7 +409,7 @@ export const home: SiteContent["home"] = {
   trustBody:
     "Une plateforme de gestion tient les chiffres de centaines de familles. Elle se construit comme une banque : isolée, chiffrée, et vérifiable.",
   trustCta: "Comment nous protégeons vos données",
-  trustImage: "/images/maroc/casablanca-coucher.jpg",
+  trustImage: "/images/maroc/casablanca-coucher-hd.jpg",
   trustImageAlt: "Casablanca au coucher du soleil, ses tours d'habitation et la mosquée Hassan II à l'horizon",
   trust: [
     { icon: "layers", k: "Hébergement", v: "Union européenne", desc: "Serveurs à Francfort, sauvegardes restaurées pour de vrai, pas seulement prises." },
@@ -438,25 +431,25 @@ export const home: SiteContent["home"] = {
     },
     {
       href: "/pour-cabinet-syndic",
-      image: "/images/portfolio/cabinet-v2.jpg",
+      image: "/images/portfolio/cabinet-v2-hd.jpg",
       imageAlt: "Cour intérieure d'une résidence sous mandat",
       title: "Cabinet de syndic",
     },
     {
       href: "/pour-promoteurs",
-      image: "/images/portfolio/promoteur-v2.jpg",
+      image: "/images/portfolio/promoteur-v2-hd.jpg",
       imageAlt: "Espace commun d'une résidence neuve",
       title: "Promoteurs",
     },
     {
       href: "/multi-residences-cabinets",
-      image: "/images/portfolio/multi-v2.jpg",
+      image: "/images/portfolio/multi-v2-hd.jpg",
       imageAlt: "Résidence d'un portefeuille multi-sites",
       title: "Multi-résidences",
     },
     {
       href: "/location-courte-duree",
-      image: "/images/portfolio/lcd-v2.jpg",
+      image: "/images/portfolio/lcd-v2-hd.jpg",
       imageAlt: "Résidence avec location saisonnière",
       title: "Location courte durée",
     },

@@ -61,7 +61,7 @@ export default async function ArticlePage({
               <p className="kicker-sm mt-6">{a.meta}</p>
             </div>
             <div className="relative min-h-[300px] overflow-hidden rounded-2xl lg:min-h-[380px]">
-              <Image src={a.image} alt={a.imageAlt} fill sizes="(max-width: 1024px) 100vw, 600px" className="object-cover" priority />
+              <Image src={a.image} alt={a.imageAlt} fill quality={95} sizes="(max-width: 1024px) 100vw, 600px" className="object-cover" priority />
             </div>
           </div>
         </section>

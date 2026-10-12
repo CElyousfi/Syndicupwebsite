@@ -5,8 +5,9 @@ const nextConfig = {
   // /api/meta-events (relais de l'API Conversions de Meta, inactif sans jeton).
   images: {
     formats: ["image/avif", "image/webp"],
-    // 92 : le ruban de preuves, dont les photos doivent rester nettes en 2×.
-    qualities: [75, 92],
+    // 95 partout : photos et illustrations restent nettes en 2× et 3×.
+    // 75 reste autorisé pour une image qui n'aurait pas de qualité explicite.
+    qualities: [75, 95],
   },
 };
 

@@ -177,7 +177,7 @@ export function PortfolioCarousel({
                     alt={card.imageAlt}
                     fill
                     sizes="(max-width: 640px) 80vw, (max-width: 1024px) 46vw, 300px"
-                    quality={92}
+                    quality={95}
                     loading="eager"
                     draggable={false}
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"

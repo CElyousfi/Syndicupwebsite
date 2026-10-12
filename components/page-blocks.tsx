@@ -64,7 +64,7 @@ export function PageHero({
             fill
             priority
             sizes="100vw"
-            quality={92}
+            quality={95}
             className="object-cover"
             style={{ objectPosition: photo.position ?? "center 40%" }}
           />
@@ -348,7 +348,7 @@ export function AudienceGrid({ items, locale }: { items: Audience[]; locale: Loc
           <div key={a.title} className="card card-lift flex flex-col p-7">
             {art && (
               <div className="mx-auto w-full max-w-[200px]">
-                <Image src={art.src} alt="" width={art.width} height={art.height} sizes="200px" className="h-auto w-full" />
+                <Image src={art.src} alt="" width={art.width} height={art.height} quality={95} sizes="200px" className="h-auto w-full" />
               </div>
             )}
             <h3 className="mt-5 text-[19px] font-bold text-ink">{a.title}</h3>

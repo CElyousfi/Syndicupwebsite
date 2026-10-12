@@ -4,7 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaqTabs } from "@/components/faq-tabs";
 import { FeatureComposition } from "@/components/feature-composition";
-import { HomeHero } from "@/components/home-hero";
+import { HeroBackdrop } from "@/components/hero-backdrop";
+import { HeroRotator } from "@/components/hero-rotator";
 import { LogoHive } from "@/components/logo-hive";
 import { CityGrid } from "@/components/city-grid";
 import { PortfolioCarousel } from "@/components/portfolio-carousel";
@@ -55,23 +56,21 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      {/* ── 1 · Fold : nos villes en pleine page, un seul message, l'écran du produit qui remonte ── */}
-      <HomeHero
-        locale={l}
-        cities={h.cities}
-        copy={{
-          pills: h.heroPills,
-          title: `${h.heroSlides[0]!.h1Before} ${h.heroSlides[0]!.h1Accent}.`,
-          lede: h.heroSlides[0]!.lede,
-          emailLabel: h.heroEmailLabel,
-          emailPlaceholder: h.heroEmailPlaceholder,
-          demoCta: c.common.demoCta,
-          freeNote: h.freeNote,
-          citiesLabel: h.heroCitiesLabel,
-          productImage: h.heroSlides[0]!.image,
-          productAlt: h.heroSlides[0]!.imageAlt,
-        }}
-      />
+      {/* ── 1 · Fold : promesse, deux CTA, capture produit ────────────────── */}
+      <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]">
+        <HeroBackdrop />
+        <section className="relative">
+          <HeroRotator
+            slides={h.heroSlides}
+            locale={l}
+            demoCta={c.common.demoCta}
+            emailLabel={h.heroEmailLabel}
+            emailPlaceholder={h.heroEmailPlaceholder}
+            freeNote={h.freeNote}
+            regionLabel={h.heroRegion}
+          />
+        </section>
+      </div>
 
       {/* ── 2 · Barre de confiance, puis le ruban de preuves ─────────────── */}
       <TrustBar ticker={h.ticker} locale={l} />
@@ -417,7 +416,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           alt={h.trustImageAlt}
           fill
           sizes="100vw"
-          quality={75}
+          quality={95}
           className="object-cover object-[60%_45%]"
         />
         <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgb(14_16_20_/_0.72)_0%,rgb(14_16_20_/_0.5)_40%,rgb(14_16_20_/_0.85)_100%)]" />

@@ -40,7 +40,7 @@ export function PhotoBand({
           alt={alt}
           fill
           sizes="(max-width: 1280px) 100vw, 1200px"
-          quality={92}
+          quality={95}
           className="object-cover"
           style={{ objectPosition: position }}
         />
@@ -73,25 +73,25 @@ export function PhotoBand({
 /** Les quatre villes, chacune avec son cadrage pour une bande large. */
 export const MAROC_PHOTOS = {
   casablanca: {
-    image: "/images/maroc/casablanca-coucher.jpg",
+    image: "/images/maroc/casablanca-coucher-hd.jpg",
     alt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
     position: "center 40%",
     city: "Casablanca",
   },
   rabat: {
-    image: "/images/maroc/rabat-kasbah-large.jpg",
+    image: "/images/maroc/rabat-kasbah-large-hd.jpg",
     alt: "Rabat, la Kasbah des Oudayas au-dessus du Bouregreg",
     position: "center 55%",
     city: "Rabat",
   },
   marrakech: {
-    image: "/images/maroc/marrakech-koutoubia.jpg",
+    image: "/images/maroc/marrakech-koutoubia-hd.jpg",
     alt: "Marrakech, la Koutoubia et les toits de la médina au coucher du soleil",
     position: "center 45%",
     city: "Marrakech",
   },
   tanger: {
-    image: "/images/maroc/tanger-baie.jpg",
+    image: "/images/maroc/tanger-baie-hd.jpg",
     alt: "Tanger et sa baie au coucher du soleil, la médina blanche et le port",
     position: "center 50%",
     city: "Tanger",
