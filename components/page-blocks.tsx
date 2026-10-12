@@ -39,7 +39,7 @@ export function PageHero({
   lede: string;
   /** L'écran illustré à droite ; sans scène, le fold reste centré. */
   scene?: SceneData;
-  /** Une vraie photo, pleine largeur, posée sous le titre (fold centré uniquement). */
+  /** Une vraie photo en fond de tout le fold, le texte passe en blanc (fold centré uniquement). */
   photo?: { image: string; alt: string };
   email?: { label: string; placeholder: string; cta: string };
   /** Trois ou quatre faits courts sous le chapô : « 12 / 12 annexes », « FR & AR »… */
@@ -47,10 +47,32 @@ export function PageHero({
   children?: React.ReactNode;
 }) {
   const split = !!scene;
+  const onPhoto = !!photo && !split;
   return (
-    <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]">
-      <HeroBackdrop />
-      <section className="shell relative pb-16 pt-10 lg:pb-24 lg:pt-14">
+    <div
+      className={`relative overflow-hidden ${
+        onPhoto
+          ? "bg-ink text-white [&_.crumb]:text-white/70 [&_.crumb_a]:text-white/70 [&_.crumb_a:hover]:text-white [&_.h-page]:text-white [&_.lede]:text-white/85 [&_.kicker]:!text-lime [&_dt]:text-white/70 [&_dd]:!text-white"
+          : "bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]"
+      }`}
+    >
+      {onPhoto ? (
+        <>
+          <Image
+            src={photo.image}
+            alt={photo.alt}
+            fill
+            priority
+            sizes="100vw"
+            quality={92}
+            className="object-cover object-[center_40%]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(16_18_22_/_0.55)_0%,rgb(16_18_22_/_0.35)_45%,rgb(16_18_22_/_0.7)_100%)]" />
+        </>
+      ) : (
+        <HeroBackdrop />
+      )}
+      <section className={`shell relative pb-16 pt-10 lg:pb-24 lg:pt-14 ${onPhoto ? "min-h-[560px] lg:min-h-[680px]" : ""}`}>
         <Crumb locale={locale} home={crumbHome} trail={crumb} />
         <div
           className={`mt-8 grid items-center gap-12 ${
@@ -86,19 +108,6 @@ export function PageHero({
           </div>
           {scene && <Scene scene={scene} priority sizes="(max-width: 1024px) 100vw, 680px" />}
         </div>
-        {photo && !split && (
-          <div className="relative mt-12 aspect-[16/9] overflow-hidden rounded-[24px] shadow-[0_40px_80px_-40px_rgb(32_31_35_/_0.45)] md:aspect-[21/9] lg:mt-16">
-            <Image
-              src={photo.image}
-              alt={photo.alt}
-              fill
-              priority
-              sizes="(max-width: 1280px) 100vw, 1200px"
-              quality={92}
-              className="object-cover object-[center_45%]"
-            />
-          </div>
-        )}
       </section>
     </div>
   );
