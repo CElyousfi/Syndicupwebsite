@@ -117,6 +117,12 @@ export const home: SiteContent["home"] = {
     },
   ],
 
+  heroPills: [
+    { tag: "NOUVEAU", text: "Face ID et empreinte dans l'application mobile" },
+    { tag: "−30 %", text: "pour les 100 premières résidences, jusqu'au 31 mars 2027" },
+  ],
+  heroCitiesLabel: "Présents à",
+
   heroSlides: [
     {
       eyebrow: "Logiciel de syndic marocain · FR & AR",
@@ -369,6 +375,7 @@ export const home: SiteContent["home"] = {
       href: "/comptabilite-annexes",
       linkLabel: "Comptabilité et annexes",
       image: "/images/maroc/rabat-carte.jpg",
+      wideImage: "/images/maroc/rabat-kasbah-large.jpg",
       alt: "Rabat, la Kasbah des Oudayas au-dessus du Bouregreg",
       position: "48% 50%",
     },
@@ -404,6 +411,20 @@ export const home: SiteContent["home"] = {
   placeImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
   placeCta: "Notre histoire",
 
+  trustKicker: "CONFIANCE",
+  trustTitle: "Les comptes d'une copropriété ne sortent jamais de sa copropriété.",
+  trustBody:
+    "Une plateforme de gestion tient les chiffres de centaines de familles. Elle se construit comme une banque : isolée, chiffrée, et vérifiable.",
+  trustCta: "Comment nous protégeons vos données",
+  trustImage: "/images/maroc/casablanca-coucher.jpg",
+  trustImageAlt: "Casablanca au coucher du soleil, ses tours d'habitation et la mosquée Hassan II à l'horizon",
+  trust: [
+    { icon: "layers", k: "Hébergement", v: "Union européenne", desc: "Serveurs à Francfort, sauvegardes restaurées pour de vrai, pas seulement prises." },
+    { icon: "lock", k: "Chiffrement", v: "En transit et au repos", desc: "TLS partout ; chaque facture servie par un lien signé, à durée limitée." },
+    { icon: "split", k: "Cloisonnement", v: "Application + base (RLS)", desc: "Une requête ne franchit pas la frontière d'une résidence, même en cas de bug." },
+    { icon: "shield", k: "CNDP", v: "Traitement déclaré", desc: "Vos données personnelles, déclarées et traitées pour la seule gestion de la copropriété." },
+  ],
+
   portfolioKicker: "BÂTI POUR VOTRE SITUATION",
   portfolioTitle: "Bâti pour votre portefeuille.",
   portfolioLede:
@@ -417,26 +438,26 @@ export const home: SiteContent["home"] = {
     },
     {
       href: "/pour-cabinet-syndic",
-      image: "/images/portfolio/cabinet-v3.jpg",
-      imageAlt: "Casablanca au coucher du soleil, ses tours et ses immeubles d'habitation",
+      image: "/images/portfolio/cabinet-v2.jpg",
+      imageAlt: "Cour intérieure d'une résidence sous mandat",
       title: "Cabinet de syndic",
     },
     {
       href: "/pour-promoteurs",
-      image: "/images/portfolio/promoteur-v3.jpg",
-      imageAlt: "Tanger et sa baie : la médina blanche, le port et les nouveaux quartiers",
+      image: "/images/portfolio/promoteur-v2.jpg",
+      imageAlt: "Espace commun d'une résidence neuve",
       title: "Promoteurs",
     },
     {
       href: "/multi-residences-cabinets",
-      image: "/images/portfolio/multi-v3.jpg",
-      imageAlt: "Rabat, la Kasbah des Oudayas au-dessus du Bouregreg",
+      image: "/images/portfolio/multi-v2.jpg",
+      imageAlt: "Résidence d'un portefeuille multi-sites",
       title: "Multi-résidences",
     },
     {
       href: "/location-courte-duree",
-      image: "/images/portfolio/lcd-v3.jpg",
-      imageAlt: "Marrakech, la Koutoubia et les toits de la médina au coucher du soleil",
+      image: "/images/portfolio/lcd-v2.jpg",
+      imageAlt: "Résidence avec location saisonnière",
       title: "Location courte durée",
     },
   ],

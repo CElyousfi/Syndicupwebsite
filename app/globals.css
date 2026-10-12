@@ -1007,3 +1007,46 @@
     animation: none !important;
   }
 }
+
+/*
+ * Fold photo : la ville active avance d'un cheveu pendant qu'elle est à
+ * l'écran — un plan qui respire, pas un effet.
+ */
+.city-zoom {
+  animation: city-zoom 9s ease-out both;
+}
+@keyframes city-zoom {
+  from {
+    transform: scale(1.0);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+/*
+ * En-tête posé sur une photo : texte blanc et logo inversé tant qu'il est
+ * transparent. Dès qu'il devient opaque (défilement, menu, survol), il
+ * reprend ses couleurs.
+ */
+.site-nav .logo-light {
+  display: none;
+}
+.site-nav[data-tone="light"]:not([data-solid="true"]):not(:hover) .logo-dark {
+  display: none;
+}
+.site-nav[data-tone="light"]:not([data-solid="true"]):not(:hover) .logo-light {
+  display: block;
+}
+.site-nav[data-tone="light"]:not([data-solid="true"]):not(:hover) .nav-item {
+  color: #fff;
+}
+.site-nav[data-tone="light"]:not([data-solid="true"]):not(:hover) .nav-item span {
+  color: rgb(255 255 255 / 0.65);
+}
+.site-nav[data-tone="light"]:not([data-solid="true"]):not(:hover) .nav-item::after {
+  background: var(--color-lime);
+}
+.site-nav[data-tone="light"]:not([data-solid="true"]):not(:hover) .nav-cta {
+  box-shadow: none;
+}

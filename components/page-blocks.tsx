@@ -50,7 +50,7 @@ export function PageHero({
   const onPhoto = !!photo && !split;
   return (
     <div
-      className={`relative overflow-hidden ${
+      className={`relative overflow-hidden ${onPhoto ? "-mt-[70px] pt-[70px]" : ""} ${
         onPhoto
           ? "bg-ink text-white [text-shadow:0_1px_24px_rgb(0_0_0_/_0.35)] [&_.crumb]:text-white/70 [&_.crumb_a]:text-white/70 [&_.crumb_a:hover]:text-white [&_.h-page]:text-white [&_.lede]:text-white/85 [&_.kicker]:!text-lime [&_dt]:text-white/70 [&_dd]:!text-white"
           : "bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]"

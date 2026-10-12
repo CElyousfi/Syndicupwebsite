@@ -11,6 +11,9 @@ import { whatsappHref } from "@/lib/site";
 
 type MenuKey = "features" | "who" | "resources" | "all" | null;
 
+/** Les pages dont le fold est une photo pleine page : l'en-tête s'y pose en blanc. */
+const PHOTO_HERO_PATHS = ["", "/a-propos", "/tarifs", "/contact", "/securite", "/ressources"];
+
 /** Au-dessus de cette largeur la navigation complète tient sans passer à la ligne. */
 const WIDE_BREAKPOINT = 1060;
 
@@ -64,14 +67,19 @@ export function SiteHeader({ locale, c }: { locale: Locale; c: SiteContent }) {
   const navLink =
     "nav-item px-3.5 py-2.5 text-[16px] font-semibold whitespace-nowrap text-ink-strong";
 
+  const rest = pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "").replace(/\/$/, "");
+  const onPhoto = PHOTO_HERO_PATHS.includes(rest);
+
   return (
     <header
       data-solid={menu || scrolled ? "true" : undefined}
+      data-tone={onPhoto ? "light" : undefined}
       className="site-nav sticky top-0 z-60"
     >
       <div className="shell flex h-[70px] items-center gap-7">
         <Link href={href(locale)} className="flex shrink-0 items-center" aria-label="SyndicUp — accueil">
-          <BrandLogo height={30} priority />
+          <BrandLogo height={30} priority className="logo-dark" />
+          <BrandLogo height={30} variant="reversed" className="logo-light" />
         </Link>
 
         {wide ? (

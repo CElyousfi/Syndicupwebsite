@@ -4,8 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaqTabs } from "@/components/faq-tabs";
 import { FeatureComposition } from "@/components/feature-composition";
-import { HeroBackdrop } from "@/components/hero-backdrop";
-import { HeroRotator } from "@/components/hero-rotator";
+import { HomeHero } from "@/components/home-hero";
 import { LogoHive } from "@/components/logo-hive";
 import { CityGrid } from "@/components/city-grid";
 import { PortfolioCarousel } from "@/components/portfolio-carousel";
@@ -56,21 +55,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      {/* ── 1 · Fold : promesse, deux CTA, capture produit ────────────────── */}
-      <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]">
-        <HeroBackdrop />
-        <section className="relative">
-          <HeroRotator
-            slides={h.heroSlides}
-            locale={l}
-            demoCta={c.common.demoCta}
-            emailLabel={h.heroEmailLabel}
-            emailPlaceholder={h.heroEmailPlaceholder}
-            freeNote={h.freeNote}
-            regionLabel={h.heroRegion}
-          />
-        </section>
-      </div>
+      {/* ── 1 · Fold : nos villes en pleine page, un seul message, l'écran du produit qui remonte ── */}
+      <HomeHero
+        locale={l}
+        cities={h.cities}
+        copy={{
+          pills: h.heroPills,
+          title: `${h.heroSlides[0]!.h1Before} ${h.heroSlides[0]!.h1Accent}.`,
+          lede: h.heroSlides[0]!.lede,
+          emailLabel: h.heroEmailLabel,
+          emailPlaceholder: h.heroEmailPlaceholder,
+          demoCta: c.common.demoCta,
+          freeNote: h.freeNote,
+          citiesLabel: h.heroCitiesLabel,
+          productImage: h.heroSlides[0]!.image,
+          productAlt: h.heroSlides[0]!.imageAlt,
+        }}
+      />
 
       {/* ── 2 · Barre de confiance, puis le ruban de preuves ─────────────── */}
       <TrustBar ticker={h.ticker} locale={l} />
@@ -408,6 +409,46 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
         </section>
       </div>
+
+      {/* ── 14 bis · Confiance : la ville en pleine largeur, les garanties par-dessus ── */}
+      <section className="relative overflow-hidden bg-ink text-white">
+        <Image
+          src={h.trustImage}
+          alt={h.trustImageAlt}
+          fill
+          sizes="100vw"
+          quality={75}
+          className="object-cover object-[60%_45%]"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgb(14_16_20_/_0.72)_0%,rgb(14_16_20_/_0.5)_40%,rgb(14_16_20_/_0.85)_100%)]" />
+        <div className="shell relative py-28 lg:py-36">
+          <div className="max-w-[640px]">
+            <span className="kicker !text-lime">{h.trustKicker}</span>
+            <h2 className="mt-4 text-balance text-[clamp(32px,4.4vw,52px)] font-bold leading-[1.06] tracking-[-0.025em] text-white">
+              {h.trustTitle}
+            </h2>
+            <p className="mt-5 max-w-[540px] text-[18px] leading-[1.55] text-white/80">{h.trustBody}</p>
+            <Link href={href(l, "/securite")} className="link-arrow mt-7 !text-white">
+              {h.trustCta}
+            </Link>
+          </div>
+          <ul className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {h.trust.map((t) => (
+              <li
+                key={t.k}
+                className="rounded-[20px] border border-white/15 bg-white/[0.08] p-6 backdrop-blur-xl"
+              >
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-lime text-ink">
+                  <SecurityIcon name={t.icon} size={20} />
+                </span>
+                <p className="mt-5 text-[13px] font-medium text-white/60">{t.k}</p>
+                <p className="mt-1 text-[19px] font-bold leading-[1.25] text-white">{t.v}</p>
+                <p className="mt-3 text-[14.5px] leading-[1.5] text-white/75">{t.desc}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* ── 15 · Tarifs, en aperçu : trois cartes claires, la centrale mise en avant ── */}
       <section className="shell section-pad">
