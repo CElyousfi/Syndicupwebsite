@@ -102,6 +102,8 @@ export const tarifs: SiteContent["tarifs"] = {
     "Un prix par lot et par mois, TTC, selon la catégorie du décret : Petit 8 MAD, Moyen 12 MAD, Grand 15 MAD — 5,60, 8,40 et 10,50 MAD avec la remise fondateur de 30 %. Cabinets de 10 à 7 MAD HT. Mise en service à prix fixe. Trente jours avec vos propres données.",
   crumb: "TARIFS",
   title: "Le prix est sur cette page. Pas derrière un formulaire.",
+  heroImage: "/images/maroc/casablanca-coucher.jpg",
+  heroImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
   lede: "Trente jours avec vos propres données, reprise faite par nous : si vous ne continuez pas, vous ne payez rien. Ensuite, un prix par lot et par mois, TTC, facturé à la copropriété — et voté une fois en AG. Remise fondateur de 30 % pour les 100 premières résidences, jusqu'au 31 mars 2027.",
   facts: [
     { k: "Essai", v: "30 jours avec vos données" },
@@ -776,6 +778,8 @@ export const contact: SiteContent["contact"] = {
     "WhatsApp, reprise de données, cabinets et promoteurs, données personnelles — les bonnes adresses pour joindre SyndicUp, en français ou en arabe.",
   crumb: "CONTACT",
   title: "WhatsApp d'abord. C'est plus rapide pour vous.",
+  heroImage: "/images/maroc/rabat-kasbah.jpg",
+  heroImageAlt: "Kasbah des Oudayas à Rabat, vue depuis le Bouregreg",
   lede: "Nous répondons pendant les heures ouvrables, en français ou en arabe. Si vous préférez le mail ou le téléphone, c'est en bas.",
   whatsappTitle: "WhatsApp",
   whatsappBody:

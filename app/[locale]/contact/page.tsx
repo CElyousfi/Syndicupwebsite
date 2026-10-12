@@ -42,6 +42,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
         title={ct.title}
         lede={ct.lede}
         facts={ct.hours}
+        photo={{ image: ct.heroImage, alt: ct.heroImageAlt, position: "center 70%" }}
       />
 
       <section className="shell section-pad">

@@ -24,6 +24,7 @@ export const SITE = {
   social: {
     facebook: "https://www.facebook.com/profile.php?id=61595192518925",
     instagram: "https://www.instagram.com/syndicup_/",
+    linkedin: "https://www.linkedin.com/company/syndicup",
   },
   /** Film de lancement (65 s) — servi depuis /public/video. */
   launchVideo: {

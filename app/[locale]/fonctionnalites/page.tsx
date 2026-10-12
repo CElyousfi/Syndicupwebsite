@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductIcon, UiIcon } from "@/components/icons";
 import { PageHero, SectionHead, StepsRail } from "@/components/page-blocks";
+import { MAROC_PHOTOS, PhotoBand } from "@/components/photo-band";
 import { SCENES } from "@/content/scenes";
 import { getContent, href, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 
@@ -97,6 +98,12 @@ export default async function FeaturesPage({
           ))}
         </div>
       </section>
+
+      <PhotoBand
+        locale={l}
+        copy={{ kicker: c.home.placeKicker, title: c.home.placeTitle, body: c.home.placeBody, cta: c.home.placeCta }}
+        {...MAROC_PHOTOS.rabat}
+      />
     </>
   );
 }

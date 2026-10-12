@@ -14,6 +14,7 @@ import {
   StatTiles,
   StepsRail,
 } from "@/components/page-blocks";
+import { PhotoBand, photoFor } from "@/components/photo-band";
 import { Scene } from "@/components/scene";
 import { sceneFor } from "@/content/scenes";
 import { DETAIL_SLUGS, type DetailSlug } from "@/content/types";
@@ -133,6 +134,13 @@ export default async function DetailPage({
           <CompareTable rows={page.compare} beforeLabel={dc.beforeLabel} afterLabel={dc.afterLabel} />
         </div>
       </section>
+
+      {/* ── Conçu au Maroc : une vraie photo entre les chiffres et les profils ── */}
+      <PhotoBand
+        locale={l}
+        copy={{ kicker: c.home.placeKicker, title: c.home.placeTitle, body: c.home.placeBody, cta: c.home.placeCta }}
+        {...photoFor(slug)}
+      />
 
       {/* ── Pour qui ────────────────────────────────────────────────────── */}
       <div className="border-y border-rule bg-white">

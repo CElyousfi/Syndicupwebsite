@@ -73,12 +73,12 @@ export function PageHero({
       ) : (
         <HeroBackdrop />
       )}
-      <section className={`shell relative pb-16 pt-10 lg:pb-24 lg:pt-14 ${onPhoto ? "min-h-[560px] lg:min-h-[680px]" : ""}`}>
+      <section className={`shell relative pb-16 pt-10 lg:pb-24 lg:pt-14 ${onPhoto ? "flex min-h-[calc(100svh-70px)] flex-col" : ""}`}>
         <Crumb locale={locale} home={crumbHome} trail={crumb} />
         <div
           className={`mt-8 grid items-center gap-12 ${
             split ? "lg:grid-cols-[1fr_1.1fr]" : "mx-auto max-w-[820px] text-center"
-          }`}
+          } ${onPhoto ? "my-auto w-full py-8" : ""}`}
         >
           <div>
             <span className="kicker inline-block !text-[12.5px] !text-action-deep">{kicker}</span>

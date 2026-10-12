@@ -7,6 +7,7 @@ import { FeatureComposition } from "@/components/feature-composition";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { HeroRotator } from "@/components/hero-rotator";
 import { LogoHive } from "@/components/logo-hive";
+import { PhotoBand } from "@/components/photo-band";
 import { PortfolioCarousel } from "@/components/portfolio-carousel";
 import { ProofRibbon } from "@/components/proof-ribbon";
 import { Mockup } from "@/components/mockups";
@@ -224,31 +225,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* ── 10 bis · Conçu au Maroc : une vraie photo, pleine largeur ─────── */}
-      <section className="shell pb-20">
-        <div className="relative min-h-[420px] overflow-hidden rounded-[24px] bg-ink md:min-h-[520px]">
-          <Image
-            src={h.placeImage}
-            alt={h.placeImageAlt}
-            fill
-            sizes="(max-width: 1280px) 100vw, 1200px"
-            quality={92}
-            className="object-cover object-[center_40%]"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(16_18_22_/_0.78)_0%,rgb(16_18_22_/_0.45)_55%,rgb(16_18_22_/_0.1)_100%)]" />
-          <div className="relative flex h-full min-h-[420px] flex-col justify-end p-8 md:min-h-[520px] md:p-14">
-            <span className="kicker !text-lime">{h.placeKicker}</span>
-            <h2 className="mt-4 max-w-[620px] text-[32px] font-bold leading-[1.1] tracking-[-0.02em] text-white md:text-[44px]">
-              {h.placeTitle}
-            </h2>
-            <p className="mt-5 max-w-[560px] text-[17px] leading-[1.6] text-white/85 md:text-[18px]">
-              {h.placeBody}
-            </p>
-            <Link href={href(l, "/a-propos")} className="link-arrow mt-7 !text-white">
-              {h.placeCta}
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PhotoBand
+        locale={l}
+        copy={{ kicker: h.placeKicker, title: h.placeTitle, body: h.placeBody, cta: h.placeCta }}
+        image={h.placeImage}
+        alt={h.placeImageAlt}
+      />
 
       {/* ── 11 · Preuve sociale : volontairement vide, et dit comme tel ───── */}
       <section className="shell pb-20">
@@ -540,7 +522,7 @@ function FaqJsonLd({
         logo: `${SITE.url}/images/logo.png`,
         email: SITE.emails.contact,
         address: { "@type": "PostalAddress", addressLocality: SITE.city, addressCountry: "MA" },
-        sameAs: [SITE.social.facebook, SITE.social.instagram],
+        sameAs: [SITE.social.facebook, SITE.social.instagram, SITE.social.linkedin],
       },
       {
         "@type": "VideoObject",

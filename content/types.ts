@@ -515,6 +515,8 @@ export interface SiteContent {
     metaDescription: string;
     crumb: string;
     title: string;
+    heroImage: string;
+    heroImageAlt: string;
     lede: string;
     /** Faits sous le chapô : essai, TTC, remise fondateur… */
     facts: { k: string; v: string }[];
@@ -771,6 +773,8 @@ export interface SiteContent {
     metaDescription: string;
     crumb: string;
     title: string;
+    heroImage: string;
+    heroImageAlt: string;
     lede: string;
     whatsappTitle: string;
     whatsappBody: string;

@@ -4,6 +4,7 @@ import { Crumb } from "@/components/site-chrome";
 import { DemoForm } from "@/components/demo-form";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { SectionHead, StepsRail } from "@/components/page-blocks";
+import { MAROC_PHOTOS, PhotoBand } from "@/components/photo-band";
 import { Scene } from "@/components/scene";
 import { SCENES } from "@/content/scenes";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
@@ -70,6 +71,12 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
         <SectionHead kicker={d.stepsKicker} title={d.stepsTitle} />
         <StepsRail steps={d.steps} />
       </section>
+
+      <PhotoBand
+        locale={l}
+        copy={{ kicker: c.home.placeKicker, title: c.home.placeTitle, body: c.home.placeBody, cta: c.home.placeCta }}
+        {...MAROC_PHOTOS.ciel}
+      />
 
       {/* ── La résidence de démonstration ───────────────────────────────── */}
       <div className="border-t border-rule bg-white">

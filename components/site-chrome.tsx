@@ -185,6 +185,17 @@ export function SiteFooter({ locale, c }: { locale: Locale; c: SiteContent }) {
                 <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
               </svg>
             </a>
+            <a
+              href={SITE.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${c.footer.followOn} LinkedIn`}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink hover:bg-ink hover:text-white"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3.5a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92ZM20.44 13.1c0-3.29-1.76-4.82-4.1-4.82-1.9 0-2.75 1.04-3.22 1.78V8.5H9.74c.04.95 0 11.5 0 11.5h3.38v-6.42c0-.34.03-.69.13-.93.27-.69.89-1.4 1.93-1.4 1.36 0 1.9 1.04 1.9 2.56V20h3.36v-6.9Z" />
+              </svg>
+            </a>
           </div>
           {/* Les deux magasins d'applications, avec leurs vrais logos. */}
           <div className="mt-[18px] flex flex-wrap gap-2">
