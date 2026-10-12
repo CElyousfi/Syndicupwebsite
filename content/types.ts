@@ -428,6 +428,12 @@ export interface SiteContent {
     rolesKicker: string;
     rolesTitle: string;
     roles: RoleTab[];
+    placeKicker: string;
+    placeTitle: string;
+    placeBody: string;
+    placeImage: string;
+    placeImageAlt: string;
+    placeCta: string;
     honestKicker: string;
     honestTitle: string;
     honestBody: string;

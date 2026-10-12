@@ -741,8 +741,8 @@ export const apropos: SiteContent["apropos"] = {
     { icon: "gift", title: "Un prix qu'on peut porter en AG", desc: "Trente jours avec vos propres données, puis 1 à 3 % du budget d'une résidence, TTC, affiché publiquement. Le résident ne paie jamais." },
     { icon: "sms", title: "Dans les deux langues, pour de vrai", desc: "L'arabe se lit de droite à gauche jusque dans les documents générés. Ce n'est pas une traduction posée sur une interface française." },
   ],
-  image: "/images/residence-courtyard.jpg",
-  imageAlt: "Cour intérieure d'une résidence en copropriété",
+  image: "/images/maroc/casablanca-coucher.jpg",
+  imageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
   paras: [
     "SyndicUp est né d'une clôture d'exercice ratée. Un immeuble de 48 lots à Casablanca, un syndic bénévole consciencieux, trois classeurs, un tableur — et l'impossibilité de produire, en janvier, des comptes que personne n'avait tenus en mars.",
     "Le Décret 2.23.700 a changé la nature du problème. Il ne demande plus de la bonne volonté, il demande des documents. Un logiciel qui n'est pas capable de les produire depuis les écritures de l'année n'est pas un logiciel de syndic : c'est un cahier avec une interface.",

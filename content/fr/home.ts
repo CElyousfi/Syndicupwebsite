@@ -28,15 +28,18 @@ export const home: SiteContent["home"] = {
     ],
   },
   statPhotos: [
+    { image: "/images/maroc/rabat-kasbah.jpg", alt: "Kasbah des Oudayas à Rabat, vue depuis le Bouregreg" },
     { image: "/images/residence-seafront.jpg", alt: "Résidence en front de mer, jardins et palmiers" },
     { image: "/images/technician-radiator.jpg", alt: "Technicien sur une échelle, intervenant sur un radiateur" },
     { image: "/images/residence-fountain.jpg", alt: "Résidence avec fontaine et pelouse" },
     { image: "/images/laptop-profit-loss.jpg", alt: "Compte de résultat consulté sur un ordinateur portable" },
+    { image: "/images/maroc/chefchaouen-ruelle.jpg", alt: "Ruelle blanche et bleue d'une médina marocaine" },
     { image: "/images/residence-hero.jpg", alt: "Façade d'une résidence" },
     { image: "/images/couple-moving.jpg", alt: "Couple installé au milieu de cartons de déménagement" },
     { image: "/images/residence-courtyard.jpg", alt: "Cour intérieure d'une résidence" },
     { image: "/images/residence-entrance.jpg", alt: "Entrée d'une résidence" },
     { image: "/images/espace-piscine.jpg", alt: "Piscine d'une résidence" },
+    { image: "/images/maroc/ciel-oiseaux.jpg", alt: "Vol d'oiseaux dans un ciel bleu, à contre-jour" },
   ],
   stats: [
     { kicker: "CONFORMITÉ", value: "12/12", caption: "Annexes du décret générées" },
@@ -341,6 +344,14 @@ export const home: SiteContent["home"] = {
       desc: "Trente jours avec vos propres données, reprise faite par nous. Puis un tarif par lot et par mois, TTC, affiché publiquement — 1 à 3 % du budget d'une résidence, facturé à la copropriété et voté en AG.",
     },
   ],
+
+  placeKicker: "CONÇU AU MAROC",
+  placeTitle: "Pensé à Casablanca, pour les copropriétés d'ici.",
+  placeBody:
+    "Le Décret 2.23.700, les AG en deux langues, les charges en dirhams, les fournisseurs du quartier : SyndicUp n'est pas un logiciel étranger adapté. Il est né ici, dans un immeuble de 48 lots, et il est construit avec ceux qui le gèrent.",
+  placeImage: "/images/maroc/casablanca-coucher.jpg",
+  placeImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
+  placeCta: "Notre histoire",
 
   portfolioKicker: "BÂTI POUR VOTRE SITUATION",
   portfolioTitle: "Bâti pour votre portefeuille.",
