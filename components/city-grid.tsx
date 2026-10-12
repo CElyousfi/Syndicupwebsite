@@ -16,29 +16,28 @@ export function CityGrid({ cities, locale }: { cities: CityCard[]; locale: Local
         <li key={c.city} className="w-[84%] shrink-0 snap-start sm:w-auto">
           <Link
             href={href(locale, c.href)}
-            className="group relative flex min-h-[480px] flex-col sm:min-h-[520px] justify-end overflow-hidden rounded-[22px] bg-ink text-white outline-offset-4 lg:min-h-[560px]"
+            className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-hairline bg-white outline-offset-4 transition-shadow hover:shadow-[var(--shadow-lift)]"
           >
-            <Image
-              src={c.image}
-              alt={c.alt}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
-              quality={95}
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-              style={{ objectPosition: c.position }}
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgb(16_18_22_/_0)_25%,rgb(16_18_22_/_0.55)_55%,rgb(16_18_22_/_0.92)_100%)]"
-            />
-            <div className="relative p-6">
-              <p className="text-[13px] font-semibold text-lime">{c.theme}</p>
-              <h3 className="mt-1.5 text-[30px] font-bold leading-none tracking-[-0.02em]">{c.city}</h3>
-              <p className="mt-4 text-[15px] leading-[1.5] text-white/85 lg:min-h-[6em]">{c.problem}</p>
-              <p className="mt-3 border-t border-white/15 pt-3 text-[14.5px] font-medium leading-[1.45] text-white lg:min-h-[calc(4.35em+0.75rem)]">
+            {/* La photo, entière et sans voile : rien ne passe dessus. */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-ground">
+              <Image
+                src={c.image}
+                alt={c.alt}
+                fill
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 420px"
+                quality={95}
+                className="object-cover"
+                style={{ objectPosition: c.position }}
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <p className="text-[13px] font-semibold text-action">{c.theme}</p>
+              <h3 className="mt-1.5 text-[28px] font-bold leading-none tracking-[-0.02em] text-ink">{c.city}</h3>
+              <p className="mt-4 text-[15px] leading-[1.5] text-body">{c.problem}</p>
+              <p className="mt-3 border-t border-hairline pt-3 text-[14.5px] font-medium leading-[1.45] text-ink">
                 {c.answer}
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-[14px] font-semibold text-white underline-offset-4 group-hover:underline">
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[14px] font-semibold text-action-deep underline-offset-4 group-hover:underline">
                 {c.linkLabel}
                 <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M3.125 10h13.75M11.25 4.375 16.875 10l-5.625 5.625" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />

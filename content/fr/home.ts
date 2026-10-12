@@ -359,7 +359,7 @@ export const home: SiteContent["home"] = {
       linkLabel: "Recouvrement",
       image: "/images/maroc/casablanca-coucher-hd.jpg",
       alt: "Casablanca au coucher du soleil, ses tours d'habitation et la mosquée Hassan II à l'horizon",
-      position: "72% 50%",
+      position: "78% 50%",
     },
     {
       city: "Rabat",
@@ -368,9 +368,9 @@ export const home: SiteContent["home"] = {
       answer: "Nous reprenons votre fichier ; les 12 annexes sortent à chaque clôture.",
       href: "/comptabilite-annexes",
       linkLabel: "Comptabilité et annexes",
-      image: "/images/maroc/rabat-carte-hd.jpg",
+      image: "/images/maroc/rabat-kasbah-hd.jpg",
       alt: "Rabat, la Kasbah des Oudayas au-dessus du Bouregreg",
-      position: "48% 50%",
+      position: "50% 78%",
     },
     {
       city: "Marrakech",
