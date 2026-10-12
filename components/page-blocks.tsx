@@ -40,7 +40,7 @@ export function PageHero({
   /** L'écran illustré à droite ; sans scène, le fold reste centré. */
   scene?: SceneData;
   /** Une vraie photo en fond de tout le fold, le texte passe en blanc (fold centré uniquement). */
-  photo?: { image: string; alt: string };
+  photo?: { image: string; alt: string; position?: string };
   email?: { label: string; placeholder: string; cta: string };
   /** Trois ou quatre faits courts sous le chapô : « 12 / 12 annexes », « FR & AR »… */
   facts?: { k: string; v: string }[];
@@ -52,7 +52,7 @@ export function PageHero({
     <div
       className={`relative overflow-hidden ${
         onPhoto
-          ? "bg-ink text-white [&_.crumb]:text-white/70 [&_.crumb_a]:text-white/70 [&_.crumb_a:hover]:text-white [&_.h-page]:text-white [&_.lede]:text-white/85 [&_.kicker]:!text-lime [&_dt]:text-white/70 [&_dd]:!text-white"
+          ? "bg-ink text-white [text-shadow:0_1px_24px_rgb(0_0_0_/_0.35)] [&_.crumb]:text-white/70 [&_.crumb_a]:text-white/70 [&_.crumb_a:hover]:text-white [&_.h-page]:text-white [&_.lede]:text-white/85 [&_.kicker]:!text-lime [&_dt]:text-white/70 [&_dd]:!text-white"
           : "bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]"
       }`}
     >
@@ -65,9 +65,10 @@ export function PageHero({
             priority
             sizes="100vw"
             quality={92}
-            className="object-cover object-[center_40%]"
+            className="object-cover"
+            style={{ objectPosition: photo.position ?? "center 40%" }}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(16_18_22_/_0.55)_0%,rgb(16_18_22_/_0.35)_45%,rgb(16_18_22_/_0.7)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(16_18_22_/_0.6)_0%,rgb(16_18_22_/_0.42)_45%,rgb(16_18_22_/_0.72)_100%)]" />
         </>
       ) : (
         <HeroBackdrop />

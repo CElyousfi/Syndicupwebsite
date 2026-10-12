@@ -53,7 +53,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             ))}
           </div>
           <div className="relative min-h-[360px] overflow-hidden rounded-2xl">
-            <Image src={a.image} alt={a.imageAlt} fill sizes="(max-width: 1024px) 100vw, 520px" className="object-cover object-[center_78%]" />
+            <Image src={a.image} alt={a.imageAlt} fill sizes="(max-width: 1024px) 100vw, 520px" className="object-cover object-[center_30%]" />
           </div>
         </div>
       </section>

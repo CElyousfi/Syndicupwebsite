@@ -67,6 +67,7 @@ export default async function SecurityPage({ params }: { params: Promise<{ local
         kicker={s.crumb}
         title={s.title}
         lede={s.lede}
+        photo={{ image: s.heroImage, alt: s.heroImageAlt, position: "center 30%" }}
         facts={s.facts}
       >
         <div className="mt-10">

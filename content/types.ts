@@ -653,6 +653,8 @@ export interface SiteContent {
     metaDescription: string;
     crumb: string;
     title: string;
+    heroImage: string;
+    heroImageAlt: string;
     lede: string;
     facts: { k: string; v: string }[];
     principlesKicker: string;
@@ -675,6 +677,8 @@ export interface SiteContent {
     metaDescription: string;
     crumb: string;
     title: string;
+    heroImage: string;
+    heroImageAlt: string;
     lede: string;
     pillarKicker: string;
     pillarTitle: string;

@@ -46,6 +46,7 @@ export default async function ResourcesPage({
         kicker={r.crumb}
         title={r.title}
         lede={r.lede}
+        photo={{ image: r.heroImage, alt: r.heroImageAlt, position: "center 0%" }}
       />
 
       {/* ── Le guide pilier ─────────────────────────────────────────────── */}

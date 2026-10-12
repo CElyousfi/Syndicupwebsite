@@ -506,6 +506,8 @@ export const securite: SiteContent["securite"] = {
     "Cloisonnement appliqué dans l'application et dans la base (RLS), chiffrement en transit et au repos, sauvegardes restaurées pour de vrai, traitement déclaré à la CNDP.",
   crumb: "SÉCURITÉ",
   title: "Deux couches d'isolation, aucune confiance accordée à l'autre.",
+  heroImage: "/images/maroc/ciel-oiseaux.jpg",
+  heroImageAlt: "Vol d'oiseaux dans un ciel bleu, à contre-jour",
   lede: "Le cloisonnement entre copropriétés est appliqué deux fois : dans l'application, et dans la base de données elle-même. Les deux doivent être vraies en même temps — l'une n'est jamais une excuse pour relâcher l'autre.",
   facts: [
     { k: "Hébergement", v: "Union européenne" },
@@ -593,6 +595,8 @@ export const ressources: SiteContent["ressources"] = {
     "Guides du Décret 2.23.700, explication des 12 annexes, checklist de clôture, modèles de convocation et de PV, calculateur de catégorie. En accès libre, FR et AR.",
   crumb: "RESSOURCES",
   title: "Ce que la loi demande, expliqué par ceux qui l'ont codé.",
+  heroImage: "/images/maroc/rabat-kasbah-large.jpg",
+  heroImageAlt: "Kasbah des Oudayas à Rabat, vue depuis le Bouregreg",
   lede: "Guides, modèles et outils, en accès libre. Utiles même si vous ne devenez jamais client.",
   pillarKicker: "GUIDE PILIER · MIS À JOUR SEPT. 2026",
   pillarTitle: "Le Décret 2.23.700, lu ligne par ligne pour un syndic",
@@ -743,8 +747,8 @@ export const apropos: SiteContent["apropos"] = {
   ],
   heroImage: "/images/maroc/casablanca-coucher.jpg",
   heroImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
-  image: "/images/maroc/rabat-kasbah.jpg",
-  imageAlt: "Kasbah des Oudayas à Rabat, vue depuis le Bouregreg",
+  image: "/images/maroc/chefchaouen-ruelle.jpg",
+  imageAlt: "Ruelle blanche et bleue d'une médina marocaine",
   paras: [
     "SyndicUp est né d'une clôture d'exercice ratée. Un immeuble de 48 lots à Casablanca, un syndic bénévole consciencieux, trois classeurs, un tableur — et l'impossibilité de produire, en janvier, des comptes que personne n'avait tenus en mars.",
     "Le Décret 2.23.700 a changé la nature du problème. Il ne demande plus de la bonne volonté, il demande des documents. Un logiciel qui n'est pas capable de les produire depuis les écritures de l'année n'est pas un logiciel de syndic : c'est un cahier avec une interface.",
