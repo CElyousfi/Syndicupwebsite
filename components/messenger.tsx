@@ -97,7 +97,13 @@ export function Messenger({
           signal: ctrl.signal,
         });
         if (!res.ok || !res.body) {
-          const err = res.status === 429 ? copy.errors.rate : copy.errors.down;
+          let code = "";
+          try {
+            code = ((await res.json()) as { error?: string }).error ?? "";
+          } catch {
+            /* corps vide */
+          }
+          const err = code === "busy" ? copy.errors.busy : res.status === 429 ? copy.errors.rate : copy.errors.down;
           setMsgs([...history, { role: "assistant", content: err, error: true }]);
           return;
         }

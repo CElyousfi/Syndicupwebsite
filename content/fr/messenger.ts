@@ -36,6 +36,7 @@ export const messenger: MessengerCopy = {
   helpAsk: "Demander à l'assistant",
   errors: {
     rate: "Beaucoup de messages en peu de temps. Réessayez dans quelques minutes, ou écrivez à l'équipe sur WhatsApp.",
+    busy: "L'assistant reçoit beaucoup de questions en ce moment. Renvoyez la vôtre dans une minute, ou écrivez à l'équipe sur WhatsApp.",
     down: "L'assistant est indisponible pour le moment. L'équipe vous répond sur WhatsApp.",
     network: "La connexion a coupé. Vérifiez votre réseau et renvoyez votre question.",
   },

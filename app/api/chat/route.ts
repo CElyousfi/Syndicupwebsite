@@ -6,8 +6,8 @@ import { ASSISTANT_RULES, assistantKnowledge } from "@/lib/assistant-knowledge";
  *
  * Variables d'environnement (Vercel) :
  *   GROQ_API_KEY   obligatoire, secret — jamais exposée au navigateur
- *   GROQ_MODEL     facultatif ; par défaut openai/gpt-oss-120b,
- *                  repli automatique sur llama-3.3-70b-versatile
+ *   GROQ_MODEL     facultatif ; par défaut openai/gpt-oss-120b, puis
+ *                  openai/gpt-oss-20b et llama-3.1-8b-instant si saturé
  *
  * Rien n'est stocké côté serveur : la conversation vit dans le navigateur.
  */
@@ -15,8 +15,13 @@ import { ASSISTANT_RULES, assistantKnowledge } from "@/lib/assistant-knowledge";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const PRIMARY = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
-const FALLBACK = "llama-3.3-70b-versatile";
+/**
+ * Chaîne de modèles : chacun a son propre quota par minute chez Groq. Si le
+ * premier est saturé (429) ou indisponible, on passe au suivant.
+ */
+const MODELS = [process.env.GROQ_MODEL || "openai/gpt-oss-120b", "openai/gpt-oss-20b", "llama-3.1-8b-instant"].filter(
+  (m, i, a) => a.indexOf(m) === i,
+);
 
 /* 20 messages / 10 min par adresse IP et par instance. */
 const hits = new Map<string, number[]>();
@@ -45,6 +50,12 @@ function sanitize(raw: unknown): Msg[] | null {
   return out;
 }
 
+/** La question en cours, plus la précédente pour les relances courtes (« et pour 120 lots ? »). */
+function question(messages: Msg[]): string {
+  const users = messages.filter((m) => m.role === "user").slice(-2);
+  return users.map((m) => m.content).join(" ");
+}
+
 async function callGroq(key: string, model: string, messages: Msg[]) {
   const body: Record<string, unknown> = {
     model,
@@ -52,11 +63,12 @@ async function callGroq(key: string, model: string, messages: Msg[]) {
     temperature: 0.3,
     max_completion_tokens: 700,
     messages: [
-      { role: "system", content: `${ASSISTANT_RULES}\n\n---\n\n${assistantKnowledge()}` },
+      { role: "system", content: `${ASSISTANT_RULES}\n\n---\n\n${assistantKnowledge(question(messages))}` },
       ...messages,
     ],
   };
   if (model.startsWith("openai/gpt-oss")) {
+    // Raisonnement court : la réponse arrive vite et consomme peu de quota.
     body.reasoning_effort = "low";
     body.include_reasoning = false;
   }
@@ -88,14 +100,21 @@ export async function POST(req: NextRequest) {
   }
   if (!messages) return NextResponse.json({ error: "input" }, { status: 400 });
 
-  let upstream = await callGroq(key, PRIMARY, messages).catch(() => null);
-  if (!upstream || !upstream.ok || !upstream.body) {
-    if (upstream) console.error("groq primary", upstream.status, (await upstream.text()).slice(0, 300));
-    upstream = await callGroq(key, FALLBACK, messages).catch(() => null);
+  let upstream: Response | null = null;
+  let saturated = false;
+  for (const model of MODELS) {
+    const res = await callGroq(key, model, messages).catch(() => null);
+    if (res?.ok && res.body) {
+      upstream = res;
+      break;
+    }
+    if (res) {
+      if (res.status === 429) saturated = true;
+      console.error("groq", model, res.status, (await res.text()).slice(0, 240));
+    }
   }
-  if (!upstream || !upstream.ok || !upstream.body) {
-    if (upstream) console.error("groq fallback", upstream.status, (await upstream.text()).slice(0, 300));
-    return NextResponse.json({ error: "upstream" }, { status: 502 });
+  if (!upstream?.body) {
+    return NextResponse.json({ error: saturated ? "busy" : "upstream" }, { status: saturated ? 429 : 502 });
   }
 
   // Groq parle en SSE ; le navigateur reçoit le texte seul, morceau par morceau.

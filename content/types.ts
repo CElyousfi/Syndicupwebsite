@@ -366,7 +366,7 @@ export interface MessengerCopy {
   helpTitle: string;
   helpEmpty: string;
   helpAsk: string;
-  errors: { rate: string; down: string; network: string };
+  errors: { rate: string; busy: string; down: string; network: string };
 }
 
 export interface SiteContent {
