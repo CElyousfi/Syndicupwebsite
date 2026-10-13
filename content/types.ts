@@ -339,6 +339,12 @@ export interface FinalCta {
 
 /** Le messager du site (bas à droite) : accueil, assistant IA, aide. */
 export interface MessengerCopy {
+  name: string;
+  intro: string;
+  nudgeTitle: string;
+  nudgeBody: string;
+  thinking: string;
+  writing: string;
   launcher: string;
   close: string;
   greeting: string;
@@ -470,6 +476,7 @@ export interface SiteContent {
     faqStillTitle: string;
     faqStillBody: string;
     faqStillCta: string;
+    faqStillWhatsapp: string;
 
     rolesKicker: string;
     rolesTitle: string;
@@ -861,6 +868,8 @@ export interface SiteContent {
     crumb: string;
     title: string;
     lede: string;
+    askDari: string;
+    askDariQuestion: string;
     cards: { href: string; title: string; desc: string }[];
   };
 

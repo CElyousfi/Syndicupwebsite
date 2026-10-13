@@ -1,13 +1,19 @@
 import type { MessengerCopy } from "../types";
 
 export const messenger: MessengerCopy = {
-  launcher: "Une question ?",
+  name: "Dari",
+  intro: "L'assistant de SyndicUp · français et arabe",
+  nudgeTitle: "Bonjour, moi c'est Dari 👋",
+  nudgeBody: "Une question sur votre résidence, vos annexes ou nos prix ? Je réponds tout de suite.",
+  thinking: "Dari réfléchit…",
+  writing: "Dari écrit…",
+  launcher: "Demander à Dari",
   close: "Fermer",
   greeting: "Bonjour 👋",
   subtitle: "Comment pouvons-nous vous aider ?",
-  status: "L'équipe répond en français et en arabe",
+  status: "Dari répond tout de suite · l'équipe, en heures ouvrables",
   askTitle: "Poser une question",
-  askDesc: "L'assistant vous répond tout de suite, sur vos lots, vos annexes, vos prix.",
+  askDesc: "Dari répond tout de suite : vos lots, vos annexes, vos prix.",
   demoTitle: "Réserver une démo",
   demoDesc: "20 minutes sur une vraie résidence.",
   whatsappTitle: "Écrire à l'équipe",
@@ -15,10 +21,10 @@ export const messenger: MessengerCopy = {
   searchPlaceholder: "Rechercher dans l'aide",
   popularTitle: "Questions fréquentes",
   tabs: { home: "Accueil", messages: "Messages", help: "Aide" },
-  chatTitle: "Assistant SyndicUp",
+  chatTitle: "Dari · Assistant SyndicUp",
   chatStatus: "Répond en quelques secondes",
   welcome:
-    "Bonjour ! Je réponds sur SyndicUp : prix pour votre résidence, 12 annexes, assemblées, reprise de vos données. Que voulez-vous savoir ?",
+    "Bonjour, je suis Dari ! Je réponds sur SyndicUp : prix pour votre résidence, 12 annexes, assemblées, reprise de vos données. Que voulez-vous savoir ?",
   suggestions: [
     "Combien pour une résidence de 48 lots ?",
     "Comment sortent les 12 annexes ?",
@@ -33,7 +39,7 @@ export const messenger: MessengerCopy = {
   back: "Retour",
   helpTitle: "Aide",
   helpEmpty: "Aucune question ne correspond.",
-  helpAsk: "Demander à l'assistant",
+  helpAsk: "Demander à Dari",
   errors: {
     rate: "Beaucoup de messages en peu de temps. Réessayez dans quelques minutes, ou écrivez à l'équipe sur WhatsApp.",
     busy: "L'assistant reçoit beaucoup de questions en ce moment. Renvoyez la vôtre dans une minute, ou écrivez à l'équipe sur WhatsApp.",

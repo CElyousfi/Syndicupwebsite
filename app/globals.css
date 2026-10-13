@@ -1050,3 +1050,102 @@
 .site-nav[data-tone="light"]:not([data-solid="true"]):not(:hover) .nav-cta {
   box-shadow: none;
 }
+
+/*
+ * Dari — la mascotte de l'assistant.
+ * Corps : respiration lente (ancrée aux pieds) et léger balancement, propres
+ * à chaque pose. Paupières : un clignement bref toutes les ~5 s. Changement
+ * de pose : un petit rebond d'entrée.
+ */
+.dari-body {
+  transform-origin: 50% 96%;
+  animation: dari-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both, dari-breathe 3.2s ease-in-out 0.42s infinite;
+}
+.dari[data-pose="wave"] .dari-body {
+  animation: dari-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both, dari-sway 1.6s ease-in-out 0.42s infinite;
+}
+.dari[data-pose="think"] .dari-body {
+  animation: dari-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both, dari-ponder 2.6s ease-in-out 0.42s infinite;
+}
+.dari[data-pose="type"] .dari-body {
+  animation: dari-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both, dari-tap 0.34s ease-in-out 0.42s infinite;
+}
+.dari[data-pose="laugh"] .dari-body {
+  animation: dari-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both, dari-giggle 0.62s ease-in-out 0.42s infinite;
+}
+.dari[data-pose="point"] .dari-body {
+  animation: dari-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both, dari-lean 2.2s ease-in-out 0.42s infinite;
+}
+.dari[data-still] .dari-body {
+  animation: dari-pop 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes dari-pop {
+  0% { transform: scale(0.82) translateY(6%); opacity: 0; }
+  60% { transform: scale(1.04) translateY(-2%); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+@keyframes dari-breathe {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  50% { transform: translateY(-2.5%) scale(1.012, 0.988); }
+}
+@keyframes dari-sway {
+  0%, 100% { transform: translateY(0) rotate(-2.5deg); }
+  50% { transform: translateY(-3%) rotate(2.5deg); }
+}
+@keyframes dari-ponder {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(-3deg) translateY(-1.5%); }
+}
+@keyframes dari-tap {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  50% { transform: translateY(-1.5%) scale(1.01, 0.99); }
+}
+@keyframes dari-giggle {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1, 1); }
+  30% { transform: translateY(-6%) rotate(-3deg) scale(0.98, 1.03); }
+  60% { transform: translateY(0) rotate(2deg) scale(1.03, 0.97); }
+}
+@keyframes dari-lean {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3.5deg) translateX(2%); }
+}
+
+/* Paupière : une pastille couleur du corps, avec le trait de l'œil fermé. */
+.dari-lid {
+  border-radius: 50%;
+  background:
+    radial-gradient(120% 90% at 50% 10%, transparent 56%, #14181c 57%, #14181c 66%, transparent 67%),
+    rgb(209 229 82);
+  transform-origin: 50% 20%;
+  transform: scaleY(0);
+  animation: dari-blink 5.2s linear infinite;
+}
+@keyframes dari-blink {
+  0%, 92.5% { transform: scaleY(0); }
+  94% { transform: scaleY(1); }
+  95.5% { transform: scaleY(1); }
+  97% { transform: scaleY(0); }
+  100% { transform: scaleY(0); }
+}
+
+.dari-spark {
+  animation: dari-twinkle 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+.dari-spark-2 { animation-delay: 0.8s; }
+.dari-spark-3 { animation-delay: 1.5s; }
+@keyframes dari-twinkle {
+  0%, 100% { transform: scale(0.6) rotate(0deg); opacity: 0.35; }
+  50% { transform: scale(1.1) rotate(45deg); opacity: 1; }
+}
+
+/* Bulle d'accueil au-dessus du lanceur. */
+.dari-nudge {
+  transform-origin: 100% 100%;
+  animation: dari-nudge-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes dari-nudge-in {
+  from { transform: translateY(10px) scale(0.92); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}

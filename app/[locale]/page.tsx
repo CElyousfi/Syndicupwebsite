@@ -7,7 +7,9 @@ import { FeatureComposition } from "@/components/feature-composition";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { HeroRotator } from "@/components/hero-rotator";
 import { LogoHive } from "@/components/logo-hive";
+import { AskDariButton } from "@/components/ask-dari";
 import { CityGrid } from "@/components/city-grid";
+import { Dari } from "@/components/dari";
 import { PortfolioCarousel } from "@/components/portfolio-carousel";
 import { ProofRibbon } from "@/components/proof-ribbon";
 import { Mockup } from "@/components/mockups";
@@ -536,19 +538,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             searchPlaceholder={h.faqSearchPlaceholder}
             noResult={h.faqNoResult}
           />
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-5 rounded-2xl bg-action-tint px-8 py-7">
-            <div>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-5 rounded-2xl bg-action-tint px-6 py-6 sm:px-8">
+            <Dari pose="think" size={96} sparkles className="-my-3" />
+            <div className="min-w-[220px] flex-1">
               <p className="text-[19px] font-bold text-ink">{h.faqStillTitle}</p>
               <p className="mt-1.5 max-w-[520px] text-[15.5px] leading-[1.5] text-body">{h.faqStillBody}</p>
             </div>
-            <a
-              href={whatsappHref(c.common.whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-lime"
-            >
-              {h.faqStillCta}
-            </a>
+            <div className="flex flex-wrap items-center gap-2.5">
+              <AskDariButton label={h.faqStillCta} className="btn btn-lime" />
+              <a
+                href={whatsappHref(c.common.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-light"
+              >
+                {h.faqStillWhatsapp}
+              </a>
+            </div>
           </div>
         </section>
       </div>

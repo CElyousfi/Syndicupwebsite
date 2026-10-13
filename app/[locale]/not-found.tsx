@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { AskDariButton } from "@/components/ask-dari";
+import { Dari } from "@/components/dari";
 import { HeadDecor } from "@/components/site-chrome";
 import { getContent, href, DEFAULT_LOCALE } from "@/lib/i18n";
 
@@ -13,7 +15,10 @@ export default function NotFound() {
 
   return (
     <HeadDecor tone="mist" variant="arc">
-      <section className="shell pt-20">
+      <section className="shell relative pt-20">
+        <span className="pointer-events-none absolute end-6 top-12 hidden md:block">
+          <Dari pose="think" size={210} sparkles />
+        </span>
         <p className="crumb">
           <Link href={href(l)}>{c.articleCommon.crumbHome}</Link> / {nf.crumb}
         </p>
@@ -21,6 +26,7 @@ export default function NotFound() {
           {nf.title}
         </h1>
         <p className="lede mt-[18px] max-w-[560px]">{nf.lede}</p>
+        <AskDariButton label={nf.askDari} question={nf.askDariQuestion} className="btn btn-lime mt-6" />
         <div className="auto-grid-md mt-8 gap-3">
           {nf.cards.map((card) => (
             <Link

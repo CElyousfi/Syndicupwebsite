@@ -658,8 +658,9 @@ export const home: SiteContent["home"] = {
   faqNoResult: "Aucune question ne correspond. Posez-la nous directement, la réponse arrive sur WhatsApp.",
   faqStillTitle: "Votre question n'y est pas ?",
   faqStillBody:
-    "Décrivez votre situation en une phrase. La même personne qui suivra votre reprise vous répond, en français ou en arabe.",
-  faqStillCta: "Poser ma question",
+    "Demandez à Dari, notre assistant : il répond tout de suite, en français ou en arabe. Pour un cas précis, l'équipe prend le relais sur WhatsApp.",
+  faqStillCta: "Demander à Dari",
+  faqStillWhatsapp: "Écrire à l'équipe",
   faqTabs: [
     {
       label: "Conformité & annexes",

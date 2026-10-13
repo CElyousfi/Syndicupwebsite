@@ -176,6 +176,8 @@ export const notFound: SiteContent["notFound"] = {
   crumb: "PAGE INTROUVABLE",
   title: "Cette page n'existe pas.",
   lede: "Le lien est peut-être ancien, ou l'adresse a changé. Voici les points d'entrée du site.",
+  askDari: "Demander à Dari où trouver ce que vous cherchez",
+  askDariQuestion: "Je cherche une page du site qui n'existe plus. Que me conseillez-vous ?",
   cards: [
     { href: "/", title: "Accueil →", desc: "Le produit en une page." },
     { href: "/fonctionnalites", title: "Fonctionnalités →", desc: "Les neuf modules, en détail." },

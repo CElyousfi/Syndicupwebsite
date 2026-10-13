@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Dari, DariAvatar, type DariPose } from "@/components/dari";
 import type { FaqTab, MessengerCopy } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
@@ -15,6 +16,12 @@ import { whatsappHref } from "@/lib/site";
 
 type View = "home" | "chat" | "help";
 type Msg = { role: "user" | "assistant"; content: string; error?: boolean };
+/** Ce que fait Dari pendant une réponse : il réfléchit, il écrit, il montre la réponse. */
+type Mood = "idle" | "think" | "type" | "point";
+
+/** Pour ouvrir l'assistant depuis n'importe quelle page : window.dispatchEvent(new CustomEvent(ASK_EVENT, { detail: { q } })). */
+export const ASK_EVENT = "su:ask-dari";
+const NUDGE_KEY = "su-dari-nudge";
 
 const STORE = "su-chat-v1";
 
@@ -58,6 +65,9 @@ export function Messenger({
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
   const [query, setQuery] = useState("");
+  const [mood, setMood] = useState<Mood>("idle");
+  const [nudge, setNudge] = useState(false);
+  const [hover, setHover] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -86,6 +96,7 @@ export function Messenger({
       const history: Msg[] = [...msgs.filter((m) => !m.error), { role: "user", content: q }];
       setMsgs([...history, { role: "assistant", content: "" }]);
       setBusy(true);
+      setMood("think");
       const ctrl = new AbortController();
       abortRef.current = ctrl;
       let answer = "";
@@ -105,6 +116,7 @@ export function Messenger({
           }
           const err = code === "busy" ? copy.errors.busy : res.status === 429 ? copy.errors.rate : copy.errors.down;
           setMsgs([...history, { role: "assistant", content: err, error: true }]);
+          setMood("idle");
           return;
         }
         const reader = res.body.getReader();
@@ -113,6 +125,7 @@ export function Messenger({
           const { value, done } = await reader.read();
           if (done) break;
           answer += dec.decode(value, { stream: true });
+          if (answer) setMood("type");
           setMsgs([...history, { role: "assistant", content: answer }]);
         }
         const final: Msg[] = answer.trim()
@@ -120,10 +133,13 @@ export function Messenger({
           : [...history, { role: "assistant", content: copy.errors.down, error: true }];
         setMsgs(final);
         save(final);
+        setMood(answer.trim() ? "point" : "idle");
+        if (answer.trim()) window.setTimeout(() => setMood("idle"), 2600);
       } catch {
         if (!ctrl.signal.aborted) {
           setMsgs([...history, { role: "assistant", content: copy.errors.network, error: true }]);
         }
+        setMood("idle");
       } finally {
         setBusy(false);
         abortRef.current = null;
@@ -132,11 +148,49 @@ export function Messenger({
     [busy, msgs, copy.errors],
   );
 
+  // Les autres pages peuvent ouvrir Dari, avec ou sans question.
+  useEffect(() => {
+    const onAsk = (e: Event) => {
+      const q = (e as CustomEvent<{ q?: string }>).detail?.q;
+      setOpen(true);
+      setNudge(false);
+      setView("chat");
+      if (q) void send(q);
+    };
+    window.addEventListener(ASK_EVENT, onAsk);
+    return () => window.removeEventListener(ASK_EVENT, onAsk);
+  }, [send]);
+
+  // Une fois par visite, Dari se présente au bout de quelques secondes.
+  useEffect(() => {
+    let seen = false;
+    try {
+      seen = window.sessionStorage.getItem(NUDGE_KEY) === "1";
+    } catch {
+      seen = false;
+    }
+    if (seen) return;
+    const t = window.setTimeout(() => setNudge(true), 6000);
+    return () => window.clearTimeout(t);
+  }, []);
+  const closeNudge = () => {
+    setNudge(false);
+    try {
+      window.sessionStorage.setItem(NUDGE_KEY, "1");
+    } catch {
+      /* rien */
+    }
+  };
+  useEffect(() => {
+    if (open) closeNudge();
+  }, [open]);
+
   const reset = () => {
     abortRef.current?.abort();
     setMsgs([]);
     save([]);
     setBusy(false);
+    setMood("idle");
   };
 
   return (
@@ -181,6 +235,7 @@ export function Messenger({
               onClose={() => setOpen(false)}
               onReset={reset}
               whatsapp={whatsappHref(whatsappMessage)}
+              mood={mood}
             />
           )}
           {view === "help" && (
@@ -203,13 +258,44 @@ export function Messenger({
         </div>
       )}
 
+      {nudge && !open && (
+        <div className="dari-nudge fixed bottom-[96px] end-[22px] z-80 w-[min(300px,calc(100vw-44px))] rounded-[20px] bg-white p-4 pe-9 shadow-[0_24px_60px_-20px_rgb(14_16_20_/_0.45),0_0_0_1px_rgb(14_16_20_/_0.06)]">
+          <button
+            type="button"
+            onClick={closeNudge}
+            aria-label={copy.close}
+            className="absolute end-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full text-soft hover:bg-hover hover:text-ink"
+          >
+            <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M11.9 11.9 8 8m0 0L4.1 4.1M8 8l3.9-3.9M8 8l-3.9 3.9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(true);
+              setView("chat");
+            }}
+            className="flex items-center gap-3 text-start"
+          >
+            <Dari pose="wave" size={64} />
+            <span>
+              <span className="block text-[15px] font-bold text-ink">{copy.nudgeTitle}</span>
+              <span className="mt-0.5 block text-[13.5px] leading-[1.4] text-body">{copy.nudgeBody}</span>
+            </span>
+          </button>
+        </div>
+      )}
+
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
         aria-expanded={open}
         aria-label={open ? copy.close : copy.launcher}
-        className={`fixed bottom-[22px] end-[22px] z-80 inline-flex h-[56px] items-center gap-2.5 rounded-full bg-vivid text-white shadow-[0_18px_40px_-12px_rgb(20_90_58_/_0.6)] transition-[background-color,transform] hover:bg-action-deep active:scale-[0.97] ${
-          open ? "w-[56px] justify-center max-sm:hidden" : "ps-[18px] pe-[22px]"
+        className={`fixed bottom-[22px] end-[22px] z-80 inline-flex h-[56px] items-center rounded-full bg-vivid text-white shadow-[0_18px_40px_-12px_rgb(20_90_58_/_0.6)] transition-[background-color,transform] hover:bg-action-deep active:scale-[0.97] ${
+          open ? "w-[56px] justify-center max-sm:hidden" : "ps-[64px] pe-[22px]"
         }`}
       >
         {open ? (
@@ -218,7 +304,10 @@ export function Messenger({
           </svg>
         ) : (
           <>
-            <ChatGlyph />
+            {/* Dari dépasse du bouton, comme penché par-dessus. */}
+            <span className="pointer-events-none absolute -top-[22px] start-[2px] flex h-[78px] w-[62px] items-end justify-center">
+              <Dari pose={hover ? "wave" : "head"} size={hover ? 64 : 58} />
+            </span>
             <span className="text-[15px] font-semibold">{copy.launcher}</span>
           </>
         )}
@@ -262,9 +351,12 @@ function HomeView({
           <img src="/brand/syndicup-logo-reversed.svg" alt="SyndicUp" className="h-[24px] w-auto" dir="ltr" />
           <CloseButton label={copy.close} onClick={onClose} light />
         </div>
-        <p className="relative mt-12 text-[30px] font-bold leading-[1.15] tracking-[-0.02em]">{copy.greeting}</p>
-        <p className="relative mt-1 text-[30px] font-bold leading-[1.15] tracking-[-0.02em] text-white/65">{copy.subtitle}</p>
-        <p className="relative mt-4 flex items-center gap-2 text-[13px] text-white/75">
+        <span className="pointer-events-none absolute end-2 top-[58px]">
+          <Dari pose="wave" size={132} sparkles priority />
+        </span>
+        <p className="relative mt-12 max-w-[210px] text-[30px] font-bold leading-[1.15] tracking-[-0.02em]">{copy.greeting}</p>
+        <p className="relative mt-1 max-w-[220px] text-[26px] font-bold leading-[1.15] tracking-[-0.02em] text-white/65">{copy.subtitle}</p>
+        <p className="relative mt-4 flex max-w-[230px] items-center gap-2 text-[13px] text-white/75">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-lime" />
@@ -358,9 +450,11 @@ function ChatView({
   onClose,
   onReset,
   whatsapp,
+  mood,
 }: {
   copy: MessengerCopy;
   locale: Locale;
+  mood: Mood;
   msgs: Msg[];
   busy: boolean;
   draft: string;
@@ -371,12 +465,14 @@ function ChatView({
   onReset: () => void;
   whatsapp: string;
 }) {
+  const pose: DariPose = mood === "idle" ? "head" : mood;
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     const el = listRef.current;
-    if (el) el.scrollTop = el.scrollHeight;
+    // Conversation vide : on laisse Dari en haut, entier ; sinon, on suit la réponse.
+    if (el) el.scrollTop = msgs.length ? el.scrollHeight : 0;
   }, [msgs]);
   useEffect(() => {
     inputRef.current?.focus();
@@ -396,10 +492,12 @@ function ChatView({
             <path d="M16.9 10H3.1M8.75 4.4 3.1 10l5.65 5.6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </IconButton>
-        <Avatar />
+        <DariAvatar size={40} pose="head" />
         <div className="min-w-0 flex-1">
           <p className="truncate text-[15px] font-bold text-ink">{copy.chatTitle}</p>
-          <p className="truncate text-[12.5px] text-soft">{copy.chatStatus}</p>
+          <p className="truncate text-[12.5px] text-soft">
+            {mood === "think" ? copy.thinking : mood === "type" ? copy.writing : copy.chatStatus}
+          </p>
         </div>
         {msgs.length > 0 && (
           <IconButton label={copy.clear} onClick={onReset}>
@@ -412,6 +510,13 @@ function ChatView({
       </header>
 
       <div ref={listRef} className="min-h-0 flex-1 overflow-y-auto bg-ground px-4 py-5" aria-live="polite">
+        {msgs.length === 0 && (
+          <div className="flex flex-col items-center pb-2 pt-3 text-center">
+            <Dari pose="wave" size={124} sparkles />
+            <p className="mt-2 text-[17px] font-bold text-ink">{copy.name}</p>
+            <p className="mt-0.5 text-[13px] text-soft">{copy.intro}</p>
+          </div>
+        )}
         <Bubble role="assistant">{copy.welcome}</Bubble>
         {msgs.length === 0 && (
           <div className="mt-4 flex flex-wrap gap-2 ps-10">
@@ -429,12 +534,12 @@ function ChatView({
           </div>
         )}
         {msgs.map((m, i) => (
-          <Bubble key={i} role={m.role} error={m.error}>
+          <Bubble key={i} role={m.role} error={m.error} pose={i === msgs.length - 1 && m.role === "assistant" ? pose : "head"}>
             {m.role === "assistant" ? (
               m.content ? (
                 <Rich text={m.content} locale={locale} />
               ) : (
-                <Typing />
+                <Typing label={copy.thinking} />
               )
             ) : (
               m.content
@@ -443,6 +548,12 @@ function ChatView({
         ))}
       </div>
 
+      {(mood === "think" || mood === "type") && (
+        <div className="flex shrink-0 items-center gap-2 border-t border-hairline bg-ground px-4 py-1.5" aria-live="polite">
+          <Dari pose={mood} size={44} />
+          <span className="text-[13px] font-medium text-soft">{mood === "think" ? copy.thinking : copy.writing}</span>
+        </div>
+      )}
       <form
         className="shrink-0 border-t border-hairline bg-white px-3 pb-2 pt-3"
         onSubmit={(e) => {
@@ -597,7 +708,17 @@ function HelpView({
 
 /* ── Petites pièces ──────────────────────────────────────────────────────── */
 
-function Bubble({ role, error, children }: { role: "user" | "assistant"; error?: boolean; children: ReactNode }) {
+function Bubble({
+  role,
+  error,
+  pose = "head",
+  children,
+}: {
+  role: "user" | "assistant";
+  error?: boolean;
+  pose?: DariPose;
+  children: ReactNode;
+}) {
   if (role === "user") {
     return (
       <div className="mt-3 flex justify-end">
@@ -609,7 +730,7 @@ function Bubble({ role, error, children }: { role: "user" | "assistant"; error?:
   }
   return (
     <div className="mt-3 flex items-end gap-2">
-      <Avatar small />
+      <DariAvatar size={30} pose={pose} />
       <div
         dir="auto"
         className={`max-w-[85%] rounded-2xl rounded-es-md px-4 py-2.5 text-[14.5px] leading-[1.5] ${
@@ -707,24 +828,12 @@ function Inline({ text, locale }: { text: string; locale: Locale }) {
   return <>{out}</>;
 }
 
-function Typing() {
+function Typing({ label }: { label: string }) {
   return (
-    <span className="inline-flex items-center gap-1 py-1" aria-label="…">
+    <span className="inline-flex items-center gap-1 py-1" aria-label={label}>
       {[0, 1, 2].map((i) => (
         <span key={i} className="h-1.5 w-1.5 animate-bounce rounded-full bg-soft" style={{ animationDelay: `${i * 140}ms` }} />
       ))}
-    </span>
-  );
-}
-
-function Avatar({ small = false }: { small?: boolean }) {
-  return (
-    <span
-      className={`inline-flex shrink-0 items-center justify-center rounded-full bg-vivid ${small ? "h-7 w-7" : "h-9 w-9"}`}
-      aria-hidden="true"
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/brand/syndicup-mark.svg" alt="" className={`${small ? "h-3.5" : "h-[18px]"} w-auto brightness-0 invert`} />
     </span>
   );
 }
@@ -799,12 +908,6 @@ function CloseButton({ label, onClick, light = false }: { label: string; onClick
   );
 }
 
-const ChatGlyph = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M5 3.5h14A1.5 1.5 0 0 1 20.5 5v15.2l-4.1-3.7H5A1.5 1.5 0 0 1 3.5 15V5A1.5 1.5 0 0 1 5 3.5Z" fill="currentColor" />
-    <path d="M7.5 8h9M7.5 12h5" stroke="#1f7a50" strokeWidth="1.8" strokeLinecap="round" />
-  </svg>
-);
 const SendGlyph = () => (
   <svg width="16" height="16" viewBox="0 0 17 16" aria-hidden="true" className="rtl:-scale-x-100">
     <path fill="currentColor" fillRule="evenodd" d="m4.563 14.605 9.356-5.402c1-.577 1-2.02 0-2.598L4.563 1.203a1.5 1.5 0 0 0-2.25 1.3v10.803a1.5 1.5 0 0 0 2.25 1.3M6.51 8.387 2.313 9.512V6.297L6.51 7.42c.494.133.494.834 0 .966" clipRule="evenodd" />
