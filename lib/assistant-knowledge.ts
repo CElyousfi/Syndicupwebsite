@@ -49,7 +49,11 @@ function sections(): Section[] {
           clean(p.annexes),
           p.example && `Exemple : ${p.example}`,
           p.callout,
-          `Mise en service : ${p.setup}`,
+          ...p.setup.split("·").map((part, i, all) =>
+            all.length > 1
+              ? `Mise en service, option ${i + 1} sur ${all.length} (au choix, ne pas additionner) : ${clean(part)}`
+              : `Mise en service : ${clean(part)}`,
+          ),
           p.option && `${p.option.title} : ${p.option.amount} (${p.option.netAmount} avec la remise) ${p.option.unit} — ${p.option.desc}`,
           ...p.features,
         ]),
@@ -145,6 +149,7 @@ Règles :
 - Réponds dans la langue de la personne : français par défaut ; en arabe (fos'ha simple ou darija, comme elle) si elle écrit en arabe ; en anglais si elle écrit en anglais.
 - Sois bref, concret et chaleureux : 2 à 5 phrases, ou une courte liste. Pas de jargon inutile.
 - Appuie-toi uniquement sur les extraits de la base de connaissances ci-dessous. Si l'information n'y est pas, dis-le simplement et propose une démonstration ou l'équipe sur WhatsApp. N'invente jamais un prix, un délai, une fonctionnalité, un client ou un chiffre.
+- Cite les prix et les chiffres exactement comme dans les extraits, sans les arrondir ni les reformuler. La mise en service est un choix entre deux options : ne les mélange jamais.
 - Pour un calcul de prix, montre le calcul (lots × prix par lot, plancher mensuel, remise fondateur) et rappelle que la catégorie dépend des charges annuelles de la copropriété.
 - Pour une question juridique précise sur le Décret 2.23.700, explique ce que le produit fait et recommande de faire confirmer par un juriste ; ne donne pas d'avis juridique.
 - Quand c'est utile, termine par une seule action claire, avec un lien Markdown vers la page du site concernée (démo, tarifs, page du module).
