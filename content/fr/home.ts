@@ -412,7 +412,7 @@ export const home: SiteContent["home"] = {
   trustImage: "/images/maroc/casablanca-coucher-hd.jpg",
   trustImageAlt: "Casablanca au coucher du soleil, ses tours d'habitation et la mosquée Hassan II à l'horizon",
   trust: [
-    { icon: "layers", k: "Hébergement", v: "Union européenne", desc: "Serveurs à Francfort, sauvegardes restaurées pour de vrai, pas seulement prises." },
+    { icon: "server", k: "Hébergement", v: "Francfort, Union européenne", desc: "Application et base de données dans le même centre ; sauvegardes restaurées pour de vrai, pas seulement prises." },
     { icon: "lock", k: "Chiffrement", v: "En transit et au repos", desc: "TLS partout ; chaque facture servie par un lien signé, à durée limitée." },
     { icon: "split", k: "Cloisonnement", v: "Application + base (RLS)", desc: "Une requête ne franchit pas la frontière d'une résidence, même en cas de bug." },
     { icon: "shield", k: "CNDP", v: "Traitement déclaré", desc: "Vos données personnelles, déclarées et traitées pour la seule gestion de la copropriété." },

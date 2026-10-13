@@ -8,7 +8,7 @@ export function SecurityIcon({
   name,
   size = 24,
 }: {
-  name: "lock" | "split" | "layers" | "shield";
+  name: "lock" | "split" | "layers" | "shield" | "server";
   size?: number;
 }) {
   const common = {
@@ -33,6 +33,17 @@ export function SecurityIcon({
       <svg {...common}>
         <rect x="3.5" y="4" width="7" height="16" rx="2" fill="#595d75" />
         <rect x="13.5" y="4" width="7" height="16" rx="2" fill="#b8bed5" />
+      </svg>
+    );
+  }
+  if (name === "server") {
+    return (
+      <svg {...common}>
+        <rect x="3.5" y="3.5" width="17" height="7.5" rx="2.2" fill="#2f6b4f" />
+        <rect x="3.5" y="13" width="17" height="7.5" rx="2.2" fill="#2f6b4f" />
+        <circle cx="7.2" cy="7.25" r="1.25" fill="#dff28a" />
+        <circle cx="7.2" cy="16.75" r="1.25" fill="#dff28a" />
+        <path d="M11 7.25h6M11 16.75h6" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" />
       </svg>
     );
   }

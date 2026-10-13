@@ -7,7 +7,7 @@ import { ManageCookiesLink } from "@/components/cookie-consent";
 import { UiIcon, type UiIconName } from "@/components/icons";
 import type { SiteContent } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
-import { SITE, whatsappHref } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 /**
  * Décor de tête de page — LE traitement commun des pages intérieures : un
@@ -255,20 +255,6 @@ export function SiteFooter({ locale, c }: { locale: Locale; c: SiteContent }) {
         </div>
       </div>
     </footer>
-  );
-}
-
-export function WhatsappFloat({ c }: { c: SiteContent }) {
-  return (
-    <a
-      href={whatsappHref(c.common.whatsappMessage)}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-[22px] end-[22px] z-70 inline-flex h-[54px] items-center gap-2.5 rounded-full bg-ink-strong px-[22px] text-[15px] font-medium text-white shadow-[0_20px_40px_-16px_rgb(32_31_35_/_0.5)] hover:bg-ink"
-    >
-      <span className="inline-block h-2.5 w-2.5 rounded-full bg-sage" />
-      {c.common.whatsapp}
-    </a>
   );
 }
 

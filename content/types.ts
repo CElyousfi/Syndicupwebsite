@@ -337,7 +337,40 @@ export interface FinalCta {
   bullets: string[];
 }
 
+/** Le messager du site (bas à droite) : accueil, assistant IA, aide. */
+export interface MessengerCopy {
+  launcher: string;
+  close: string;
+  greeting: string;
+  subtitle: string;
+  status: string;
+  askTitle: string;
+  askDesc: string;
+  demoTitle: string;
+  demoDesc: string;
+  whatsappTitle: string;
+  whatsappDesc: string;
+  searchPlaceholder: string;
+  popularTitle: string;
+  tabs: { home: string; messages: string; help: string };
+  chatTitle: string;
+  chatStatus: string;
+  welcome: string;
+  suggestions: string[];
+  inputPlaceholder: string;
+  send: string;
+  disclaimer: string;
+  human: string;
+  clear: string;
+  back: string;
+  helpTitle: string;
+  helpEmpty: string;
+  helpAsk: string;
+  errors: { rate: string; down: string; network: string };
+}
+
 export interface SiteContent {
+  messenger: MessengerCopy;
   locale: "fr";
 
   common: {
@@ -447,7 +480,7 @@ export interface SiteContent {
     trustCta: string;
     trustImage: string;
     trustImageAlt: string;
-    trust: { icon: "lock" | "split" | "layers" | "shield"; k: string; v: string; desc: string }[];
+    trust: { icon: "lock" | "split" | "layers" | "shield" | "server"; k: string; v: string; desc: string }[];
     citiesKicker: string;
     citiesTitle: string;
     citiesLede: string;

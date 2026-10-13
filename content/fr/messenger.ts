@@ -1,0 +1,42 @@
+import type { MessengerCopy } from "../types";
+
+export const messenger: MessengerCopy = {
+  launcher: "Une question ?",
+  close: "Fermer",
+  greeting: "Bonjour 👋",
+  subtitle: "Comment pouvons-nous vous aider ?",
+  status: "L'équipe répond en français et en arabe",
+  askTitle: "Poser une question",
+  askDesc: "L'assistant vous répond tout de suite, sur vos lots, vos annexes, vos prix.",
+  demoTitle: "Réserver une démo",
+  demoDesc: "20 minutes sur une vraie résidence.",
+  whatsappTitle: "Écrire à l'équipe",
+  whatsappDesc: "Sur WhatsApp, heures ouvrables.",
+  searchPlaceholder: "Rechercher dans l'aide",
+  popularTitle: "Questions fréquentes",
+  tabs: { home: "Accueil", messages: "Messages", help: "Aide" },
+  chatTitle: "Assistant SyndicUp",
+  chatStatus: "Répond en quelques secondes",
+  welcome:
+    "Bonjour ! Je réponds sur SyndicUp : prix pour votre résidence, 12 annexes, assemblées, reprise de vos données. Que voulez-vous savoir ?",
+  suggestions: [
+    "Combien pour une résidence de 48 lots ?",
+    "Comment sortent les 12 annexes ?",
+    "Vous reprenez mon fichier Excel ?",
+    "واش كيخدم بالعربية؟",
+  ],
+  inputPlaceholder: "Écrivez votre question…",
+  send: "Envoyer",
+  disclaimer: "Réponses générées par IA, à vérifier pour une décision importante.",
+  human: "Parler à l'équipe",
+  clear: "Nouvelle conversation",
+  back: "Retour",
+  helpTitle: "Aide",
+  helpEmpty: "Aucune question ne correspond.",
+  helpAsk: "Demander à l'assistant",
+  errors: {
+    rate: "Beaucoup de messages en peu de temps. Réessayez dans quelques minutes, ou écrivez à l'équipe sur WhatsApp.",
+    down: "L'assistant est indisponible pour le moment. L'équipe vous répond sur WhatsApp.",
+    network: "La connexion a coupé. Vérifiez votre réseau et renvoyez votre question.",
+  },
+};

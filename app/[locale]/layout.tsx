@@ -4,7 +4,8 @@ import { GeistMono } from "geist/font/mono";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/site-header";
-import { CtaBand, SiteFooter, WhatsappFloat } from "@/components/site-chrome";
+import { Messenger } from "@/components/messenger";
+import { CtaBand, SiteFooter } from "@/components/site-chrome";
 import { getContent, isLocale, LOCALES, type Locale } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
 import { MetaPixel } from "@/components/meta-pixel";
@@ -109,7 +110,7 @@ export default async function LocaleLayout({
         <main id="contenu">{children}</main>
         <CtaBand locale={typed} c={c} />
         <SiteFooter locale={typed} c={c} />
-        <WhatsappFloat c={c} />
+        <Messenger locale={typed} copy={c.messenger} faq={c.home.faqTabs} whatsappMessage={c.common.whatsappMessage} />
         <CookieConsent locale={typed} />
         <MetaPixel />
       </body>
