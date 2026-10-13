@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AskDariButton } from "@/components/ask-dari";
-import { Dari } from "@/components/dari";
+import { DariMotion } from "@/components/dari";
 import { HeadDecor } from "@/components/site-chrome";
 import { getContent, href, DEFAULT_LOCALE } from "@/lib/i18n";
 
@@ -17,7 +17,7 @@ export default function NotFound() {
     <HeadDecor tone="mist" variant="arc">
       <section className="shell relative pt-20">
         <span className="pointer-events-none absolute end-6 top-12 hidden md:block">
-          <Dari pose="think" size={210} sparkles />
+          <DariMotion clip="think" size={260} priority />
         </span>
         <p className="crumb">
           <Link href={href(l)}>{c.articleCommon.crumbHome}</Link> / {nf.crumb}

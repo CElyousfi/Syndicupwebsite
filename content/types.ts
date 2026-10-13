@@ -345,6 +345,7 @@ export interface MessengerCopy {
   nudgeBody: string;
   thinking: string;
   writing: string;
+  answered: string;
   launcher: string;
   close: string;
   greeting: string;

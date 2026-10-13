@@ -1149,3 +1149,9 @@
   from { transform: translateY(10px) scale(0.92); opacity: 0; }
   to { transform: none; opacity: 1; }
 }
+
+/* Dari animé : un rebond d'entrée quand la boucle change. */
+.dari-swap {
+  transform-origin: 50% 92%;
+  animation: dari-pop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

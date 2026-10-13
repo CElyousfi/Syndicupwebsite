@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { Dari, DariAvatar, type DariPose } from "@/components/dari";
+import { DariAvatar, DariMotion, preloadDari, type DariPose } from "@/components/dari";
 import type { FaqTab, MessengerCopy } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
 import { whatsappHref } from "@/lib/site";
@@ -72,6 +72,11 @@ export function Messenger({
   const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => setMsgs(load()), []);
+
+  // À l'ouverture, les boucles de la conversation sont chargées d'avance.
+  useEffect(() => {
+    if (open) preloadDari(["wave", "think", "type", "talk"]);
+  }, [open]);
 
   // Échap ferme ; sur téléphone, la page ne défile pas derrière le panneau.
   useEffect(() => {
@@ -278,7 +283,7 @@ export function Messenger({
             }}
             className="flex items-center gap-3 text-start"
           >
-            <Dari pose="wave" size={64} />
+            <DariMotion clip="talk" size={84} priority />
             <span>
               <span className="block text-[15px] font-bold text-ink">{copy.nudgeTitle}</span>
               <span className="mt-0.5 block text-[13.5px] leading-[1.4] text-body">{copy.nudgeBody}</span>
@@ -295,7 +300,7 @@ export function Messenger({
         aria-expanded={open}
         aria-label={open ? copy.close : copy.launcher}
         className={`fixed bottom-[22px] end-[22px] z-80 inline-flex h-[56px] items-center rounded-full bg-vivid text-white shadow-[0_18px_40px_-12px_rgb(20_90_58_/_0.6)] transition-[background-color,transform] hover:bg-action-deep active:scale-[0.97] ${
-          open ? "w-[56px] justify-center max-sm:hidden" : "ps-[64px] pe-[22px]"
+          open ? "w-[56px] justify-center max-sm:hidden" : "ps-[72px] pe-[22px]"
         }`}
       >
         {open ? (
@@ -306,7 +311,7 @@ export function Messenger({
           <>
             {/* Dari dépasse du bouton, comme penché par-dessus. */}
             <span className="pointer-events-none absolute -top-[22px] start-[2px] flex h-[78px] w-[62px] items-end justify-center">
-              <Dari pose={hover ? "wave" : "head"} size={hover ? 64 : 58} />
+              {hover ? <DariMotion clip="wave" size={84} /> : <DariMotion clip="head" size={64} priority />}
             </span>
             <span className="text-[15px] font-semibold">{copy.launcher}</span>
           </>
@@ -351,8 +356,8 @@ function HomeView({
           <img src="/brand/syndicup-logo-reversed.svg" alt="SyndicUp" className="h-[24px] w-auto" dir="ltr" />
           <CloseButton label={copy.close} onClick={onClose} light />
         </div>
-        <span className="pointer-events-none absolute end-2 top-[58px]">
-          <Dari pose="wave" size={132} sparkles priority />
+        <span className="pointer-events-none absolute -end-3 top-[46px]">
+          <DariMotion clip="wave" size={170} priority />
         </span>
         <p className="relative mt-12 max-w-[210px] text-[30px] font-bold leading-[1.15] tracking-[-0.02em]">{copy.greeting}</p>
         <p className="relative mt-1 max-w-[220px] text-[26px] font-bold leading-[1.15] tracking-[-0.02em] text-white/65">{copy.subtitle}</p>
@@ -512,7 +517,7 @@ function ChatView({
       <div ref={listRef} className="min-h-0 flex-1 overflow-y-auto bg-ground px-4 py-5" aria-live="polite">
         {msgs.length === 0 && (
           <div className="flex flex-col items-center pb-2 pt-3 text-center">
-            <Dari pose="wave" size={124} sparkles />
+            <DariMotion clip="wave" size={156} priority />
             <p className="mt-2 text-[17px] font-bold text-ink">{copy.name}</p>
             <p className="mt-0.5 text-[13px] text-soft">{copy.intro}</p>
           </div>
@@ -548,10 +553,12 @@ function ChatView({
         ))}
       </div>
 
-      {(mood === "think" || mood === "type") && (
-        <div className="flex shrink-0 items-center gap-2 border-t border-hairline bg-ground px-4 py-1.5" aria-live="polite">
-          <Dari pose={mood} size={44} />
-          <span className="text-[13px] font-medium text-soft">{mood === "think" ? copy.thinking : copy.writing}</span>
+      {mood !== "idle" && (
+        <div className="flex shrink-0 items-center gap-2 border-t border-hairline bg-ground px-3 py-1" aria-live="polite">
+          <DariMotion clip={mood === "think" ? "think" : mood === "type" ? "type" : "talk"} size={62} priority />
+          <span className="text-[13px] font-medium text-soft">
+            {mood === "think" ? copy.thinking : mood === "type" ? copy.writing : copy.answered}
+          </span>
         </div>
       )}
       <form

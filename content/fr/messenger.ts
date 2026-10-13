@@ -7,6 +7,7 @@ export const messenger: MessengerCopy = {
   nudgeBody: "Une question sur votre résidence, vos annexes ou nos prix ? Je réponds tout de suite.",
   thinking: "Dari réfléchit…",
   writing: "Dari écrit…",
+  answered: "Voilà ! Une autre question ?",
   launcher: "Demander à Dari",
   close: "Fermer",
   greeting: "Bonjour 👋",

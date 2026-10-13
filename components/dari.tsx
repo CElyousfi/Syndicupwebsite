@@ -124,3 +124,75 @@ function Sparkle({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+/* ── Dari animé : les boucles dessinées (AVIF transparent, repli WebP) ──── */
+
+export type DariClip = "idle" | "wave" | "think" | "type" | "talk" | "head";
+
+/** Planches : 388 × 360 pour le personnage entier, 296 × 272 pour la tête. */
+const CLIP_SIZE: Record<DariClip, [number, number]> = {
+  idle: [388, 360],
+  wave: [388, 360],
+  think: [388, 360],
+  type: [388, 360],
+  talk: [388, 360],
+  head: [296, 272],
+};
+
+const clipSrc = (clip: DariClip, ext: "avif" | "webp" | "png") =>
+  `/brand/dari/motion/dari-${clip}${ext === "png" ? "-poster.png" : `.${ext}`}`;
+
+/** Charge d'avance les boucles qui vont servir, pour qu'un changement d'état ne clignote pas. */
+export function preloadDari(clips: DariClip[]) {
+  if (typeof window === "undefined") return;
+  for (const c of clips) {
+    const img = new window.Image();
+    img.decoding = "async";
+    img.src = clipSrc(c, "avif");
+  }
+}
+
+/**
+ * Une boucle animée de Dari. En mouvement réduit, l'image fixe de la
+ * première pose prend sa place. Changer de `clip` fait un petit rebond.
+ */
+export function DariMotion({
+  clip,
+  size = 140,
+  priority = false,
+  className = "",
+  label,
+}: {
+  clip: DariClip;
+  /** Largeur affichée, en pixels. */
+  size?: number;
+  priority?: boolean;
+  className?: string;
+  label?: string;
+}) {
+  const [w, h] = CLIP_SIZE[clip];
+  return (
+    <span
+      className={`relative inline-block shrink-0 select-none ${className}`}
+      style={{ width: size, aspectRatio: `${w} / ${h}` }}
+      role={label ? "img" : undefined}
+      aria-label={label}
+      aria-hidden={label ? undefined : true}
+    >
+      <picture key={clip} className="dari-swap absolute inset-0 block">
+        <source media="(prefers-reduced-motion: reduce)" srcSet={clipSrc(clip, "png")} />
+        <source type="image/avif" srcSet={clipSrc(clip, "avif")} />
+        <img
+          src={clipSrc(clip, "webp")}
+          alt=""
+          width={w}
+          height={h}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          draggable={false}
+          className="block h-full w-full"
+        />
+      </picture>
+    </span>
+  );
+}

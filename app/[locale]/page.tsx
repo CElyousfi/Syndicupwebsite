@@ -9,7 +9,7 @@ import { HeroRotator } from "@/components/hero-rotator";
 import { LogoHive } from "@/components/logo-hive";
 import { AskDariButton } from "@/components/ask-dari";
 import { CityGrid } from "@/components/city-grid";
-import { Dari } from "@/components/dari";
+import { DariMotion } from "@/components/dari";
 import { PortfolioCarousel } from "@/components/portfolio-carousel";
 import { ProofRibbon } from "@/components/proof-ribbon";
 import { Mockup } from "@/components/mockups";
@@ -539,7 +539,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             noResult={h.faqNoResult}
           />
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-5 rounded-2xl bg-action-tint px-6 py-6 sm:px-8">
-            <Dari pose="think" size={96} sparkles className="-my-3" />
+            <DariMotion clip="think" size={128} className="-my-6" />
             <div className="min-w-[220px] flex-1">
               <p className="text-[19px] font-bold text-ink">{h.faqStillTitle}</p>
               <p className="mt-1.5 max-w-[520px] text-[15.5px] leading-[1.5] text-body">{h.faqStillBody}</p>
