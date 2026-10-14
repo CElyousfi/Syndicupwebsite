@@ -501,16 +501,16 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
 
   "pour-syndic-benevole": {
     crumb: "POUR QUI / SYNDIC BÉNÉVOLE",
-    kicker: "SYNDIC BÉNÉVOLE · PLAN PETIT",
+    kicker: "SYNDIC BÉNÉVOLE · ESSENTIEL OU STANDARD",
     title: "Vous gérez l'immeuble le soir. Le logiciel travaille pendant ce temps.",
     lede: "Vous n'êtes pas comptable, vous n'avez pas signé pour ça, et vous le faites quand même. Le produit est conçu pour que la conformité soit un effet secondaire de vos gestes quotidiens, pas un chantier de janvier.",
     metaDescription:
-      "Trente jours avec vos propres données, puis 8 MAD par lot et par mois (5,60 au tarif fondateur, 149 MAD minimum) : reprise faite par nous, relances automatiques, annexes générées et PV d'AG produit à la clôture de séance.",
+      "Trente jours avec vos propres données, puis 5,90 ou 9,90 MAD par lot et par mois selon vos charges (5,00 et 8,40 au tarif fondateur) : reprise faite par nous, relances automatiques, annexes générées et PV d'AG produit à la clôture de séance.",
     heroMockup: "syndic-todo",
     outputs: [
-      { k: "Prix", v: "8 MAD / lot / mois, à partir de 149 MAD" },
-      { k: "Tarif fondateur", v: "5,60 MAD / lot / mois" },
-      { k: "Mise en service", v: "import inclus, accompagnée 990 MAD" },
+      { k: "Prix", v: "5,90 ou 9,90 MAD / lot / mois, à partir de 99 MAD" },
+      { k: "Tarif fondateur", v: "5,00 ou 8,40 MAD / lot / mois" },
+      { k: "Mise en service", v: "offerte en facturation annuelle" },
       { k: "Support", v: "WhatsApp" },
     ],
     blocks: [
@@ -550,7 +550,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     ],
     limitTitle: "Pourquoi ce n'est plus gratuit, honnêtement",
     limitBody:
-      "Un logiciel gratuit sans limite de durée ne paie ni l'hébergement, ni le support, ni la personne qui reprend votre fichier. Nous avons choisi l'inverse : trente jours avec vos propres données, un tarif public à partir de 149 MAD par mois pour tout l'immeuble — voté une fois en AG — et des résidents qui ne paient jamais. Après l'essai, vos données restent lisibles et exportables ; rien n'est supprimé.",
+      "Un logiciel gratuit sans limite de durée ne paie ni l'hébergement, ni le support, ni la personne qui reprend votre fichier. Nous avons choisi l'inverse : trente jours avec vos propres données, un tarif public à partir de 99 MAD par mois pour tout l'immeuble — voté une fois en AG — et des résidents qui ne paient jamais. Après l'essai, vos données restent lisibles et exportables ; rien n'est supprimé.",
     related: [
       R_GUIDE,
       R_COMPTA,
@@ -568,11 +568,11 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     title: "Votre marge est dans la clôture, pas dans la saisie.",
     lede: "Un cabinet perd ses semaines à reconstituer des comptes et à répondre au téléphone. Les deux se traitent par le même moyen : une donnée saisie une fois sur le terrain, et des copropriétaires qui voient leurs comptes sans vous appeler.",
     metaDescription:
-      "De 10 à 7 MAD HT par lot et par mois, dégressif par taille de portefeuille (7 à 4,90 au tarif fondateur) : vue portefeuille, rôles et permissions, application au nom du cabinet et clôture standardisée par mandat.",
+      "De 3,90 à 2,60 MAD HT par lot et par mois, dégressif par taille de portefeuille : vue portefeuille, rôles et permissions, application au nom du cabinet et clôture standardisée par mandat.",
     heroMockup: "cabinet-portfolio",
     outputs: [
-      { k: "Tarif", v: "10 → 7 MAD HT / lot / mois, dégressif" },
-      { k: "Minimum", v: "12 000 MAD HT / an, contrat annuel" },
+      { k: "Tarif", v: "3,90 → 2,60 MAD HT / lot / mois, dégressif" },
+      { k: "Minimum", v: "6 000 MAD HT / an, contrat annuel" },
       { k: "Rôles", v: "5 niveaux + lecture seule" },
       { k: "Mise en service", v: "490 MAD HT / résidence, offerte dès la 10e" },
     ],

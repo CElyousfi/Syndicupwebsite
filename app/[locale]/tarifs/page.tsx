@@ -69,10 +69,16 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
               </p>
               <p className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1">
                 <span className="tnum text-[46px] font-bold leading-none text-ink">{plan.amount}</span>
-                <span className="flex flex-col pb-0.5">
-                  <span className="tnum text-[22px] font-bold leading-none text-action-deep">{plan.netAmount}</span>
-                  <span className="mt-1 text-[11px] font-semibold text-action-deep">{t.netLabel}</span>
-                </span>
+                {plan.netAmount ? (
+                  <span className="flex flex-col pb-0.5">
+                    <span className="tnum text-[22px] font-bold leading-none text-action-deep">{plan.netAmount}</span>
+                    <span className="mt-1 text-[11px] font-semibold text-action-deep">{t.netLabel}</span>
+                  </span>
+                ) : (
+                  plan.netNote && (
+                    <span className="max-w-[140px] pb-0.5 text-[12px] font-semibold leading-[1.3] text-action-deep">{plan.netNote}</span>
+                  )
+                )}
               </p>
               <p className="mt-1.5 text-[14px] font-semibold text-soft">{plan.unit}</p>
               <p className="mt-2 text-[14.5px] font-semibold text-ink">{plan.floorLabel}</p>
@@ -98,7 +104,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                     <span className="badge bg-sand-tint text-[10px] text-ink">{plan.option.limited}</span>
                   </div>
                   <p className="tnum mt-2 text-[15px] font-bold text-ink">
-                    {plan.option.amount} <span className="text-action-deep">→ {plan.option.netAmount}</span>{" "}
+                    {plan.option.amount}
+                    {plan.option.netAmount && <span className="text-action-deep"> → {plan.option.netAmount}</span>}{" "}
                     <span className="text-[12px] font-semibold text-soft">{plan.option.unit}</span>
                   </p>
                   <p className="mt-1.5 text-[13px] leading-[1.5] text-body">{plan.option.desc}</p>
@@ -124,7 +131,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      {/* ── Mise en service : deux chemins, des prix fixes ──────────────── */}
+      {/* ── Mise en service : deux chemins, offerte en annuel ───────────── */}
       <div className="border-y border-rule bg-white">
         <section className="shell section-pad">
           <SectionHead kicker={t.setupKicker} title={t.setupTitle} lede={t.setupLede} />
@@ -156,7 +163,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
         </section>
       </div>
 
-      {/* ── Option Accompagné, sur Moyen et Grand ───────────────────────── */}
+      {/* ── Option Accompagné : forfait annuel par résidence ────────────── */}
       <section className="shell section-pad">
         <SectionHead kicker={t.optionKicker} title={t.optionTitle} lede={t.optionLede} />
         <div className="grid gap-5 lg:grid-cols-[1fr_1.3fr]">
@@ -169,10 +176,12 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 </div>
                 <p className="flex items-end gap-3">
                   <span className="tnum text-[40px] font-bold leading-none text-ink">{o.amount}</span>
-                  <span className="flex flex-col pb-0.5">
-                    <span className="tnum text-[20px] font-bold leading-none text-action-deep">{o.netAmount}</span>
-                    <span className="mt-1 text-[11px] font-semibold text-action-deep">{t.netLabel}</span>
-                  </span>
+                  {o.netAmount && (
+                    <span className="flex flex-col pb-0.5">
+                      <span className="tnum text-[20px] font-bold leading-none text-action-deep">{o.netAmount}</span>
+                      <span className="mt-1 text-[11px] font-semibold text-action-deep">{t.netLabel}</span>
+                    </span>
+                  )}
                 </p>
               </div>
             ))}

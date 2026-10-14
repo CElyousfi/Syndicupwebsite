@@ -425,7 +425,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       { icon: "check", title: "Vous n'y pensez plus", desc: "Relances, quittances, contrôles : le produit tourne, vous décidez." },
     ],
     stats: [
-      { value: "149", unit: "MAD / mois", caption: "minimum, pour tout l'immeuble, après 30 jours avec vos données" },
+      { value: "99", unit: "MAD / mois", caption: "minimum, pour tout l'immeuble, après 30 jours avec vos données" },
       { value: "3", unit: "jours", caption: "de l'envoi du fichier à la résidence administrée" },
       { value: "20", unit: "min", caption: "pour la mise en place initiale" },
       { value: "1", unit: "personne", caption: "qui suit votre reprise, votre clôture et votre AG" },
@@ -435,7 +435,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       { topic: "Comptes", before: "Un cahier, un tableur, des soirées.", after: "Saisie guidée, contrôles automatiques, annexes générées." },
       { topic: "Impayés", before: "Vous, au téléphone, avec un voisin.", after: "Le produit relance en votre nom ; vous n'intervenez qu'à l'escalade." },
       { topic: "Assemblée", before: "Redoutée, contestée, rédigée de mémoire.", after: "Convocation tracée, quorum en direct, PV sous 48 h." },
-      { topic: "Coût", before: "Votre temps, et parfois un comptable à 500 MAD par mois.", after: "8 MAD par lot et par mois — 5,60 au tarif fondateur —, 149 MAD minimum, import autonome et support compris." },
+      { topic: "Coût", before: "Votre temps, et parfois un comptable à 500 MAD par mois.", after: "5,90 ou 9,90 MAD par lot et par mois selon vos charges — 5,00 et 8,40 au tarif fondateur —, import autonome, notifications et support compris." },
     ],
     audiencesTitle: "Et autour de vous",
     audiences: [
@@ -445,9 +445,9 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     faqTitle: "Questions des syndics bénévoles",
     faq: [
-      { q: "Combien ça coûte, pour un petit immeuble ?", a: "Trente jours avec vos propres données, reprise faite par nous, rien à payer si vous ne continuez pas. Ensuite 8 MAD par lot et par mois — 5,60 MAD avec la remise fondateur de 30 % — avec un minimum de 149 MAD par mois pour tout l'immeuble : 1 788 MAD par an, votés une fois en AG. Import autonome inclus, mise en service accompagnée à 990 MAD si vous la voulez. Les résidents ne paient jamais.", link: { href: "/tarifs", label: "Tarifs" } },
+      { q: "Combien ça coûte, pour un petit immeuble ?", a: "Trente jours avec vos propres données, reprise faite par nous, rien à payer si vous ne continuez pas. Ensuite, si vos charges sont sous 250 MAD par appartement et par mois, 5,90 MAD par lot et par mois — 5,00 MAD avec la remise fondateur de 15 % — avec un minimum de 99 MAD par mois pour tout l'immeuble : 1 188 MAD par an au minimum, votés une fois en AG. Au-delà de 250 MAD de charges, 9,90 MAD (8,40 au tarif fondateur). Import autonome inclus, mise en service accompagnée offerte en facturation annuelle. Les résidents ne paient jamais.", link: { href: "/tarifs", label: "Tarifs" } },
       { q: "Je n'y connais rien en comptabilité. Est-ce un problème ?", a: "Non. La saisie est guidée poste par poste, les contrôles sont automatiques, et une personne suit votre première clôture." },
-      { q: "Que se passe-t-il si nos charges dépassent 200 000 MAD par an ?", a: "Vous passez au plan Moyen, à 12 MAD par lot et par mois (8,40 au tarif fondateur), à la clôture de l'exercice suivant. Rien ne change dans le produit ni dans vos données ; vous êtes prévenus avant l'AG." },
+      { q: "Que se passe-t-il si nos charges augmentent ?", a: "Si elles dépassent 250 MAD par appartement et par mois, vous passez à l'offre Standard, à 9,90 MAD par lot et par mois (8,40 au tarif fondateur), à la clôture de l'exercice suivant. Au-delà de 200 000 MAD par an, la catégorie du décret change aussi, et SyndicUp génère les annexes correspondantes. Rien ne change dans vos données ; vous êtes prévenus avant l'AG." },
       { q: "Puis-je transmettre à mon successeur ?", a: "Oui : le mandat change de titulaire, l'historique reste. Votre successeur reprend une copropriété administrée, pas un carton." },
     ],
   },
@@ -469,7 +469,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       { icon: "check", title: "Le portefeuille est piloté", desc: "Alertes, taux de recouvrement, clôtures : sur un écran." },
     ],
     stats: [
-      { value: "10 → 7", unit: "MAD HT / lot / mois", caption: "dégressif sur tout le portefeuille, 7 → 4,90 au tarif fondateur" },
+      { value: "3,90", unit: "MAD HT / lot / mois", caption: "puis 3,20 et 2,60, dégressif sur tout le portefeuille" },
       { value: "∞", caption: "résidences par portefeuille" },
       { value: "5", unit: "rôles", caption: "plus la lecture seule, par gestionnaire" },
       { value: "1", unit: "procédure", caption: "de clôture, sur tous les mandats" },
@@ -489,7 +489,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     faqTitle: "Questions des cabinets",
     faq: [
-      { q: "Le tarif Cabinet couvre-t-il tout ?", a: "Tout le produit, le support et la reprise par vagues, pour l'ensemble du portefeuille, dès trois mandats. 10 MAD HT par lot et par mois jusqu'à 499 lots, 8 MAD de 500 à 1 999, 7 MAD au-delà — appliqué à tout le portefeuille dès le seuil franchi, et 7 → 5,60 → 4,90 au tarif fondateur. Contrat annuel, minimum 12 000 MAD HT par an, facturation trimestrielle. Mise en service 490 MAD HT par résidence, offerte à partir de la 10e.", link: { href: "/tarifs", label: "Tarifs" } },
+      { q: "Le tarif Cabinet couvre-t-il tout ?", a: "Tout le produit, le support et la reprise par vagues, pour l'ensemble du portefeuille, dès trois mandats. 3,90 MAD HT par lot et par mois jusqu'à 999 lots, 3,20 MAD de 1 000 à 2 999, 2,60 MAD au-delà — appliqué à tout le portefeuille dès le seuil franchi. Pilote de 90 jours sur trois résidences, reprise faite par nous. Contrat annuel, minimum 6 000 MAD HT par an, facturation trimestrielle. Mise en service 490 MAD HT par résidence, offerte à partir de la 10e.", link: { href: "/tarifs", label: "Tarifs" } },
       { q: "L'application peut-elle porter le nom du cabinet ?", a: "Oui : vos mandants voient votre nom et votre logo dans leur espace résident." },
       { q: "Comment se passe la reprise d'un gros portefeuille ?", a: "Par vagues, à partir de trois résidences pilotes. Nous faisons la reprise, vos gestionnaires valident sur leur périmètre, et l'activité ne s'arrête pas." },
       { q: "Peut-on exporter vers notre expert-comptable ?", a: "Oui, par résidence, dans un format normalisé — écritures, pièces, annexes." },

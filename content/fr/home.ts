@@ -465,7 +465,7 @@ export const home: SiteContent["home"] = {
       tab: "Syndic bénévole",
       line: "Vous gérez votre immeuble le soir, après votre vrai travail. Le produit doit faire le travail comptable à votre place.",
       points: [
-        "Trente jours avec vos données, puis à partir de 149 MAD par mois pour tout l'immeuble.",
+        "Trente jours avec vos données, puis à partir de 99 MAD par mois pour tout l'immeuble.",
         "Les annexes sortent de vos écritures, vous ne les rédigez pas.",
         "Les relances d'impayés partent seules, en votre nom.",
       ],
@@ -570,34 +570,34 @@ export const home: SiteContent["home"] = {
   ecosystemCta: "Voir les intégrations",
 
   pricingKicker: "TARIFS",
-  pricingTitle: "Par lot, par mois. Trente jours avec vos données avant.",
+  pricingTitle: "9,90 MAD par appartement et par mois. Trente jours avec vos données avant.",
   pricingLink: "Page tarifs complète",
   pricingFeaturedBadge: "LE PLUS CHOISI",
   pricingCardCta: "Voir le détail",
   prices: [
     {
-      name: "Petit",
-      amount: "8",
-      unit: "MAD / lot / mois · 5,60 au tarif fondateur",
-      note: "Petit immeuble, sans gardien. À partir de 149 MAD par mois. Import autonome inclus.",
+      name: "Essentiel",
+      amount: "5,90",
+      unit: "MAD / lot / mois · 5,00 au tarif fondateur",
+      note: "Charges de moins de 250 MAD par lot et par mois. À partir de 99 MAD par mois. Import autonome inclus.",
     },
     {
-      name: "Moyen",
-      amount: "12",
+      name: "Standard",
+      amount: "9,90",
       unit: "MAD / lot / mois · 8,40 au tarif fondateur",
-      note: "Résidence avec gardien et ascenseur. 48 lots → 403,20 MAD par mois. Option Accompagné disponible.",
+      note: "Charges de 250 à 600 MAD par lot et par mois. 48 lots → 475,20 MAD par mois, 403,20 au tarif fondateur.",
       featured: true,
     },
     {
-      name: "Grand",
-      amount: "15",
-      unit: "MAD / lot / mois · 10,50 au tarif fondateur",
-      note: "Grande copropriété avec du personnel. À partir de 990 MAD par mois, mise en service accompagnée incluse.",
+      name: "Prestige",
+      amount: "14,90",
+      unit: "MAD / lot / mois · 12,60 au tarif fondateur",
+      note: "Charges de plus de 600 MAD par lot et par mois. Paie du personnel et location courte durée incluses.",
     },
     {
       name: "Cabinet",
-      amount: "10 → 7",
-      unit: "MAD HT / lot / mois · 7 → 4,90 au tarif fondateur",
+      amount: "3,90",
+      unit: "MAD HT / lot / mois · puis 3,20 et 2,60",
       note: "Syndic professionnel. Dégressif par taille de portefeuille, contrat annuel, devis en 24 h.",
     },
   ],
@@ -605,11 +605,11 @@ export const home: SiteContent["home"] = {
   importKicker: "REPRISE DE DONNÉES",
   importTitle: "Envoyez votre Excel. On s'occupe du reste.",
   importBody:
-    "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise pendant vos 30 jours, vous la validez ligne à ligne. Ensuite, deux chemins : l'import autonome, inclus, ou la mise en service accompagnée par nous, à prix fixe.",
+    "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise pendant vos 30 jours, vous la validez ligne à ligne. Ensuite, deux chemins : l'import autonome, inclus, ou la mise en service accompagnée par nous, offerte en facturation annuelle.",
   importPoints: [
     "Lots, tantièmes, propriétaires et soldes d'ouverture repris",
     "Vous validez ligne à ligne avant la mise en service",
-    "Reprise faite par nous pendant les 30 jours ; import autonome inclus ensuite, accompagnée à prix fixe",
+    "Reprise faite par nous pendant les 30 jours ; import autonome inclus ensuite, accompagnée offerte en annuel",
   ],
   importCta: "Envoyer mon fichier",
 
@@ -792,12 +792,12 @@ export const home: SiteContent["home"] = {
       items: [
         {
           q: "Y a-t-il un essai gratuit ?",
-          a: "30 jours avec vos propres données. Nous faisons la reprise. Si vous ne continuez pas, vous ne payez rien. Ensuite, le tarif est public : 8, 12 ou 15 MAD par lot et par mois selon la catégorie de votre copropriété au sens du décret, TTC — 5,60, 8,40 et 10,50 MAD avec la remise fondateur de 30 %.",
+          a: "30 jours avec vos propres données. Nous faisons la reprise. Si vous ne continuez pas, vous ne payez rien. Ensuite, le tarif est public : 5,90, 9,90 ou 14,90 MAD par lot et par mois selon vos charges par lot, TTC — 5,00, 8,40 et 12,60 MAD avec la remise fondateur de 15 %.",
           link: { href: "/tarifs", label: "Tarifs" },
         },
         {
           q: "Puis-je reprendre mon fichier Excel existant ?",
-          a: "Oui. Vous nous envoyez le fichier tel qu'il est — même incomplet, même avec un onglet par année. Nous faisons la reprise pendant vos 30 jours, vous la validez ligne à ligne. Ensuite, l'import autonome est inclus dans tous les plans ; la mise en service accompagnée, faite par nous, est à prix fixe : 990 MAD sur Petit, 2 490 MAD sur Moyen, incluse sur Grand.",
+          a: "Oui. Vous nous envoyez le fichier tel qu'il est — même incomplet, même avec un onglet par année. Nous faisons la reprise pendant vos 30 jours, vous la validez ligne à ligne. Ensuite, l'import autonome est inclus dans toutes les offres ; la mise en service accompagnée, faite par nous, est offerte en facturation annuelle — en mensuel, 990 MAD jusqu'à 60 lots, 1 990 MAD au-delà.",
         },
         {
           q: "Combien de temps prend la mise en service ?",

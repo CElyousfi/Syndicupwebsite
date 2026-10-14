@@ -5,14 +5,15 @@ import { useMemo, useState } from "react";
 import { UiIcon } from "@/components/icons";
 import type { SiteContent } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
-import { categoryFor, mad, quote } from "@/lib/pricing";
+import { categoryFor, chargesPerLotMonth, mad, quote } from "@/lib/pricing";
 
 /**
- * Le calculateur : la catégorie du décret vient des charges appelées (pas du
- * nombre de lots), les annexes exigées en découlent, et le coût SyndicUp est
- * donné en part du budget de la copropriété — c'est le chiffre qu'un syndic
- * porte en AG. Dessous : le coût de l'année 1 (mise en service accompagnée si
- * elle est choisie, plus douze mois) et le coût à partir de l'année 2.
+ * Le calculateur : la catégorie du décret vient des charges appelées annuelles,
+ * les annexes exigées en découlent ; l'offre SyndicUp vient des charges par lot
+ * et par mois (le standing). Le coût est donné en part du budget de la
+ * copropriété — c'est le chiffre qu'un syndic porte en AG. Dessous : le coût de
+ * l'année 1 (mise en service accompagnée, offerte en annuel, plus douze mois)
+ * et le coût à partir de l'année 2.
  */
 export function CategoryCalculator({ c, locale }: { c: SiteContent; locale: Locale }) {
   const t = c.calc;
@@ -20,12 +21,12 @@ export function CategoryCalculator({ c, locale }: { c: SiteContent; locale: Loca
   const [budget, setBudget] = useState("330000");
   const [commercial, setCommercial] = useState(false);
   const [cabinet, setCabinet] = useState(false);
-  const [setup, setSetup] = useState(false);
+  const [monthlyBilling, setMonthlyBilling] = useState(false);
 
   const result = useMemo(() => {
     const n = Math.max(1, Number(lots) || 1);
     const b = Math.max(0, Number(budget) || 0);
-    const q = quote({ lots: n, annualCharges: b, cabinet, accompaniedSetup: setup });
+    const q = quote({ lots: n, annualCharges: b, cabinet, accompaniedSetup: true, monthlyBilling });
     const category = t.regimes[categoryFor(b)];
     const planName = c.tarifs.plans.find((p) => p.key === q.plan)?.name ?? q.plan;
     const perMonth = q.ht ? t.perMonth.replace("MAD", "MAD HT") : t.perMonth;
@@ -34,18 +35,18 @@ export function CategoryCalculator({ c, locale }: { c: SiteContent; locale: Loca
       category,
       planName,
       duties: commercial ? [...category.duties, t.commercialDuty] : category.duties,
-      perLot: b > 0 ? `${mad(b / n)} ${t.perYear}` : "—",
+      perLot: b > 0 ? `${mad(chargesPerLotMonth(b, n))} ${t.perMonth}` : "—",
       monthly: `${mad(q.monthly, 2)} ${perMonth}`,
       yearOne: `${mad(q.yearOne)} ${q.ht ? "MAD HT" : "MAD"}`,
       yearTwo: `${mad(q.annual)} ${perYear}`,
       rate: q.floored ? `${mad(q.effectiveRate, 2)} MAD / lot` : `${mad(q.rate, 2)} MAD / lot`,
       floored: q.floored,
-      founder: t.founderNote.replace("{catalogue}", mad(q.catalogueRate, q.catalogueRate % 1 ? 2 : 0)),
-      setupIncluded: setup && !q.ht && q.plan === "grand",
+      founder: t.founderNote.replace("{catalogue}", mad(q.catalogueRate, 2)),
+      monthlyNote: q.monthlyBilling,
       ht: q.ht,
       share: b > 0 ? `${q.shareOfBudget.toFixed(1).replace(".", ",")} %` : "—",
     };
-  }, [lots, budget, commercial, cabinet, setup, t, c.tarifs.plans]);
+  }, [lots, budget, commercial, cabinet, monthlyBilling, t, c.tarifs.plans]);
 
   const pill = (on: boolean) =>
     `h-12 cursor-pointer rounded-lg border px-5 text-[15px] font-semibold ${
@@ -104,10 +105,10 @@ export function CategoryCalculator({ c, locale }: { c: SiteContent; locale: Loca
           <div className="grid gap-2 self-start">
             <span className="field-label">{t.setupLabel}</span>
             <div className="flex gap-2">
-              <button type="button" onClick={() => setSetup(true)} className={pill(setup)}>
+              <button type="button" onClick={() => setMonthlyBilling(true)} className={pill(monthlyBilling)}>
                 {t.yes}
               </button>
-              <button type="button" onClick={() => setSetup(false)} className={pill(!setup)}>
+              <button type="button" onClick={() => setMonthlyBilling(false)} className={pill(!monthlyBilling)}>
                 {t.no}
               </button>
             </div>
@@ -153,7 +154,7 @@ export function CategoryCalculator({ c, locale }: { c: SiteContent; locale: Loca
               {result.floored ? ` · ${t.floorNote}` : ""}
             </p>
             <p className="mt-1.5 text-[12.5px] text-soft">{result.ht ? t.cabinetNote : result.founder}</p>
-            {result.setupIncluded && <p className="mt-1.5 text-[12.5px] text-soft">{t.setupIncludedNote}</p>}
+            {result.monthlyNote && <p className="mt-1.5 text-[12.5px] text-soft">{t.setupIncludedNote}</p>}
           </div>
 
           <div>
