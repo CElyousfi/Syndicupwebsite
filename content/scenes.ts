@@ -142,13 +142,13 @@ export const ILLUSTRATIONS: Partial<Record<IllustrationKey, Scene>> = {
   },
   "pillar-annexes": {
     src: "/images/accueil/pillar-annexes.jpg",
-    alt: "Trois annexes de l'exercice, générées, prêtes à ouvrir",
+    alt: "3 annexes de l'exercice, générées, prêtes à ouvrir",
     width: 2578,
     height: 1632,
   },
   "pillar-appels": {
     src: "/images/accueil/pillar-appels.jpg",
-    alt: "Trois appels de fonds : payé, en relance, prélèvement programmé",
+    alt: "3 appels de fonds : payé, en relance, prélèvement programmé",
     width: 2578,
     height: 1632,
   },

@@ -61,7 +61,7 @@ export const home: SiteContent["home"] = {
   pillarsKicker: "UNE PLATEFORME, TOUTE LA COPROPRIÉTÉ",
   pillarsTitle: "Conformité, traçabilité, transparence.",
   pillarsLede:
-    "Quatre briques qui produisent la preuve dont votre assemblée a besoin. Chacune alimente les autres.",
+    "4 briques qui produisent la preuve dont votre assemblée a besoin. Chacune alimente les autres.",
   pillars: [
     {
       mockup: "annexe-mini",
@@ -292,7 +292,7 @@ export const home: SiteContent["home"] = {
   conformityKicker: "CONFORMITÉ INTÉGRÉE",
   conformityTitle: "La preuve n'est pas une option qu'on active.",
   conformityLede:
-    "Trois mécanismes tournent en permanence sous le produit. Ce sont eux qui font qu'en janvier, il n'y a rien à reconstituer.",
+    "3 mécanismes tournent en permanence sous le produit. Ce sont eux qui font qu'en janvier, il n'y a rien à reconstituer.",
   conformity: [
     {
       tag: "CONTRÔLES BLOQUANTS",
@@ -320,7 +320,7 @@ export const home: SiteContent["home"] = {
   whyKicker: "POURQUOI SYNDICUP",
   whyTitle: "Pourquoi SyndicUp ?",
   whyLede:
-    "Trois raisons qui ne dépendent pas de notre discours commercial, et que vous pouvez vérifier par vous-même, en vingt minutes de démonstration.",
+    "3 raisons qui ne dépendent pas de notre discours commercial, et que vous pouvez vérifier par vous-même, en 20 minutes de démonstration.",
   why: [
     {
       icon: "shield",
@@ -341,7 +341,7 @@ export const home: SiteContent["home"] = {
       illustration: "why-support",
       tone: "sand",
       title: "Un prix public, voté une fois",
-      desc: "Trente jours avec vos propres données, reprise faite par nous. Puis un tarif par lot et par mois, TTC, affiché publiquement — 1 à 3 % du budget d'une résidence, facturé à la copropriété et voté en AG.",
+      desc: "30 jours avec vos propres données, reprise faite par nous. Puis un tarif par lot et par mois, TTC, affiché publiquement — 1 à 3 % du budget d'une résidence, facturé à la copropriété et voté en AG.",
     },
   ],
 
@@ -353,7 +353,7 @@ export const home: SiteContent["home"] = {
     {
       city: "Casablanca",
       theme: "Les grandes résidences",
-      problem: "Cent lots et plus, des impayés qui passent d'un exercice à l'autre, et une AG où personne ne croit les chiffres.",
+      problem: "100 lots et plus, des impayés qui passent d'un exercice à l'autre, et une AG où personne ne croit les chiffres.",
       answer: "Relances graduées en votre nom, chaque dirham relié à sa pièce.",
       href: "/appels-de-fonds-recouvrement",
       linkLabel: "Recouvrement",
@@ -399,7 +399,7 @@ export const home: SiteContent["home"] = {
   placeKicker: "CASABLANCA · RABAT · MARRAKECH · TANGER",
   placeTitle: "Pensé au Maroc, pour les copropriétés d'ici.",
   placeBody:
-    "Le Décret 2.23.700, les AG en deux langues, les charges en dirhams, les fournisseurs du quartier : SyndicUp n'est pas un logiciel étranger adapté. Il est né dans un immeuble de 48 lots à Casablanca, et il est construit avec ceux qui gèrent.",
+    "Le Décret 2.23.700, les AG en 2 langues, les charges en dirhams, les fournisseurs du quartier : SyndicUp n'est pas un logiciel étranger adapté. Il est né dans un immeuble de 48 lots à Casablanca, et il est construit avec ceux qui gèrent.",
   placeImage: "/images/maroc/casablanca-coucher-hd.jpg",
   placeImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
   placeCta: "Notre histoire",
@@ -421,7 +421,7 @@ export const home: SiteContent["home"] = {
   portfolioKicker: "BÂTI POUR VOTRE SITUATION",
   portfolioTitle: "Bâti pour votre portefeuille.",
   portfolioLede:
-    "Un immeuble tenu le soir, un cabinet de cinquante mandats, une résidence neuve à livrer : ce n'est pas le même métier, ce n'est pas le même écran.",
+    "Un immeuble tenu le soir, un cabinet de 50 mandats, une résidence neuve à livrer : ce n'est pas le même métier, ce n'est pas le même écran.",
   portfolio: [
     {
       href: "/pour-syndic-benevole",
@@ -459,13 +459,13 @@ export const home: SiteContent["home"] = {
   portfolioSlide: "Carte",
 
   rolesKicker: "PAR RÔLE",
-  rolesTitle: "Le même immeuble, quatre métiers.",
+  rolesTitle: "Le même immeuble, 4 métiers.",
   roles: [
     {
       tab: "Syndic bénévole",
       line: "Vous gérez votre immeuble le soir, après votre vrai travail. Le produit doit faire le travail comptable à votre place.",
       points: [
-        "Trente jours avec vos données, puis à partir de 99 MAD par mois pour tout l'immeuble.",
+        "30 jours avec vos données, puis à partir de 99 MAD par mois pour tout l'immeuble.",
         "Les annexes sortent de vos écritures, vous ne les rédigez pas.",
         "Les relances d'impayés partent seules, en votre nom.",
       ],
@@ -475,7 +475,7 @@ export const home: SiteContent["home"] = {
     },
     {
       tab: "Cabinet",
-      line: "Dix, cinquante, cent résidences sous mandat. Vous avez besoin d'un tableau de bord de portefeuille et d'une clôture qui ne prend pas trois semaines.",
+      line: "10, 50, 100 résidences sous mandat. Vous avez besoin d'un tableau de bord de portefeuille et d'une clôture qui ne prend pas 3 semaines.",
       points: [
         "Un écran pour tout le portefeuille, alertes par résidence.",
         "Rôles et permissions par gestionnaire, journal d'audit complet.",
@@ -528,13 +528,13 @@ export const home: SiteContent["home"] = {
     end: "JANV. 2027 · PUBLICATION",
     progress: 12,
     pending: "À PUBLIER",
-    note: "Les trois chiffres seront publiés ici, avec leur méthode de calcul, à la fin du pilote.",
+    note: "Les 3 chiffres seront publiés ici, avec leur méthode de calcul, à la fin du pilote.",
   },
 
   ecosystemKicker: "ÉCOSYSTÈME",
   ecosystemTitle: "Se branche sur ce que vous utilisez déjà.",
   ecosystemNote:
-    "Aucun changement de banque, aucun matériel à acheter, aucune formation de trois jours.",
+    "Aucun changement de banque, aucun matériel à acheter, aucune formation de 3 jours.",
   ecosystem: [
     {
       logo: "/images/logos/whatsapp.svg",
@@ -570,7 +570,7 @@ export const home: SiteContent["home"] = {
   ecosystemCta: "Voir les intégrations",
 
   pricingKicker: "TARIFS",
-  pricingTitle: "9,90 MAD par appartement et par mois. Trente jours avec vos données avant.",
+  pricingTitle: "9,90 MAD par appartement et par mois. 30 jours avec vos données avant.",
   pricingLink: "Page tarifs complète",
   pricingFeaturedBadge: "LE PLUS CHOISI",
   pricingCardCta: "Voir le détail",
@@ -605,7 +605,7 @@ export const home: SiteContent["home"] = {
   importKicker: "REPRISE DE DONNÉES",
   importTitle: "Envoyez votre Excel. On s'occupe du reste.",
   importBody:
-    "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise pendant vos 30 jours, vous la validez ligne à ligne. Ensuite, deux chemins : l'import autonome, inclus, ou la mise en service accompagnée par nous, offerte en facturation annuelle.",
+    "Lots, tantièmes, propriétaires, soldes d'ouverture, historique des appels. Nous faisons la reprise pendant vos 30 jours, vous la validez ligne à ligne. Ensuite, 2 chemins : l'import autonome, inclus, ou la mise en service accompagnée par nous, offerte en facturation annuelle.",
   importPoints: [
     "Lots, tantièmes, propriétaires et soldes d'ouverture repris",
     "Vous validez ligne à ligne avant la mise en service",
@@ -696,7 +696,7 @@ export const home: SiteContent["home"] = {
         },
         {
           q: "Que dois-je faire avant ma clôture d'exercice ?",
-          a: "Quatorze gestes, dans l'ordre : rapprochement bancaire, lettrage des appels, justificatifs manquants, provisions, convocation dans les délais… Nous en avons fait une checklist, et le produit la reprend comme contrôles bloquants.",
+          a: "14 gestes, dans l'ordre : rapprochement bancaire, lettrage des appels, justificatifs manquants, provisions, convocation dans les délais… Nous en avons fait une checklist, et le produit la reprend comme contrôles bloquants.",
           link: { href: "/ressources/checklist-cloture-2026", label: "Checklist de clôture 2026" },
         },
       ],
@@ -778,7 +778,7 @@ export const home: SiteContent["home"] = {
         },
         {
           q: "Que fait le gardien dans l'application ?",
-          a: "Quatre gestes sur un écran de loge : déclarer un incident, saisir une dépense de petite caisse en photographiant la facture, relever un compteur, faire sa ronde. La facture est attachée avant que le montant n'existe en comptabilité.",
+          a: "4 gestes sur un écran de loge : déclarer un incident, saisir une dépense de petite caisse en photographiant la facture, relever un compteur, faire sa ronde. La facture est attachée avant que le montant n'existe en comptabilité.",
         },
         {
           q: "L'interface existe-t-elle en arabe ?",
@@ -801,11 +801,11 @@ export const home: SiteContent["home"] = {
         },
         {
           q: "Combien de temps prend la mise en service ?",
-          a: "Trois jours pour une copropriété simple : vous envoyez le fichier, nous vous rendons la reprise à valider sous 48 heures, et la résidence est administrée le lendemain. Pour un portefeuille de cabinet, nous procédons par vagues, à 490 MAD HT par résidence, offerte à partir de la 10e.",
+          a: "3 jours pour une copropriété simple : vous envoyez le fichier, nous vous rendons la reprise à valider sous 48 heures, et la résidence est administrée le lendemain. Pour un portefeuille de cabinet, nous procédons par vagues, à 490 MAD HT par résidence, offerte à partir de la 10e.",
         },
         {
           q: "Comment se passe la démonstration ?",
-          a: "Vingt minutes, en visio ou au téléphone, sur une résidence de démonstration complète : comptabilité, annexes, AG passée avec son PV, incidents. Vous posez vos questions sur votre propre cas, et le récapitulatif arrive sur WhatsApp.",
+          a: "20 minutes, en visio ou au téléphone, sur une résidence de démonstration complète : comptabilité, annexes, AG passée avec son PV, incidents. Vous posez vos questions sur votre propre cas, et le récapitulatif arrive sur WhatsApp.",
           link: { href: "/demo", label: "Réserver une démo" },
         },
         {
@@ -819,7 +819,7 @@ export const home: SiteContent["home"] = {
         },
         {
           q: "Je suis promoteur : que se passe-t-il à la livraison ?",
-          a: "Vous livrez une copropriété déjà administrée : lots, tantièmes et propriétaires chargés, premier appel de fonds prêt, résidents invités. Vous vous épargnez trois ans de réclamations.",
+          a: "Vous livrez une copropriété déjà administrée : lots, tantièmes et propriétaires chargés, premier appel de fonds prêt, résidents invités. Vous vous épargnez 3 ans de réclamations.",
           link: { href: "/pour-promoteurs", label: "Pour promoteurs" },
         },
       ],

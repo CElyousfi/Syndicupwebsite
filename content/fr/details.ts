@@ -64,7 +64,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
         body: "Le plan comptable de la copropriété est posé à la mise en service. À partir de là, chaque montant est saisi une seule fois, rattaché à un compte, à un exercice et à un justificatif.",
         bullets: [
           "Aucun montant en virgule flottante : arithmétique décimale au centime.",
-          "Provisions, budget voté, réalisé, écart : les quatre colonnes tenues en continu.",
+          "Provisions, budget voté, réalisé, écart : les 4 colonnes tenues en continu.",
           "Rattachement automatique à l'exercice, avec gestion des écritures d'à-nouveau.",
         ],
         mockup: "annexe-mini",
@@ -102,7 +102,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     crumb: "FONCTIONNALITÉS / APPELS DE FONDS",
     kicker: "TRÉSORERIE",
     title: "Appeler les fonds, puis les encaisser vraiment.",
-    lede: "Un appel de fonds n'a de valeur que s'il est réparti correctement, envoyé de façon prouvable, et suivi jusqu'au paiement. Les trois se font au même endroit, et le recouvrement démarre sans que vous y pensiez.",
+    lede: "Un appel de fonds n'a de valeur que s'il est réparti correctement, envoyé de façon prouvable, et suivi jusqu'au paiement. Les 3 se font au même endroit, et le recouvrement démarre sans que vous y pensiez.",
     metaDescription:
       "Appels de fonds répartis aux tantièmes, encaissement par CMI, virement ou espèces, quittances numérotées et relances graduées automatiques.",
     heroMockup: "appels-rows",
@@ -127,7 +127,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
       {
         step: "02 · ENCAISSEMENT",
         heading: "Paiement en ligne, virement, ou espèces à la loge",
-        body: "Le paiement en ligne par carte via CMI est disponible, mais la réalité marocaine reste mixte : le virement et l'espèce comptent. Les trois produisent la même quittance numérotée.",
+        body: "Le paiement en ligne par carte via CMI est disponible, mais la réalité marocaine reste mixte : le virement et l'espèce comptent. Les 3 produisent la même quittance numérotée.",
         bullets: [
           "Lettrage automatique des virements par référence d'appel.",
           "Encaissement espèces enregistré avec justificatif et double validation.",
@@ -212,13 +212,13 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     crumb: "FONCTIONNALITÉS / DÉPENSES & JUSTIFICATIFS",
     kicker: "TRAÇABILITÉ",
     title: "Aucune dépense n'entre sans sa facture.",
-    lede: "C'est la règle la plus simple du produit, et la plus impopulaire au début : une dépense sans justificatif reste bloquée dans la file de validation. Trois mois plus tard, c'est ce qui permet de répondre à un copropriétaire en dix secondes.",
+    lede: "C'est la règle la plus simple du produit, et la plus impopulaire au début : une dépense sans justificatif reste bloquée dans la file de validation. 3 mois plus tard, c'est ce qui permet de répondre à un copropriétaire en 10 secondes.",
     metaDescription:
-      "Justificatif obligatoire et bloquant, validation à deux yeux au-delà du seuil voté, stockage privé par URL signée, journal inaltérable.",
+      "Justificatif obligatoire et bloquant, double validation au-delà du seuil voté, stockage privé par URL signée, journal inaltérable.",
     heroMockup: "validation",
     outputs: [
       { k: "Justificatif", v: "obligatoire, bloquant" },
-      { k: "Validation", v: "à deux yeux au-delà d'un seuil" },
+      { k: "Validation", v: "double, au-delà d'un seuil" },
       { k: "Stockage", v: "privé, URL signée" },
       { k: "Traçabilité", v: "journal inaltérable" },
     ],
@@ -236,7 +236,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
       },
       {
         step: "02 · VALIDATION",
-        heading: "Deux yeux au-delà du seuil voté",
+        heading: "Double validation au-delà du seuil voté",
         body: "Les petites dépenses passent seules ; au-dessus du seuil défini par la copropriété, une seconde validation est requise — conseil syndical, ou second gestionnaire du cabinet.",
         bullets: [
           "Seuil paramétrable par copropriété, voté en AG.",
@@ -306,7 +306,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
       },
       {
         step: "03 · LA VIE COURANTE",
-        heading: "Un incident déclaré en trois gestes",
+        heading: "Un incident déclaré en 3 gestes",
         body: "Photo, localisation dans l'immeuble, description facultative. L'incident est routé au gardien ou au prestataire, avec un niveau d'escalade qui monte tout seul si personne ne répond.",
         bullets: [
           "Suivi de l'incident jusqu'à sa clôture, avec photo de résolution.",
@@ -365,7 +365,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
       },
       {
         step: "03 · PETITE CAISSE",
-        heading: "Cinquante dirhams de produit d'entretien, tracés aussi",
+        heading: "50 dirhams de produit d'entretien, tracés aussi",
         body: "La petite caisse de la loge est le trou noir classique de la copropriété. Ici chaque sortie est photographiée, plafonnée, et rapprochée en fin de mois.",
         bullets: [
           "Plafond de caisse et plafond par achat, paramétrés.",
@@ -443,8 +443,8 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
   "multi-residences-cabinets": {
     crumb: "FONCTIONNALITÉS / MULTI-RÉSIDENCES",
     kicker: "PORTEFEUILLE",
-    title: "Cinquante résidences, un seul écran de pilotage.",
-    lede: "Un cabinet ne veut pas cinquante tableaux de bord. Il veut savoir, en ouvrant son navigateur le lundi matin, quelles résidences sont en retard de clôture, où les impayés dérivent, et quelle AG doit être convoquée cette semaine.",
+    title: "50 résidences, un seul écran de pilotage.",
+    lede: "Un cabinet ne veut pas 50 tableaux de bord. Il veut savoir, en ouvrant son navigateur le lundi matin, quelles résidences sont en retard de clôture, où les impayés dérivent, et quelle AG doit être convoquée cette semaine.",
     metaDescription:
       "Vue portefeuille classée par urgence, permissions par gestionnaire, journal d'audit et clôture standardisée mandat par mandat.",
     heroMockup: "cabinet-portfolio",
@@ -461,7 +461,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
         body: "La vue portefeuille classe les résidences par urgence : clôture en retard, AG à convoquer dans les délais, taux d'impayés en dégradation, dépenses bloquées faute de justificatif.",
         bullets: [
           "Indicateurs comparables d'une résidence à l'autre.",
-          "Échéancier des AG sur douze mois, avec les délais de convocation.",
+          "Échéancier des AG sur 12 mois, avec les délais de convocation.",
           "Alertes de dérive d'impayés, avant que le sujet arrive en AG.",
         ],
         mockup: "cabinet-portfolio",
@@ -480,7 +480,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
       {
         step: "03 · CLÔTURE INDUSTRIELLE",
         heading: "La même procédure, mandat après mandat",
-        body: "La clôture d'exercice suit une procédure identique pour toutes les résidences, avec les mêmes contrôles bloquants. Ce qui prenait trois semaines de rattrapage devient une revue de contrôles.",
+        body: "La clôture d'exercice suit une procédure identique pour toutes les résidences, avec les mêmes contrôles bloquants. Ce qui prenait 3 semaines de rattrapage devient une revue de contrôles.",
         bullets: [
           "Modèles de plan comptable et de clés, réutilisables.",
           "Reprise de portefeuille accompagnée, résidence par résidence.",
@@ -491,7 +491,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     ],
     limitTitle: "Sur la reprise d'un portefeuille existant",
     limitBody:
-      "Reprendre cinquante mandats ne se fait pas en une nuit. Nous procédons par vagues, en commençant par les résidences dont l'AG est la plus proche, et nous vous laissons valider chaque reprise avant mise en service. C'est plus lent à annoncer et plus sûr à vivre.",
+      "Reprendre 50 mandats ne se fait pas en une nuit. Nous procédons par vagues, en commençant par les résidences dont l'AG est la plus proche, et nous vous laissons valider chaque reprise avant mise en service. C'est plus lent à annoncer et plus sûr à vivre.",
     related: [
       { href: "/pour-cabinet-syndic", title: "Pour cabinet de syndic", desc: "La landing dédiée." },
       R_COMPTA,
@@ -505,7 +505,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     title: "Vous gérez l'immeuble le soir. Le logiciel travaille pendant ce temps.",
     lede: "Vous n'êtes pas comptable, vous n'avez pas signé pour ça, et vous le faites quand même. Le produit est conçu pour que la conformité soit un effet secondaire de vos gestes quotidiens, pas un chantier de janvier.",
     metaDescription:
-      "Trente jours avec vos propres données, puis 5,90 ou 9,90 MAD par lot et par mois selon vos charges (5,00 et 8,40 au tarif fondateur) : reprise faite par nous, relances automatiques, annexes générées et PV d'AG produit à la clôture de séance.",
+      "30 jours avec vos propres données, puis 5,90 ou 9,90 MAD par lot et par mois selon vos charges (5,00 et 8,40 au tarif fondateur) : reprise faite par nous, relances automatiques, annexes générées et PV d'AG produit à la clôture de séance.",
     heroMockup: "syndic-todo",
     outputs: [
       { k: "Prix", v: "5,90 ou 9,90 MAD / lot / mois, à partir de 99 MAD" },
@@ -516,7 +516,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     blocks: [
       {
         step: "01 · CE SOIR",
-        heading: "Vingt minutes pour tout mettre en place",
+        heading: "20 minutes pour tout mettre en place",
         body: "Vous envoyez votre fichier — même désordonné. Nous le reprenons, vous validez les lots, les tantièmes et les soldes d'ouverture. Le lendemain, la copropriété est administrée.",
         bullets: [
           "Reprise de votre Excel, faite par nous, pendant vos 30 jours.",
@@ -550,7 +550,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     ],
     limitTitle: "Pourquoi ce n'est plus gratuit, honnêtement",
     limitBody:
-      "Un logiciel gratuit sans limite de durée ne paie ni l'hébergement, ni le support, ni la personne qui reprend votre fichier. Nous avons choisi l'inverse : trente jours avec vos propres données, un tarif public à partir de 99 MAD par mois pour tout l'immeuble — voté une fois en AG — et des résidents qui ne paient jamais. Après l'essai, vos données restent lisibles et exportables ; rien n'est supprimé.",
+      "Un logiciel gratuit sans limite de durée ne paie ni l'hébergement, ni le support, ni la personne qui reprend votre fichier. Nous avons choisi l'inverse : 30 jours avec vos propres données, un tarif public à partir de 99 MAD par mois pour tout l'immeuble — voté une fois en AG — et des résidents qui ne paient jamais. Après l'essai, vos données restent lisibles et exportables ; rien n'est supprimé.",
     related: [
       R_GUIDE,
       R_COMPTA,
@@ -566,7 +566,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     crumb: "POUR QUI / CABINET DE SYNDIC",
     kicker: "PORTEFEUILLE PROFESSIONNEL",
     title: "Votre marge est dans la clôture, pas dans la saisie.",
-    lede: "Un cabinet perd ses semaines à reconstituer des comptes et à répondre au téléphone. Les deux se traitent par le même moyen : une donnée saisie une fois sur le terrain, et des copropriétaires qui voient leurs comptes sans vous appeler.",
+    lede: "Un cabinet perd ses semaines à reconstituer des comptes et à répondre au téléphone. Les 2 se traitent par le même moyen : une donnée saisie une fois sur le terrain, et des copropriétaires qui voient leurs comptes sans vous appeler.",
     metaDescription:
       "De 3,90 à 2,60 MAD HT par lot et par mois, dégressif par taille de portefeuille : vue portefeuille, rôles et permissions, application au nom du cabinet et clôture standardisée par mandat.",
     heroMockup: "cabinet-portfolio",
@@ -613,7 +613,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     ],
     limitTitle: "Ce que la reprise demande de votre côté",
     limitBody:
-      "Nous faisons le travail de reprise, mais nous avons besoin d'un interlocuteur qui valide : tantièmes, soldes d'ouverture, contrats en cours. Comptez une à deux heures par résidence, une seule fois. Les cabinets qui ont sauté cette étape le paient à la première AG.",
+      "Nous faisons le travail de reprise, mais nous avons besoin d'un interlocuteur qui valide : tantièmes, soldes d'ouverture, contrats en cours. Comptez 1 à 2 heures par résidence, une seule fois. Les cabinets qui ont sauté cette étape le paient à la première AG.",
     related: [R_MULTI, R_TARIFS, R_COMPTA],
   },
 
@@ -621,7 +621,7 @@ const base: Record<DetailSlug, Omit<DetailPage, keyof (typeof detailsExtra)[Deta
     crumb: "POUR QUI / PROMOTEURS",
     kicker: "LIVRAISON DE RÉSIDENCE",
     title: "Livrer une résidence déjà administrée.",
-    lede: "La première année d'une copropriété neuve détermine sa réputation. Un promoteur qui remet les clés avec des tantièmes propres, un budget prévisionnel et une AG constitutive bien tenue s'épargne trois ans de réclamations.",
+    lede: "La première année d'une copropriété neuve détermine sa réputation. Un promoteur qui remet les clés avec des tantièmes propres, un budget prévisionnel et une AG constitutive bien tenue s'épargne 3 ans de réclamations.",
     metaDescription:
       "Mise en service avant remise des clés : tantièmes importés du règlement, budget prévisionnel, AG constitutive outillée et passation au syndic élu.",
     heroMockup: "dashboard",

@@ -24,11 +24,11 @@ export const articles: SiteContent["articles"] = {
         ],
       },
       {
-        heading: "Les trois erreurs qui coûtent le plus cher",
+        heading: "Les 3 erreurs qui coûtent le plus cher",
         paras: [
-          "La première est de croire qu'un tableur suffit. Il suffit tant que personne ne conteste. Le jour où un copropriétaire demande la facture derrière une ligne de charge, l'absence de lien entre l'écriture et la pièce devient un problème de preuve, pas de comptabilité.",
-          "La deuxième est de reporter la mise en ordre à la clôture suivante. Un exercice mal tenu contamine le suivant par ses soldes d'ouverture. Plus on attend, plus la reprise est lourde.",
-          "La troisième est de traiter la petite caisse de la loge comme un détail. C'est souvent là que se logent les écarts les plus difficiles à expliquer en assemblée, pour les montants les plus faibles.",
+          "La 1re est de croire qu'un tableur suffit. Il suffit tant que personne ne conteste. Le jour où un copropriétaire demande la facture derrière une ligne de charge, l'absence de lien entre l'écriture et la pièce devient un problème de preuve, pas de comptabilité.",
+          "La 2e est de reporter la mise en ordre à la clôture suivante. Un exercice mal tenu contamine le suivant par ses soldes d'ouverture. Plus on attend, plus la reprise est lourde.",
+          "La 3e est de traiter la petite caisse de la loge comme un détail. C'est souvent là que se logent les écarts les plus difficiles à expliquer en assemblée, pour les montants les plus faibles.",
         ],
         bullets: [],
       },
@@ -75,7 +75,7 @@ export const articles: SiteContent["articles"] = {
       {
         heading: "La logique d'ensemble",
         paras: [
-          "Les états se répartissent en trois familles. Ceux qui décrivent la situation à la date de clôture — ce que la copropriété possède, doit, et lui est dû. Ceux qui décrivent le mouvement de l'exercice — ce qui a été budgété, dépensé, appelé, encaissé. Et ceux qui descendent au niveau du lot, c'est-à-dire au niveau où le copropriétaire vérifie.",
+          "Les états se répartissent en 3 familles. Ceux qui décrivent la situation à la date de clôture — ce que la copropriété possède, doit, et lui est dû. Ceux qui décrivent le mouvement de l'exercice — ce qui a été budgété, dépensé, appelé, encaissé. Et ceux qui descendent au niveau du lot, c'est-à-dire au niveau où le copropriétaire vérifie.",
           "Un état est contestable quand il ne se raccroche pas aux autres. Si le total des quotes-parts par lot ne fait pas le total des charges de l'exercice, l'assemblée a raison de refuser l'approbation.",
         ],
         bullets: [],
@@ -108,7 +108,7 @@ export const articles: SiteContent["articles"] = {
         heading: "Les états par lot",
         paras: [
           "Ce sont les plus lus, parce que chacun y cherche sa ligne. La quote-part de charges par lot, calculée selon les clés de répartition, avec le détail du calcul et le traitement explicite de l'écart d'arrondi.",
-          "C'est aussi là que les logiciels approximatifs se font prendre : un centime perdu multiplié par quarante-huit lots, et le total ne boucle plus.",
+          "C'est aussi là que les logiciels approximatifs se font prendre : un centime perdu multiplié par 48 lots, et le total ne boucle plus.",
         ],
         bullets: [
           "Charges par lot et par clé de répartition.",
@@ -134,7 +134,7 @@ export const articles: SiteContent["articles"] = {
   "checklist-cloture-2026": {
     kicker: "CHECKLIST · SAISON 2026",
     title: "Les 14 gestes avant votre AG de clôture",
-    lede: "À faire dans cet ordre. Les six premiers points sont ceux qui font échouer une assemblée quand ils sont sautés ; les suivants font gagner du temps le jour même.",
+    lede: "À faire dans cet ordre. Les 6 premiers points sont ceux qui font échouer une assemblée quand ils sont sautés ; les suivants font gagner du temps le jour même.",
     metaDescription:
       "Les 14 opérations à mener avant l'assemblée générale de clôture, dans l'ordre : rapprochements, justificatifs, lettrage, annexes, convocation, feuille de présence, PV.",
     meta: "MIS À JOUR LE 8 SEPT. 2026 · À IMPRIMER · FR / AR",
@@ -192,7 +192,7 @@ export const articles: SiteContent["articles"] = {
     noteBody:
       "Les délais de convocation, quorums et majorités applicables à votre copropriété doivent être confirmés par votre conseil juridique. Cette checklist décrit l'ordre des opérations, qui ne dépend pas des valeurs retenues.",
     ctaTitle: "Faire dérouler cette checklist par le produit",
-    ctaBody: "Les contrôles bloquants correspondent aux six premiers points.",
+    ctaBody: "Les contrôles bloquants correspondent aux 6 premiers points.",
   },
 
   "modele-convocation-ag": {
@@ -208,7 +208,7 @@ export const articles: SiteContent["articles"] = {
       {
         heading: "Les mentions qui comptent",
         paras: [
-          "Une convocation contestée l'est presque toujours sur la forme : ordre du jour imprécis, pièce non jointe, ou impossibilité de prouver la date de réception. Le modèle est construit pour fermer ces trois portes.",
+          "Une convocation contestée l'est presque toujours sur la forme : ordre du jour imprécis, pièce non jointe, ou impossibilité de prouver la date de réception. Le modèle est construit pour fermer ces 3 portes.",
         ],
         bullets: [
           "Identification complète du syndicat et de la résidence.",
@@ -229,7 +229,7 @@ export const articles: SiteContent["articles"] = {
       {
         heading: "La version arabe",
         paras: [
-          "Le modèle existe en arabe, mis en page de droite à gauche, avec la même structure. Les deux versions sont fournies : dans beaucoup de copropriétés, la convocation part dans les deux langues, et c'est un signe de sérieux.",
+          "Le modèle existe en arabe, mis en page de droite à gauche, avec la même structure. Les 2 versions sont fournies : dans beaucoup de copropriétés, la convocation part dans les 2 langues, et c'est un signe de sérieux.",
         ],
         bullets: [],
       },
@@ -267,7 +267,7 @@ export const articles: SiteContent["articles"] = {
       {
         heading: "Le résumé des débats",
         paras: [
-          "Il doit être court et neutre. Un PV qui rapporte les échanges dans le détail donne prise à la contestation ; un PV qui les ignore complètement prive l'assemblée de la mémoire de ses arbitrages. Deux à quatre phrases par point sensible suffisent.",
+          "Il doit être court et neutre. Un PV qui rapporte les échanges dans le détail donne prise à la contestation ; un PV qui les ignore complètement prive l'assemblée de la mémoire de ses arbitrages. 2 à 4 phrases par point sensible suffisent.",
         ],
         bullets: [],
       },

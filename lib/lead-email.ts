@@ -139,7 +139,7 @@ ${m.page ? `Page : ${esc(m.page)}<br>` : ""}${m.referrer ? `Référent : ${esc(m
 <span style="font-family:${MONO};font-size:12px;color:${C.faint}">Réf. ${esc(m.id)}</span>
 </div></td></tr>
 </table></td></tr>
-<tr><td style="padding:14px 4px 0;font:400 13px/1.55 ${FONT};color:${C.body}">À faire : répondre dans l'heure ouvrable, proposer deux créneaux, puis noter le résultat (démo tenue, essai, payant) dans le suivi.</td></tr>`,
+<tr><td style="padding:14px 4px 0;font:400 13px/1.55 ${FONT};color:${C.body}">À faire : répondre dans l'heure ouvrable, proposer 2 créneaux, puis noter le résultat (démo tenue, essai, payant) dans le suivi.</td></tr>`,
   );
 
   const text = [
@@ -177,7 +177,7 @@ export function prospectEmail(v: LeadInput, m: LeadMeta) {
   const subject = "Votre démo SyndicUp : nous vous écrivons sur WhatsApp";
   const stepList: [string, string][] = [
     ["Sous une heure ouvrable", `Un message WhatsApp au ${phone} pour choisir le créneau.`],
-    ["Vingt minutes", `Une résidence complète en ${v.lang === "ar" ? "arabe" : "français"} : comptabilité, 12 annexes, AG et PV.`],
+    ["20 minutes", `Une résidence complète en ${v.lang === "ar" ? "arabe" : "français"} : comptabilité, 12 annexes, AG et PV.`],
     ["Si vous le souhaitez", "Envoyez votre fichier Excel avant : la démo se fera sur votre copropriété."],
   ];
   const steps = stepList
@@ -203,7 +203,7 @@ export function prospectEmail(v: LeadInput, m: LeadMeta) {
     `Merci ${first}, c'est noté.`,
     "",
     `1. Sous une heure ouvrable : un message WhatsApp au ${phone} pour choisir le créneau.`,
-    "2. Vingt minutes : une résidence complète — comptabilité, 12 annexes, AG et PV.",
+    "2. 20 minutes : une résidence complète — comptabilité, 12 annexes, AG et PV.",
     "3. Si vous le souhaitez : envoyez votre fichier Excel avant, la démo se fera sur votre copropriété.",
     "",
     "Une question d'ici là ? Répondez simplement à cet e-mail.",

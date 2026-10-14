@@ -59,7 +59,7 @@ const SECTIONS: { heading: string; paras: string[]; bullets?: string[] }[] = [
   {
     heading: "Vos choix et leur durée",
     paras: [
-      "Quatre finalités vous sont présentées : cookies strictement nécessaires (toujours actifs), mesure d'audience et de performance, personnalisation des contenus, publicité et mesure des campagnes. Vous pouvez tout accepter, tout refuser ou choisir finalité par finalité ; seuls les outils réellement actifs sont listés dans la fenêtre. Vos choix sont conservés 6 mois, puis vous sont redemandés.",
+      "4 finalités vous sont présentées : cookies strictement nécessaires (toujours actifs), mesure d'audience et de performance, personnalisation des contenus, publicité et mesure des campagnes. Vous pouvez tout accepter, tout refuser ou choisir finalité par finalité ; seuls les outils réellement actifs sont listés dans la fenêtre. Vos choix sont conservés 6 mois, puis vous sont redemandés.",
       "Le lien « Préférences cookies », en bas de chaque page, rouvre vos paramètres. Un refus prend effet immédiatement. Vous pouvez aussi supprimer les cookies depuis votre navigateur, et régler vos préférences publicitaires dans votre compte Facebook ou Instagram.",
     ],
   },

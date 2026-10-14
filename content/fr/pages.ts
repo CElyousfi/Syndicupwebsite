@@ -3,10 +3,10 @@ import type { SiteContent } from "../types";
 export const features: SiteContent["features"] = {
   metaTitle: "Fonctionnalités — tout le produit sur une page",
   metaDescription:
-    "Neuf modules, un seul modèle de données : comptabilité et annexes, appels de fonds, assemblées générales, dépenses, résidents, gardien, location courte durée, portefeuille.",
+    "9 modules, un seul modèle de données : comptabilité et annexes, appels de fonds, assemblées générales, dépenses, résidents, gardien, location courte durée, portefeuille.",
   crumb: "FONCTIONNALITÉS",
   title: "Tout le produit sur une page.",
-  lede: "Neuf domaines, un seul modèle de données. Une dépense saisie par le gardien devient une ligne d'annexe, un point d'ordre du jour et une quote-part sur la quittance d'un lot — sans que personne ne la retape.",
+  lede: "9 domaines, un seul modèle de données. Une dépense saisie par le gardien devient une ligne d'annexe, un point d'ordre du jour et une quote-part sur la quittance d'un lot — sans que personne ne la retape.",
   image: "/images/residence-hero.jpg",
   imageAlt: "Résidence en copropriété gérée avec SyndicUp",
   cards: [
@@ -33,7 +33,7 @@ export const features: SiteContent["features"] = {
       href: "/depenses-justificatifs",
       icon: "depenses",
       title: "Dépenses & justificatifs",
-      desc: "Aucune dépense n'entre en comptabilité sans sa facture. File de validation à deux yeux.",
+      desc: "Aucune dépense n'entre en comptabilité sans sa facture. File de double validation.",
     },
     {
       href: "/application-residents",
@@ -61,7 +61,7 @@ export const features: SiteContent["features"] = {
       desc: "Un portefeuille, un écran de pilotage, des permissions par gestionnaire.",
     },
   ],
-  modulesKicker: "NEUF MODULES",
+  modulesKicker: "9 MODULES",
   modulesTitle: "Un module par métier, une seule base.",
   modulesLede: "Chaque module est une page : ce qu'il règle, comment il marche, pour qui, et ce qu'il ne fait pas.",
   flowKicker: "LE FIL ROUGE",
@@ -69,14 +69,14 @@ export const features: SiteContent["features"] = {
   flowLede: "Suivez une facture d'ascenseur : c'est le trajet que fait chaque dirham dans le produit.",
   flow: [
     { icon: "mobile", title: "Le gardien la photographie", desc: "À la loge, depuis un téléphone d'entrée de gamme. La pièce existe avant le montant." },
-    { icon: "review", title: "Le syndic la valide", desc: "Dans la file, seul sous le seuil voté, à deux yeux au-dessus." },
+    { icon: "review", title: "Le syndic la valide", desc: "Dans la file, seul sous le seuil voté, en double validation au-dessus." },
     { icon: "bank", title: "Elle devient une charge", desc: "Répartie aux tantièmes, clé ascenseur, au centime — l'écart d'arrondi attribué." },
     { icon: "excel", title: "Elle entre dans l'annexe", desc: "État des dépenses, répartition par lot : générés, pas ressaisis." },
     { icon: "sms", title: "Le copropriétaire la voit", desc: "Depuis sa quote-part jusqu'à la photo de la facture, sur son téléphone." },
     { icon: "assembly", title: "L'AG l'approuve", desc: "Jointe à la convocation, votée en tantièmes, au PV sous 48 h." },
   ],
   foundationKicker: "CE QUI TIENT L'ENSEMBLE",
-  foundationTitle: "Trois règles que rien ne contourne",
+  foundationTitle: "3 règles que rien ne contourne",
   foundations: [
     {
       icon: "unlock",
@@ -99,12 +99,12 @@ export const features: SiteContent["features"] = {
 export const tarifs: SiteContent["tarifs"] = {
   metaTitle: "Tarifs — 9,90 MAD par appartement et par mois, TTC",
   metaDescription:
-    "Un prix par lot et par mois, TTC, selon le standing de la résidence : Essentiel 5,90 MAD, Standard 9,90 MAD, Prestige 14,90 MAD — 5,00, 8,40 et 12,60 MAD avec la remise fondateur de 15 %. Cabinets de 3,90 à 2,60 MAD HT. Mise en service offerte en facturation annuelle. Trente jours avec vos propres données.",
+    "Un prix par lot et par mois, TTC, selon le standing de la résidence : Essentiel 5,90 MAD, Standard 9,90 MAD, Prestige 14,90 MAD — 5,00, 8,40 et 12,60 MAD avec la remise fondateur de 15 %. Cabinets de 3,90 à 2,60 MAD HT. Mise en service offerte en facturation annuelle. 30 jours avec vos propres données.",
   crumb: "TARIFS",
   title: "9,90 MAD par appartement et par mois. Le prix est sur cette page.",
   heroImage: "/images/maroc/marrakech-koutoubia-hd.jpg",
   heroImageAlt: "Marrakech, la Koutoubia et les toits de la médina au coucher du soleil",
-  lede: "Trente jours avec vos propres données, reprise faite par nous : si vous ne continuez pas, vous ne payez rien. Ensuite, un prix par lot et par mois, TTC, facturé à la copropriété et voté une fois en AG — en général 2 à 3 % de vos charges. Remise fondateur de 15 % pour les 100 premières résidences, jusqu'au 31 mars 2027.",
+  lede: "30 jours avec vos propres données, reprise faite par nous : si vous ne continuez pas, vous ne payez rien. Ensuite, un prix par lot et par mois, TTC, facturé à la copropriété et voté une fois en AG — en général 2 à 3 % de vos charges. Remise fondateur de 15 % pour les 100 premières résidences, jusqu'au 31 mars 2027.",
   facts: [
     { k: "Essai", v: "30 jours avec vos données" },
     { k: "Prix", v: "TTC, par lot et par mois" },
@@ -209,10 +209,10 @@ export const tarifs: SiteContent["tarifs"] = {
       cta: { href: "/contact", label: "Demander un devis" },
     },
   ],
-  ttcNote: "Prix TTC pour les copropriétés, HT pour les cabinets. L'offre suit les charges appelées par lot et par mois — le standing de la résidence —, pas le nombre de lots. Facturation annuelle par défaut, payable par virement ou chèque à 30 jours, au syndicat des copropriétaires ou au cabinet. Vous ne savez pas quelle offre est la vôtre ? Le calculateur vous le dit en trente secondes.",
+  ttcNote: "Prix TTC pour les copropriétés, HT pour les cabinets. L'offre suit les charges appelées par lot et par mois — le standing de la résidence —, pas le nombre de lots. Facturation annuelle par défaut, payable par virement ou chèque à 30 jours, au syndicat des copropriétaires ou au cabinet. Vous ne savez pas quelle offre est la vôtre ? Le calculateur vous le dit en 30 secondes.",
   whichPlan: "Quelle offre pour ma copropriété ?",
   setupKicker: "MISE EN SERVICE",
-  setupTitle: "Deux chemins. Offerte en facturation annuelle.",
+  setupTitle: "2 chemins. Offerte en facturation annuelle.",
   setupLede: "L'import autonome est toujours inclus. La mise en service accompagnée, faite par nous, est offerte quand la copropriété est facturée à l'année ; en facturation mensuelle, elle est à prix fixe, jamais à l'heure.",
   setupPaths: [
     {
@@ -264,7 +264,7 @@ export const tarifs: SiteContent["tarifs"] = {
     {
       icon: "building",
       title: "Cabinets",
-      desc: "Facturation trimestrielle, prix HT, contrat annuel. Pilote de 90 jours sur trois résidences. Devis en 24 h.",
+      desc: "Facturation trimestrielle, prix HT, contrat annuel. Pilote de 90 jours sur 3 résidences. Devis en 24 h.",
     },
   ],
   cabinetKicker: "CABINETS",
@@ -282,7 +282,7 @@ export const tarifs: SiteContent["tarifs"] = {
       "À 30 MAD de l'honoraire par lot, ce sont 18 000 MAD de revenus mensuels supplémentaires.",
       "La facture SyndicUp pour ces 600 lots : 2 340 MAD HT par mois — 13 % de ce qu'ils rapportent.",
     ],
-    result: "Le logiciel se paie sur le premier mandat repris. Les quatorze autres sont de la marge.",
+    result: "Le logiciel se paie sur le premier mandat repris. Les 14 autres sont de la marge.",
   },
   trialKicker: "L'ESSAI",
   trialTitle: "30 jours avec vos propres données. Nous faisons la reprise. Si vous ne continuez pas, vous ne payez rien.",
@@ -291,7 +291,7 @@ export const tarifs: SiteContent["tarifs"] = {
     { icon: "mobile", title: "Vous créez votre compte", desc: "Un e-mail, un mot de passe. Pas de carte bancaire." },
     { icon: "upload", title: "Nous reprenons vos données sous 48 h", desc: "Lots, tantièmes, propriétaires, soldes d'ouverture. Vous validez ligne à ligne." },
     { icon: "bank", title: "Vous émettez votre premier appel de fonds", desc: "Réparti aux tantièmes, envoyé, tracé — pendant l'essai." },
-    { icon: "review", title: "Vous recevez votre annexe 10", desc: "Le vingt-cinquième jour, la version que vous présenterez à l'AG. Pour continuer, l'offre découle de vos charges ; en facturation annuelle, la mise en service accompagnée est offerte." },
+    { icon: "review", title: "Vous recevez votre annexe 10", desc: "Le 25e jour, la version que vous présenterez à l'AG. Pour continuer, l'offre découle de vos charges ; en facturation annuelle, la mise en service accompagnée est offerte." },
   ],
   founderKicker: "TARIF FONDATEUR",
   founderTitle: "−15 % pour les 100 premières résidences, jusqu'au 31 mars 2027",
@@ -299,12 +299,12 @@ export const tarifs: SiteContent["tarifs"] = {
   founderPoints: [
     "−15 % sur le prix catalogue, garanti 24 mois",
     "Essentiel 5,00 · Standard 8,40 · Prestige 12,60 MAD par lot et par mois",
-    "Cabinets : pilote de 90 jours sur trois résidences, reprise faite par nous",
+    "Cabinets : pilote de 90 jours sur 3 résidences, reprise faite par nous",
     "Le tarif public est affiché : personne n'est surpris par une facture",
   ],
   founderCta: { href: "/demo", label: "Réserver ma place" },
   referralTitle: "Parrainage",
-  referralBody: "Le syndic qui amène une autre résidence gagne deux mois crédités ; la nouvelle résidence gagne un mois d'essai de plus. Le syndic de l'immeuble A connaît celui de l'immeuble B — c'est comme ça que ça se passe.",
+  referralBody: "Le syndic qui amène une autre résidence gagne 2 mois crédités ; la nouvelle résidence gagne un mois d'essai de plus. Le syndic de l'immeuble A connaît celui de l'immeuble B — c'est comme ça que ça se passe.",
   addonsKicker: "OPTIONS",
   addonsTitle: "Ce qui a un coût réel, et ce que ça coûte",
   addons: [
@@ -362,7 +362,7 @@ export const tarifs: SiteContent["tarifs"] = {
       a: "Parce qu'un logiciel gratuit sans limite de durée ne peut pas payer l'hébergement, le support ni la personne qui reprend votre fichier. Nous préférons un essai complet, un tarif public, et des résidents qui ne paient jamais — plutôt qu'une gratuité qui finit par un service dégradé.",
     },
     {
-      q: "Pourquoi trois prix, et pas un seul ?",
+      q: "Pourquoi 3 prix, et pas un seul ?",
       a: "Parce qu'un même prix ne pèse pas pareil partout. 9,90 MAD par appartement, c'est 2 % des charges d'une résidence à 500 MAD, mais 5 % d'un immeuble à 200 MAD. L'offre suit donc vos charges par lot : Essentiel à 5,90 MAD sous 250 MAD de charges, Standard à 9,90 MAD de 250 à 600 MAD, Prestige à 14,90 MAD au-delà. Ainsi, SyndicUp pèse en général 2 à 3 % des charges, quelle que soit la résidence.",
     },
     {
@@ -404,7 +404,7 @@ export const tarifs: SiteContent["tarifs"] = {
     },
     {
       q: "Comment un cabinet accède-t-il au tarif Cabinet ?",
-      a: "Avec au moins trois mandats actifs, vérifiés à la mise en service. Le cabinet commence par un pilote de 90 jours sur trois résidences, reprise faite par nous. Ensuite 3,90 MAD HT par lot et par mois jusqu'à 999 lots, 3,20 MAD de 1 000 à 2 999, 2,60 MAD au-delà, sur tout le portefeuille. Contrat annuel, minimum 6 000 MAD HT par an, devis en 24 h.",
+      a: "Avec au moins 3 mandats actifs, vérifiés à la mise en service. Le cabinet commence par un pilote de 90 jours sur 3 résidences, reprise faite par nous. Ensuite 3,90 MAD HT par lot et par mois jusqu'à 999 lots, 3,20 MAD de 1 000 à 2 999, 2,60 MAD au-delà, sur tout le portefeuille. Contrat annuel, minimum 6 000 MAD HT par an, devis en 24 h.",
       link: { href: "/pour-cabinet-syndic", label: "Pour cabinet de syndic" },
     },
     {
@@ -419,10 +419,10 @@ export const demo: SiteContent["demo"] = {
   metaDescription:
     "Une démonstration de 20 minutes, en français ou en arabe, sur une résidence complète : comptabilité, annexes, AG et son PV. Une minute à remplir, la suite sur WhatsApp.",
   crumb: "DÉMO",
-  title: "Vingt minutes qui montrent, au lieu de promettre.",
+  title: "20 minutes qui montrent, au lieu de promettre.",
   lede: "La démonstration se fait sur une résidence complète, pas sur des écrans vides : la comptabilité d'un exercice, les 12 annexes, une AG passée avec son PV, des incidents en cours. En français ou en arabe — et sur votre propre cas si vous nous envoyez votre fichier avant.",
   stepsKicker: "LE DÉROULÉ",
-  stepsTitle: "Vingt minutes, quatre temps",
+  stepsTitle: "20 minutes, 4 temps",
   steps: [
     { icon: "upload", title: "Votre fichier, si vous l'avez envoyé", desc: "La démo se fait alors sur votre copropriété, pas sur la nôtre." },
     { icon: "excel", title: "La comptabilité et les annexes", desc: "Un exercice complet, la clôture, les 12 états générés." },
@@ -497,10 +497,10 @@ export const securite: SiteContent["securite"] = {
   metaDescription:
     "Cloisonnement appliqué dans l'application et dans la base (RLS), chiffrement en transit et au repos, sauvegardes restaurées pour de vrai, traitement déclaré à la CNDP.",
   crumb: "SÉCURITÉ",
-  title: "Deux couches d'isolation, aucune confiance accordée à l'autre.",
+  title: "2 couches d'isolation, aucune confiance accordée à l'autre.",
   heroImage: "/images/maroc/ciel-oiseaux-hd.jpg",
   heroImageAlt: "Vol d'oiseaux dans un ciel bleu, à contre-jour",
-  lede: "Le cloisonnement entre copropriétés est appliqué deux fois : dans l'application, et dans la base de données elle-même. Les deux doivent être vraies en même temps — l'une n'est jamais une excuse pour relâcher l'autre.",
+  lede: "Le cloisonnement entre copropriétés est appliqué 2 fois : dans l'application, et dans la base de données elle-même. Les 2 doivent être vraies en même temps — l'une n'est jamais une excuse pour relâcher l'autre.",
   facts: [
     { k: "Hébergement", v: "Union européenne" },
     { k: "Chiffrement", v: "en transit et au repos" },
@@ -518,7 +518,7 @@ export const securite: SiteContent["securite"] = {
     isolatedTag: "Isolée",
     lotsUnit: "lots",
   },
-  principlesKicker: "QUATRE PRINCIPES",
+  principlesKicker: "4 PRINCIPES",
   principlesTitle: "Ce que nous nous interdisons",
   principles: [
     { icon: "unlock", title: "Aucune requête ne franchit une copropriété", desc: "La base refuse elle-même une lecture hors périmètre, même en cas d'erreur dans l'application." },
@@ -526,7 +526,7 @@ export const securite: SiteContent["securite"] = {
     { icon: "building", title: "Aucune donnée que vous ne puissiez reprendre", desc: "Export complet — écritures, pièces, PV — à tout moment, jamais facturé." },
     { icon: "check", title: "Aucune sauvegarde non restaurée", desc: "Une sauvegarde qui n'a pas été restaurée n'existe pas : la restauration est testée, pas supposée." },
   ],
-  blocksTitle: "Quatre couches, dans l'ordre",
+  blocksTitle: "4 couches, dans l'ordre",
   blocksLede: "De la ligne en base jusqu'au registre de la CNDP : ce qui protège vos données, et comment nous le vérifions.",
   blocks: [
     {
@@ -714,12 +714,12 @@ export const calc: SiteContent["calc"] = {
         "Annexe 11 : état des créances et des dettes, avec ancienneté des impayés.",
         "Annexe 12 : situation de trésorerie rapprochée avec la banque.",
         "Budget prévisionnel voté, écart budget / réalisé expliqué.",
-        "Validation à deux yeux des dépenses au-delà du seuil voté.",
+        "Double validation des dépenses au-delà du seuil voté.",
       ],
     },
     grand: {
       name: "Grande copropriété",
-      summary: "Charges appelées de 500 000 MAD par an et plus. Huit états, un contrôle plus attentif, souvent un commissaire aux comptes : seul un système intégré tient dans la durée.",
+      summary: "Charges appelées de 500 000 MAD par an et plus. 8 états, un contrôle plus attentif, souvent un commissaire aux comptes : seul un système intégré tient dans la durée.",
       annexes: "Annexes 3 à 10",
       duties: [
         "Annexes 3 à 10 : budget, réalisé, créances, dettes, trésorerie, provisions, répartition — avec justificatifs référencés ligne à ligne.",
@@ -742,18 +742,18 @@ export const apropos: SiteContent["apropos"] = {
   title: "Nous avons commencé par lire le décret. Pas par dessiner des écrans.",
   lede: "SyndicUp est né d'une clôture d'exercice ratée dans une copropriété de 48 lots à Casablanca. Le tableur ne bouclait pas, l'AG a été contestée, et personne ne savait quelle annexe manquait. Nous avons lu le Décret 2.23.700 ligne par ligne, puis construit le produit qui l'applique.",
   principlesKicker: "CE QUI NOUS GUIDE",
-  principlesTitle: "Trois principes, dans cet ordre",
+  principlesTitle: "3 principes, dans cet ordre",
   principles: [
     { icon: "review", title: "La preuve avant la promesse", desc: "Un PV opposable, une dépense avec sa pièce, un journal inaltérable : le produit produit des preuves, pas des tableaux de bord." },
-    { icon: "gift", title: "Un prix qu'on peut porter en AG", desc: "Trente jours avec vos propres données, puis 1 à 3 % du budget d'une résidence, TTC, affiché publiquement. Le résident ne paie jamais." },
-    { icon: "sms", title: "Dans les deux langues, pour de vrai", desc: "L'arabe se lit de droite à gauche jusque dans les documents générés. Ce n'est pas une traduction posée sur une interface française." },
+    { icon: "gift", title: "Un prix qu'on peut porter en AG", desc: "30 jours avec vos propres données, puis 1 à 3 % du budget d'une résidence, TTC, affiché publiquement. Le résident ne paie jamais." },
+    { icon: "sms", title: "Dans les 2 langues, pour de vrai", desc: "L'arabe se lit de droite à gauche jusque dans les documents générés. Ce n'est pas une traduction posée sur une interface française." },
   ],
   heroImage: "/images/maroc/casablanca-coucher-hd.jpg",
   heroImageAlt: "Toits de Casablanca au coucher du soleil, la mosquée Hassan II à l'horizon",
   image: "/images/maroc/chefchaouen-ruelle-hd.jpg",
   imageAlt: "Ruelle blanche et bleue d'une médina marocaine",
   paras: [
-    "SyndicUp est né d'une clôture d'exercice ratée. Un immeuble de 48 lots à Casablanca, un syndic bénévole consciencieux, trois classeurs, un tableur — et l'impossibilité de produire, en janvier, des comptes que personne n'avait tenus en mars.",
+    "SyndicUp est né d'une clôture d'exercice ratée. Un immeuble de 48 lots à Casablanca, un syndic bénévole consciencieux, 3 classeurs, un tableur — et l'impossibilité de produire, en janvier, des comptes que personne n'avait tenus en mars.",
     "Le Décret 2.23.700 a changé la nature du problème. Il ne demande plus de la bonne volonté, il demande des documents. Un logiciel qui n'est pas capable de les produire depuis les écritures de l'année n'est pas un logiciel de syndic : c'est un cahier avec une interface.",
     "Nous construisons donc dans l'ordre inverse de l'habituel : d'abord la comptabilité et sa preuve, ensuite les écrans. Et nous publions ce que nous ne savons pas encore — les valeurs légales en attente de confirmation juridique sont documentées, pas devinées.",
   ],

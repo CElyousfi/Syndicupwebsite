@@ -46,7 +46,7 @@ const AUD_GARDIEN = {
 
 export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   "comptabilite-annexes": {
-    painsTitle: "Trois problèmes que le tableur ne réglera jamais",
+    painsTitle: "3 problèmes que le tableur ne réglera jamais",
     pains: [
       {
         icon: "excel",
@@ -65,8 +65,8 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       },
     ],
     blocksTitle: "De l'écriture à l'annexe, sans ressaisie",
-    blocksLede: "Trois moments dans l'année, une seule chaîne : ce qui est saisi en mars est ce qui sort en janvier.",
-    stepsTitle: "Votre exercice, en quatre temps",
+    blocksLede: "3 moments dans l'année, une seule chaîne : ce qui est saisi en mars est ce qui sort en janvier.",
+    stepsTitle: "Votre exercice, en 4 temps",
     steps: [
       { icon: "upload", title: "Le plan comptable est posé", desc: "À la mise en service, avec vos clés de répartition et vos tantièmes repris de votre fichier." },
       { icon: "review", title: "Chaque montant entre une fois", desc: "Rattaché à un compte, un exercice, un justificatif — par vous, le gardien ou le conseil." },
@@ -81,15 +81,15 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     compareTitle: "Ce qui change concrètement",
     compare: [
-      { topic: "Clôture d'exercice", before: "Trois semaines de reconstitution depuis les relevés et les factures retrouvées.", after: "Contrôles bloquants passés, les 12 annexes sortent d'un seul geste." },
+      { topic: "Clôture d'exercice", before: "3 semaines de reconstitution depuis les relevés et les factures retrouvées.", after: "Contrôles bloquants passés, les 12 annexes sortent d'un seul geste." },
       { topic: "Répartition", before: "Un total qui ne boucle pas, un centime perdu par lot, une contestation en AG.", after: "Répartition au centime, écart attribué selon une règle votée et affichée." },
       { topic: "Correction", before: "On écrase la cellule ; personne ne sait ce qu'il y avait avant.", after: "Une ligne nouvelle, horodatée, liée à l'écriture d'origine : l'historique reste lisible." },
       { topic: "Contrôleur ou commissaire", before: "Un classeur, des explications orales, des pièces manquantes.", after: "Un export normalisé, chaque écriture reliée à sa pièce, journal inaltérable." },
     ],
     audiencesTitle: "Qui s'en sert, et pour quoi",
     audiences: [
-      { ...AUD_BENEVOLE, desc: "Vous n'êtes pas comptable : le produit tient les quatre colonnes à votre place et vous dit quoi corriger, quand." },
-      { ...AUD_CABINET, desc: "Cinquante clôtures par an, la même procédure à chaque fois, et un export propre pour l'expert-comptable." },
+      { ...AUD_BENEVOLE, desc: "Vous n'êtes pas comptable : le produit tient les 4 colonnes à votre place et vous dit quoi corriger, quand." },
+      { ...AUD_CABINET, desc: "50 clôtures par an, la même procédure à chaque fois, et un export propre pour l'expert-comptable." },
       { ...AUD_RESIDENT, desc: "Il ouvre une ligne de charge et voit la facture. Les annexes lui arrivent avec la convocation." },
     ],
     faqTitle: "Questions sur la comptabilité et les annexes",
@@ -102,7 +102,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   },
 
   "appels-de-fonds-recouvrement": {
-    painsTitle: "Trois raisons pour lesquelles les impayés s'installent",
+    painsTitle: "3 raisons pour lesquelles les impayés s'installent",
     pains: [
       { icon: "sms", pain: "Le copropriétaire ne comprend pas d'où vient son montant.", fix: "Chaque appel joint le détail du calcul : base, clé, tantièmes, quote-part." },
       { icon: "bank", pain: "Le virement arrive, personne ne sait de qui.", fix: "Une référence unique par appel ; le lettrage se fait seul au relevé." },
@@ -146,11 +146,11 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   },
 
   "assemblees-generales": {
-    painsTitle: "Trois façons dont une AG se fait contester",
+    painsTitle: "3 façons dont une AG se fait contester",
     pains: [
       { icon: "sms", pain: "La convocation est partie trop tard, ou personne ne peut le prouver.", fix: "Délai légal contrôlé avant envoi ; chaque convocation tracée par destinataire, date et canal." },
       { icon: "assembly", pain: "Le quorum est compté en têtes, ou de mémoire.", fix: "Feuille de présence numérique, quorum recalculé en tantièmes à chaque arrivée, majorité requise affichée avant le vote." },
-      { icon: "review", pain: "Le PV arrive trois semaines plus tard, incomplet.", fix: "Généré à la clôture de la séance, horodaté, distribué à tous sous 48 heures." },
+      { icon: "review", pain: "Le PV arrive 3 semaines plus tard, incomplet.", fix: "Généré à la clôture de la séance, horodaté, distribué à tous sous 48 heures." },
     ],
     blocksTitle: "Une chaîne de preuve, de la convocation au PV",
     blocksLede: "Ce n'est pas une visioconférence avec un compte rendu. Chaque étape produit une pièce que personne ne peut réécrire.",
@@ -177,7 +177,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     audiencesTitle: "Qui s'en sert, et pour quoi",
     audiences: [
       { ...AUD_BENEVOLE, desc: "L'AG que vous ne redoutez plus : le produit tient la procédure, vous tenez la séance." },
-      { ...AUD_CABINET, desc: "La même procédure sur cinquante mandats, et un PV opposable pour chacun, sans veillée de rédaction." },
+      { ...AUD_CABINET, desc: "La même procédure sur 50 mandats, et un PV opposable pour chacun, sans veillée de rédaction." },
       { ...AUD_RESIDENT, desc: "Il reçoit la convocation avec les annexes, donne pouvoir en ligne, et lit le PV dans les 48 heures." },
     ],
     faqTitle: "Questions sur les assemblées",
@@ -190,7 +190,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   },
 
   "depenses-justificatifs": {
-    painsTitle: "Trois trous par lesquels l'argent disparaît",
+    painsTitle: "3 trous par lesquels l'argent disparaît",
     pains: [
       { icon: "review", pain: "Une dépense passe sans facture, on la retrouvera plus tard.", fix: "Elle reste bloquée dans la file de validation tant que la pièce manque. Elle n'entre dans aucune annexe." },
       { icon: "mobile", pain: "La facture est retapée au bureau, avec une erreur.", fix: "Photographiée sur place par le gardien ou le syndic ; la pièce est attachée avant que le montant n'existe." },
@@ -202,7 +202,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     steps: [
       { icon: "mobile", title: "La facture est photographiée", desc: "Sur place, depuis la loge ou le téléphone du syndic ; fournisseur et poste choisis dans la foulée." },
       { icon: "review", title: "Elle entre dans la file", desc: "Montant, pièce, poste : si l'un manque, la ligne est bloquée et nommée." },
-      { icon: "assembly", title: "Elle est validée", desc: "Seule sous le seuil ; à deux yeux au-dessus, selon la règle votée." },
+      { icon: "assembly", title: "Elle est validée", desc: "Seule sous le seuil ; en double validation au-dessus, selon la règle votée." },
       { icon: "check", title: "Elle devient une charge", desc: "Répartie aux tantièmes, visible par chaque copropriétaire jusqu'à la pièce." },
     ],
     stats: [
@@ -234,7 +234,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   },
 
   "application-residents": {
-    painsTitle: "Trois appels que le syndic ne recevra plus",
+    painsTitle: "3 appels que le syndic ne recevra plus",
     pains: [
       { icon: "mobile", pain: "« Combien je dois, et pourquoi ? »", fix: "Le solde, l'historique des appels et le détail du calcul sont sur son téléphone, à jour." },
       { icon: "review", pain: "« Envoyez-moi ma quittance. »", fix: "Chaque paiement produit une quittance PDF numérotée, dans son espace, dans l'heure." },
@@ -242,7 +242,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     blocksTitle: "Ce que le copropriétaire voit, et ce qu'il peut faire",
     blocksLede: "Son compte, les comptes communs en lecture, et la vie courante de l'immeuble — depuis son téléphone, en français ou en arabe.",
-    stepsTitle: "Sa première connexion, en trois gestes",
+    stepsTitle: "Sa première connexion, en 3 gestes",
     steps: [
       { icon: "sms", title: "Il reçoit son invitation", desc: "Un QR code ou un code personnel, remis par le syndic ou envoyé à la mise en service." },
       { icon: "unlock", title: "Il crée son accès", desc: "Un e-mail et un mot de passe, puis Face ID ou l'empreinte sur mobile : il ne le retape plus." },
@@ -277,17 +277,17 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   },
 
   "gardien-et-loge": {
-    painsTitle: "Trois choses qui se perdent entre la loge et le bureau",
+    painsTitle: "3 choses qui se perdent entre la loge et le bureau",
     pains: [
       { icon: "mobile", pain: "Un incident décrit de vive voix, oublié le lendemain.", fix: "Photographié, localisé, horodaté depuis la loge : constatable, transmis, suivi." },
-      { icon: "review", pain: "Cinquante dirhams de petite caisse sans trace.", fix: "La facture est photographiée, la dépense entre dans la file avec sa pièce, comme toutes les autres." },
+      { icon: "review", pain: "50 dirhams de petite caisse sans trace.", fix: "La facture est photographiée, la dépense entre dans la file avec sa pièce, comme toutes les autres." },
       { icon: "check", pain: "Personne ne sait si la ronde a eu lieu.", fix: "Ronde et relevés de compteur horodatés ; le syndic voit ce qui a été fait, quand." },
     ],
     blocksTitle: "Le gardien est la source des données",
-    blocksLede: "Quatre gros boutons, une langue au choix, un téléphone d'entrée de gamme : c'est tout ce qu'il faut pour que le terrain alimente la comptabilité.",
+    blocksLede: "4 gros boutons, une langue au choix, un téléphone d'entrée de gamme : c'est tout ce qu'il faut pour que le terrain alimente la comptabilité.",
     stepsTitle: "Une journée à la loge",
     steps: [
-      { icon: "mobile", title: "Il ouvre l'écran de loge", desc: "Incident, petite caisse, relevé de compteur, ronde : quatre tuiles, en arabe s'il préfère." },
+      { icon: "mobile", title: "Il ouvre l'écran de loge", desc: "Incident, petite caisse, relevé de compteur, ronde : 4 tuiles, en arabe s'il préfère." },
       { icon: "upload", title: "Il photographie", desc: "Une fuite, une facture, un compteur. La photo vaut mieux qu'une description." },
       { icon: "sms", title: "Le syndic est prévenu", desc: "L'incident est routé, la dépense entre dans la file, le relevé est daté." },
       { icon: "check", title: "Tout est horodaté", desc: "Hors réseau, la saisie est différée et part au retour de la connexion." },
@@ -321,7 +321,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   },
 
   "location-courte-duree": {
-    painsTitle: "Trois injustices que la répartition classique ignore",
+    painsTitle: "3 injustices que la répartition classique ignore",
     pains: [
       { icon: "building", pain: "Le lot loué à la nuit use l'ascenseur, l'eau et le gardiennage bien plus que les autres.", fix: "Une clé de répartition qui suit l'usage réel, séjour par séjour." },
       { icon: "review", pain: "Le conseil syndical argumente de mémoire contre un propriétaire.", fix: "Déclarations, constats du gardien, écarts : tout est documenté et constatable." },
@@ -365,13 +365,13 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   },
 
   "multi-residences-cabinets": {
-    painsTitle: "Trois choses qu'un cabinet ne devrait plus faire à la main",
+    painsTitle: "3 choses qu'un cabinet ne devrait plus faire à la main",
     pains: [
-      { icon: "building", pain: "Ouvrir cinquante fichiers pour savoir laquelle va mal.", fix: "Un écran portefeuille classé par urgence : clôture en retard, AG à convoquer, impayés qui montent." },
-      { icon: "unlock", pain: "Un gestionnaire voit — ou modifie — le portefeuille d'un collègue.", fix: "Permissions par gestionnaire et par résidence ; cinq rôles plus la lecture seule." },
+      { icon: "building", pain: "Ouvrir 50 fichiers pour savoir laquelle va mal.", fix: "Un écran portefeuille classé par urgence : clôture en retard, AG à convoquer, impayés qui montent." },
+      { icon: "unlock", pain: "Un gestionnaire voit — ou modifie — le portefeuille d'un collègue.", fix: "Permissions par gestionnaire et par résidence ; 5 rôles plus la lecture seule." },
       { icon: "review", pain: "Chaque mandat réinvente sa procédure.", fix: "Plan comptable, clés et modèles réutilisables ; la même clôture, résidence après résidence." },
     ],
-    blocksTitle: "Piloter un portefeuille, pas cinquante tableurs",
+    blocksTitle: "Piloter un portefeuille, pas 50 tableurs",
     blocksLede: "Ce qui va mal en haut de l'écran, chaque gestionnaire sur son périmètre, et la même procédure mandat après mandat.",
     stepsTitle: "Reprendre un portefeuille, par vagues",
     steps: [
@@ -388,7 +388,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     compareTitle: "Ce qui change concrètement",
     compare: [
-      { topic: "Vue d'ensemble", before: "Cinquante fichiers, aucune alerte, des surprises en fin d'année.", after: "Un écran, les résidences classées par urgence, les alertes priorisées." },
+      { topic: "Vue d'ensemble", before: "50 fichiers, aucune alerte, des surprises en fin d'année.", after: "Un écran, les résidences classées par urgence, les alertes priorisées." },
       { topic: "Périmètres", before: "Tout le monde voit tout, ou personne ne voit rien.", after: "Permissions par gestionnaire et par résidence, tracées." },
       { topic: "Procédures", before: "Une façon de faire par gestionnaire, perdue quand il part.", after: "Modèles de plan comptable et de clés, la même clôture partout." },
       { topic: "Contrôle", before: "Un audit interne impossible à mener.", after: "Journal complet : qui a fait quoi, quand, sur quelle résidence." },
@@ -404,18 +404,18 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
       { q: "Combien de résidences peut-on gérer ?", a: "Autant que vous en avez sous mandat. Le tarif est par lot, la vue portefeuille est incluse dès la première résidence." },
       { q: "Un gestionnaire peut-il être sur plusieurs résidences ?", a: "Oui, avec un rôle par résidence si nécessaire : gestionnaire sur l'une, lecture seule sur l'autre." },
       { q: "Que devient une résidence qui quitte le cabinet ?", a: "Son export complet — écritures, pièces, PV — est remis au syndic suivant. C'est inclus, jamais facturé." },
-      { q: "La reprise d'un portefeuille prend combien de temps ?", a: "Elle se fait par vagues, résidence par résidence, sans interrompre l'activité. Le rythme dépend de la qualité de vos fichiers ; nous vous le disons après avoir vu les trois premiers." },
+      { q: "La reprise d'un portefeuille prend combien de temps ?", a: "Elle se fait par vagues, résidence par résidence, sans interrompre l'activité. Le rythme dépend de la qualité de vos fichiers ; nous vous le disons après avoir vu les 3 premiers." },
     ],
   },
 
   "pour-syndic-benevole": {
-    painsTitle: "Trois soirées que vous ne passerez plus",
+    painsTitle: "3 soirées que vous ne passerez plus",
     pains: [
       { icon: "excel", pain: "Refaire les comptes dans un tableur, la veille de l'AG.", fix: "Les écritures entrent au fil de l'eau ; les annexes se génèrent." },
       { icon: "whatsapp", pain: "Relancer un voisin pour un appel de fonds en retard.", fix: "Relances graduées, automatiques, en votre nom." },
       { icon: "assembly", pain: "Rédiger un PV de mémoire, en espérant qu'il tienne.", fix: "Généré à la clôture de la séance, horodaté, distribué sous 48 h." },
     ],
-    blocksTitle: "Vingt minutes pour commencer, puis le produit travaille",
+    blocksTitle: "20 minutes pour commencer, puis le produit travaille",
     blocksLede: "Vous n'avez pas signé pour être comptable. Le produit fait le travail comptable ; vous gardez les décisions.",
     stepsTitle: "Votre première semaine",
     steps: [
@@ -445,7 +445,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     faqTitle: "Questions des syndics bénévoles",
     faq: [
-      { q: "Combien ça coûte, pour un petit immeuble ?", a: "Trente jours avec vos propres données, reprise faite par nous, rien à payer si vous ne continuez pas. Ensuite, si vos charges sont sous 250 MAD par appartement et par mois, 5,90 MAD par lot et par mois — 5,00 MAD avec la remise fondateur de 15 % — avec un minimum de 99 MAD par mois pour tout l'immeuble : 1 188 MAD par an au minimum, votés une fois en AG. Au-delà de 250 MAD de charges, 9,90 MAD (8,40 au tarif fondateur). Import autonome inclus, mise en service accompagnée offerte en facturation annuelle. Les résidents ne paient jamais.", link: { href: "/tarifs", label: "Tarifs" } },
+      { q: "Combien ça coûte, pour un petit immeuble ?", a: "30 jours avec vos propres données, reprise faite par nous, rien à payer si vous ne continuez pas. Ensuite, si vos charges sont sous 250 MAD par appartement et par mois, 5,90 MAD par lot et par mois — 5,00 MAD avec la remise fondateur de 15 % — avec un minimum de 99 MAD par mois pour tout l'immeuble : 1 188 MAD par an au minimum, votés une fois en AG. Au-delà de 250 MAD de charges, 9,90 MAD (8,40 au tarif fondateur). Import autonome inclus, mise en service accompagnée offerte en facturation annuelle. Les résidents ne paient jamais.", link: { href: "/tarifs", label: "Tarifs" } },
       { q: "Je n'y connais rien en comptabilité. Est-ce un problème ?", a: "Non. La saisie est guidée poste par poste, les contrôles sont automatiques, et une personne suit votre première clôture." },
       { q: "Que se passe-t-il si nos charges augmentent ?", a: "Si elles dépassent 250 MAD par appartement et par mois, vous passez à l'offre Standard, à 9,90 MAD par lot et par mois (8,40 au tarif fondateur), à la clôture de l'exercice suivant. Au-delà de 200 000 MAD par an, la catégorie du décret change aussi, et SyndicUp génère les annexes correspondantes. Rien ne change dans vos données ; vous êtes prévenus avant l'AG." },
       { q: "Puis-je transmettre à mon successeur ?", a: "Oui : le mandat change de titulaire, l'historique reste. Votre successeur reprend une copropriété administrée, pas un carton." },
@@ -453,7 +453,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
   },
 
   "pour-cabinet-syndic": {
-    painsTitle: "Trois postes de coût qu'un cabinet peut supprimer",
+    painsTitle: "3 postes de coût qu'un cabinet peut supprimer",
     pains: [
       { icon: "excel", pain: "Des semaines de reconstitution de comptes par résidence.", fix: "Écritures au fil de l'eau, contrôles bloquants, clôture d'un geste — sur chaque mandat." },
       { icon: "sms", pain: "Le téléphone qui sonne pour un solde ou une quittance.", fix: "La réponse est déjà dans l'application du copropriétaire." },
@@ -463,7 +463,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     blocksLede: "Une vue portefeuille classée par urgence, moins d'appels, et une seule procédure mandat après mandat.",
     stepsTitle: "Passer un portefeuille sur SyndicUp",
     steps: [
-      { icon: "review", title: "Trois résidences pilotes", desc: "Vous choisissez, nous reprenons, vos gestionnaires valident." },
+      { icon: "review", title: "3 résidences pilotes", desc: "Vous choisissez, nous reprenons, vos gestionnaires valident." },
       { icon: "building", title: "Le reste par vagues", desc: "Sans interrompre l'activité, avec la même procédure." },
       { icon: "sms", title: "Les résidents basculent", desc: "Invitation par QR code, application au nom du cabinet." },
       { icon: "check", title: "Le portefeuille est piloté", desc: "Alertes, taux de recouvrement, clôtures : sur un écran." },
@@ -476,7 +476,7 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     compareTitle: "Ce qui change concrètement",
     compare: [
-      { topic: "Clôtures", before: "Cinquante reconstitutions, cinquante veillées.", after: "Contrôles continus, annexes générées, la même procédure partout." },
+      { topic: "Clôtures", before: "50 reconstitutions, 50 veillées.", after: "Contrôles continus, annexes générées, la même procédure partout." },
       { topic: "Relation client", before: "Des appels pour des soldes et des quittances.", after: "Une application au nom du cabinet où la réponse est déjà là." },
       { topic: "Équipe", before: "Le savoir-faire dans la tête d'un gestionnaire.", after: "Modèles, permissions, journal : le savoir-faire appartient au cabinet." },
       { topic: "Prospection", before: "Une plaquette.", after: "Une démonstration sur un portefeuille réel, et un PV opposable à montrer." },
@@ -489,15 +489,15 @@ export const detailsExtra: Record<DetailSlug, DetailExtra> = {
     ],
     faqTitle: "Questions des cabinets",
     faq: [
-      { q: "Le tarif Cabinet couvre-t-il tout ?", a: "Tout le produit, le support et la reprise par vagues, pour l'ensemble du portefeuille, dès trois mandats. 3,90 MAD HT par lot et par mois jusqu'à 999 lots, 3,20 MAD de 1 000 à 2 999, 2,60 MAD au-delà — appliqué à tout le portefeuille dès le seuil franchi. Pilote de 90 jours sur trois résidences, reprise faite par nous. Contrat annuel, minimum 6 000 MAD HT par an, facturation trimestrielle. Mise en service 490 MAD HT par résidence, offerte à partir de la 10e.", link: { href: "/tarifs", label: "Tarifs" } },
+      { q: "Le tarif Cabinet couvre-t-il tout ?", a: "Tout le produit, le support et la reprise par vagues, pour l'ensemble du portefeuille, dès 3 mandats. 3,90 MAD HT par lot et par mois jusqu'à 999 lots, 3,20 MAD de 1 000 à 2 999, 2,60 MAD au-delà — appliqué à tout le portefeuille dès le seuil franchi. Pilote de 90 jours sur 3 résidences, reprise faite par nous. Contrat annuel, minimum 6 000 MAD HT par an, facturation trimestrielle. Mise en service 490 MAD HT par résidence, offerte à partir de la 10e.", link: { href: "/tarifs", label: "Tarifs" } },
       { q: "L'application peut-elle porter le nom du cabinet ?", a: "Oui : vos mandants voient votre nom et votre logo dans leur espace résident." },
-      { q: "Comment se passe la reprise d'un gros portefeuille ?", a: "Par vagues, à partir de trois résidences pilotes. Nous faisons la reprise, vos gestionnaires valident sur leur périmètre, et l'activité ne s'arrête pas." },
+      { q: "Comment se passe la reprise d'un gros portefeuille ?", a: "Par vagues, à partir de 3 résidences pilotes. Nous faisons la reprise, vos gestionnaires valident sur leur périmètre, et l'activité ne s'arrête pas." },
       { q: "Peut-on exporter vers notre expert-comptable ?", a: "Oui, par résidence, dans un format normalisé — écritures, pièces, annexes." },
     ],
   },
 
   "pour-promoteurs": {
-    painsTitle: "Trois réclamations que vous n'aurez pas",
+    painsTitle: "3 réclamations que vous n'aurez pas",
     pains: [
       { icon: "building", pain: "Des tantièmes provisoires, contestés dès la première AG.", fix: "Tantièmes importés du règlement de copropriété, avant la remise des clés." },
       { icon: "sms", pain: "Des acquéreurs qui appellent le promoteur pour la copropriété.", fix: "Chaque acquéreur reçoit son accès résident avec ses clés ; il voit sa quote-part et ses appels." },

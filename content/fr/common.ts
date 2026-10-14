@@ -100,7 +100,7 @@ export const nav: SiteContent["nav"] = {
       href: "/pour-cabinet-syndic",
       icon: "cabinet",
       title: "Cabinet de syndic",
-      desc: "Dix, cinquante, cent résidences sous mandat.",
+      desc: "10, 50, 100 résidences sous mandat.",
     },
     {
       href: "/pour-promoteurs",
@@ -180,7 +180,7 @@ export const notFound: SiteContent["notFound"] = {
   askDariQuestion: "Je cherche une page du site qui n'existe plus. Que me conseillez-vous ?",
   cards: [
     { href: "/", title: "Accueil →", desc: "Le produit en une page." },
-    { href: "/fonctionnalites", title: "Fonctionnalités →", desc: "Les neuf modules, en détail." },
+    { href: "/fonctionnalites", title: "Fonctionnalités →", desc: "Les 9 modules, en détail." },
     { href: "/tarifs", title: "Tarifs →", desc: "Le prix, sans formulaire." },
     { href: "/ressources", title: "Ressources →", desc: "Guides, modèles, calculateur." },
   ],

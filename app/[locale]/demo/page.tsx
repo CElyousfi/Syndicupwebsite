@@ -87,7 +87,7 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
               <span className="kicker">RÉSIDENCE AL AMAL</span>
               <h2 className="h-section mt-4">Une vraie résidence, un vrai exercice.</h2>
               <p className="mt-4 text-[18px] leading-[1.6] text-body">
-                48 lots, 10 000 tantièmes, un exercice complet clôturé, une assemblée tenue avec son PV, trois incidents en cours et deux appels de fonds en relance. Ce que vous verrez pendant la démo est ce que vos voisins verront chez vous.
+                48 lots, 10 000 tantièmes, un exercice complet clôturé, une assemblée tenue avec son PV, 3 incidents en cours et 2 appels de fonds en relance. Ce que vous verrez pendant la démo est ce que vos voisins verront chez vous.
               </p>
               <a
                 href={whatsappHref(c.common.whatsappMessage)}
