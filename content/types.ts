@@ -176,6 +176,41 @@ export interface HeroSlide {
   cards: [HeroCard, HeroCard];
 }
 
+/**
+ * Le fold vivant : un seul message, et la scène animée qui le démontre en
+ * boucle (components/hero-living.tsx). Les textes de la scène sont ceux des
+ * cartes qui s'y allument ; les nombres pilotent les compteurs.
+ */
+export interface HeroFold {
+  eyebrow: string;
+  h1Before: string;
+  h1Accent: string;
+  lede: string;
+  /** La question du syndic, tapée lettre à lettre dans l'encart d'appel à l'action. */
+  question: string;
+  scene: {
+    /** Description de la scène pour les lecteurs d'écran. */
+    label: string;
+    chipTitle: string;
+    /** Les 10 paiements qui allument la façade, dans l'ordre. */
+    payments: { lot: string; who: string; amount: string }[];
+    recoveryLabel: string;
+    recoveryFrom: number;
+    recoveryTo: number;
+    ledgerKicker: string;
+    ledgerTitle: string;
+    /** 5 lignes de l'annexe, écrites une à une. */
+    ledgerRows: { lot: string; meta: string; value: string }[];
+    ledgerFooter: string;
+    lotsFrom: number;
+    lotsTotal: number;
+    annexesLabel: string;
+    annexesDone: string;
+    pvKicker: string;
+    pvTitle: string;
+  };
+}
+
 /** Trio « conformité intégrée » : trois blocs alternés sous fond sombre. */
 export interface ConformityBlock {
   tag: string;
@@ -444,6 +479,9 @@ export interface SiteContent {
     pillarsLede: string;
     pillars: PillarCard[];
     /** Carrousel du fold : un fold complet par diapositive, en boucle. */
+    /** Le fold vivant, en ligne. */
+    hero: HeroFold;
+    /** Les anciennes diapositives du fold (carrousel retiré le 15 oct. 2026). Conservées pour leurs cartes. */
     heroSlides: HeroSlide[];
 
     /** Ruban défilant d'écrans et de photos. */

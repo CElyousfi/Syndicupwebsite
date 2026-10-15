@@ -117,6 +117,50 @@ export const home: SiteContent["home"] = {
     },
   ],
 
+  hero: {
+    eyebrow: "Logiciel de syndic marocain · FR & AR",
+    h1Before: "Le logiciel de syndic",
+    h1Accent: "qui peut prouver.",
+    lede: "Chaque paiement, chaque dépense, chaque décision d'AG laisse une trace. Les 12 annexes du Décret 2.23.700 se génèrent toutes seules, et le PV est opposable.",
+    question: "Où en est ma copropriété, ce matin ?",
+    scene: {
+      label:
+        "Une résidence de 48 lots : les paiements s'enregistrent, chaque lot payé s'allume et s'inscrit dans l'annexe 10, le recouvrement monte de 71 à 86 %, les 12 annexes se génèrent, le PV d'assemblée est signé.",
+      chipTitle: "Paiement reçu",
+      payments: [
+        { lot: "Lot B-04", who: "Mme Alaoui", amount: "1 165,05 MAD" },
+        { lot: "Lot C-07", who: "SCI Yasmine", amount: "980,00 MAD" },
+        { lot: "Lot A-12", who: "M. Bennani", amount: "1 065,20 MAD" },
+        { lot: "Lot C-02", who: "M. Tazi", amount: "1 240,60 MAD" },
+        { lot: "Lot A-03", who: "Mme Idrissi", amount: "890,40 MAD" },
+        { lot: "Lot B-11", who: "M. Fassi", amount: "1 310,00 MAD" },
+        { lot: "Lot A-08", who: "Mme Chraibi", amount: "1 065,20 MAD" },
+        { lot: "Lot C-05", who: "M. Berrada", amount: "980,00 MAD" },
+        { lot: "Lot B-09", who: "Mme Lahlou", amount: "1 165,05 MAD" },
+        { lot: "Lot A-01", who: "M. Ouazzani", amount: "1 420,80 MAD" },
+      ],
+      recoveryLabel: "Recouvrement",
+      recoveryFrom: 71,
+      recoveryTo: 86,
+      ledgerKicker: "ANNEXE 10 · DÉCRET 2.23.700",
+      ledgerTitle: "Charges par lot · exercice 2026",
+      ledgerRows: [
+        { lot: "Lot B-04", meta: "214 tantièmes · reçu n° 2026-0391", value: "1 165,05" },
+        { lot: "Lot C-07", meta: "180 tantièmes · reçu n° 2026-0392", value: "980,00" },
+        { lot: "Lot A-12", meta: "196 tantièmes · reçu n° 2026-0393", value: "1 065,20" },
+        { lot: "Lot C-02", meta: "228 tantièmes · reçu n° 2026-0394", value: "1 240,60" },
+        { lot: "Lot A-03", meta: "164 tantièmes · reçu n° 2026-0395", value: "890,40" },
+      ],
+      ledgerFooter: "Lots à jour",
+      lotsFrom: 31,
+      lotsTotal: 48,
+      annexesLabel: "Annexes de l'exercice",
+      annexesDone: "Générées",
+      pvKicker: "AG DU 12 MARS · 48 LOTS",
+      pvTitle: "PV signé, opposable",
+    },
+  },
+
   heroSlides: [
     {
       eyebrow: "Logiciel de syndic marocain · FR & AR",

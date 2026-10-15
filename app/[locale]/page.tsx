@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { FaqTabs } from "@/components/faq-tabs";
 import { FeatureComposition } from "@/components/feature-composition";
 import { HeroBackdrop } from "@/components/hero-backdrop";
-import { HeroRotator } from "@/components/hero-rotator";
+import { HeroLiving } from "@/components/hero-living";
 import { LogoHive } from "@/components/logo-hive";
 import { AskDariButton } from "@/components/ask-dari";
 import { CityGrid } from "@/components/city-grid";
@@ -62,14 +62,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]">
         <HeroBackdrop />
         <section className="relative">
-          <HeroRotator
-            slides={h.heroSlides}
+          <HeroLiving
+            hero={h.hero}
             locale={l}
             demoCta={c.common.demoCta}
             emailLabel={h.heroEmailLabel}
             emailPlaceholder={h.heroEmailPlaceholder}
             freeNote={h.freeNote}
-            regionLabel={h.heroRegion}
           />
         </section>
       </div>
