@@ -177,9 +177,8 @@ export interface HeroSlide {
 }
 
 /**
- * Le fold vivant : un seul message, et la scène animée qui le démontre en
- * boucle (components/hero-living.tsx). Les textes de la scène sont ceux des
- * cartes qui s'y allument ; les nombres pilotent les compteurs.
+ * Le fold vivant : un seul message, et le film peint qui le démontre en
+ * boucle (components/hero-living.tsx).
  */
 export interface HeroFold {
   eyebrow: string;
@@ -188,27 +187,8 @@ export interface HeroFold {
   lede: string;
   /** La question du syndic, tapée lettre à lettre dans l'encart d'appel à l'action. */
   question: string;
-  scene: {
-    /** Description de la scène pour les lecteurs d'écran. */
-    label: string;
-    chipTitle: string;
-    /** Les 10 paiements qui allument la façade, dans l'ordre. */
-    payments: { lot: string; who: string; amount: string }[];
-    recoveryLabel: string;
-    recoveryFrom: number;
-    recoveryTo: number;
-    ledgerKicker: string;
-    ledgerTitle: string;
-    /** 5 lignes de l'annexe, écrites une à une. */
-    ledgerRows: { lot: string; meta: string; value: string }[];
-    ledgerFooter: string;
-    lotsFrom: number;
-    lotsTotal: number;
-    annexesLabel: string;
-    annexesDone: string;
-    pvKicker: string;
-    pvTitle: string;
-  };
+  /** Le film en boucle à côté du message (fond blanc, posé en multiply). */
+  film: { webm: string; mp4: string; poster: string; label: string };
 }
 
 /** Trio « conformité intégrée » : trois blocs alternés sous fond sombre. */
