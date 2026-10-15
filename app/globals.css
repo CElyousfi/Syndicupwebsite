@@ -989,10 +989,18 @@
     -webkit-mask-composite: source-in;
     mask-composite: intersect;
   }
-  @media (max-width: 900px) {
+  /* Sur téléphone et tablette, le fold s'arrête avec son contenu : le film suit
+     le bouton sans vide, un peu plus large que l'écran pour grossir la scène
+     (les bords de l'image sont blancs, rien d'utile n'est rogné). */
+  @media (max-width: 1023px) {
     .hero-film-video {
-      width: calc(100vw + 24px);
+      width: 100vw;
       max-width: none;
+    }
+  }
+  @media (max-width: 639px) {
+    .hero-film-video {
+      width: 112vw;
     }
   }
   @media (prefers-reduced-motion: reduce) {

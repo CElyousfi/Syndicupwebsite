@@ -38,7 +38,7 @@ export function HeroLiving({ hero, locale }: { hero: HeroFold; locale: Locale })
   }, []);
 
   return (
-    <div className="hero-live relative flex min-h-[calc(100svh-70px)] flex-col" data-entering="true">
+    <div className="hero-live relative flex flex-col lg:min-h-[calc(100svh-70px)]" data-entering="true">
       {/* ── Le message ──────────────────────────────────────────────────── */}
       <div className="shell relative z-10 pt-[clamp(28px,5svh,64px)] text-center">
         <span
@@ -78,7 +78,7 @@ export function HeroLiving({ hero, locale }: { hero: HeroFold; locale: Locale })
 
       {/* ── Le film ─────────────────────────────────────────────────────── */}
       <div
-        className="hero-enter hero-film relative -mt-[2svh] flex flex-1 items-end justify-center"
+        className="hero-enter hero-film relative mt-2 flex items-end justify-center lg:-mt-[2svh] lg:flex-1"
         style={{ ["--d" as string]: "200ms" }}
       >
         <video
