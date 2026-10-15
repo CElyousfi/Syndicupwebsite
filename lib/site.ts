@@ -40,10 +40,10 @@ export const SITE = {
    */
   proofLoop: {
     webm: "/video/saisi-une-fois.webm",
-    mp4: "/video/saisi-une-fois.mp4",
+    mp4: "/video/saisi-une-fois-v2.mp4",
     poster: "/video/saisi-une-fois-poster.jpg",
-    width: 1920,
-    height: 1154,
+    width: 1600,
+    height: 962,
     duration: "PT21S",
     uploadDate: "2026-10-15",
   },

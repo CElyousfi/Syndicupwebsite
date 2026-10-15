@@ -68,8 +68,9 @@ export function LoopVideo({
       disablePictureInPicture
       disableRemotePlayback
     >
-      <source src={webm} type="video/webm" />
+      {/* MP4 d'abord : lu partout, iPhone compris. WebM ensuite, en secours. */}
       <source src={mp4} type="video/mp4" />
+      <source src={webm} type="video/webm" />
     </video>
   );
 }

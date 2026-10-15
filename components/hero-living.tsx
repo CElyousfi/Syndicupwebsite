@@ -28,6 +28,7 @@ export function HeroLiving({ hero, locale }: { hero: HeroFold; locale: Locale })
       v.pause();
       return;
     }
+    v.muted = true; // iPhone exige la propriété, pas seulement l'attribut, pour lire sans clic
     // Relance si le navigateur a suspendu la lecture (onglet caché, économie d'énergie).
     const play = () => {
       if (document.visibilityState === "visible") v.play().catch(() => {});
@@ -93,8 +94,9 @@ export function HeroLiving({ hero, locale }: { hero: HeroFold; locale: Locale })
           aria-label={hero.film.label}
           disablePictureInPicture
         >
-          <source src={hero.film.webm} type="video/webm" />
+          {/* MP4 d'abord : lu partout, iPhone compris. WebM ensuite, en secours. */}
           <source src={hero.film.mp4} type="video/mp4" />
+          <source src={hero.film.webm} type="video/webm" />
         </video>
       </div>
     </div>
