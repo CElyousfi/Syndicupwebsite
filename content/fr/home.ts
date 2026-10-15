@@ -50,12 +50,12 @@ export const home: SiteContent["home"] = {
   ],
 
   video: {
-    kicker: "SYNDICUP EN 65 SECONDES",
-    title: "Le produit, sans maquette.",
-    lede: "Les vrais écrans de SyndicUp sur une résidence de démonstration : tableau de bord, appels de fonds, transparence des dépenses, application résidents, et une assemblée générale votée en tantièmes.",
-    name: "SyndicUp — le logiciel de syndic qui peut prouver",
+    kicker: "UNE RÉCLAMATION, SUIVIE PAR DARI",
+    title: "Saisi une fois, prouvé partout.",
+    lede: "Un copropriétaire demande pourquoi il paie 89,88 MAD. Dari remonte jusqu'à la facture de l'ascenseur, saisie une seule fois, et la retrouve partout où elle compte : double validation, répartition aux tantièmes, Annexe 10, avis de chaque lot, PV d'AG.",
+    name: "SyndicUp — saisi une fois, prouvé partout",
     description:
-      "Film de lancement de SyndicUp : tableau de bord du syndic, appels de fonds et impayés, dépenses justifiées, application résidents et vote d'assemblée générale en tantièmes, en français et en arabe.",
+      "Une réclamation de copropriétaire suivie par Dari, l'assistant SyndicUp : la facture d'ascenseur saisie une seule fois, sa double validation, la répartition aux tantièmes, l'Annexe 10 du Décret 2.23.700, l'avis de chaque lot et le PV d'assemblée générale.",
   },
 
   pillarsKicker: "UNE PLATEFORME, TOUTE LA COPROPRIÉTÉ",

@@ -7,6 +7,7 @@ import { FeatureComposition } from "@/components/feature-composition";
 import { HeroBackdrop } from "@/components/hero-backdrop";
 import { HeroLiving } from "@/components/hero-living";
 import { LogoHive } from "@/components/logo-hive";
+import { LoopVideo } from "@/components/loop-video";
 import { AskDariButton } from "@/components/ask-dari";
 import { CityGrid } from "@/components/city-grid";
 import { DariMotion } from "@/components/dari";
@@ -72,25 +73,22 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <ProofRibbon stats={h.stats} photos={h.statPhotos} />
       </section>
 
-      {/* ── 2 bis · Film de lancement : le vrai produit, 65 secondes ─────── */}
+      {/* ── 2 bis · Saisi une fois, prouvé partout : la boucle de Dari, en lecture automatique ── */}
       <section id="film" className="shell section-pad">
         <div className="section-head">
           <span className="kicker">{h.video.kicker}</span>
           <h2 className="h-section">{h.video.title}</h2>
           <p>{h.video.lede}</p>
         </div>
-        <div className="mx-auto max-w-[1080px]">
-          <div className="overflow-hidden rounded-[24px] bg-ink shadow-[0_40px_80px_-40px_rgb(32_31_35_/_0.45)]">
-            <video
-              className="block aspect-video h-auto w-full"
-              controls
-              playsInline
-              preload="none"
-              poster={SITE.launchVideo.poster}
-              aria-label={h.video.name}
-            >
-              <source src={SITE.launchVideo.src} type="video/mp4" />
-            </video>
+        <div className="mx-auto max-w-[1180px]">
+          <div className="overflow-hidden rounded-[24px] border border-white bg-[#ecf2ec] shadow-[0_40px_80px_-44px_rgb(32_60_45_/_0.45)]">
+            <LoopVideo
+              webm={SITE.proofLoop.webm}
+              mp4={SITE.proofLoop.mp4}
+              poster={SITE.proofLoop.poster}
+              label={h.video.name}
+              className="block aspect-[1920/1154] h-auto w-full"
+            />
           </div>
         </div>
       </section>
@@ -594,10 +592,10 @@ function FaqJsonLd({
         "@type": "VideoObject",
         name: video.name,
         description: video.description,
-        thumbnailUrl: [`${SITE.url}${SITE.launchVideo.poster}`],
-        contentUrl: `${SITE.url}${SITE.launchVideo.src}`,
-        uploadDate: SITE.launchVideo.uploadDate,
-        duration: SITE.launchVideo.duration,
+        thumbnailUrl: [`${SITE.url}${SITE.proofLoop.poster}`],
+        contentUrl: `${SITE.url}${SITE.proofLoop.mp4}`,
+        uploadDate: SITE.proofLoop.uploadDate,
+        duration: SITE.proofLoop.duration,
         inLanguage: "fr",
         publisher: { "@id": `${SITE.url}/#organization` },
       },

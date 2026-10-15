@@ -33,6 +33,20 @@ export const SITE = {
     duration: "PT1M5S",
     uploadDate: "2026-10-07",
   },
+  /**
+   * Boucle « Saisi une fois, prouvé partout » (20,8 s, muette) : Dari remonte
+   * une réclamation jusqu'à la facture et la retrouve partout où elle compte.
+   * C'est la vidéo de l'accueil, en lecture automatique.
+   */
+  proofLoop: {
+    webm: "/video/saisi-une-fois.webm",
+    mp4: "/video/saisi-une-fois.mp4",
+    poster: "/video/saisi-une-fois-poster.jpg",
+    width: 1920,
+    height: 1154,
+    duration: "PT21S",
+    uploadDate: "2026-10-15",
+  },
 } as const;
 
 export function whatsappHref(message: string): string {

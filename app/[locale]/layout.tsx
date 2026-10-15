@@ -53,7 +53,7 @@ export async function generateMetadata({
       title: c.home.metaTitle,
       description: c.home.metaDescription,
       images: [{ url: "/brand/og-syndicup.jpg", width: 1200, height: 630, alt: "SyndicUp — le logiciel de syndic qui peut prouver" }],
-      videos: [{ url: `${SITE.url}${SITE.launchVideo.src}`, width: 1920, height: 1080, type: "video/mp4" }],
+      videos: [{ url: `${SITE.url}${SITE.proofLoop.mp4}`, width: SITE.proofLoop.width, height: SITE.proofLoop.height, type: "video/mp4" }],
     },
     twitter: {
       card: "summary_large_image",
