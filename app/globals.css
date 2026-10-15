@@ -920,28 +920,10 @@
   }
 
   /*
-   * Le fold vivant (components/hero-living.tsx) : le film peint en boucle à
-   * côté du message. Le pointeur alimente `--px` / `--py` (−1…1) et le film
-   * se déplace d'un rien dans l'autre sens : un relief, pas un effet. La
-   * règle de mouvement réduit coupe tout.
+   * Le fold (components/hero-living.tsx) : accroche, titre, chapô, bouton,
+   * et le film peint en boucle dessous. La règle de mouvement réduit coupe
+   * les animations ; le film reste alors sur son affiche.
    */
-  .hero-live {
-    --px: 0;
-    --py: 0;
-  }
-  .hero-halo {
-    background: radial-gradient(closest-side, rgb(164 200 174 / 0.42), rgb(164 200 174 / 0.12) 60%, transparent 100%);
-    animation: hero-breathe 9s ease-in-out infinite;
-  }
-  @keyframes hero-breathe {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.06);
-    }
-  }
   /* Le mot clé du titre : un surligneur citron qui se tire sous le mot. */
   .hero-accent {
     background: linear-gradient(transparent 64%, rgb(223 242 138 / 0.85) 64%, rgb(223 242 138 / 0.85) 92%, transparent 92%) no-repeat 0 0;
@@ -966,12 +948,52 @@
       background-size: 100% 100%;
     }
   }
-  /* Le film : fond blanc fondu dans le dégradé du fold par « multiply ». */
+  /* Accroche du fold, à la manière de la référence : petites capitales espacées. */
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-action-deep);
+  }
+  .hero-title {
+    font-size: clamp(38px, min(4.6vw, 6.6svh), 76px);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+  .hero-cta {
+    border-radius: 999px;
+    padding-inline: 30px;
+  }
+  /*
+   * Le film : fond blanc fondu dans le dégradé du fold par « multiply ». Sa
+   * largeur suit la place qui reste sous le message dans le premier écran
+   * (≈ 100svh − 380 px de hauteur, en 16/9), jamais moins de 900 px sur
+   * ordinateur ni plus que la largeur d'écran.
+   */
   .hero-film {
-    translate: calc(var(--px) * -8px) calc(var(--py) * -6px);
-    transition: translate 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    /* Le film blanc se fond dans le dégradé : le blanc devient le fond. */
     mix-blend-mode: multiply;
+  }
+  .hero-film-video {
+    width: min(100vw, 1440px, max(900px, calc((100svh - 380px) * 1.78)));
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent),
+      linear-gradient(180deg, transparent, #000 5%, #000 97%, transparent);
+    mask-image:
+      linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent),
+      linear-gradient(180deg, transparent, #000 5%, #000 97%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+  @media (max-width: 900px) {
+    .hero-film-video {
+      width: calc(100vw + 24px);
+      max-width: none;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-accent {

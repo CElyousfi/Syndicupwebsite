@@ -1,43 +1,25 @@
 "use client";
 
-import { useEffect, useRef, type PointerEvent } from "react";
-import { DemoEmailForm } from "@/components/demo-email-form";
-import { Typewriter } from "@/components/typewriter";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
 import type { HeroFold } from "@/content/types";
-import type { Locale } from "@/lib/i18n";
+import { href, type Locale } from "@/lib/i18n";
 
 /**
- * Le fold vivant. Un seul message — « le logiciel de syndic qui peut
- * prouver » — et, à côté, un film peint en boucle : devant leur résidence,
- * 4 copropriétaires s'énervent ; un 5e, calme, regarde son téléphone où Dari
- * lui répond. Rien d'autre ne se dispute l'attention.
+ * Le fold, sur le modèle de pi.security : une accroche courte, un titre avec
+ * un segment de couleur, un chapô, un seul bouton — et, dessous, le film peint
+ * qui tourne en boucle et raconte la même chose. Devant leur résidence,
+ * 4 copropriétaires s'énervent ; un 5e, calme, a déjà la réponse : Dari.
  *
- * Le film (public/video/fold-residence.*) a un fond blanc : il est posé en
- * « multiply » sur le dégradé du fold, le blanc devient le fond et les
- * personnages gardent leurs couleurs. Il démarre muet, en boucle, sans
- * commande ; en mouvement réduit, seule l'affiche s'affiche. Le pointeur
- * donne un léger relief (parallaxe), jamais plus de quelques pixels.
+ * Le film a un fond blanc uni (#FBFBF8) : il est posé en « multiply » sur le
+ * dégradé du fold, le blanc disparaît et la scène se pose sur la page. Sa
+ * taille suit la hauteur d'écran pour que titre et scène tiennent ensemble
+ * dans le premier écran. Lecture muette, en boucle, sans commande ; en
+ * mouvement réduit, seule l'affiche s'affiche.
  */
-export function HeroLiving({
-  hero,
-  locale,
-  demoCta,
-  emailLabel,
-  emailPlaceholder,
-  freeNote,
-}: {
-  hero: HeroFold;
-  locale: Locale;
-  demoCta: string;
-  emailLabel: string;
-  emailPlaceholder: string;
-  freeNote: string;
-}) {
-  const rootRef = useRef<HTMLDivElement>(null);
+export function HeroLiving({ hero, locale }: { hero: HeroFold; locale: Locale }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // En mouvement réduit, le film reste sur son affiche. Sinon, on relance la
-  // lecture si le navigateur l'a bloquée (retour d'onglet, économie d'énergie).
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -46,94 +28,74 @@ export function HeroLiving({
       v.pause();
       return;
     }
+    // Relance si le navigateur a suspendu la lecture (onglet caché, économie d'énergie).
     const play = () => {
-      v.play().catch(() => {});
+      if (document.visibilityState === "visible") v.play().catch(() => {});
     };
     play();
     document.addEventListener("visibilitychange", play);
     return () => document.removeEventListener("visibilitychange", play);
   }, []);
 
-  // ── Parallaxe au pointeur ──────────────────────────────────────────────
-  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    const el = rootRef.current;
-    if (!el || e.pointerType === "touch") return;
-    const r = el.getBoundingClientRect();
-    el.style.setProperty("--px", (((e.clientX - r.left) / r.width - 0.5) * 2).toFixed(3));
-    el.style.setProperty("--py", (((e.clientY - r.top) / r.height - 0.5) * 2).toFixed(3));
-  };
-  const onPointerLeave = () => {
-    const el = rootRef.current;
-    if (!el) return;
-    el.style.setProperty("--px", "0");
-    el.style.setProperty("--py", "0");
-  };
-
   return (
-    <div
-      ref={rootRef}
-      className="hero-live relative"
-      data-entering="true"
-      onPointerMove={onPointerMove}
-      onPointerLeave={onPointerLeave}
-    >
-      <div className="shell">
-        <div className="grid min-h-[calc(100svh-70px)] items-center gap-8 py-10 lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:gap-6 lg:py-6">
-          {/* ── Le message ──────────────────────────────────────────────── */}
-          <div className="relative z-10 text-start">
-            <span className="hero-enter kicker inline-block !text-[12.5px] !text-action-deep" style={{ ["--d" as string]: "0ms" }}>
-              {hero.eyebrow}
-            </span>
-            <h1 className="hero-enter h-hero mt-6" style={{ ["--d" as string]: "60ms" }}>
-              {hero.h1Before}{" "}
-              <span className="hero-accent text-action">{hero.h1Accent}</span>
-            </h1>
-            <p
-              className="hero-enter mt-6 max-w-[520px] text-[clamp(18px,1.8vw,21px)] leading-[1.5] text-pretty text-body"
-              style={{ ["--d" as string]: "180ms" }}
-            >
-              {hero.lede}
-            </p>
-
-            {/* L'encart d'appel à l'action : la question du syndic, tapée, puis
-                l'e-mail et le bouton — l'unique chemin vers la démo. */}
-            <div
-              className="hero-enter mt-8 max-w-[580px] rounded-2xl bg-[linear-gradient(135deg,var(--color-vivid-deep)_0%,var(--color-vivid-bright)_100%)] p-6 shadow-[0_24px_60px_-28px_rgb(30_122_80_/_0.55)] sm:p-7"
-              style={{ ["--d" as string]: "260ms" }}
-            >
-              <p className="min-h-[1.5em] text-[clamp(17px,1.5vw,20px)] font-medium leading-[1.4] text-white">
-                <Typewriter text={hero.question} active />
-              </p>
-              <DemoEmailForm locale={locale} label={emailLabel} placeholder={emailPlaceholder} cta={demoCta} className="mt-5" />
-            </div>
-            <p className="hero-enter mt-5 flex items-start gap-2.5 text-[15px] font-medium leading-snug text-body" style={{ ["--d" as string]: "320ms" }}>
-              <span className="mt-[7px] inline-block h-2 w-2 shrink-0 rounded-full bg-ok" />
-              {freeNote}
-            </p>
-          </div>
-
-          {/* ── Le film ─────────────────────────────────────────────────── */}
-          <div
-            className="hero-enter hero-film relative w-full max-sm:w-[calc(100%+48px)] max-sm:-ms-6 lg:w-[calc(100%+11vw)] lg:max-w-[960px] lg:justify-self-end lg:-me-[9vw]"
-            style={{ ["--d" as string]: "200ms" }}
-          >
-            <video
-              ref={videoRef}
-              className="hero-feather relative block aspect-video h-auto w-full select-none"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              poster={hero.film.poster}
-              aria-label={hero.film.label}
-              disablePictureInPicture
-            >
-              <source src={hero.film.webm} type="video/webm" />
-              <source src={hero.film.mp4} type="video/mp4" />
-            </video>
-          </div>
+    <div className="hero-live relative flex min-h-[calc(100svh-70px)] flex-col" data-entering="true">
+      {/* ── Le message ──────────────────────────────────────────────────── */}
+      <div className="shell relative z-10 pt-[clamp(28px,5svh,64px)] text-center">
+        <span
+          className="hero-enter hero-eyebrow inline-flex items-center gap-2.5"
+          style={{ ["--d" as string]: "0ms" }}
+        >
+          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-vivid" />
+          {hero.eyebrow}
+        </span>
+        <h1
+          className="hero-enter hero-title mx-auto mt-4 max-w-[1180px]"
+          style={{ ["--d" as string]: "60ms" }}
+        >
+          {hero.h1Before} <span className="hero-accent whitespace-nowrap text-vivid">{hero.h1Accent}</span>
+          {hero.h1After ? (
+            <>
+              {/* Sur ordinateur, la fin du titre passe à la ligne : 2 lignes nettes. */}
+              <br className="max-md:hidden" /> {hero.h1After}
+            </>
+          ) : null}
+        </h1>
+        <p
+          className="hero-enter mx-auto mt-5 max-w-[760px] text-[clamp(17px,1.4vw,19px)] leading-[1.5] text-balance text-body"
+          style={{ ["--d" as string]: "160ms" }}
+        >
+          {hero.lede}
+        </p>
+        <div className="hero-enter mt-6 flex justify-center" style={{ ["--d" as string]: "240ms" }}>
+          <Link href={href(locale, "/demo")} className="btn btn-lg btn-lime hero-cta group">
+            {hero.cta}
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1 rtl:-scale-x-100">
+              <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
         </div>
+      </div>
+
+      {/* ── Le film ─────────────────────────────────────────────────────── */}
+      <div
+        className="hero-enter hero-film relative -mt-[2svh] flex flex-1 items-end justify-center"
+        style={{ ["--d" as string]: "200ms" }}
+      >
+        <video
+          ref={videoRef}
+          className="hero-film-video block h-auto select-none"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={hero.film.poster}
+          aria-label={hero.film.label}
+          disablePictureInPicture
+        >
+          <source src={hero.film.webm} type="video/webm" />
+          <source src={hero.film.mp4} type="video/mp4" />
+        </video>
       </div>
     </div>
   );

@@ -118,15 +118,16 @@ export const home: SiteContent["home"] = {
   ],
 
   hero: {
-    eyebrow: "Logiciel de syndic marocain · FR & AR",
-    h1Before: "Le logiciel de syndic",
-    h1Accent: "qui peut prouver.",
-    lede: "Chaque paiement, chaque dépense, chaque décision d'AG laisse une trace. Les 12 annexes du Décret 2.23.700 se génèrent toutes seules, et le PV est opposable.",
-    question: "Où en est ma copropriété, ce matin ?",
+    eyebrow: "Conçu pour la sérénité",
+    h1Before: "Vos copropriétaires ont",
+    h1Accent: "la réponse",
+    h1After: "avant même de s'énerver.",
+    lede: "SyndicUp donne une mémoire à votre résidence : chaque paiement, chaque dépense, chaque décision d'AG est tracée, et Dari répond aux copropriétaires à toute heure.",
+    cta: "Réserver une démo",
     film: {
-      webm: "/video/fold-residence.webm",
-      mp4: "/video/fold-residence.mp4",
-      poster: "/video/fold-residence-poster.jpg",
+      webm: "/video/fold-residence-v3.webm",
+      mp4: "/video/fold-residence-v3.mp4",
+      poster: "/video/fold-residence-v3-poster.jpg",
       label:
         "Devant leur résidence, 4 copropriétaires s'énervent : une facture à la main, un doigt pointé vers l'immeuble, un téléphone qui ne répond pas. À côté, un 5e, calme, regarde son téléphone : Dari, l'assistant SyndicUp, lui répond.",
     },

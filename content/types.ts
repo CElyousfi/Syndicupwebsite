@@ -181,13 +181,16 @@ export interface HeroSlide {
  * boucle (components/hero-living.tsx).
  */
 export interface HeroFold {
+  /** Accroche au-dessus du titre, en petites capitales. */
   eyebrow: string;
+  /** Le titre en 3 morceaux : le segment du milieu prend la couleur de la marque. */
   h1Before: string;
   h1Accent: string;
+  h1After?: string;
   lede: string;
-  /** La question du syndic, tapée lettre à lettre dans l'encart d'appel à l'action. */
-  question: string;
-  /** Le film en boucle à côté du message (fond blanc, posé en multiply). */
+  /** Libellé de l'unique bouton (vers la démo). */
+  cta: string;
+  /** Le film en boucle sous le message (fond blanc, posé en multiply). */
   film: { webm: string; mp4: string; poster: string; label: string };
 }
 
