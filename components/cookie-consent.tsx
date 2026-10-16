@@ -59,7 +59,7 @@ export function CookieConsent({ locale }: { locale: string }) {
     setView("main");
   };
   const pill = "inline-flex h-11 items-center justify-center rounded-full px-5 text-[15px] font-semibold transition-colors cursor-pointer";
-  const grey = `${pill} bg-[#e6e5e1] text-ink hover:bg-[#dcdbd6]`;
+  const grey = `${pill} bg-[#e3e8ef] text-ink hover:bg-[#dadfe7]`;
   const dark = `${pill} bg-ink text-white hover:bg-ink-soft`;
   const inlineBtn = "cursor-pointer font-medium text-ink underline underline-offset-[3px] decoration-1 hover:decoration-2";
 
@@ -71,7 +71,7 @@ export function CookieConsent({ locale }: { locale: string }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="consent-title"
-        className="max-h-[calc(100dvh-24px)] w-full max-w-[900px] overflow-y-auto rounded-[14px] bg-white px-6 py-7 text-ink shadow-[0_30px_80px_-30px_rgb(18_18_18_/_0.5)] outline-none sm:px-9 sm:py-8"
+        className="max-h-[calc(100dvh-24px)] w-full max-w-[900px] overflow-y-auto rounded-[14px] bg-white px-6 py-7 text-ink shadow-[0_30px_80px_-30px_rgb(10_15_26_/_0.5)] outline-none sm:px-9 sm:py-8"
       >
         <h2 id="consent-title" className="text-[20px] font-semibold tracking-[-0.01em]">
           {view === "main" ? "Votre confidentialité" : "Paramètres des cookies"}
@@ -161,7 +161,7 @@ export function CookieConsent({ locale }: { locale: string }) {
                       disabled={locked}
                       onClick={() => setDraft((d) => ({ ...d, [p.id]: !d[p.id as Purpose] }))}
                       className={`relative mt-0.5 h-7 w-12 shrink-0 rounded-full transition-colors ${
-                        on ? "bg-vivid" : "bg-[#cfcdc6]"
+                        on ? "bg-vivid" : "bg-[#cdd3dd]"
                       } ${locked ? "cursor-not-allowed opacity-60" : "cursor-pointer"}`}
                     >
                       <span

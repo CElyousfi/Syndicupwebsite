@@ -225,8 +225,8 @@ export function DemoForm({ c }: { c: SiteContent }) {
                 }}
                 className={`rounded-[var(--radius-field)] border px-3.5 py-3 text-start transition-[background,border-color,box-shadow] duration-150 ${
                   on
-                    ? "border-ink bg-ink text-white shadow-[0_8px_20px_rgb(32_31_35/0.14)]"
-                    : "border-hairline-strong bg-white text-ink hover:border-[#b9b5a6] hover:bg-hover"
+                    ? "border-ink bg-ink text-white shadow-[0_8px_20px_rgb(10_15_26/0.14)]"
+                    : "border-hairline-strong bg-white text-ink hover:border-[#aab4c6] hover:bg-hover"
                 }`}
               >
                 <span className="block text-[14.5px] font-semibold leading-[1.25]">{ROLES[r]}</span>
@@ -372,7 +372,7 @@ export function DemoForm({ c }: { c: SiteContent }) {
       </div>
 
       {/* Précisions facultatives */}
-      <div className="rounded-[var(--radius-field)] border border-hairline bg-[#fafaf7]">
+      <div className="rounded-[var(--radius-field)] border border-hairline bg-[#f8fafd]">
         <button
           type="button"
           onClick={() => setDetails((o) => !o)}

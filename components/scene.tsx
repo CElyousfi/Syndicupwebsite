@@ -7,7 +7,7 @@ import type { Scene as SceneData } from "@/content/scenes";
  * - `frameless` — posée à même la page, bords nets et coins arrondis : une
  *   image qui se lit comme une carte, jamais comme un dégradé.
  * - `boxed` — dans un panneau arrondi de la couleur exacte du fond de
- *   l'image (#f4f3ef) : la scène semble posée sur une tuile teintée. C'est
+ *   l'image (#f3f6fa) : la scène semble posée sur une tuile teintée. C'est
  *   le rendu à l'intérieur des cartes, blanches ou sombres.
  *
  * La taille vient de la scène elle-même.
@@ -61,7 +61,7 @@ export function Scene({
   );
   if (variant === "boxed") {
     return (
-      <div className={`overflow-hidden rounded-2xl bg-[#f4f3ef] ${className}`}>
+      <div className={`overflow-hidden rounded-2xl bg-[#f3f6fa] ${className}`}>
         {img}
       </div>
     );

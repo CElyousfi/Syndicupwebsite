@@ -60,7 +60,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       {/* ── 1 · Fold : accroche, titre, chapô, un bouton — et le film en boucle ── */}
-      <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]">
+      <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e3eefb_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4f1f9_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#eef3f9_60%)]">
         <HeroBackdrop />
         <section className="relative">
           <HeroLiving hero={h.hero} locale={l} />
@@ -81,7 +81,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <p>{h.video.lede}</p>
         </div>
         <div className="mx-auto max-w-[1180px]">
-          <div className="overflow-hidden rounded-[24px] border border-white bg-[#ecf2ec] shadow-[0_40px_80px_-44px_rgb(32_60_45_/_0.45)]">
+          <div className="overflow-hidden rounded-[24px] border border-white bg-[#edf3fa] shadow-[0_40px_80px_-44px_rgb(20_40_70_/_0.45)]">
             <LoopVideo
               webm={SITE.proofLoop.webm}
               mp4={SITE.proofLoop.mp4}

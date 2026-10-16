@@ -11,7 +11,7 @@ import { href, type Locale } from "@/lib/i18n";
  * qui tourne en boucle et raconte la même chose. Devant leur résidence,
  * 4 copropriétaires s'énervent ; un 5e, calme, a déjà la réponse : Dari.
  *
- * Le film a un fond blanc uni (#FBFBF8) : il est posé en « multiply » sur le
+ * Le film a un fond blanc uni (#FBFCFE) : il est posé en « multiply » sur le
  * dégradé du fold, le blanc disparaît et la scène se pose sur la page. Sa
  * taille suit la hauteur d'écran pour que titre et scène tiennent ensemble
  * dans le premier écran. Lecture muette, en boucle, sans commande ; en

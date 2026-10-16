@@ -45,7 +45,7 @@ export default async function ArticlePage({
 
   return (
     <>
-      <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]">
+      <div className="relative overflow-hidden bg-[radial-gradient(90%_60%_at_20%_-10%,#e3eefb_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4f1f9_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#eef3f9_60%)]">
         <HeroBackdrop />
         <section className="shell relative pb-16 pt-10 lg:pt-14">
           <Crumb

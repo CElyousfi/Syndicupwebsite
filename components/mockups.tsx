@@ -90,7 +90,7 @@ function Annexe({ locale }: { locale: Locale }) {
         </span>
         <span className="badge bg-action-tint text-action">{t.generated}</span>
       </div>
-      <div className="mt-3 rounded-xl border border-hairline bg-white px-4 py-[18px] shadow-[0_12px_28px_-18px_rgb(32_31_35_/_0.22)]">
+      <div className="mt-3 rounded-xl border border-hairline bg-white px-4 py-[18px] shadow-[0_12px_28px_-18px_rgb(10_15_26_/_0.22)]">
         <span className="block text-[11.5px] font-semibold text-ink">{t.title}</span>
         <span className="mono mt-0.5 block text-[9.5px] text-faint">{t.subtitle}</span>
         <div className="mt-[14px] grid gap-2">
@@ -124,7 +124,7 @@ function Annexe({ locale }: { locale: Locale }) {
 function AnnexeMini({ locale }: { locale: Locale }) {
   const t = mockupLabels(locale).annexeMini;
   return (
-    <div className="w-full max-w-[300px] rounded-[14px] bg-white p-4 shadow-[0_16px_34px_-20px_rgb(32_31_35_/_0.28)]">
+    <div className="w-full max-w-[300px] rounded-[14px] bg-white p-4 shadow-[0_16px_34px_-20px_rgb(10_15_26_/_0.28)]">
       <div className="flex justify-between gap-2">
         <span className="text-[11.5px] font-semibold text-ink">{t.title}</span>
         <span className={`badge text-[9.5px] ${BADGE_OK}`}>{t.ready}</span>
@@ -221,7 +221,7 @@ function Vote({ locale }: { locale: Locale }) {
     { label: t.abstain, value: "1 000", width: "10%", color: "bg-hairline-strong" },
   ];
   return (
-    <div className="w-full max-w-[300px] rounded-[14px] bg-white p-4 shadow-[0_16px_34px_-20px_rgb(32_31_35_/_0.28)]">
+    <div className="w-full max-w-[300px] rounded-[14px] bg-white p-4 shadow-[0_16px_34px_-20px_rgb(10_15_26_/_0.28)]">
       <span className="block text-[11.5px] font-semibold text-ink">{t.point}</span>
       <span className="mono mt-0.5 block text-[9px] text-faint">{t.majority}</span>
       <div className="mt-[13px] grid gap-[7px]">
@@ -262,7 +262,7 @@ function SyndicTodo({ locale }: { locale: Locale }) {
           <span className="badge shrink-0 bg-sand-mid text-[10px] text-ink-strong">{t.auto}</span>
           <span className="min-w-0 flex-1 text-[13px] text-ink-strong">{t.reminders}</span>
         </Row>
-        <Row className="rounded-[14px] border border-[#dae7e0] bg-action-tint px-[14px] py-[13px]">
+        <Row className="rounded-[14px] border border-[#dae6f4] bg-action-tint px-[14px] py-[13px]">
           <span className={`badge shrink-0 text-[10px] ${BADGE_OK}`}>{t.ready}</span>
           <span className="min-w-0 flex-1 text-[13px] text-ink-strong">{t.annexes}</span>
         </Row>
@@ -343,7 +343,7 @@ function AppelsRows({ locale }: { locale: Locale }) {
   const t = mockupLabels(locale).appels;
   return (
     <div className="grid w-full max-w-[300px] gap-2">
-      <Row className="rounded-[13px] bg-white px-[13px] py-3 shadow-[0_12px_26px_-18px_rgb(32_31_35_/_0.24)]">
+      <Row className="rounded-[13px] bg-white px-[13px] py-3 shadow-[0_12px_26px_-18px_rgb(10_15_26_/_0.24)]">
         <span className="h-7 w-7 shrink-0 rounded-[9px] bg-action-tint" />
         <span className="min-w-0 flex-1">
           <span className="block text-[11px] font-semibold text-ink">{t.callPaid}</span>
@@ -351,7 +351,7 @@ function AppelsRows({ locale }: { locale: Locale }) {
         </span>
         <span className={`badge text-[9px] ${BADGE_OK}`}>{t.ok}</span>
       </Row>
-      <Row className="rounded-[13px] bg-white px-[13px] py-3 shadow-[0_12px_26px_-18px_rgb(32_31_35_/_0.24)]">
+      <Row className="rounded-[13px] bg-white px-[13px] py-3 shadow-[0_12px_26px_-18px_rgb(10_15_26_/_0.24)]">
         <span className="h-7 w-7 shrink-0 rounded-[9px] bg-danger-tint" />
         <span className="min-w-0 flex-1">
           <span className="block text-[11px] font-semibold text-ink">{t.callLate}</span>

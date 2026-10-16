@@ -299,7 +299,7 @@ export function Messenger({
         onMouseLeave={() => setHover(false)}
         aria-expanded={open}
         aria-label={open ? copy.close : copy.launcher}
-        className={`fixed bottom-[22px] end-[22px] z-80 inline-flex h-[56px] items-center rounded-full bg-vivid text-white shadow-[0_18px_40px_-12px_rgb(20_90_58_/_0.6)] transition-[background-color,transform] hover:bg-action-deep active:scale-[0.97] ${
+        className={`fixed bottom-[22px] end-[22px] z-80 inline-flex h-[56px] items-center rounded-full bg-vivid text-white shadow-[0_18px_40px_-12px_rgb(8_33_74_/_0.6)] transition-[background-color,transform] hover:bg-action-deep active:scale-[0.97] ${
           open ? "w-[56px] justify-center max-sm:hidden" : "ps-[72px] pe-[22px]"
         }`}
       >
@@ -347,9 +347,9 @@ function HomeView({
   const popular = useMemo(() => faq.flatMap((t) => t.items.slice(0, 1)).slice(0, 4), [faq]);
   return (
     <div className="min-h-0 flex-1 overflow-y-auto bg-ground">
-      <header className="relative bg-[linear-gradient(160deg,#1f7a50_0%,#17603f_55%,#0f4a30_100%)] px-6 pb-24 pt-6 text-white">
+      <header className="relative bg-[linear-gradient(160deg,#14315e_0%,#0f264a_55%,#091c39_100%)] px-6 pb-24 pt-6 text-white">
         <svg viewBox="0 0 256 256" aria-hidden="true" className="pointer-events-none absolute -end-10 -top-10 h-[220px] w-[220px] opacity-[0.12]">
-          <path d="M -60 70 C 30 -40 150 10 128 100 C 106 190 -20 220 26 140 C 72 60 210 20 240 110 C 270 200 160 310 92 250 C 24 190 120 100 330 150" stroke="#dff28a" strokeWidth="30" strokeLinecap="round" fill="none" />
+          <path d="M -60 70 C 30 -40 150 10 128 100 C 106 190 -20 220 26 140 C 72 60 210 20 240 110 C 270 200 160 310 92 250 C 24 190 120 100 330 150" stroke="#7dd3fc" strokeWidth="30" strokeLinecap="round" fill="none" />
         </svg>
         <div className="relative flex items-center justify-between">
           {/* eslint-disable-next-line @next/next/no-img-element */}

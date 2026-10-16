@@ -22,7 +22,7 @@ const notoArabic = localFont({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ecebe4",
+  themeColor: "#eef3f9",
 };
 
 export function generateStaticParams() {

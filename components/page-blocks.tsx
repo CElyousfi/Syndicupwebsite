@@ -53,7 +53,7 @@ export function PageHero({
       className={`relative overflow-hidden ${onPhoto ? "-mt-[70px] pt-[70px]" : ""} ${
         onPhoto
           ? "bg-ink text-white [text-shadow:0_1px_24px_rgb(0_0_0_/_0.35)] [&_.crumb]:text-white/70 [&_.crumb_a]:text-white/70 [&_.crumb_a:hover]:text-white [&_.h-page]:text-white [&_.lede]:text-white/85 [&_.kicker]:!text-lime [&_dt]:text-white/70 [&_dd]:!text-white"
-          : "bg-[radial-gradient(90%_60%_at_20%_-10%,#e6efea_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4eeef_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#ecebe4_60%)]"
+          : "bg-[radial-gradient(90%_60%_at_20%_-10%,#e3eefb_0%,transparent_55%),radial-gradient(90%_60%_at_85%_-5%,#e4f1f9_0%,transparent_50%),linear-gradient(180deg,#eceee7_0%,#eef3f9_60%)]"
       }`}
     >
       {onPhoto ? (
@@ -242,10 +242,10 @@ export interface Stat {
 }
 
 const STAT_TONES = [
-  { from: "#1b7049", to: "#25905f", stroke: "#2f9f6a", text: "text-white" },
-  { from: "#e6f59a", to: "#d3ec6e", stroke: "#eef9bd", text: "text-ink" },
-  { from: "#3f6771", to: "#52818c", stroke: "#6493a0", text: "text-white" },
-  { from: "#4c6c5a", to: "#5c7f6b", stroke: "#6f927e", text: "text-white" },
+  { from: "#08214a", to: "#1a5db5", stroke: "#1f6fd1", text: "text-white" },
+  { from: "#bae6fd", to: "#5ec4f7", stroke: "#e0f4fe", text: "text-ink" },
+  { from: "#2e5f8a", to: "#457aa8", stroke: "#5b8db8", text: "text-white" },
+  { from: "#1e3a6b", to: "#3f5f8f", stroke: "#5b7ba8", text: "text-white" },
 ] as const;
 
 const SCRIBBLE =

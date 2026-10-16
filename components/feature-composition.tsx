@@ -14,11 +14,11 @@ import type { Locale } from "@/lib/i18n";
 
 const TONE = {
   mist: {
-    wash: "bg-[radial-gradient(120%_130%_at_18%_0%,#e6efea_0%,#f4f6f1_55%,#fbfaf7_100%)]",
+    wash: "bg-[radial-gradient(120%_130%_at_18%_0%,#e3eefb_0%,#f4f6f1_55%,#fbfaf7_100%)]",
     shape: "text-sage",
   },
   sand: {
-    wash: "bg-[radial-gradient(120%_130%_at_82%_0%,#f1ead9_0%,#f7f3e9_55%,#fbfaf7_100%)]",
+    wash: "bg-[radial-gradient(120%_130%_at_82%_0%,#eaf0f8_0%,#f7f3e9_55%,#fbfaf7_100%)]",
     shape: "text-sand-mid",
   },
   lilac: {
@@ -26,7 +26,7 @@ const TONE = {
     shape: "text-lilac-mid",
   },
   tosca: {
-    wash: "bg-[radial-gradient(120%_130%_at_82%_0%,#e4eeef_0%,#f0f5f5_55%,#fbfaf7_100%)]",
+    wash: "bg-[radial-gradient(120%_130%_at_82%_0%,#e4f1f9_0%,#f0f5f5_55%,#fbfaf7_100%)]",
     shape: "text-tosca-mid",
   },
 } as const;
@@ -158,7 +158,7 @@ export function FeatureComposition({
       />
 
       {/* La carte principale. */}
-      <div className="relative z-10 w-full max-w-[400px] rounded-xl border border-[rgb(32_31_35_/_0.04)] bg-white p-5 shadow-[var(--shadow-float)]">
+      <div className="relative z-10 w-full max-w-[400px] rounded-xl border border-[rgb(10_15_26_/_0.04)] bg-white p-5 shadow-[var(--shadow-float)]">
         <Mockup kind={kind} locale={locale} />
       </div>
 

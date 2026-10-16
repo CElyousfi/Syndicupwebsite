@@ -283,7 +283,7 @@ export function HeroRotator({
                     {/* L'encart d'appel à l'action : la question du syndic, tapée, puis
                         l'e-mail et le bouton — l'unique chemin vers la démo. */}
                     <div
-                      className="hero-enter mx-auto mt-9 max-w-[640px] rounded-2xl bg-[linear-gradient(135deg,var(--color-vivid-deep)_0%,var(--color-vivid-bright)_100%)] p-6 text-start shadow-[0_24px_60px_-28px_rgb(30_122_80_/_0.55)] sm:p-7"
+                      className="hero-enter mx-auto mt-9 max-w-[640px] rounded-2xl bg-[linear-gradient(135deg,var(--color-vivid-deep)_0%,var(--color-vivid-bright)_100%)] p-6 text-start shadow-[0_24px_60px_-28px_rgb(11_42_91_/_0.55)] sm:p-7"
                       style={{ ["--d" as string]: "260ms" }}
                     >
                       <p className="min-h-[1.5em] text-[clamp(17px,1.6vw,21px)] font-medium leading-[1.4] text-white">

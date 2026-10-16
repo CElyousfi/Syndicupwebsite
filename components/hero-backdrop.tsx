@@ -14,14 +14,14 @@ export function HeroBackdrop() {
     >
       <defs>
         <linearGradient id="hero-ribbon-a" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#cfe0d6" stopOpacity="0.15" />
-          <stop offset="0.45" stopColor="#cfe0d6" stopOpacity="0.7" />
-          <stop offset="1" stopColor="#cfe0d6" stopOpacity="0.1" />
+          <stop offset="0" stopColor="#cfe1f3" stopOpacity="0.15" />
+          <stop offset="0.45" stopColor="#cfe1f3" stopOpacity="0.7" />
+          <stop offset="1" stopColor="#cfe1f3" stopOpacity="0.1" />
         </linearGradient>
         <linearGradient id="hero-ribbon-b" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#cddfe0" stopOpacity="0.1" />
-          <stop offset="0.5" stopColor="#cddfe0" stopOpacity="0.65" />
-          <stop offset="1" stopColor="#cddfe0" stopOpacity="0.08" />
+          <stop offset="0" stopColor="#cde2f2" stopOpacity="0.1" />
+          <stop offset="0.5" stopColor="#cde2f2" stopOpacity="0.65" />
+          <stop offset="1" stopColor="#cde2f2" stopOpacity="0.08" />
         </linearGradient>
       </defs>
       <g className="hero-drift">

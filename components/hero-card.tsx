@@ -38,7 +38,7 @@ export function HeroCard({
 }) {
   return (
     <div
-      className="overflow-hidden rounded-xl border border-[rgb(32_31_35_/_0.06)] bg-white shadow-[var(--shadow-float)]"
+      className="overflow-hidden rounded-xl border border-[rgb(10_15_26_/_0.06)] bg-white shadow-[var(--shadow-float)]"
       data-entering={entering ? "true" : undefined}
     >
       <div className="flex items-center gap-3 px-4 pb-3 pt-4">

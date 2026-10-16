@@ -3,21 +3,21 @@
  *
  * Écrits en tableaux et styles en ligne : c'est la seule mise en page que
  * Gmail, Outlook et l'app Mail affichent pareil. Couleurs et ton reprennent
- * le site (vert #1E7A50, citron #DFF28A, encre #121212, grège #ECEBE4).
+ * le site (vert #0B2A5B, citron #7DD3FC, encre #0a0f1a, grège #EEF3F9).
  */
 
 import { SITE } from "@/lib/site";
 import { displayPhone, firstName, ROLES, SLOTS, type LeadInput } from "@/lib/lead";
 
 const C = {
-  ink: "#121212",
-  body: "#45515c",
-  faint: "#7d8583",
-  ground: "#ecebe4",
-  rule: "#e0ded4",
-  vivid: "#1e7a50",
-  lime: "#dff28a",
-  tint: "#e6efea",
+  ink: "#0a0f1a",
+  body: "#3e4a5e",
+  faint: "#7a859a",
+  ground: "#eef3f9",
+  rule: "#d9e0ea",
+  vivid: "#0b2a5b",
+  lime: "#7dd3fc",
+  tint: "#e3eefb",
 };
 const FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif";
 const MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,monospace";
@@ -131,7 +131,7 @@ ${button(whatsappReply(v, m.phoneIntl), "Répondre sur WhatsApp", "dark")}${repl
 </td></tr>
 <tr><td style="padding:4px 28px 18px"><table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table></td></tr>
 ${message}
-<tr><td style="padding:16px 28px 22px;background:#fafaf7;border-top:1px solid ${C.rule}">
+<tr><td style="padding:16px 28px 22px;background:#f8fafd;border-top:1px solid ${C.rule}">
 <div style="font:600 11px/1 ${MONO};letter-spacing:0.08em;color:${C.faint}">PROVENANCE</div>
 <div style="font:400 13.5px/1.6 ${FONT};color:${C.body};margin-top:8px">
 ${esc(originLabel(m.origin))}<br>

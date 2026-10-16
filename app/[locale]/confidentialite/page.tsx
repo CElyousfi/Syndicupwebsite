@@ -80,7 +80,7 @@ export default async function ConfidentialitePage({ params }: { params: Promise<
 
   return (
     <>
-      <div className="bg-[linear-gradient(180deg,#eceee7_0%,#ecebe4_100%)]">
+      <div className="bg-[linear-gradient(180deg,#eceee7_0%,#eef3f9_100%)]">
         <section className="shell-prose pb-14 pt-10 lg:pt-14">
           <Crumb locale={l} home={c.articleCommon.crumbHome} trail={[{ label: "Confidentialité" }]} />
           <span className="kicker mt-8 block">CONFIDENTIALITÉ &amp; COOKIES</span>

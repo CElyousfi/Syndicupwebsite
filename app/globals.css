@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
 /* ══════════════════════════════════════════════════════════════════════════
-   Système SyndicUp — le même que le produit : fond greige chaud, surfaces
-   blanches très arrondies, encre #121212, action vert sauge, accents
-   lilas / sable / tosca. Rayons 24 cartes / 999 pills / 14 champs.
+   Système SyndicUp — variante « Bleu nuit » (aperçu du 16 oct. 2026) :
+   bleu nuit pour la marque et les bandes, noir bleuté pour l'encre et les
+   sections sombres, bleu ciel pour les accents et les boutons d'appel. Fond
+   gris froid. Les noms des jetons restent ceux de la version verte (« vivid »,
+   « lime », « action »…) pour que les 2 versions se comparent ligne à ligne.
    Chiffres tabulaires pour l'argent. Propriétés logiques uniquement —
    l'arabe (RTL) se pose sans redécoupe.
    ══════════════════════════════════════════════════════════════════════════ */
 
 @theme {
   /* Encre & neutres (chauds, jamais bleutés) */
-  --color-ink: #121212;
-  --color-ink-strong: #201f23;
-  --color-ink-soft: #2e3230;
-  --color-body: #45515c;
-  --color-soft: #596269;
-  --color-faint: #7d8583;
-  --color-hairline: #e9e7df;
-  --color-hairline-strong: #d9d6cb;
-  --color-rule: #e0ded4;
-  --color-ground: #ecebe4;
-  --color-ground-dim: #e3e1d7;
-  --color-hover: #f7f6f2;
+  --color-ink: #0a0f1a;
+  --color-ink-strong: #0d1424;
+  --color-ink-soft: #1a2335;
+  --color-body: #3e4a5e;
+  --color-soft: #56627a;
+  --color-faint: #7a859a;
+  --color-hairline: #e3e8f0;
+  --color-hairline-strong: #cfd7e3;
+  --color-rule: #d9e0ea;
+  --color-ground: #eef3f9;
+  --color-ground-dim: #e2e9f2;
+  --color-hover: #f5f8fc;
   --color-surface: #ffffff;
 
   /*
@@ -29,37 +31,37 @@
    * d'accent. À utiliser partout où la page doit s'élever au-dessus de la
    * sauge : bandes de confiance, chiffres clés, points d'appui visuels.
    */
-  --color-vivid: #1e7a50;
-  --color-vivid-deep: #1b7049;
-  --color-vivid-bright: #22875a;
-  --color-lime: #dff28a;
+  --color-vivid: #0b2a5b;
+  --color-vivid-deep: #08214a;
+  --color-vivid-bright: #123a7a;
+  --color-lime: #7dd3fc;
 
   /* Action — vert sauge profond */
-  --color-action: #4c6c5a;
-  --color-action-deep: #3d5a4a;
-  --color-action-tint: #e6efea;
-  --color-action-wash: #f2f6f3;
-  --color-action-mist: #e9eeea;
+  --color-action: #1e3a6b;
+  --color-action-deep: #142b52;
+  --color-action-tint: #e3eefb;
+  --color-action-wash: #f2f7fd;
+  --color-action-mist: #e8eff8;
 
   /* Accents secondaires */
-  --color-sage: #a4c8ae;
-  --color-army: #395917;
+  --color-sage: #9cc9ee;
+  --color-army: #0b2a5b;
   --color-lilac: #595d75;
   --color-lilac-mid: #b8bed5;
   --color-lilac-tint: #e3e4ea;
   --color-lilac-line: #d6d8e1;
-  --color-sand: #a39170;
-  --color-sand-mid: #e5d6b8;
-  --color-sand-tint: #f1ead9;
-  --color-sand-line: #e9dfc6;
-  --color-sand-deep: #7a5c1e;
-  --color-tosca: #48707a;
-  --color-tosca-mid: #c1d8da;
-  --color-tosca-tint: #e4eeef;
-  --color-tosca-line: #d5e5e6;
+  --color-sand: #6b7fa3;
+  --color-sand-mid: #cdd8ea;
+  --color-sand-tint: #eaf0f8;
+  --color-sand-line: #dce5f1;
+  --color-sand-deep: #3a4f78;
+  --color-tosca: #2d6a8e;
+  --color-tosca-mid: #bfddf0;
+  --color-tosca-tint: #e4f1f9;
+  --color-tosca-line: #d3e6f3;
 
   /* Statuts */
-  --color-ok: #395917;
+  --color-ok: #0b2a5b;
   --color-warn: #8a5a00;
   --color-danger: #98140b;
   --color-danger-tint: #f8e9e7;
@@ -79,11 +81,11 @@
     monospace;
   --font-arabic: var(--font-arabic), "Noto Sans Arabic", sans-serif;
 
-  --shadow-lift: 0 1px 2px rgb(32 31 35 / 0.03), 0 12px 32px -20px rgb(32 31 35 / 0.14);
-  --shadow-float: 0 2px 6px rgb(32 31 35 / 0.04), 0 24px 50px -26px rgb(32 31 35 / 0.22);
-  --shadow-pop: 0 2px 6px rgb(32 31 35 / 0.04), 0 34px 70px -30px rgb(32 31 35 / 0.3);
-  --shadow-btn: 0 14px 26px -12px rgb(18 18 18 / 0.5);
-  --shadow-menu: 0 24px 48px -16px rgb(32 31 35 / 0.18);
+  --shadow-lift: 0 1px 2px rgb(10 15 26 / 0.03), 0 12px 32px -20px rgb(10 15 26 / 0.14);
+  --shadow-float: 0 2px 6px rgb(10 15 26 / 0.04), 0 24px 50px -26px rgb(10 15 26 / 0.22);
+  --shadow-pop: 0 2px 6px rgb(10 15 26 / 0.04), 0 34px 70px -30px rgb(10 15 26 / 0.3);
+  --shadow-btn: 0 14px 26px -12px rgb(10 15 26 / 0.5);
+  --shadow-menu: 0 24px 48px -16px rgb(10 15 26 / 0.18);
 }
 
 @layer base {
@@ -306,7 +308,7 @@
 
   .card {
     background: var(--color-surface);
-    border: 1px solid rgb(32 31 35 / 0.05);
+    border: 1px solid rgb(10 15 26 / 0.05);
     border-radius: var(--radius-card);
     min-width: 0;
   }
@@ -362,7 +364,7 @@
   .btn-dark {
     background: var(--color-ink);
     color: var(--color-surface);
-    box-shadow: 0 10.7px 25px rgb(32 31 35 / 0.16);
+    box-shadow: 0 10.7px 25px rgb(10 15 26 / 0.16);
   }
   .btn-dark:hover {
     background: var(--color-ink-soft);
@@ -372,7 +374,7 @@
   .btn-accent {
     background: var(--color-action);
     color: var(--color-surface);
-    box-shadow: 0 10.7px 25px rgb(76 108 90 / 0.28);
+    box-shadow: 0 10.7px 25px rgb(30 58 107 / 0.28);
   }
   .btn-accent:hover {
     background: var(--color-action-deep);
@@ -395,10 +397,10 @@
     border-bottom-color: var(--color-rule);
   }
   .site-nav[data-solid="true"] {
-    box-shadow: 0 10px 30px -18px rgb(32 31 35 / 0.25);
+    box-shadow: 0 10px 30px -18px rgb(10 15 26 / 0.25);
   }
   .site-nav .nav-cta {
-    box-shadow: 0 10.7px 25px rgb(30 122 80 / 0.22);
+    box-shadow: 0 10.7px 25px rgb(11 42 91 / 0.22);
     transition: box-shadow 0.3s ease, background-color 0.2s ease;
   }
   .site-nav:hover .nav-cta,
@@ -436,7 +438,7 @@
     height: 124px;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 12px 22px rgb(32 31 35 / 0.1));
+    filter: drop-shadow(0 12px 22px rgb(10 15 26 / 0.1));
   }
   .logo-hex::before {
     content: "";
@@ -485,10 +487,10 @@
   .btn-lime {
     background: var(--color-lime);
     color: var(--color-ink);
-    box-shadow: 0 10.7px 25px rgb(30 122 80 / 0.22);
+    box-shadow: 0 10.7px 25px rgb(11 42 91 / 0.22);
   }
   .btn-lime:hover {
-    background: #d3ec6e;
+    background: #5ec4f7;
     color: var(--color-ink);
   }
   .btn-light {
@@ -498,7 +500,7 @@
   }
   .btn-light:hover {
     background: var(--color-hover);
-    border-color: #b9b5a6;
+    border-color: #aab4c6;
     color: var(--color-ink-strong);
   }
   .btn-invert {
@@ -693,7 +695,7 @@
   }
   .portfolio-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 24px 48px -20px rgb(32 31 35 / 0.35);
+    box-shadow: 0 24px 48px -20px rgb(10 15 26 / 0.35);
   }
   .portfolio-card-body {
     position: absolute;
@@ -705,9 +707,9 @@
     padding: 80px 24px 26px;
     background: linear-gradient(
       180deg,
-      rgb(32 31 35 / 0) 0%,
-      rgb(32 31 35 / 0.62) 42%,
-      rgb(32 31 35 / 0.92) 100%
+      rgb(10 15 26 / 0) 0%,
+      rgb(10 15 26 / 0.62) 42%,
+      rgb(10 15 26 / 0.92) 100%
     );
   }
 
@@ -737,12 +739,12 @@
    */
   .ticker {
     background:
-      radial-gradient(80% 260% at 30% -120%, rgb(223 242 138 / 0.12), transparent 60%),
-      linear-gradient(90deg, #17623f, var(--color-vivid) 45%, #17623f);
+      radial-gradient(80% 260% at 30% -120%, rgb(125 211 252 / 0.12), transparent 60%),
+      linear-gradient(90deg, #0d2e63, var(--color-vivid) 45%, #0d2e63);
     font-size: 15px;
     letter-spacing: -0.005em;
     box-shadow:
-      inset 0 1px 0 rgb(223 242 138 / 0.35),
+      inset 0 1px 0 rgb(125 211 252 / 0.35),
       inset 0 -1px 0 rgb(0 0 0 / 0.2);
   }
   .ticker-tab {
@@ -926,7 +928,7 @@
    */
   /* Le mot clé du titre : un surligneur citron qui se tire sous le mot. */
   .hero-accent {
-    background: linear-gradient(transparent 64%, rgb(223 242 138 / 0.85) 64%, rgb(223 242 138 / 0.85) 92%, transparent 92%) no-repeat 0 0;
+    background: linear-gradient(transparent 64%, rgb(125 211 252 / 0.85) 64%, rgb(125 211 252 / 0.85) 92%, transparent 92%) no-repeat 0 0;
     background-size: 0% 100%;
     animation: hero-mark 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.9s both;
     padding-inline: 0.06em;
@@ -1208,7 +1210,7 @@
   border-radius: 50%;
   background:
     radial-gradient(120% 90% at 50% 10%, transparent 56%, #14181c 57%, #14181c 66%, transparent 67%),
-    rgb(209 229 82);
+    rgb(37 170 220);
   transform-origin: 50% 20%;
   transform: scaleY(0);
   animation: dari-blink 5.2s linear infinite;

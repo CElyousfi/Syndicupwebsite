@@ -116,7 +116,7 @@ function Sparkle({ className = "" }: { className?: string }) {
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
       <path
         d="M12 1.5c.6 4.6 2.5 7.6 9.5 10.5-7 2.9-8.9 5.9-9.5 10.5-.6-4.6-2.5-7.6-9.5-10.5 7-2.9 8.9-5.9 9.5-10.5Z"
-        fill="#d4ec5e"
+        fill="#7dd3fc"
         stroke="#14181c"
         strokeWidth="1.4"
         strokeLinejoin="round"

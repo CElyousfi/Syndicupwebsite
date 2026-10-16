@@ -91,14 +91,14 @@ export function CtaBand({ locale, c }: { locale: Locale; c: SiteContent }) {
           >
             <defs>
               <linearGradient id="cta-band-bg" x1="0" y1="0" x2="1" y2="1">
-                <stop stopColor="#1b7049" />
-                <stop offset="1" stopColor="#25905f" />
+                <stop stopColor="#08214a" />
+                <stop offset="1" stopColor="#1a5db5" />
               </linearGradient>
             </defs>
             <rect width="1200" height="520" fill="url(#cta-band-bg)" />
             <path
               d="M -120 380 C 120 60 380 40 420 260 C 460 480 160 520 260 300 C 360 80 700 -60 820 180 C 940 420 640 560 720 340 C 800 120 1120 60 1320 260"
-              stroke="#2f9f6a"
+              stroke="#1f6fd1"
               strokeWidth="92"
               strokeLinecap="round"
               fill="none"

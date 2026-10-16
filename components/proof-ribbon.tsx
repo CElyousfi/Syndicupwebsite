@@ -22,9 +22,9 @@ import type { Stat } from "@/content/types";
  * est retourné d'une carte à l'autre pour ne jamais se répéter à l'identique.
  */
 const STAT_TONES = [
-  { from: "#1b7049", to: "#25905f", stroke: "#2f9f6a", text: "text-white" },
-  { from: "#e6f59a", to: "#d3ec6e", stroke: "#eef9bd", text: "text-ink" },
-  { from: "#3f6771", to: "#52818c", stroke: "#6493a0", text: "text-white" },
+  { from: "#08214a", to: "#1a5db5", stroke: "#1f6fd1", text: "text-white" },
+  { from: "#bae6fd", to: "#5ec4f7", stroke: "#e0f4fe", text: "text-ink" },
+  { from: "#2e5f8a", to: "#457aa8", stroke: "#5b8db8", text: "text-white" },
 ] as const;
 
 const SCRIBBLE =

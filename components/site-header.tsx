@@ -240,7 +240,7 @@ function StackedGroup({
           key={l.href}
           href={href(locale, l.href)}
           className={`py-[11px] text-[16px] font-medium text-ink ${
-            i < links.length - 1 ? "border-b border-[#f1efe8]" : ""
+            i < links.length - 1 ? "border-b border-[#eff3f8]" : ""
           }`}
         >
           {l.label}
