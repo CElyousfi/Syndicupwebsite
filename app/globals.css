@@ -1011,6 +1011,16 @@
     }
   }
 
+  /* Safari iOS superpose un gros bouton « lecture » aux vidéos qu'il n'a pas
+     encore lancées : nos boucles n'ont pas de commande, on le masque. */
+  .loop-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+  .loop-video::-webkit-media-controls {
+    display: none !important;
+  }
+
   .animate-fade-in {
     animation: fade-in 0.45s ease both;
   }

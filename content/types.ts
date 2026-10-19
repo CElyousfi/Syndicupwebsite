@@ -191,7 +191,15 @@ export interface HeroFold {
   /** Libellé de l'unique bouton (vers la démo). */
   cta: string;
   /** Le film en boucle sous le message (fond blanc, posé en multiply). */
-  film: { webm: string; mp4: string; poster: string; label: string };
+  film: {
+    webm: string;
+    mp4: string;
+    poster: string;
+    /** La même boucle en image animée, quand la vidéo ne peut pas démarrer seule. */
+    animAvif: string;
+    animWebp: string;
+    label: string;
+  };
 }
 
 /** Trio « conformité intégrée » : trois blocs alternés sous fond sombre. */

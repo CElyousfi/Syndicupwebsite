@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { LoopVideo } from "@/components/loop-video";
 import type { HeroFold } from "@/content/types";
 import { href, type Locale } from "@/lib/i18n";
 
@@ -11,33 +11,14 @@ import { href, type Locale } from "@/lib/i18n";
  * qui tourne en boucle et raconte la même chose. Devant leur résidence,
  * 4 copropriétaires s'énervent ; un 5e, calme, a déjà la réponse : Dari.
  *
- * Le film a un fond blanc uni (#FBFBF8) : il est posé en « multiply » sur le
- * dégradé du fold, le blanc disparaît et la scène se pose sur la page. Sa
- * taille suit la hauteur d'écran pour que titre et scène tiennent ensemble
- * dans le premier écran. Lecture muette, en boucle, sans commande ; en
- * mouvement réduit, seule l'affiche s'affiche.
+ * Le film a un fond blanc pur ; le fold passe au même blanc juste au-dessus,
+ * la scène se pose donc sur la page sans cadre. Sa taille suit la hauteur
+ * d'écran pour que titre et scène tiennent ensemble dans le premier écran.
+ * Lecture : components/loop-video.tsx (vidéo, ou image animée si le
+ * navigateur bloque la lecture automatique, comme l'iPhone en économie
+ * d'énergie).
  */
 export function HeroLiving({ hero, locale }: { hero: HeroFold; locale: Locale }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      v.removeAttribute("autoplay");
-      v.pause();
-      return;
-    }
-    v.muted = true; // iPhone exige la propriété, pas seulement l'attribut, pour lire sans clic
-    // Relance si le navigateur a suspendu la lecture (onglet caché, économie d'énergie).
-    const play = () => {
-      if (document.visibilityState === "visible") v.play().catch(() => {});
-    };
-    play();
-    document.addEventListener("visibilitychange", play);
-    return () => document.removeEventListener("visibilitychange", play);
-  }, []);
-
   return (
     <div className="hero-live relative flex flex-col lg:min-h-[calc(100svh-70px)]" data-entering="true">
       {/* ── Le message ──────────────────────────────────────────────────── */}
@@ -82,22 +63,16 @@ export function HeroLiving({ hero, locale }: { hero: HeroFold; locale: Locale })
         className="hero-enter hero-film relative mt-2 flex items-end justify-center lg:-mt-[2svh] lg:flex-1"
         style={{ ["--d" as string]: "200ms" }}
       >
-        <video
-          ref={videoRef}
-          className="hero-film-video block h-auto select-none"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
+        <LoopVideo
+          webm={hero.film.webm}
+          mp4={hero.film.mp4}
           poster={hero.film.poster}
-          aria-label={hero.film.label}
-          disablePictureInPicture
-        >
-          {/* MP4 d'abord : lu partout, iPhone compris. WebM ensuite, en secours. */}
-          <source src={hero.film.mp4} type="video/mp4" />
-          <source src={hero.film.webm} type="video/webm" />
-        </video>
+          animAvif={hero.film.animAvif}
+          animWebp={hero.film.animWebp}
+          label={hero.film.label}
+          preload="auto"
+          className="hero-film-video block h-auto select-none"
+        />
       </div>
     </div>
   );
