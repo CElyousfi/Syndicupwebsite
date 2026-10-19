@@ -42,6 +42,8 @@ export const SITE = {
     webm: "/video/saisi-une-fois-bleu.webm",
     mp4: "/video/saisi-une-fois-bleu.mp4",
     poster: "/video/saisi-une-fois-bleu-poster.jpg",
+    animAvif: "/video/saisi-une-fois-bleu-anim.avif",
+    animWebp: "/video/saisi-une-fois-bleu-anim.webp",
     width: 1600,
     height: 962,
     duration: "PT21S",

@@ -128,6 +128,8 @@ export const home: SiteContent["home"] = {
       webm: "/video/fold-residence-bleu.webm",
       mp4: "/video/fold-residence-bleu.mp4",
       poster: "/video/fold-residence-bleu-poster.jpg",
+      animAvif: "/video/fold-residence-bleu-anim.avif",
+      animWebp: "/video/fold-residence-bleu-anim.webp",
       label:
         "Devant leur résidence, 4 copropriétaires s'énervent : une facture à la main, un doigt pointé vers l'immeuble, un téléphone qui ne répond pas. À côté, un 5e, calme, regarde son téléphone : Dari, l'assistant SyndicUp, lui répond.",
     },

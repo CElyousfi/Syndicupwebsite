@@ -86,6 +86,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               webm={SITE.proofLoop.webm}
               mp4={SITE.proofLoop.mp4}
               poster={SITE.proofLoop.poster}
+              animAvif={SITE.proofLoop.animAvif}
+              animWebp={SITE.proofLoop.animWebp}
               label={h.video.name}
               className="block aspect-[1920/1154] h-auto w-full"
             />
