@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import type { SiteContent } from "@/content/types";
 import { whatsappHref } from "@/lib/site";
+import { SuArt } from "@/components/illustration";
 import { originLine, readOrigin, track } from "@/lib/meta";
 import {
   CITIES,
@@ -470,7 +471,10 @@ export function DemoForm({ c }: { c: SiteContent }) {
       </div>
 
       {status === "failed" && (
-        <div role="alert" className="rounded-[var(--radius-field)] border border-danger-line bg-danger-tint p-4">
+        <div role="alert" className="flex gap-4 rounded-[var(--radius-field)] border border-danger-line bg-danger-tint p-4">
+          {/* Moment difficile, ton calme : D01 « serveur injoignable » (set d'illustrations). */}
+          <SuArt id="D01" size={88} className="hidden shrink-0 self-start sm:block" />
+          <div className="min-w-0 flex-1">
           <p className="text-[15px] font-semibold text-danger-deep">{d.failure.title}</p>
           <p className="mt-1 text-[14px] leading-[1.5] text-body">{d.failure.body}</p>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -493,6 +497,7 @@ export function DemoForm({ c }: { c: SiteContent }) {
             <button type="submit" className="btn btn-light btn-sm">
               {d.failure.retry}
             </button>
+          </div>
           </div>
         </div>
       )}
