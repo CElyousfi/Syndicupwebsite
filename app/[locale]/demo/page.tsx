@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Crumb } from "@/components/site-chrome";
 import { DemoForm } from "@/components/demo-form";
 import { HeroBackdrop } from "@/components/hero-backdrop";
+import { SuArt } from "@/components/illustration";
 import { SectionHead, StepsRail } from "@/components/page-blocks";
 import { MAROC_PHOTOS, PhotoBand } from "@/components/photo-band";
 import { Scene } from "@/components/scene";
@@ -54,6 +55,10 @@ export default async function DemoPage({ params }: { params: Promise<{ locale: s
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
+              </div>
+              {/* Amina devant la résidence (set d'illustrations A01) : l'accueil, sans texte. */}
+              <div className="mt-10 hidden justify-center lg:flex">
+                <SuArt id="A01" width={340} height={340} priority />
               </div>
             </div>
 
