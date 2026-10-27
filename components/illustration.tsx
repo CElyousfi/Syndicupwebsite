@@ -18,7 +18,7 @@ export function SuArt({
   priority = false,
 }: {
   id: SuArtId;
-  variant?: "C" | "S";
+  variant?: "C" | "S" | "P";
   /** Carré (largeur = hauteur). */
   size?: number;
   width?: number;
