@@ -249,6 +249,12 @@ export function SiteFooter({ locale, c }: { locale: Locale; c: SiteContent }) {
             <Link href={href(locale, "/confidentialite")} className="mono text-[11.5px] text-faint hover:text-ink">
               CONFIDENTIALITÉ
             </Link>
+            <Link href={href(locale, "/confidentialite-application")} className="mono text-[11.5px] text-faint hover:text-ink">
+              CONFIDENTIALITÉ DE L&apos;APP
+            </Link>
+            <Link href={href(locale, "/suppression-compte")} className="mono text-[11.5px] text-faint hover:text-ink">
+              SUPPRIMER MON COMPTE
+            </Link>
             <ManageCookiesLink className="mono cursor-pointer text-[11.5px] text-faint hover:text-ink" />
             <p className="mono text-[11.5px] text-faint">{c.footer.rights}</p>
           </div>

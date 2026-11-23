@@ -15,6 +15,13 @@ export const SITE = {
     reprise: "reprise@syndicup.pro",
     cabinets: "cabinets@syndicup.pro",
     donnees: "donnees@syndicup.pro",
+    /**
+     * Seule boîte qui reçoit vraiment aujourd'hui (les adresses @syndicup.pro n'existent pas
+     * encore). Utilisée sur les pages exigées par Google Play (confidentialité de l'application,
+     * suppression de compte) : la revue Google peut écrire à cette adresse.
+     * À remplacer par donnees@syndicup.ma quand les boîtes .ma existeront.
+     */
+    demandesDonnees: "lesepavistespro@gmail.com",
   },
   /** Placeholders — à remplacer par les mentions réelles. */
   rc: "000000",
