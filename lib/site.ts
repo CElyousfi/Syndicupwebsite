@@ -6,17 +6,17 @@
  */
 export const SITE = {
   name: "SyndicUp",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://syndicup.pro",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://syndicup.ma",
   /** Placeholder — à remplacer par le numéro réel. */
   phone: "+212600000000",
   phoneDisplay: "+212 6 00 00 00 00",
   emails: {
-    contact: "contact@syndicup.pro",
-    reprise: "reprise@syndicup.pro",
-    cabinets: "cabinets@syndicup.pro",
-    donnees: "donnees@syndicup.pro",
+    contact: "contact@syndicup.ma",
+    reprise: "reprise@syndicup.ma",
+    cabinets: "cabinets@syndicup.ma",
+    donnees: "donnees@syndicup.ma",
     /**
-     * Seule boîte qui reçoit vraiment aujourd'hui (les adresses @syndicup.pro n'existent pas
+     * Seule boîte qui reçoit vraiment aujourd'hui (les adresses @syndicup.ma n'existent pas
      * encore). Utilisée sur les pages exigées par Google Play (confidentialité de l'application,
      * suppression de compte) : la revue Google peut écrire à cette adresse.
      * À remplacer par donnees@syndicup.ma quand les boîtes .ma existeront.

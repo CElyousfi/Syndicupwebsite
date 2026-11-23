@@ -792,8 +792,9 @@ function safeHref(raw: string): string | null {
   if (url.startsWith("/")) return url;
   try {
     const u = new URL(url);
-    if (u.hostname === "syndicup.pro" || u.hostname.endsWith(".syndicup.pro") || u.hostname === "syndicup.ma") {
-      return u.hostname === "syndicup.pro" ? `${u.pathname}${u.search}${u.hash}` : u.toString();
+    const apex = u.hostname === "syndicup.ma" || u.hostname === "syndicup.pro";
+    if (apex || u.hostname.endsWith(".syndicup.ma") || u.hostname.endsWith(".syndicup.pro")) {
+      return apex ? `${u.pathname}${u.search}${u.hash}` : u.toString();
     }
     if (u.protocol === "https:" && (u.hostname === "wa.me" || u.hostname.endsWith("gov.ma"))) return u.toString();
   } catch {

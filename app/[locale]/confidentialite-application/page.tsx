@@ -33,7 +33,7 @@ const SECTIONS: { heading: string; paras: string[]; bullets?: string[] }[] = [
   {
     heading: "Qui fait quoi",
     paras: [
-      `L'application SyndicUp (Android, iOS et app.syndicup.pro) est éditée par ${SITE.name}, ${SITE.city}, Maroc. Elle sert à gérer une copropriété : charges, assemblées générales, incidents, documents, visiteurs et communication entre le syndic, les copropriétaires, les occupants et le personnel.`,
+      `L'application SyndicUp (Android, iOS et app.syndicup.ma) est éditée par ${SITE.name}, ${SITE.city}, Maroc. Elle sert à gérer une copropriété : charges, assemblées générales, incidents, documents, visiteurs et communication entre le syndic, les copropriétaires, les occupants et le personnel.`,
       "Pour les données d'une résidence, le syndicat des copropriétaires et son syndic (bénévole ou cabinet) décident de ce qui est enregistré : ils sont responsables du traitement. SyndicUp héberge et traite ces données pour leur compte, comme sous-traitant, et ne les utilise pour rien d'autre.",
       `Pour toute question sur vos données : ${SITE.emails.demandesDonnees}.`,
     ],
